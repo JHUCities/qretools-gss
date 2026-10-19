@@ -23,7 +23,7 @@ are written by hand.
   ```
 
   Without mise, `npx qretools@<the version in mise.toml> check .`. To upgrade, change the
-  version in `mise.toml`, which CI uses too. The CLI's documentation is its
+  version in `mise.toml`, which CI uses too. The package's documentation is its
   [README](https://www.npmjs.com/package/qretools).
 
 ## Versions and the published DDI
