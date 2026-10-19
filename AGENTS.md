@@ -25,6 +25,18 @@ are written by hand.
   Use whatever path leads to this checkout. The CLI's own guide for agents is
   `v2/packages/cli/AGENTS.md` there.
 
+## Versions and the published DDI
+
+- **The workspace's version is its tag.** Instruments read `JHUCities/qretools-gss@v1`;
+  cut a new tag (`v2`, …) for any change instruments should see. Never move a tag.
+- **Each item's version is counted, never written.** `qretools build` counts each file's
+  changes along `main`'s history; a question also moves when a shared file it names
+  does. Never rewrite `main`'s history: versions would restart.
+- **On every push to `main`,** `.github/workflows/ddi.yml` runs `build` and deploys
+  `dist/ddi.json` to <https://jhucities.github.io/qretools-gss/ddi.json>. Locally,
+  `pnpm qretools build ../../qretools-gss` (from qretools' `v2/`) writes it to `dist/`,
+  which is gitignored. It builds the last commit; commit first.
+
 **What `check` should say:** `0 with something to fill in or fix`, with these known
 findings and nothing else:
 - `double-barreled` notes on `sibs` and `weekswrk`: GSS's wording, kept;
