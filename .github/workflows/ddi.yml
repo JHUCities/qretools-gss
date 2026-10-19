@@ -1,0 +1,38 @@
+# Builds this workspace's DDI with `qretools build` and deploys it to GitHub Pages on every
+# push to main: <pages url>/ddi.json. Each item's version is counted from this
+# repository's history, so the checkout is whole (fetch-depth: 0); a shallow one is refused.
+name: DDI
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      # Node and the qretools CLI, as mise.toml pins them.
+      - uses: jdx/mise-action@v4
+      - run: qretools build . -o dist
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+      - id: deployment
+        uses: actions/deploy-pages@v5

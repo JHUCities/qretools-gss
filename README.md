@@ -31,6 +31,8 @@ spelling in `gss_doc`: `divorced` is GSS `DIVORCE`, `wrkselffam` is `WRKSLFFAM`,
 is `YEARSUSA` (each question's `source` names the GSS variable).
 
 How to open, check, regenerate and extend it: [AGENTS.md](AGENTS.md).
+Its DDI, each item versioned from this history, is published on every push to `main` at
+<https://jhucities.github.io/qretools-gss/ddi.json>.
 
 `tools/generate.py` writes `questions/`, `scales/`, `universes/`, `concepts/` and `units/`
 from `gss_doc` (gssrdoc is MIT-licensed); edit its spec and rerun it rather than the files, while this stays an
