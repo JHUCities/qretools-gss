@@ -1,0 +1,14 @@
+name: spklang
+title: How well does r speak other language
+text: How well do you speak that language?
+intent: "Language, in the GSS Replicating Core: how well does r speak other language (SPKLANG)."
+concept: language
+universe: other_language_speakers
+responses:
+  "1": Very well
+  "2": Well
+  "3": Not well
+  "4": Poorly/hardly at all
+instruction: IF SPEAKS 2 OR MORE, ASK ONLY OF THE MOST FLUENT LANGUAGE. READ CATEGORIES.
+source: GSS SPKLANG, https://gssdataexplorer.norc.org/variables/2287/vshow
+note: "GSS documentation wording: E. How well do you speak that language? [IF SPEAKS 2 OR MORE, ASK ONLY OF THE MOST FLUENT LANGUAGE] READ CATEGORIES"

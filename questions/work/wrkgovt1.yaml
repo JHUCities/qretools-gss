@@ -1,0 +1,8 @@
+name: wrkgovt1
+title: Govt employee
+text: Are/were you employed by the government? (Please consider federal, state, or local government.)
+intent: "Private or public sector, in the GSS Replicating Core: govt employee (WRKGOVT1)."
+concept: sector
+responses: yes_no
+source: GSS WRKGOVT1, https://gssdataexplorer.norc.org/variables/7432/vshow
+note: "GSS documentation wording: Are/were you employed by the government? (Please consider federal, state, or local government.)"

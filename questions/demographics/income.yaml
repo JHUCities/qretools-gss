@@ -1,0 +1,8 @@
+name: income
+title: Total family income
+text: In which of these groups did your total family income, from all sources, fall last year before taxes, that is? Just tell me the letter.
+intent: "Household income, in the GSS Replicating Core: total family income (INCOME)."
+concept: household_income
+responses: income_12
+source: GSS INCOME, https://gssdataexplorer.norc.org/variables/104/vshow
+note: "GSS documentation wording: In which of these groups did your total family income, from all sources, fall last year before taxes, that is? Just tell me the letter."

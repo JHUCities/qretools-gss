@@ -1,0 +1,8 @@
+name: wrkselffam
+title: Does r work in family business or farm
+text: (Do/did) you work in your own family business or farm?
+intent: "Employment status, in the GSS Replicating Core: does r work in family business or farm (WRKSLFFAM)."
+concept: employment_status
+responses: yes_no
+source: GSS WRKSLFFAM, https://gssdataexplorer.norc.org/variables/7224/vshow
+note: "GSS documentation wording: Do/did) you work in your own family business or farm?"

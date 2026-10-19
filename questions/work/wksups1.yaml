@@ -1,0 +1,9 @@
+name: wksups1
+title: Does subordinant supervise anyone
+text: Do any of those persons supervise anyone else?
+intent: "Superiors/subordinates in workplace, in the GSS Replicating Core: does subordinant supervise anyone (WKSUPS1)."
+concept: workplace_hierarchy
+universe: supervises_someone
+responses: yes_no_3_4
+source: GSS WKSUPS1, https://gssdataexplorer.norc.org/variables/6179/vshow
+note: "GSS documentation wording: IF YES: Do any of those persons supervise anyone else?"

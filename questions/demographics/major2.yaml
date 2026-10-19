@@ -1,0 +1,13 @@
+name: major2
+title: College major 2
+text: What was your major or field of study when you received your {{degree}} degree?
+intent: "Education, in the GSS Replicating Core: college major 2 (MAJOR2)."
+concept: education
+responses: college_major
+instruction: IF THE RESPONDENT RECEIVED MORE THAN ONE GRADUATE LEVEL DEGREE, ASK ABOUT THE HIGHEST DEGREE OBTAINED (E.G. ABOUT A Ph.D. RATHER THAN AN M.B.A). COUNT UP TO 2 MENTIONS.
+source: GSS MAJOR2, https://gssdataexplorer.norc.org/variables/64/vshow
+note: "GSS documentation wording: What was your major or field of study when you received your (RESPONDENT'S COLLEGE DEGREE) degree? IF THE RESPONDENT RECEIVED MORE THAN ONE GRADUATE LEVEL DEGREE, ASK ABOUT THE HIGHEST DEGREE OBTAINED (E.G. ABOUT A Ph.D. RATHER THAN AN M.B.A). [COUNT UP TO 2 MENTIONS]"
+fills:
+  degree: text
+variant_of:
+  major1: the second major mentioned in answer to the same question

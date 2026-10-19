@@ -1,0 +1,15 @@
+name: posslqy
+title: Relationship status and cohabitation or not
+text: Which of these statements applies to you?
+intent: "Marital status or cohabitation status, in the GSS Replicating Core: relationship status and cohabitation or not (POSSLQY)."
+concept: marital_status
+responses:
+  "1": I am married and living in the same household as my husband or wife
+  "2": I have a steady partner, and we live in the same household
+  "3": I have a husband or wife or steady partner, but we don't live in the same household
+  "4": I don't have a steady partner
+instruction: CODE ONE ONLY.
+source: GSS POSSLQY, https://gssdataexplorer.norc.org/variables/4152/vshow
+note: "GSS documentation wording: Which of these statements applies to you? CODE ONE ONLY."
+variant_of:
+  posslq: "the Y form of the X/Y wording experiment: option 2 reads 'steady partner' for 'living as married'"

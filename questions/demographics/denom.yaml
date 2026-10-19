@@ -1,0 +1,15 @@
+name: denom
+title: Specific denomination
+text: What specific denomination is that, if any?
+intent: "Religious affiliation, in the GSS Replicating Core: specific denomination (DENOM)."
+concept: religious_affiliation
+responses:
+  "1": Baptist
+  "2": Methodist
+  "3": Lutheran
+  "4": Presbyterian
+  "5": Episcopal
+  "6": Other Denomination
+  "7": No Denomination or Non-denominational Church
+source: GSS DENOM, https://gssdataexplorer.norc.org/variables/288/vshow
+note: "GSS documentation wording: What is your religious preference? Is it Protestant, Catholic, Jewish, some other religion, or no religion? A. What specific denomination is that, if any? As of 2024, DENOM has been recoded to only account for seven broad denomination categories. This has been retroactively applied to all previous years of DENOM. The original DENOM containing data 1972 to 2022 has been renamed DENOM_7222."

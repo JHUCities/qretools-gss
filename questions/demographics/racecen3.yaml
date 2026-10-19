@@ -1,0 +1,11 @@
+name: racecen3
+title: What is r's race 3rd mention
+text: What is your race? Indicate one or more races that you consider yourself to be.
+intent: "Race, in the GSS Replicating Core: what is r's race 3rd mention (RACECEN3)."
+concept: race
+responses: race_census
+source: GSS RACECEN3, https://gssdataexplorer.norc.org/variables/5279/vshow
+note: "GSS documentation wording: What is your race? Indicate one or more races that you consider yourself to be. A. Third mention As of 2024, RACECEN3 has been recoded to combine Native Hawaiian, Guamanian or Chamorro, and Samoan into the \"Other Pacific Islander\" category. This has been retroactively applied to all previous years of RACECEN3. The original RACECEN3 containing data from 2000 to 2022 has been renamed RACECEN3_0022."
+variant_of:
+  racecen1: the third race mentioned in answer to the same question
+  racecen2: the third race mentioned, where racecen2 is the second

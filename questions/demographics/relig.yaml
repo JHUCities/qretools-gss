@@ -1,0 +1,21 @@
+name: relig
+title: R's religious preference
+text: What is your religious preference? Is it Protestant, Catholic, Jewish, some other religion, or no religion?
+intent: "Religious affiliation, in the GSS Replicating Core: r's religious preference (RELIG)."
+concept: religious_affiliation
+responses:
+  "1": Protestant
+  "2": Catholic
+  "3": Jewish
+  "4": None
+  "5": Other
+  "6": Buddhism
+  "7": Hinduism
+  "8": Other Eastern Religions
+  "9": Muslim/islam
+  "10": Orthodox-Christian
+  "11": Christian
+  "12": Native American
+  "13": Inter-nondenominational
+source: GSS RELIG, https://gssdataexplorer.norc.org/variables/287/vshow
+note: "GSS documentation wording: What is your religious preference? Is it Protestant, Catholic, Jewish, some other religion, or no religion?"

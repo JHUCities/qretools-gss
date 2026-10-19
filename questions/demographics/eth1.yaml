@@ -1,0 +1,8 @@
+name: eth1
+title: "1st mentioned country of origin"
+text: From what countries or part of the world did your ancestors come?
+intent: "Ethnicity, in the GSS Replicating Core: 1st mentioned country of origin (ETH1)."
+concept: ethnicity
+responses: ancestry
+source: GSS ETH1, https://gssdataexplorer.norc.org/variables/5264/vshow
+note: "GSS documentation wording: From what countries or part of the world did your ancestors come? B. FIRST ETHNICITY MENTIONED"

@@ -1,0 +1,8 @@
+name: wksub1
+title: Does r or spouse or partner have a supervisor
+text: Do you (does your (SPOUSE or PARTNER)) have a supervisor on (your/his/her) job to whom you are (he/she is) directly responsible?
+intent: "Superiors/subordinates in workplace, in the GSS Replicating Core: does r or spouse or partner have a supervisor (WKSUB1)."
+concept: workplace_hierarchy
+responses: yes_no
+source: GSS WKSUB1, https://gssdataexplorer.norc.org/variables/6176/vshow
+note: "GSS documentation wording: Do you (does your (SPOUSE or PARTNER) have a supervisor on (your/his/her) job to whom you are (he/she/is) directly responsible?"

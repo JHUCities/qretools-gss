@@ -1,0 +1,12 @@
+name: race
+title: Race of respondent
+text: What race do you consider yourself?
+intent: "Race, in the GSS Replicating Core: race of respondent (RACE)."
+concept: race
+responses:
+  "1": White
+  "2": Black
+  "3": Other
+instruction: CODE WITHOUT ASKING ONLY IF THERE IS NO DOUBT IN YOUR MIND. RECORD VERBATIM AND CODE.
+source: GSS RACE, https://gssdataexplorer.norc.org/variables/82/vshow
+note: "GSS documentation wording: CODE WITHOUT ASKING ONLY IF THERE IS NO DOUBT IN YOUR MIND. What race do you consider yourself? RECORD VERBATIM AND CODE."

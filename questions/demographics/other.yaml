@@ -1,0 +1,227 @@
+name: other
+title: Other protestant denominations
+text: What specific denomination is that, if any?
+intent: "Religious affiliation, in the GSS Replicating Core: other protestant denominations (OTHER)."
+concept: religious_affiliation
+responses:
+  "1": Hungarian Reformed
+  "2": Evangelical Congregational
+  "3": Ind Bible, Bible, Bible Fellowship
+  "5": Church of Prophecy
+  "6": New Testament Christian
+  "7": Church of God, Saint & Christ
+  "8": Moravian
+  "9": Christian & Missionary Alliance
+  "10": Advent Children
+  "11": Spiritualist
+  "12": Assembly of God
+  "13": Free Methodist
+  "14": Apostolic Faith
+  "15": African Methodist
+  "16": Free Will Baptist
+  "17": Eden Evangelist
+  "18": Holiness (nazarene)
+  "19": Baptist (northern)
+  "20": Brethren Church, Brethren
+  "21": Witness Holiness
+  "22": Brethren, Plymouth
+  "23": United Brethren, United Brethren in Christ
+  "24": Independent
+  "25": Christian Disciples
+  "26": Christ in Christian Union
+  "27": Open Bible
+  "28": Christian Catholic
+  "29": Christ Church Unity
+  "30": Christ Adelphians
+  "31": Christian; Central Christian
+  "32": Christian Reform
+  "33": Christian Scientist
+  "34": Church of Christ, Evangelical
+  "35": Church of Christ
+  "36": Churches of God (except With Christ and Holiness)
+  "37": Church of God in Christ
+  "38": Church of God in Christ Holiness
+  "39": Church of the Living God
+  "40": Congregationalist, 1st Congreg
+  "41": Community Church
+  "42": Covenant
+  "43": Dutch Reform
+  "44": Disciples of Christ
+  "45": Evangelical, Evangelist
+  "46": Evangelical Reformed
+  "47": Evangelist Free Church
+  "48": First Church
+  "49": First Christian Disciples of Christ
+  "50": First Reformed
+  "51": First Christian
+  "52": Full Gospel
+  "53": Four Square Gospel
+  "54": Friends
+  "55": Holy Roller
+  "56": Holiness; Church of Holiness
+  "57": Pilgrim Holiness
+  "58": Jehovah's Witnesses
+  "59": Lds
+  "60": Lds--mormon
+  "61": Lds--reorganized
+  "62": Lds--jesus Christ; Church of Jesus Lds
+  "63": Mennonite
+  "64": Mormon
+  "65": Nazarene
+  "66": Pentecostal Assembly of God
+  "67": Pentecostal Church of God
+  "68": Pentecostal
+  "69": Pentecostal Holiness, Holiness Pentecostal
+  "70": Quaker
+  "71": Reformed
+  "72": Reformed United Church of Christ
+  "73": Reformed Church of Christ
+  "74": Religious Science
+  "75": Mind Science
+  "76": Salvation Army
+  "77": "7th Day Adventist"
+  "78": Sanctified, Sanctification
+  "79": United Holiness
+  "80": Unitarian, Universalist
+  "81": United Church of Christ
+  "82": United Church, Unity Church
+  "83": Wesleyan
+  "84": Wesleyan Methodist--pilgrim
+  "85": Zion Union
+  "86": Zion Union Apostolic
+  "87": Zion Union Apostolic--reformed
+  "88": Disciples of God
+  "89": Grace Reformed
+  "90": Holiness Church of God
+  "91": Evangelical Covenant
+  "92": Mission Covenant
+  "93": Missionary Baptist
+  "94": Swedish Mission
+  "95": Unity
+  "96": United Church of Christianity
+  "97": Other Fundamentalist
+  "98": Federated Church
+  "99": American Reform
+  "100": Grace Brethren
+  "101": Christ in God
+  "102": Charismatic
+  "103": Pentecostal Apostolic
+  "104": House of Prayer
+  "105": Latvian Lutheran
+  "106": Triumph Church of God
+  "107": Apostolic Christian
+  "108": Christ Cathedral of Truth
+  "109": Bible Missionary
+  "110": Calvary Bible
+  "111": Amish
+  "112": Evangelical Methodist
+  "113": Worldwide Church of God
+  "114": Church Universal and Triumphant
+  "115": Mennonite Brethren
+  "116": Church of the First Born
+  "117": Missionary Church
+  "118": The Way Ministry
+  "119": United Church of Canada
+  "120": Evangelical United Brethren
+  "121": The Church of God of Prophecy
+  "122": Chapel of Faith
+  "123": Polish National Church
+  "124": Faith Gospel Tabernacle
+  "125": Christian Calvary Chapel
+  "126": Carmelite
+  "127": Church of Daniel's Band
+  "128": Christian Tabernacle
+  "129": Living Word
+  "130": True Light Church of Christ
+  "131": Macedonia
+  "132": Brother of Christ
+  "133": Primitive Baptist
+  "134": Independent Fundamental Church of America
+  "135": Chinese Gospel Church
+  "136": New Age Spirituality
+  "137": New Song
+  "138": Apostolic Church
+  "139": Faith Christian
+  "140": People's Church
+  "141": New Birth Christian
+  "142": Unity School of Christianity
+  "143": Assyrian Evangelist Church
+  "144": Spirit of Christ
+  "145": Church of Jesus Christ of the Restoration
+  "146": Laotian Christian
+  "148": Schwenkfelder
+  "149": Polish Catholic
+  "150": Zwinglian
+  "151": World Overcomer Outreach Ministry
+  "152": Course in Miracles
+  "153": Unity of the Brethren
+  "154": Spirit Filled
+  "155": Christian Union
+  "156": Church of Living Christ
+  "157": Community of Christ
+  "158": New Hope Christian Fellowship
+  "159": Community Christian Fellowship
+  "160": Friends in Christ
+  "161": Hawaiian Ohana
+  "162": Reformed Church of Jesus Christ of Latter Day Saints
+  "163": Swedenurgian/churches of the New Jerusalem
+  "164": Divine Science
+  "166": United Christian
+  "167": Sanctuary
+  "168": Rain On Us Deliverance Ministries
+  "169": The Word Church
+  "170": Cornerstone Church
+  "171": Life Sanctuary
+  "172": Word of Faith Church
+  "173": Harvest Church
+  "174": Shephard's Chapel
+  "175": Greater New Testament Church
+  "176": Vineyard Church
+  "177": Real Life Ministries
+  "178": Cathedral of Joy
+  "179": Great Faith Ministries
+  "180": Shield of Faith Ministries
+  "181": Born Again
+  "182": Alliance
+  "183": Jacobite Apostolic
+  "184": Church of God of Israel
+  "185": Journeys
+  "186": National Progressive Baptist
+  "187": New Apostolic
+  "188": Metropolitan Community
+  "189": Family Life Church
+  "190": Faith Fellowship
+  "191": Faith Covenant
+  "192": New Thought
+  "193": Free Spirit Ministry
+  "194": Jacobite Syrian Christian Church
+  "195": The Ark Church
+  "196": Empowerment Temple
+  "197": Grace Independent Baptist Church
+  "198": New Life
+  "201": Pathways Christian Church
+  "204": Universal Church of the Kingdom of God
+  "205": Assembly of Christ
+  "206": The Amana Church
+  "207": The Legacy Church
+  "208": Calvary
+  "210": Ethiopian Evangelical Church
+  "211": Disciple of Jesus
+  "212": Scandinavian Church
+  "213": Hebrew Roots
+  "214": Hebrew Israelites
+  "215": Armenian Apostolic Church
+  "216": Word of Jesus
+  "217": Old Testament
+  "218": Apostolic Church of Jesus Christ
+  "219": Cowboy Church
+  "220": Pilgrim Church
+  "221": Good United
+  "222": Hutterite
+  "223": Armenian Evangelical Church
+  "224": "3c Usa Church"
+  "225": Israelite Church of God
+source: GSS OTHER, https://gssdataexplorer.norc.org/variables/289/vshow
+note: "GSS documentation wording: A. What specific denomination is that, if any?"
+variant_of:
+  denom: GSS's detailed list of other Protestant denominations, coded from the same question

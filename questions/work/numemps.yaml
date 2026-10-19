@@ -1,0 +1,12 @@
+name: numemps
+title: Number of employee for the self-employed
+text: Do/did you have any employees? How many employees do/did you have?
+intent: "Number of employees, in the GSS Replicating Core: number of employee for the self-employed (NUMEMPS)."
+concept: number_of_employees
+universe: self_employed
+responses:
+  "0": "0 employees"
+  "1": "1-9 employees"
+  "2": "10+ employees"
+source: GSS NUMEMPS, https://gssdataexplorer.norc.org/variables/3014/vshow
+note: "GSS documentation wording: Are/were you self-employed or do/did you work for someone else? [If \"Self-employed\"] Do/did you have any employees? [If \"Yes\"] How many employees do/did you have?"

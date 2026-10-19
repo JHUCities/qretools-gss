@@ -1,0 +1,8 @@
+name: wksup1
+title: Does r or spouse or partner supervise anyone
+text: In your (SPOUSE or PARTNER'S) job, (do you/does he/she) supervise anyone who is directly responsible to (you/him/her)?
+intent: "Superiors/subordinates in workplace, in the GSS Replicating Core: does r or spouse or partner supervise anyone (WKSUP1)."
+concept: workplace_hierarchy
+responses: yes_no
+source: GSS WKSUP1, https://gssdataexplorer.norc.org/variables/6178/vshow
+note: "GSS documentation wording: In your (SPOUSE or PARTNER'S) job, (do you/does he/she) supervise anyone who is directly responsible to (you/him/her)?"

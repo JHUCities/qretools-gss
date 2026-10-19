@@ -1,0 +1,12 @@
+name: rincome
+title: Respondents income
+text: In which of these groups did your earnings from {{occupation}} for last year--{{last_year}}--fall? That is, before taxes or other deductions. Just tell me the letter.
+intent: "Income from occupation, in the GSS Replicating Core: respondents income (RINCOME)."
+concept: income_from_occupation
+universe: earned_income
+responses: income_12
+source: GSS RINCOME, https://gssdataexplorer.norc.org/variables/105/vshow
+note: "GSS documentation wording: Did you earn any income from (OCCUPATION DESCRIBED IN OCC-INDUSTRY) in [the previous year]? Yes ............. (ASK RINCOME) No .............. [See REMARKS] A. IF YES: In which of these groups did your earnings from (OCCUPATION IN OCC) for last year--[the previous year]--fall? That is, before taxes or other deductions. Just tell me the letter."
+fills:
+  occupation: text
+  last_year: number

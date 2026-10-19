@@ -1,0 +1,12 @@
+name: fucitzn
+title: Is r planning/appling for us citizenship or not
+text: Are you…
+intent: "Citizenship status, in the GSS Replicating Core: is r planning/appling for us citizenship or not (FUCITZN)."
+concept: citizenship_status
+responses:
+  "1": Currently applying for U.S. citizenship
+  "2": Planning to apply for U.S. citizenship
+  "3": Not planning to apply to U.S. citizenship
+  "4": Not eligible to become a U.S. citizen
+source: GSS FUCITZN, https://gssdataexplorer.norc.org/variables/5284/vshow
+note: "GSS documentation wording: Are you…"

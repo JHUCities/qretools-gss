@@ -1,0 +1,14 @@
+name: reliten
+title: Strength of affiliation
+text: Would you call yourself a strong {{religion}} or a not very strong {{religion}}?
+intent: "Religious affiliation, in the GSS Replicating Core: strength of affiliation (RELITEN)."
+concept: religious_affiliation
+responses:
+  "1": Strong
+  "2": Not very strong
+  "3": Somewhat strong (vol.)
+  "4": No religion
+source: GSS RELITEN, https://gssdataexplorer.norc.org/variables/298/vshow
+note: "GSS documentation wording: Would you call yourself a strong (PREFERENCE NAMED IN RELIG) or a not very strong (PREFERENCE NAMED IN RELIG)?"
+fills:
+  religion: text

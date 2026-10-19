@@ -1,0 +1,9 @@
+name: widowed
+title: Ever been widowed
+text: Have you ever been widowed?
+intent: "Marital status or cohabitation status, in the GSS Replicating Core: ever been widowed (WIDOWED)."
+concept: marital_status
+universe: currently_married_separated_divorced
+responses: yes_no
+source: GSS WIDOWED, https://gssdataexplorer.norc.org/variables/22/vshow
+note: "GSS documentation wording: Are you currently--married, widowed, divorced, separated, or have you never been married? C. IF CURRENTLY MARRIED, SEPARATED, OR DIVORCED: Have you ever been widowed?"

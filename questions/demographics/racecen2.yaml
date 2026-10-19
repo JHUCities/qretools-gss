@@ -1,0 +1,10 @@
+name: racecen2
+title: What is r's race 2nd mention
+text: What is your race? Indicate one or more races that you consider yourself to be.
+intent: "Race, in the GSS Replicating Core: what is r's race 2nd mention (RACECEN2)."
+concept: race
+responses: race_census
+source: GSS RACECEN2, https://gssdataexplorer.norc.org/variables/5278/vshow
+note: "GSS documentation wording: What is your race? Indicate one or more races that you consider yourself to be. A. Second mention As of 2024, RACECEN2 has been recoded to combine Native Hawaiian, Guamanian or Chamorro, and Samoan into the \"Other Pacific Islander\" category. This has been retroactively applied to all previous years of RACECEN2. The original RACECEN2 containing data from 2000 to 2022 has been renamed RACECEN2_0022."
+variant_of:
+  racecen1: the second race mentioned in answer to the same question

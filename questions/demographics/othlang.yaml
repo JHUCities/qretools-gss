@@ -1,0 +1,8 @@
+name: othlang
+title: Can r speak language other than English/Spanish
+text: Can you speak a language other than English [Spanish]?
+intent: "Language, in the GSS Replicating Core: can r speak language other than english/spanish (OTHLANG)."
+concept: language
+responses: yes_no
+source: GSS OTHLANG, https://gssdataexplorer.norc.org/variables/2283/vshow
+note: "GSS documentation wording: A. Can you speak a language other than English [Spanish]?"

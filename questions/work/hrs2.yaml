@@ -1,0 +1,11 @@
+name: hrs2
+title: Number of hours usually work a week
+text: How many hours a week do you usually work, at all jobs?
+intent: "Labor supply, in the GSS Replicating Core: number of hours usually work a week (HRS2)."
+concept: labor_supply
+universe: with_job_not_at_work
+number:
+  min: 0
+  unit: hours
+source: GSS HRS2, https://gssdataexplorer.norc.org/variables/5/vshow
+note: "GSS documentation wording: Last week were you working full time, part time, going to school, keeping house, or what? B. IF WITH A JOB, BUT NOT AT WORK: How many hours a week do you usually work, at all jobs? Released data label: 89+ hours."

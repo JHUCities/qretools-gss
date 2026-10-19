@@ -1,0 +1,11 @@
+name: eth3
+title: "3rd mentioned country of origin"
+text: From what countries or part of the world did your ancestors come?
+intent: "Ethnicity, in the GSS Replicating Core: 3rd mentioned country of origin (ETH3)."
+concept: ethnicity
+responses: ancestry
+source: GSS ETH3, https://gssdataexplorer.norc.org/variables/5266/vshow
+note: "GSS documentation wording: From what countries or part of the world did your ancestors come? D. THIRD ETHNICITY MENTIONED"
+variant_of:
+  eth1: the third country mentioned in answer to the same question
+  eth2: the third country mentioned, where eth2 is the second

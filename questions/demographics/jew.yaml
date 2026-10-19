@@ -1,0 +1,14 @@
+name: jew
+title: What sort of jew r is
+text: Do you consider yourself Orthodox, Conservative, Reform or none of these?
+intent: "Religious affiliation, in the GSS Replicating Core: what sort of jew r is (JEW)."
+concept: religious_affiliation
+responses:
+  "1": Orthodox
+  "2": Conservative
+  "3": Reform
+  "4": None of These
+  "5": Other
+instruction: PROBE FOR EXACT DENOMINATION
+source: GSS JEW, https://gssdataexplorer.norc.org/variables/291/vshow
+note: "GSS documentation wording: B. Do you consider yourself Orthodox, Conservative, Reform or none of these? (PROBE FOR EXACT DENOMINATION)"

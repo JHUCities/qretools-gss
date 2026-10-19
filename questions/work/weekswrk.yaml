@@ -1,0 +1,12 @@
+name: weekswrk
+title: Weeks r worked last year
+text: Now I'd like to ask you about last year. In {{last_year}} how many weeks did you work either full-time or part-time not counting work around the house--include paid vacations and sick leave?
+intent: "Labor supply, in the GSS Replicating Core: weeks r worked last year (WEEKSWRK)."
+concept: labor_supply
+number:
+  min: 0
+  unit: weeks
+source: GSS WEEKSWRK, https://gssdataexplorer.norc.org/variables/528/vshow
+note: "GSS documentation wording: Now I'd like to ask you about last year. In [the previous year] how many weeks did you work either full-time or part-time not counting work around the house--include paid vacations and sick leave? Released data label: none or zero."
+fills:
+  last_year: number

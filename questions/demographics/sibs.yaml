@@ -1,0 +1,9 @@
+name: sibs
+title: Number of brothers and sisters
+text: How many brothers and sisters did you have? Please count those born alive, but no longer living, as well as those alive now. Also include stepbrothers and stepsisters, and children adopted by your parents.
+intent: "Siblings, in the GSS Replicating Core: number of brothers and sisters (SIBS)."
+concept: siblings
+number:
+  min: 0
+source: GSS SIBS, https://gssdataexplorer.norc.org/variables/51/vshow
+note: "GSS documentation wording: How many brothers and sisters did you have? Please count those born alive, but no longer living, as well as those alive now. Also include stepbrothers and stepsisters, and children adopted by your parents. Released data label: 6 or more."

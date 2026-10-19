@@ -1,0 +1,11 @@
+name: betrlang
+title: Which language r speaks more fluent
+text: Which language do you speak more fluent?
+intent: "Language, in the GSS Replicating Core: which language r speaks more fluent (BETRLANG)."
+concept: language
+universe: other_language_speakers
+responses:
+  "1": Language 1
+  "2": Language 2
+source: GSS BETRLANG, https://gssdataexplorer.norc.org/variables/2302/vshow
+note: "GSS documentation wording: B. Which language do you speak more fluent?"

@@ -1,0 +1,11 @@
+name: hrs1
+title: Number of hours worked last week
+text: How many hours did you work last week, at all jobs?
+intent: "Labor supply, in the GSS Replicating Core: number of hours worked last week (HRS1)."
+concept: labor_supply
+universe: working
+number:
+  min: 0
+  unit: hours
+source: GSS HRS1, https://gssdataexplorer.norc.org/variables/4/vshow
+note: "GSS documentation wording: Last week were you working full time, part time, going to school, keeping house, or what? A. IF WORKING, FULL OR PART TIME: How many hours did you work last week, at all jobs? Released data label: 89+ hours."

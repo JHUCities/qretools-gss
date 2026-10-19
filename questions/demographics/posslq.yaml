@@ -1,0 +1,13 @@
+name: posslq
+title: Does r have marital partner
+text: Which of these statements applies to you?
+intent: "Marital status or cohabitation status, in the GSS Replicating Core: does r have marital partner (POSSLQ)."
+concept: marital_status
+responses:
+  "1": I am married and living in the same household as my husband or wife
+  "2": I am living as married and my partner and I together live in the same household
+  "3": I have a husband or wife or steady partner, but we don't live in the same household
+  "4": I don't have a steady partner
+instruction: CODE ONE ONLY.
+source: GSS POSSLQ, https://gssdataexplorer.norc.org/variables/4151/vshow
+note: "GSS documentation wording: Which of these statements applies to you? CODE ONE ONLY. A. I am married and living in the same household as my husband or wife. B. I am living as married and my partner and I together live in the same household. C. I have a husband or wife or steady partner but we don''t live in the same household. D. I don''t have a steady partner."

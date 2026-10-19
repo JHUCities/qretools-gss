@@ -1,0 +1,16 @@
+name: hispanic
+title: Hispanic specified
+text: Are you Spanish, Hispanic, or {{latino}}? Which group are you from?
+intent: "Hispanic origin, in the GSS Replicating Core: hispanic specified (HISPANIC)."
+concept: hispanic_origin
+responses:
+  "1": Not Hispanic
+  "2": Mexican, Mexican American, chicano/a
+  "3": Puerto Rican
+  "4": Cuban
+  "5": Another Hispanic, Latino, or Spanish origin
+instruction: IF R IS FEMALE, READ LATINA; IF MALE, READ LATINO. Ask which group only if yes.
+source: GSS HISPANIC, https://gssdataexplorer.norc.org/variables/5276/vshow
+note: "GSS documentation wording: IF R IS FEMALE, READ LATINA; IF MALE, READ LATINO. Are you Spanish, Hispanic, or Latino/Latina? Yes . . . . . (ASK A) No . . . . . . (GO TO NEXT QUESTION) IF YES: Which group are you from? Mexican, Mexican American, Chicano/Chicana Puerto Rican Cuban Other"
+fills:
+  latino: text

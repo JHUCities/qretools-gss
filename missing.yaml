@@ -1,0 +1,15 @@
+# The GSS's reserved codes, as gssrdoc lists them for every variable (NA(d) and so on),
+# written with the letter alone, as the GSS codebook writes D, N and S.
+labels:
+  D: Don't know
+  I: Inapplicable (IAP)
+  J: I don't have a job
+  M: Don't know, no answer, inapplicable
+  N: No answer
+  P: Not imputable
+  R: Refused
+  S: Skipped on web
+  U: Uncodeable
+  X: Not available in this release
+  Y: Not available in this year
+  Z: See codebook

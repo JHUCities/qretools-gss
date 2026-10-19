@@ -1,0 +1,13 @@
+name: mnthsusa
+title: "Lived in U.S., if less than one year \t\tmonths:"
+text: How long have you lived in the United States? If you have lived in the United States for more than one period during your life, what is the total number of years you have lived in the United States?
+intent: "Citizenship status, in the GSS Replicating Core: lived in u.s., if less than one year \t\tmonths: (MNTHSUSA)."
+concept: citizenship_status
+universe: born_outside_us
+number:
+  min: 0
+  unit: months
+source: GSS MNTHSUSA, https://gssdataexplorer.norc.org/variables/7298/vshow
+note: "GSS documentation wording: How long have you lived in the United States? If you have lived in the United States for more than one period during your life, what is the total number of years you have lived in the United States? - Months Released data label: 1 month; 11 months."
+variant_of:
+  yrsusa: the months part of the answer, when it is less than a year

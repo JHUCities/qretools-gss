@@ -1,0 +1,12 @@
+name: partfull
+title: Was r's work part-time or full-time?
+text: When you worked in {{last_year}}, was it usually full or part time?
+intent: "Labor supply, in the GSS Replicating Core: was r's work part-time or full-time? (PARTFULL)."
+concept: labor_supply
+responses:
+  "1": Full-time
+  "2": Part-time
+source: GSS PARTFULL, https://gssdataexplorer.norc.org/variables/529/vshow
+note: "GSS documentation wording: Now I'd like to ask you about last year. In [the previous year] how many weeks did you work either full-time or part-time not counting work around the house--include paid vacations and sick leave? A. When you worked in [the previous year], was it usually full or part time?"
+fills:
+  last_year: number

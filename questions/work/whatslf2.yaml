@@ -1,0 +1,12 @@
+name: whatslf2
+title: "How would you classify the place where you {#whatslf2fill}? Was this mainly...?"
+text: How would you classify the place where you (work/worked)? Was this mainly...?
+intent: "Industry, in the GSS Replicating Core: How would you classify the place where you {#whatslf2fill}? Was this mainly...? (WHATSLF2)."
+concept: industry
+responses:
+  "1": Manufacturing
+  "2": Wholesale trade
+  "3": Retail trade
+  "4": Other (agriculture, construction, service, government, etc.)
+source: GSS WHATSLF2, https://gssdataexplorer.norc.org/variables/7746/vshow
+note: "GSS documentation wording: How would you classify the place where you (work/worked)? Was this mainly...?"

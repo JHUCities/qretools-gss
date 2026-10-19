@@ -1,0 +1,11 @@
+name: yrsusa
+title: "Lived in U.S., years:"
+text: How long have you lived in the United States? If you have lived in the United States for more than one period during your life, what is the total number of years you have lived in the United States?
+intent: "Citizenship status, in the GSS Replicating Core: lived in u.s., years: (YEARSUSA)."
+concept: citizenship_status
+universe: born_outside_us
+number:
+  min: 0
+  unit: years
+source: GSS YEARSUSA, https://gssdataexplorer.norc.org/variables/7297/vshow
+note: "GSS documentation wording: How long have you lived in the United States? If you have lived in the United States for more than one period during your life, what is the total number of years you have lived in the United States? - Years"

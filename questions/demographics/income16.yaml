@@ -1,0 +1,39 @@
+name: income16
+title: Total family income
+text: In which of these groups did your total family income, from all sources, fall last year -- {{last_year}} -- before taxes, that is. Just tell me the letter.
+intent: "Household income, in the GSS Replicating Core: total family income (INCOME16)."
+concept: household_income
+responses:
+  "1": Under $1,000
+  "2": "$1,000 to $2,999"
+  "3": "$3,000 to $3,999"
+  "4": "$4,000 to $4,999"
+  "5": "$5,000 to $5,999"
+  "6": "$6,000 to $6,999"
+  "7": "$7,000 to $7,999"
+  "8": "$8,000 to $9,999"
+  "9": "$10,000 to $12,499"
+  "10": "$12,500 to $14,999"
+  "11": "$15,000 to $17,499"
+  "12": "$17,500 to $19,999"
+  "13": "$20,000 to $22,499"
+  "14": "$22,500 to $24,999"
+  "15": "$25,000 to $29,999"
+  "16": "$30,000 to $34,999"
+  "17": "$35,000 to $39,999"
+  "18": "$40,000 to $49,999"
+  "19": "$50,000 to $59,999"
+  "20": "$60,000 to $74,999"
+  "21": "$75,000 to $89,999"
+  "22": "$90,000 to $109,999"
+  "23": "$110,000 to $129,999"
+  "24": "$130,000 to $149,999"
+  "25": "$150,000 to $169,999"
+  "26": "$170,000 or over"
+instruction: Total income includes interest or dividends, rent, Social Security, other pensions, alimony or child support, unemployment compensation, public aid (welfare), armed forces or veteran's allotment.
+source: GSS INCOME16, https://gssdataexplorer.norc.org/variables/6167/vshow
+note: "GSS documentation wording: In which of these groups did your total family income, from all sources, fall last year -- 2015 -- before taxes, that is. Just tell me the letter. Total income includes interest or dividends, rent, Social Security, other pensions, alimony or child support, unemployment compensation, public aid (welfare), armed forces or veteran's allotment."
+fills:
+  last_year: number
+variant_of:
+  income: the 26-category version of the family income question

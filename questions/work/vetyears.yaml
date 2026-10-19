@@ -1,0 +1,13 @@
+name: vetyears
+title: Years in armed forces
+text: Have you ever been on active duty for military training or service for two consecutive months or more? What was your total time on active duty?
+intent: "Veteran status, in the GSS Replicating Core: years in armed forces (VETYEARS)."
+concept: veteran_status
+responses:
+  "0": No active duty
+  "1": Yes, less than 2 years
+  "2": Yes, 2-4 years
+  "3": Yes, more than 4 years
+  "4": Some, don't know how long
+source: GSS VETYEARS, https://gssdataexplorer.norc.org/variables/5285/vshow
+note: "GSS documentation wording: Have you ever been on active duty for military training or service for two consecutive months or more? IF YES: What was your total time on active duty?"

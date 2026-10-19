@@ -1,0 +1,8 @@
+name: wrkgovt2
+title: Private employee
+text: Are/were you employed by a private employer (including non-profit organizations)?
+intent: "Private or public sector, in the GSS Replicating Core: private employee (WRKGOVT2)."
+concept: sector
+responses: yes_no
+source: GSS WRKGOVT2, https://gssdataexplorer.norc.org/variables/7433/vshow
+note: "GSS documentation wording: Are/were you employed by a private employer (including non-profit organizations)?"

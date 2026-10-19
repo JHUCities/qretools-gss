@@ -1,0 +1,11 @@
+name: uscitzn
+title: Is r us citizen
+text: Now we would like to ask you about U.S. citizenship. Are you…
+intent: "Citizenship status, in the GSS Replicating Core: is r us citizen (USCITZN)."
+concept: citizenship_status
+universe: born_outside_us
+responses:
+  "1": A U.S. citizen
+  "2": Not a U.S. citizen
+source: GSS USCITZN, https://gssdataexplorer.norc.org/variables/5283/vshow
+note: "Wording from the 2022 GSS codebook: gss_doc gives only a description. GSS documentation wording: If not born in US, is R a US citizen As of 2024, USCITZN has been recoded to simplify responses. It is now a synthetic variable which represents the original USCITZN, as well as the experimental USCITZNV and USCITZNNV. This recode is retroactive, covering all previous years of USCITZN. The original data have been preserved in USCITZN_0822. USCITZNV and USCITZNNV will not be made available in 2024."

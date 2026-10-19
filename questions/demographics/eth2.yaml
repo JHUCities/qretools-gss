@@ -1,0 +1,10 @@
+name: eth2
+title: "2nd mentioned country of origin"
+text: From what countries or part of the world did your ancestors come?
+intent: "Ethnicity, in the GSS Replicating Core: 2nd mentioned country of origin (ETH2)."
+concept: ethnicity
+responses: ancestry
+source: GSS ETH2, https://gssdataexplorer.norc.org/variables/5265/vshow
+note: "GSS documentation wording: From what countries or part of the world did your ancestors come? C. SECOND ETHNICITY MENTIONED"
+variant_of:
+  eth1: the second country mentioned in answer to the same question

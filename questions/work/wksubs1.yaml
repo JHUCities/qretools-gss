@@ -1,0 +1,9 @@
+name: wksubs1
+title: Does supervisor have supervisor
+text: Does that person have a supervisor on the job to whom he is directly responsible?
+intent: "Superiors/subordinates in workplace, in the GSS Replicating Core: does supervisor have supervisor (WKSUBS1)."
+concept: workplace_hierarchy
+universe: has_supervisor
+responses: yes_no_3_4
+source: GSS WKSUBS1, https://gssdataexplorer.norc.org/variables/6177/vshow
+note: "GSS documentation wording: IF YES: Does that person have a supervisor on the job to whom he is directly responsible?"

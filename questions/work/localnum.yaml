@@ -1,0 +1,15 @@
+name: localnum
+title: "Number of employees: r's work site"
+text: About how many people work at the location where you work? (Count part-time as well as full-time employees in all areas, departments and buildings.)
+intent: "Size of workplace, in the GSS Replicating Core: number of employees: r's work site (LOCALNUM)."
+concept: size_of_workplace
+responses:
+  "1": "1-9"
+  "2": "10-49"
+  "3": "50-99"
+  "4": "100-499"
+  "5": "500-999"
+  "6": "1,000-1,999"
+  "7": "2,000+"
+source: GSS LOCALNUM, https://gssdataexplorer.norc.org/variables/4567/vshow
+note: "GSS documentation wording: About how many people work at the location where you work? (Count part-time as well as full-time employees in all areas, departments and buildings.)"

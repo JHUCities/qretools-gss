@@ -1,0 +1,9 @@
+name: childs
+title: Number of children
+text: How many children have you ever had? Please count all that were born alive at any time (including any you had from a previous marriage).
+intent: "Number of children, in the GSS Replicating Core: number of children (CHILDS)."
+concept: number_of_children
+number:
+  min: 0
+source: GSS CHILDS, https://gssdataexplorer.norc.org/variables/52/vshow
+note: "GSS documentation wording: How many children have you ever had? Please count all that were born alive at any time (including any you had from a previous marriage). Released data label: 8 or more."
