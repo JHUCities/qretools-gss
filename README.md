@@ -6,8 +6,8 @@ Core, as listed in [The GSS Replicating Core, current as of 2020](https://gss.no
 question. Bootstrapped from [qretools-template](https://github.com/JHUCities/qretools-template): its
 `workspace.yaml`, layout and conventions.
 
-An example, not a publication of NORC's: it is published under `edu.jhu.21cc.gss`, JHU 21st
-Century Cities' agency (`edu.jhu.21cc`) with a sub-agency for this import. The GSS items
+An example, not a publication of NORC's: it is published under `edu.jhu.dsai.gss`, JHU DSAI's
+agency (`edu.jhu.dsai`) with a sub-agency for this import. The GSS items
 themselves are NORC's.
 
 **Scope.** A start on the GSS, from its Replicating Core, deliberately limited to two
