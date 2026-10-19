@@ -5,9 +5,9 @@
 # questions, shared files and instruments alike: the registered code of the
 # organization that maintains it. Every URN they export begins with it, as in
 # urn:ddi:org.example:...
-# org.example.gss is a placeholder: this example is not published by NORC.
+# JHU 21st Century Cities (edu.jhu.21cc) maintains this import; the GSS items are NORC's.
 # hyphens, in parts joined by dots, such as edu.example.dept.
-agency: org.example.gss
+agency: edu.jhu.21cc.gss
 
 # Fields every question in this workspace must have, beyond name, text and
 # intent: any of title, concept, universe, instruction, source and note. A
