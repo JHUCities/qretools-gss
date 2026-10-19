@@ -5,7 +5,7 @@
 # questions, shared files and instruments alike: the registered code of the
 # organization that maintains it. Every URN they export begins with it, as in
 # urn:ddi:org.example:...
-# JHU (us.jhu, requested from the DDI Alliance 2026-10-19) maintains this
+# JHU (us.jhu, registered with the DDI Alliance 2026-10-19) maintains this
 # import; the GSS items are NORC's.
 # hyphens, in parts joined by dots, such as edu.example.dept.
 agency: us.jhu

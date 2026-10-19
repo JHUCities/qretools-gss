@@ -7,7 +7,7 @@ question. Bootstrapped from [qretools-template](https://github.com/JHUCities/qre
 `workspace.yaml`, layout and conventions.
 
 An example, not a publication of NORC's: it is published under JHU's DDI agency, `us.jhu`
-(requested from the DDI Alliance on 2026-10-19). The GSS items
+(registered with the DDI Alliance on 2026-10-19). The GSS items
 themselves are NORC's.
 
 **Scope.** A start on the GSS, from its Replicating Core, deliberately limited to two
