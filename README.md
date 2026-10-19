@@ -30,6 +30,8 @@ as `gss_doc` gives only a description. Three names differ from the 2020 document
 spelling in `gss_doc`: `divorced` is GSS `DIVORCE`, `wrkselffam` is `WRKSLFFAM`, `yrsusa`
 is `YEARSUSA` (each question's `source` names the GSS variable).
 
+How to open, check, regenerate and extend it: [AGENTS.md](AGENTS.md).
+
 `tools/generate.py` writes `questions/`, `scales/`, `universes/`, `concepts/` and `units/`
 from `gss_doc` (gssrdoc is MIT-licensed); edit its spec and rerun it rather than the files, while this stays an
 import.

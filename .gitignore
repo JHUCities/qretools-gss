@@ -1,0 +1,4 @@
+.venv/
+gss_doc.rda
+gss_doc.pkl
+__pycache__/
