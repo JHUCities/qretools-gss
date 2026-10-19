@@ -14,16 +14,17 @@ are written by hand.
 ## Open it
 
 - **In the app:** sign in at <https://qretools.com> and enter `JHUCities/qretools-gss`.
-- **From a terminal:** the `qretools` CLI is in [JHUCities/qretools](https://github.com/JHUCities/qretools)
-  (`v2/packages/cli`, Node 26, `pnpm install` in `v2/`). From `v2/`:
+- **From a terminal:** `mise install` gives the pinned tools (`mise.toml`: Node and the
+  `qretools` CLI, from npm). Then, here:
 
   ```sh
-  pnpm qretools check ../../qretools-gss          # findings, one per line
-  pnpm qretools export ../../qretools-gss -o gss.json   # DDI-Lifecycle 4.0 JSON
+  qretools check .                 # findings, one per line
+  qretools export . -o gss.json    # DDI-Lifecycle 4.0 JSON
   ```
 
-  Use whatever path leads to this checkout. The CLI's own guide for agents is
-  `v2/packages/cli/AGENTS.md` there.
+  Without mise, `npx qretools@<the version in mise.toml> check .`. To upgrade, change the
+  version in `mise.toml`, which CI uses too. The CLI's documentation is its
+  [README](https://www.npmjs.com/package/qretools).
 
 ## Versions and the published DDI
 
@@ -34,8 +35,7 @@ are written by hand.
   does. Never rewrite `main`'s history: versions would restart.
 - **On every push to `main`,** `.github/workflows/ddi.yml` runs `build` and deploys
   `dist/ddi.json` to <https://jhucities.github.io/qretools-gss/ddi.json>. Locally,
-  `pnpm qretools build ../../qretools-gss` (from qretools' `v2/`) writes it to `dist/`,
-  which is gitignored. It builds the last commit; commit first.
+  `qretools build .` writes it to `dist/`, which is gitignored. It builds the last commit; commit first.
 
 **What `check` should say:** `0 with something to fill in or fix`, with these known
 findings and nothing else:
