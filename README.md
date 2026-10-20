@@ -33,6 +33,10 @@ is `YEARSUSA` (each question's `source` names the GSS variable).
 How to open, check, regenerate and extend it: [AGENTS.md](AGENTS.md).
 Its DDI, each item versioned from this history, is published on every push to `main` at
 <https://jhucities.github.io/qretools-gss/ddi.json>.
+An instrument uses it at a tag (`uses: gss: JHUCities/qretools-gss@v1`). Make one with the
+Release workflow (Actions → Release → Run workflow, with the tag): it tags `main`'s last
+commit with each file's version in the tag's message, so the instrument's DDI carries the
+same versions. A tag made by hand carries none, and its questions read as version 1.
 
 `tools/generate.py` writes `questions/`, `scales/`, `universes/`, `concepts/` and `units/`
 from `gss_doc` (gssrdoc is MIT-licensed); edit its spec and rerun it rather than the files, while this stays an
