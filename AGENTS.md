@@ -29,7 +29,9 @@ are written by hand.
 ## Versions and the published DDI
 
 - **The workspace's version is its tag.** Instruments read `JHUCities/qretools-gss@v1`;
-  cut a new tag (`v2`, …) for any change instruments should see. Never move a tag.
+  release a new tag (`v2`, …) for any change instruments should see, with the Release
+  workflow (Actions → Release), never by hand: its tag carries each question's DDI version.
+  Never move or delete a tag.
 - **Each item's version is counted, never written.** `qretools build` counts each file's
   changes along `main`'s history; a question also moves when a shared file it names
   does. Never rewrite `main`'s history: versions would restart.

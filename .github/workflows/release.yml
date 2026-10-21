@@ -5,8 +5,7 @@
 # instrument reading the tag gets the same versions without the history. Only the tag
 # is pushed. A build that's refused makes no tag. A tag made by hand carries no versions:
 # its questions read as version 1.
-# It needs a qretools with `build --tag-message` (the first release after 2.0.0-alpha.1),
-# as mise.toml pins it.
+# It needs qretools 2.0.0-alpha.2 or later (`build --tag-message`), as mise.toml pins it.
 name: Release
 
 on:
@@ -37,7 +36,12 @@ jobs:
       - name: Check the tag's name
         env:
           TAG: ${{ inputs.tag }}
-        run: git check-ref-format "refs/tags/$TAG"
+        # v and a number from 1 (v2, v3), never v02 beside v2, nor a branch's name.
+        run: |
+          if [[ ! "$TAG" =~ ^v[1-9][0-9]*$ ]]; then
+            echo "::error::A release is v and a number, such as v2; \"$TAG\" isn't one."
+            exit 1
+          fi
       - run: qretools build . -o dist --tag-message "$RUNNER_TEMP/tag-message.txt"
       - name: Tag the commit built, and push the tag
         env:

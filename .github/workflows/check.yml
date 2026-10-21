@@ -1,0 +1,22 @@
+# Checks the workspace on every pull request and push to main, as QREtools does as you
+# type: it fails on anything to fill in or fix, and annotates each error and warning on
+# the line it's about (.github/qretools-matcher.json). Notes are advice and aren't
+# annotated. qretools is the version mise.toml pins.
+name: Check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: jdx/mise-action@v4
+      - run: echo "::add-matcher::.github/qretools-matcher.json"
+      - run: qretools check .
