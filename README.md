@@ -10,6 +10,10 @@ An example, not a publication of NORC's: it is published under JHU's DDI agency,
 (registered with the DDI Alliance on 2026-10-19). The GSS items
 themselves are NORC's.
 
+**Licence.** The GSS items stay NORC's, under NORC's terms, and aren't licensed by us;
+our own work here is MIT (code) and CC BY 4.0 (the rest). [LICENSE.md](LICENSE.md) says
+which is which.
+
 **Scope.** A start on the GSS, from its Replicating Core, deliberately limited to two
 packages: Demographics and Work. The rest of the core (spouse/partner, parental and
 social origin, household, technical and paradata, and the attitude items on every
