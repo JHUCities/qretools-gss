@@ -1,10 +1,10 @@
 # Releases this workspace at a tag, for instruments to use (`uses: JHUCities/qretools-gss@v2`).
-# Run it from the Actions tab with the tag to make. It builds the default branch's last
-# commit with `qretools build`, each item versioned from this repository's history, and
-# tags that commit with an annotated tag whose message lists each file's version, so an
-# instrument reading the tag gets the same versions without the history. Only the tag
-# is pushed. A build that's refused makes no tag. A tag made by hand carries no versions:
-# its questions read as version 1.
+# Run it from the Actions tab with the tag to make. It builds the last commit on the
+# default branch with `qretools build`, counting each question's version from this
+# repository's history. Then it tags that commit, and the tag's message lists each
+# file's version, so an instrument reading the tag gets the same versions without the
+# history. Only the tag is pushed. If the build is refused, no tag is made. A tag made by
+# hand carries no versions, so its questions read as version 1.
 # It needs qretools 2.0.0-alpha.2 or later (`build --tag-message`), as mise.toml pins it.
 name: Release
 
@@ -36,7 +36,7 @@ jobs:
       - name: Check the tag's name
         env:
           TAG: ${{ inputs.tag }}
-        # v and a number from 1 (v2, v3), never v02 beside v2, nor a branch's name.
+        # v and a number from 1 (v2, v3): never v02 beside v2, nor a branch's name.
         run: |
           if [[ ! "$TAG" =~ ^v[1-9][0-9]*$ ]]; then
             echo "::error::A release is v and a number, such as v2; \"$TAG\" isn't one."
@@ -49,7 +49,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # Verbatim: git's default cleanup would drop lines starting with `#`.
+          # Verbatim, because git's default cleanup would drop lines starting with `#`.
           git tag -a --cleanup=verbatim -F "$RUNNER_TEMP/tag-message.txt" "$TAG" HEAD
-          # Without --force, a tag that exists already is refused.
+          # Without --force, a tag that already exists is refused.
           git push origin "refs/tags/$TAG"
