@@ -1,6 +1,7 @@
-# Builds this workspace's DDI with `qretools build` and deploys it to GitHub Pages on every
-# push to main: <pages url>/ddi.json. Each item's version is counted from this
-# repository's history, so the checkout is whole (fetch-depth: 0); a shallow one is refused.
+# On every push to main, builds this workspace's DDI with `qretools build` and publishes
+# it on GitHub Pages at <pages url>/ddi.json. Each question's version is counted from
+# this repository's history, so the checkout needs all of it (fetch-depth: 0); a shallow
+# one is refused.
 name: DDI
 
 on:

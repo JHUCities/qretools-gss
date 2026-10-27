@@ -1,27 +1,24 @@
-# This workspace's details, read with every question, shared file and
-# instrument in it.
+# This workspace's settings. QREtools reads them with every question, shared
+# file and instrument here.
 
-# The DDI agency everything in this workspace is published under, its
-# questions, shared files and instruments alike: the registered code of the
-# organization that maintains it. Every URN they export begins with it, as in
-# urn:ddi:org.example:...
-# JHU (us.jhu, registered with the DDI Alliance 2026-10-19) maintains this
-# import; the GSS items are NORC's.
+# The DDI agency everything here is published under: the registered code of
+# the organization that keeps the workspace. Every DDI name (URN) it exports
+# includes it, as in urn:ddi:us.jhu:... It's letters, digits and
 # hyphens, in parts joined by dots, such as edu.example.dept.
+# JHU (us.jhu, registered with the DDI Alliance 2026-10-19) keeps this
+# import; the GSS questions are NORC's.
 agency: us.jhu
 
-# Fields every question in this workspace must have, beyond name, text and
-# intent: any of title, concept, universe, instruction, source and note. A
-# question without one shows it as "to fill in", so adding one here marks every
-# question that lacks it. Remove the # at the start of these two lines to
-# require a title:
+# Fields every question here must have, besides name, text and intent: any
+# of title, concept, universe, instruction, source and note. A question
+# without one shows it as "to fill in". Remove the # at the start of these
+# two lines to require a title:
 #required:
 #  - title
 
-# Fields the questions in one folder must also have, by the folder's path. It
-# adds to the fields above and never removes one, so a topic can ask for more.
-# Remove the # at the start of these three lines to require a universe of the
-# questions in questions/example:
+# Extra fields the questions in one folder must have. These add to the list
+# above and never take a field away. Remove the # at the start of these three
+# lines to require a universe in questions/example:
 #required_in:
 #  questions/example:
 #    - universe

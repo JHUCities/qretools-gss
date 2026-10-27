@@ -1,7 +1,7 @@
-# Checks the workspace on every pull request and push to main, as QREtools does as you
-# type: it fails on anything to fill in or fix, and annotates each error and warning on
-# the line it's about (.github/qretools-matcher.json). Notes are advice and aren't
-# annotated. qretools is the version mise.toml pins.
+# Checks the workspace on every pull request and push to main, as QREtools does while
+# you type. It fails on anything to fill in or fix, and marks each error and warning on
+# its own line (.github/qretools-matcher.json). Notes are only advice, so they aren't
+# marked. qretools is the version mise.toml pins.
 name: Check
 
 on:

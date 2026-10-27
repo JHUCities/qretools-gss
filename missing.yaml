@@ -1,5 +1,5 @@
-# The GSS's reserved codes, as gssrdoc lists them for every variable (NA(d) and so on),
-# written with the letter alone, as the GSS codebook writes D, N and S.
+# The GSS's reserved codes, as gssrdoc lists them for every variable (NA(d) and so on).
+# Each is written as its letter alone, as the GSS codebook writes D, N and S.
 labels:
   D: Don't know
   I: Inapplicable (IAP)

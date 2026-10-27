@@ -1,7 +1,7 @@
-# The tools this workspace is checked and built with, pinned: `mise install` gives everyone,
-# and CI, the same. qretools is QREtools' npm package.
+# The tools that check and build this workspace, at fixed versions: `mise install` gives
+# everyone, CI included, the same ones. qretools is QREtools' npm package.
 [tools]
 node = "26"
-# allow_low_downloads: mise refuses an npm package younger than 30 days unless approved;
-# qretools is JHUCities' own. Remove it once the package is older.
+# allow_low_downloads: mise refuses an npm package less than 30 days old unless it's
+# allowed here. qretools is JHUCities' own. Remove this once the package is older.
 "npm:qretools" = { version = "2.0.0-alpha.2", allow_low_downloads = true }

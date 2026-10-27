@@ -1,10 +1,10 @@
-"""Generate the GSS example qretools workspace from kjhealy/gssrdoc's gss_doc.
+"""Write this GSS example workspace from kjhealy/gssrdoc's gss_doc.
 
 Usage: python -I tools/generate.py <doc.pkl> <workspace_dir>
-<doc.pkl> is gssrdoc's data/gss_doc.rda read with the `rdata` package and pickled
+<doc.pkl> is gssrdoc's data/gss_doc.rda, read with the `rdata` package and pickled
 (a pandas DataFrame).
-Wording, titles, codes and labels come from gss_doc; the spec below only says how each
-item's documented wording splits into qretools fields (text, universe, instruction, fills).
+Wording, titles, codes and labels come from gss_doc. The spec below only says how each
+question's wording is split into QREtools fields (text, universe, instruction, fills).
 """
 import json
 import os
@@ -15,7 +15,7 @@ import sys
 doc = pickle.load(open(sys.argv[1], "rb")).set_index("variable")
 OUT = sys.argv[2]
 
-# The 2020 Replicating Core document's own category names: these become shared concepts.
+# The 2020 Replicating Core document's own category names, which become shared concepts.
 CONCEPTS = {
     "race": "Race",
     "ethnicity": "Ethnicity",
@@ -40,14 +40,14 @@ CONCEPTS = {
     "veteran_status": "Veteran status",
 }
 
-# Shared scales: lists two or more items share verbatim in gss_doc.
+# Shared scales: response lists that two or more questions share word for word in gss_doc.
 SCALES = {"yes_no": "widowed", "yes_no_3_4": "wksubs1", "race_census": "racecen1",
           "ancestry": "eth1", "college_major": "major1", "language_list": "othlang1",
           "income_12": "income"}
 
 # name: (folder, concept, fields). Fields: text (as read to the respondent), universe,
-# instruction, fills, number (unit), scale, variant_of, gss (the GSS mnemonic, when
-# gss_doc spells it differently from the 2020 document).
+# instruction, fills, number (its unit), scale, variant_of, and gss (the GSS variable
+# name, when gss_doc spells it differently from the 2020 document).
 D, W = "demographics", "work"
 SPEC = {
     "racecen1": (D, "race", dict(text="What is your race? Indicate one or more races that you consider yourself to be.", scale="race_census")),
@@ -122,9 +122,10 @@ UNIVERSES = {
 }
 UNITS = ["years", "months", "hours", "weeks"]
 
-# Proper nouns gss_doc writes in lower case, restored for the lists that are mostly names.
+# gss_doc writes proper nouns in lower case. These lists are mostly names, so each word
+# gets a capital, except small words such as "and" (SMALL).
 NAME_LISTS = {"eth1", "othlang1", "relig", "other", "denom", "jew", "racecen1"}
-# Proper nouns in the other lists.
+# Proper nouns that get a capital in the other lists.
 PROPER = ["hispanic", "latino", "spanish", "mexican", "american", "puerto rican", "cuban", "english", "french", "chinese", "italian", "german", "african", "alaska", "native", "pacific", "asian", "christian"]
 SMALL = {"and", "or", "of", "the", "in", "a", "to", "&", "for", "general"}
 
@@ -200,7 +201,7 @@ for name, (folder, concept, f) in SPEC.items():
         out.append("variant_of:\n" + "\n".join(f"  {k}: {scalar(why)}" for k, why in f["variant_of"].items()))
     write(f"questions/{folder}/{name}.yaml", "\n".join(out) + "\n")
 
-# Every name the spec points at exists.
+# Every name the spec refers to exists.
 assert all(f.get("universe", next(iter(UNIVERSES))) in UNIVERSES for _, _, f in SPEC.values())
 assert all(f.get("scale", "yes_no") in SCALES for _, _, f in SPEC.values())
 assert all(k in SPEC for _, _, f in SPEC.values() for k in f.get("variant_of", {}))
