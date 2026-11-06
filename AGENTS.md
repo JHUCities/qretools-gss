@@ -8,8 +8,14 @@ A QREtools workspace holding the GSS Replicating Core's Demographic and Work ite
 `questions/`, `scales/`, `universes/`, `concepts/` and `units/` are written by
 `tools/generate.py` from kjhealy/gssrdoc's `gss_doc`. Don't edit those files by hand:
 change the `SPEC` (or another table) in `tools/generate.py` and regenerate, so the
-import can always be rerun. `workspace.yaml`, `missing.yaml`, `README.md` and this file
-are written by hand.
+import can always be rerun. `workspace.yaml`, `missing.yaml`, `instruments/`, `README.md`
+and this file are written by hand.
+
+`instruments/replicating_core.yaml` is by hand because the routing isn't in `gss_doc`: it is read from
+each question's `universe`, which the import took from the "IF ..." filter in GSS's
+wording. So a change to a universe is a change to the instrument's conditions too, and
+the two are checked against each other by hand until the universe check exists. Don't
+write a condition there that no question's universe declares.
 
 ## Open it
 
@@ -45,7 +51,8 @@ findings and nothing else:
 - one `duplicate-scale` warning pair, `yes_no` against `yes_no_3_4`: GSS codes
   WKSUBS1 and WKSUPS1 yes/no as 3/4, and a scale can't yet be marked alike on purpose.
 
-Any other finding after a change is yours to fix.
+`qretools instrument check instruments/replicating_core.yaml` should say `0 findings`. It
+is not part of `check .`'s count of files with findings, so run both.
 
 ## Regenerate
 
