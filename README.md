@@ -76,14 +76,24 @@ read-aloud value the bank does hold is the religious preference, which the
 strength-of-affiliation question fills with `label(gss.relig)`.
 
 Where the bank holds several versions of one question, the instrument asks one: the first
-of GSS's up-to-three mentions (RACECEN1, ETH1, OTHLANG1, MAJOR1), the current version of
-a pair (INCOME, RINCOME, POSSLQ, DENOM, YRSUSA, and WRKGOVT1 with WRKGOVT2). Each
-omission is named in a comment at the top of the file. Recording three mentions of one
-question is not something the surface can say; asking all three would be three questions.
+of GSS's up-to-three mentions (RACECEN1, ETH1, OTHLANG1, MAJOR1), and the question that
+another is marked `variant_of` (INCOME, RINCOME, POSSLQ, DENOM, YRSUSA; WRKGOVT1 with
+WRKGOVT2, which replace WRKGOVT together). Each omission is named in a comment at the top
+of the file. Recording three mentions of one question is not something the surface can
+say; asking all three would be three questions.
+
+**Which version the GSS fields today is not measured here.** The rule above is what the
+bank states, not what is current, so the instrument asks the 12-category INCOME and
+RINCOME. Don't read it as the GSS as fielded today. `gss_doc` carries each variable's
+fielded years, and that is where to settle it.
 
 Measured: `qretools instrument check` reports nothing, the DDI and the Qualtrics (QSF)
 exports are both clean, and `qretools paths` counts 1,024 ways through the routing, 28 to
 40 questions each (median 34), with every question reachable.
+
+The published `ddi.json` does not hold this instrument. `qretools build` writes the
+questions' DDI, and an instrument's DDI comes from `qretools instrument export`. Whether
+to publish that as well is a separate decision.
 
 One thing the instrument can't fix: GSS surely asks DENOM only of Protestants and JEW only
 of Jews, but `gss_doc` documents them as follow-ups ("A.", "B.") without stating the
@@ -91,10 +101,13 @@ filter, so no universe was imported and the instrument asks them of everyone. Wr
 conditions here would put routing in the instrument that the bank doesn't declare. The
 source that would settle it is the GSS questionnaire itself, and it belongs in the import.
 
-**Nothing reports that gap.** A question with no universe, asked with no condition, falls
-back to the instrument's own universe, so `check` is silent and so is the paths report.
-This paragraph is the only record until the universe check exists, which is why the rule
-is written down in AGENTS.md as well.
+**Nothing reports that gap while the bank is silent, and `check` reports it the moment the
+bank speaks.** A question with no universe, asked with no condition, says nothing. But a
+question *with* a universe, asked with no condition, is a `universe` note at once.
+Measured: add `universe: protestants` to `denom` and `check` says "Everyone here is asked
+this, but its universe is `gss.protestants`". So the import can be fixed without anyone
+remembering this file: the instrument will ask for the condition itself. Until then, this
+paragraph is the record, and AGENTS.md carries the rule.
 
 ## Left out
 

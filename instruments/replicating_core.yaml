@@ -38,7 +38,7 @@ inputs:
     responses:
       "1": "Yes"
       "2": "No"
-    description: GSS BORN, "Were you born in this country?". GSS asks it; it is outside this workspace's scope, so citizenship and time in the US depend on it as an input.
+    description: Whether the respondent was born in the US, which GSS records as BORN and asks of everyone. BORN is outside this workspace's scope, so the citizenship and time-in-the-US questions depend on it as an input. Its wording is in the GSS codebook, not in this workspace.
   self_employed:
     responses:
       "1": Self-employed
@@ -93,8 +93,13 @@ flow:
   - if: born_in_us = "2"
     then:
       - ask: gss.uscitzn
-      - ask: gss.yrsusa
+  # fucitzn plainly belongs in the branch above, and GSS surely asks it of people who
+  # aren't citizens. The bank gives it no universe, so it is asked of everyone here: the
+  # same gap as denom and jew below.
   - ask: gss.fucitzn
+  - if: born_in_us = "2"
+    then:
+      - ask: gss.yrsusa
   - ask: gss.othlang
   - if: gss.othlang = "1"
     then:

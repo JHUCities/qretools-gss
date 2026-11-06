@@ -51,8 +51,12 @@ findings and nothing else:
 - one `duplicate-scale` warning pair, `yes_no` against `yes_no_3_4`: GSS codes
   WKSUBS1 and WKSUPS1 yes/no as 3/4, and a scale can't yet be marked alike on purpose.
 
-`qretools instrument check instruments/replicating_core.yaml` should say `0 findings`. It
-is not part of `check .`'s count of files with findings, so run both.
+`check .` reads the instruments too, and a hole in one fails it exactly as a hole in a
+question does: measured, a bad `ask` gives `1 with something to fill in or fix` and a
+non-zero exit, so CI covers the instrument. `qretools instrument check <file>` is for one
+file on its own, and for what the exports say.
+
+Any other finding after a change is yours to fix.
 
 ## Regenerate
 
