@@ -71,6 +71,44 @@ Most universes quote GSS's own filter. A few are worked out from the order of th
 questions instead: `other_language_speakers` (follows OTHLANG), and `earned_income`,
 `has_supervisor` and `supervises_someone` (each an "IF YES" to the question before it).
 
+## The instrument
+
+`instruments/replicating_core.yaml` asks these questions in the document's order, with the routing the
+documentation gives: the "IF ..." filter that became each question's `universe` on import
+is here the condition that decides whether the question is asked. It is written by hand,
+because the routing is not in `gss_doc`.
+
+Three filters are questions this workspace doesn't hold, its scope being Demographics and
+Work: GSS BORN (before citizenship and time in the US), GSS WRKSLF (before NUMEMPS) and
+GSS's "did you earn any income from <occupation>" (before RINCOME). They are `inputs`, so
+the routing is complete and what it rests on is named rather than assumed. Four more
+inputs carry values GSS reads aloud that this workspace doesn't hold either: the year the
+income and work questions ask about, the degree named in the field-of-study question, the
+word "Latina" or "Latino", and the occupation named in the earnings question. The one
+read-aloud value the bank does hold is the religious preference, which the
+strength-of-affiliation question fills with `label(gss.relig)`.
+
+Where the bank holds several versions of one question, the instrument asks one: the first
+of GSS's up-to-three mentions (RACECEN1, ETH1, OTHLANG1, MAJOR1), the current version of
+a pair (INCOME, RINCOME, POSSLQ, DENOM, YRSUSA, and WRKGOVT1 with WRKGOVT2). Each
+omission is named in a comment at the top of the file. Recording three mentions of one
+question is not something the surface can say; asking all three would be three questions.
+
+Measured: `qretools instrument check` reports nothing, the DDI and the Qualtrics (QSF)
+exports are both clean, and `qretools paths` counts 1,024 ways through the routing, 28 to
+40 questions each (median 34), with every question reachable.
+
+One thing the instrument can't fix: GSS surely asks DENOM only of Protestants and JEW only
+of Jews, but `gss_doc` documents them as follow-ups ("A.", "B.") without stating the
+filter, so no universe was imported and the instrument asks them of everyone. Writing the
+conditions here would put routing in the instrument that the bank doesn't declare. The
+source that would settle it is the GSS questionnaire itself, and it belongs in the import.
+
+**Nothing reports that gap.** A question with no universe, asked with no condition, falls
+back to the instrument's own universe, so `check` is silent and so is the paths report.
+This paragraph is the only record until the universe check exists, which is why the rule
+is written down in AGENTS.md as well.
+
 ## Left out
 
 The 2020 document lists these in the two sections, but they aren't questions put to
