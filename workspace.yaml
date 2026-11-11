@@ -22,3 +22,12 @@ agency: us.jhu
 #required_in:
 #  questions/example:
 #    - universe
+
+# Locks: for each tag the instrument reads (owner/name@v2), the commit it pointed
+# to. A tag can be moved but a commit can't change, so a lock shows when the
+# questions under a tag may have changed. QREtools writes these lines when you save
+# the instrument, as does `qretools instrument export`. Don't edit them. A tag with
+# no lock, or one that has moved, is refused by `qretools build`, and so by the
+# check on every pull request.
+locked:
+  jhucities/qretools-gss@v2: 347f2cda35d04e3131a9f83df521d37d638bb597

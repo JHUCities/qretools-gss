@@ -1,7 +1,10 @@
 # Checks the workspace on every pull request and push to main, as QREtools does while
 # you type. It fails on anything to fill in or fix, and marks each error and warning on
 # its own line (.github/qretools-matcher.json). Notes are only advice, so they aren't
-# marked. qretools is the version mise.toml pins.
+# marked. Then it builds the workspace as a release would. The build refuses an
+# instrument that isn't ready to release, such as one reading this workspace as `../`
+# (see AGENTS.md), so one can't reach main. Nothing it builds is kept. qretools is the
+# version mise.toml pins.
 name: Check
 
 on:
@@ -17,6 +20,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          # The whole history: the build counts versions from it, and reads this
+          # workspace's own release tags from it.
+          fetch-depth: 0
       - uses: jdx/mise-action@v4
       - run: echo "::add-matcher::.github/qretools-matcher.json"
       - run: qretools check .
+      - run: qretools build . -o dist
