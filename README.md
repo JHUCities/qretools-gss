@@ -38,7 +38,8 @@ Each question's `source` names the GSS variable.
 ## Its DDI and its releases
 
 Every push to `main` publishes the workspace's DDI at
-<https://jhucities.github.io/qretools-gss/ddi.json>.
+<https://jhucities.github.io/qretools-gss/ddi.json>, and the instrument's at
+<https://jhucities.github.io/qretools-gss/instruments/replicating_core.json>.
 
 An instrument uses a release of this workspace, named by its tag:
 `uses: gss: JHUCities/qretools-gss@v1`. It gets the questions as they were at that tag.
@@ -77,6 +78,10 @@ questions instead: `other_language_speakers` (follows OTHLANG), and `earned_inco
 documentation gives: the "IF ..." filter that became each question's `universe` on import
 is here the condition that decides whether the question is asked. It is written by hand,
 because the routing is not in `gss_doc`.
+
+It reads this workspace's questions at a release, `uses: gss: JHUCities/qretools-gss@v2`,
+as any other instrument would. So a change to a question it asks reaches it only after a
+new release, when its tag is moved to that release in a pull request of its own.
 
 Three filters are questions this workspace doesn't hold, its scope being Demographics and
 Work: GSS BORN (before citizenship and time in the US), GSS WRKSLF (before NUMEMPS) and

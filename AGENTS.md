@@ -34,15 +34,24 @@ write a condition there that no question's universe declares.
 
 ## Versions and the published DDI
 
-- **The workspace's version is its tag.** Instruments read `JHUCities/qretools-gss@v1`;
+- **The workspace's version is its tag.** Instruments read `JHUCities/qretools-gss@v2`;
   release a new tag (`v2`, …) for any change instruments should see, with the Release
   workflow (Actions → Release), never by hand: its tag carries each question's DDI version.
   Never move or delete a tag.
 - **Each item's version is counted, never written.** `qretools build` counts each file's
   changes along `main`'s history; a question also moves when a shared file it names
   does. Never rewrite `main`'s history: versions would restart.
+- **This workspace's own instrument reads it at a tag too,** never `../` on `main`:
+  `instruments/replicating_core.yaml` uses `gss: JHUCities/qretools-gss@v2`. To change a
+  question it asks, merge the change, release a new tag, then move the instrument to that
+  tag in a second pull request; `qretools instrument export` records the tag's commit
+  under `locked:` in `workspace.yaml`. `qretools build`, and so the check on every pull
+  request, refuses an instrument that reads `../`, a tag with no lock or one that has
+  moved, or one with anything to fill in or fix. `../` is for writing an instrument on a
+  branch.
 - **On every push to `main`,** `.github/workflows/ddi.yml` runs `build` and deploys
-  `dist/ddi.json` to <https://jhucities.github.io/qretools-gss/ddi.json>. Locally,
+  `dist/`: the bank's DDI to <https://jhucities.github.io/qretools-gss/ddi.json>, and the
+  instrument's to `instruments/replicating_core.json` beside it. Locally,
   `qretools build .` writes it to `dist/`, which is gitignored. It builds the last commit; commit first.
 
 **What `check` should say:** `0 with something to fill in or fix`, with these known

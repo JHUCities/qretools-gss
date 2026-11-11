@@ -28,11 +28,12 @@
 name: replicating_core
 title: "GSS Replicating Core: Demographics and Work"
 description: Who is asked each of the Demographics and Work questions, as the GSS documentation says, and the values its wording reads aloud.
-# `../` is this workspace at the working commit, because the instrument lives in it. An
-# instrument in another repository reads this one at a release tag instead
-# (`gss: JHUCities/qretools-gss@v1`), as the README describes.
+# This workspace's questions, read at a release tag, as any instrument reads them. A
+# change to a question reaches this instrument only after a new release, when the tag
+# below is moved to it in a pull request of its own (AGENTS.md). `../` reads the
+# questions as they are on your branch: use it only while writing, never on main.
 uses:
-  gss: ../
+  gss: JHUCities/qretools-gss@v2
 inputs:
   born_in_us:
     responses:
