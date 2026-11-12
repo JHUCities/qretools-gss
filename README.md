@@ -13,7 +13,8 @@ each pull request: 2008, 2010, 2012, 2014, 2016, 2018, then 2022 and 2024 (2021 
 skipped). Each year's workspace holds every question the cumulative codebook shows answers
 for in that year or an earlier year of the replay. A question comes in with the first year
 that asks it and stays, as it would in a question bank, even when a later year doesn't ask
-it. 2010 adds VETYEARS.
+it. 2010 adds VETYEARS. It also replaces INCOME and RINCOME, which are recodes, with the
+questions they are recoded from, INCOME06 and RINCOM06 (see "Left out").
 The cumulative codebook prints one wording for each variable, for all years: a question
 whose wording changed is a new variable. So a question here has the codebook's wording,
 which may not be word for word what the interviewer read in a given year.
@@ -109,6 +110,12 @@ commit. Each comment in the file names the codebook page that a condition comes 
 who was asked from the GSS 1972-2024 cumulative data file (release 3a), read locally: in 2008, a question counts
 as asked of a respondent unless the value is "iap" (inapplicable). No figure from the data
 is published here, because the data is not licensed for publication.
+
+**INCOME and RINCOME.** The 2008 instrument, in release `v4`, asks `gss.income` and
+`gss.rincome` from `v3`. These are recodes, not the questions that the respondents
+answered (see "Left out"). From `v5`, the workspace holds INCOME06 and RINCOM06 in their
+place. A later pull request changes the instrument to read `v5` and ask them. A release
+never changes, so `v4` keeps the recodes.
 
 **Order.** The cumulative codebook's question numbers, which follow its pages. They are
 the codebook's order, not known to be the order of the 2008 interview: for example,
@@ -234,7 +241,12 @@ the respondent:
   which the 2022 codebook says is coded from the interviewer's information and the
   Household Enumeration Form. And RACE: its remarks say that from 2002 RACECEN1-3
   replaced it and RACE was imputed from them and other variables, so from 2002 nobody was
-  asked it. It was in the workspace for 2008 (`v3`).
+  asked it. It was in the workspace for 2008 (`v3`). And INCOME and RINCOME: in the GSS
+  data for 2006 to 2012, RINCOME is RINCOM06 regrouped into fewer groups, and INCOME is
+  nearly always INCOME06 regrouped. INCOME's remarks also say that it was recoded from
+  other questions up to 2006.
+  The respondents answered INCOME06 and RINCOM06, which the workspace holds. INCOME and
+  RINCOME were in the workspace for 2008 (`v3`).
 - **Taken from the address**: REGION, XNORCSIZ, SRCBELT, SIZE.
 - **Coded by the interviewer, with no wording for the respondent**: SEX.
 

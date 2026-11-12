@@ -65,7 +65,8 @@ CONCEPTS = {
 # A scale holds every code the codebook gives any question that uses it.
 SCALES = {"yes_no": "widowed", "yes_no_3_4": "wksubs1", "race_census": "racecen1",
           "ancestry": "eth2", "college_major": "major1", "language_list": "othlang1",
-          "income_12": "income", "income_26": "income16"}
+          "income_25": "income06", "income_26": "income16"}
+# shortcut: at code 25 INCOME16 prints "$150,000 or over" and RINCOM16 "$150,000 to $169,999", so income_26 stops the 2016 run; that pull request decides.
 
 # name: (folder, concept, title, fields). The title is ours. Fields: text (the question, a
 # span of the codebook's label), universe, instruction (a span of the label), fills,
@@ -95,8 +96,8 @@ SPEC = {
     "other": (D, "religious_affiliation", "Other Protestant denomination", dict(text="What specific denomination is that, if any?", variant_of={"denom": "the GSS's detailed list of other Protestant denominations, coded from the same question"})),
     "jew": (D, "religious_affiliation", "Jewish denomination", dict(text="Do you consider yourself Orthodox, Conservative, Reform or none of these?")),
     "reliten": (D, "religious_affiliation", "Strength of religion", dict(text="Would you call yourself a strong {{religion}} or a not very strong {{religion}}?", fills={"religion": "text"})),
-    "income": (D, "household_income", "Family income, 12 groups", dict(text="In which of these groups did your total family income, from all sources, fall last year before taxes, that is?", scale="income_12")),
-    "income16": (D, "household_income", "Family income, 26 groups", dict(text="In which of these groups did your total family income, from all sources, fall last year? That is, before taxes.", scale="income_26", variant_of={"income": "the 26-category version of the family income question"})),
+    "income06": (D, "household_income", "Family income, 25 groups", dict(text="In which of these groups did your total family income, from all sources, fall last year before taxes, that is.", scale="income_25")),
+    "income16": (D, "household_income", "Family income, 26 groups", dict(text="In which of these groups did your total family income, from all sources, fall last year? That is, before taxes.", scale="income_26", variant_of={"income06": "the 26-group version, from 2016"})),
     "uscitzn": (D, "citizenship_status", "U.S. citizenship", dict(text="Now we would like to ask you about U.S. citizenship. Are you…", universe="born_outside_us")),
     "fucitzn": (D, "citizenship_status", "Citizenship, follow-up", dict(text="Are you…")),
     "mnthsusa": (D, "citizenship_status", "Months lived in the United States", dict(text="How long have you lived in the United States? If less than a year, please specify the time in months. If you have lived in the United States for more than one period during your life, what is the total number of years you have lived in the United States?", universe="born_outside_us", number="months", variant_of={"yrsusa": "the months part of the answer, when it is less than a year"})),
@@ -118,8 +119,8 @@ SPEC = {
     "hrs2": (W, "labor_supply", "Usual hours of work", dict(text="How many hours a week do you usually work, at all jobs?", universe="with_job_not_at_work", number="hours")),
     "weekswrk": (W, "labor_supply", "Weeks worked last year", dict(text="Now I'd like to ask you about last year. In {{last_year}} how many weeks did you work either full-time or part-time not counting work around the house--include paid vacations and sick leave?", fills={"last_year": "number"}, number="weeks")),
     "partfull": (W, "labor_supply", "Full or part time last year", dict(text="When you worked in {{last_year}}, was it usually full or part time?", fills={"last_year": "number"})),
-    "rincome": (W, "income_from_occupation", "Earnings from work, 12 groups", dict(text="In which of these groups did your earnings from {{job}} for last year--{{last_year}}--fall? That is, before taxes or other deductions.", fills={"job": "text", "last_year": "text"}, scale="income_12")),
-    "rincom16": (W, "income_from_occupation", "Earnings from work, 26 groups", dict(text="In which of these groups did your earnings from {{job}}, from all sources for {{last_year}} fall? That is, before taxes or other deductions.", fills={"job": "text", "last_year": "text"}, scale="income_26")),
+    "rincom06": (W, "income_from_occupation", "Earnings from work, 25 groups", dict(text="In which of these groups did your earnings from {{job}}, from all sources for {{last_year}} fall? That is, before taxes or other deductions.", fills={"job": "text", "last_year": "text"}, scale="income_25")),
+    "rincom16": (W, "income_from_occupation", "Earnings from work, 26 groups", dict(text="In which of these groups did your earnings from {{job}}, from all sources for {{last_year}} fall? That is, before taxes or other deductions.", fills={"job": "text", "last_year": "text"}, scale="income_26", variant_of={"rincom06": "the 26-group version, from 2016"})),
     "localnum": (W, "size_of_workplace", "People at the workplace", dict(text="About how many people work at the location where you work? (Count part-time as well as full-time employees in all areas, departments and buildings.)")),
     "wksub1": (W, "workplace_hierarchy", "Has a supervisor", dict(text="{{do_you}} have a supervisor on {{your}} job to whom {{you_are}} directly responsible?", fills={"do_you": "text", "your": "text", "you_are": "text"}, scale="yes_no")),
     "wksubs1": (W, "workplace_hierarchy", "The supervisor has a supervisor", dict(text="Does that person have a supervisor on the job to whom he is directly responsible?", universe="has_supervisor", scale="yes_no_3_4")),
@@ -129,7 +130,9 @@ SPEC = {
 }
 
 # Variables in an extract that are left out of the workspace, and why (README.md, "Left out").
-LEFT_OUT = {"race": "from 2002 RACECEN1-3 replaced it and it was imputed (its remarks)"}
+LEFT_OUT = {"race": "from 2002 RACECEN1-3 replaced it and it was imputed (its remarks)",
+            "income": "recoded from INCOME06 from 2006 (the GSS data; its remarks say it was recoded up to 2006)",
+            "rincome": "recoded from RINCOM06 from 2006 (the GSS data)"}
 
 # The replay's years in the cumulative codebook, oldest first. Year Y holds every question
 # asked in any of them up to Y: a bank keeps a question that a later year doesn't ask.
@@ -254,6 +257,7 @@ assert not CUMULATIVE or YEAR in REPLAY, f"{YEAR} isn't a year of the replay"
 QUESTIONS = {n: v for n, v in SPEC.items() if first_asked(n)}
 # Entries the extractor couldn't read in full, kept only for the reason given.
 KNOWN_PROBLEMS = {"eth3": "three rows (28, 36, 37) lack a count in one column; their codes and labels are read, and ETH2 gives the same ones to the ancestry scale",
+                  "rincom06": "its 2016 column holds only Don't know and No answer counts; that doesn't change the first year that asked it",
                   "vetyears": "one row (4) lacks a count in one column; its code and label are read, and its other rows give the years asked"}
 for n in QUESTIONS:
     assert not ENTRIES[gss(n)].get("problems") or gss(n) in KNOWN_PROBLEMS, f"{n}: {ENTRIES[gss(n)]['problems']}"

@@ -43,9 +43,9 @@ from pypdf import PdfReader
 VARIABLES = """
 racecen1 racecen2 racecen3 race eth1 eth2 eth3 hispanic sibs marital widowed divorce
 posslq posslqy childs agekdbrn major1 major2 relig denom jew reliten income income16
-uscitzn fucitzn mnthsusa yearsusa othlang othlang1 othlang2 betrlang spklang wrkstat
-evwork wrkslffam wrkgovt numemps hrs1 hrs2 weekswrk partfull rincome rincom16 localnum
-wksub1 wksubs1 wksup1 wksups1 vetyears
+income06 rincom06 uscitzn fucitzn mnthsusa yearsusa othlang othlang1 othlang2 betrlang
+spklang wrkstat evwork wrkslffam wrkgovt numemps hrs1 hrs2 weekswrk partfull rincome
+rincom16 localnum wksub1 wksubs1 wksup1 wksups1 vetyears
 """.split()
 # Variables of this workspace that have no entry in the main body.
 ABSENT = {"other", "whatslf2", "wrkgovt1", "wrkgovt2"}
