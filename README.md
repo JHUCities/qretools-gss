@@ -120,7 +120,8 @@ WRKGOVT1 and WRKGOVT2. WRKGOVT1 and WRKGOVT2 replace WRKGOVT, which is here for 
 Some pairs are kept although they're alike, each marked `variant_of`: the second and
 third mentions of one question (RACECEN, ETH, OTHLANG). OTHLANG1 and OTHLANG2 don't
 share a scale: the cumulative codebook numbers their languages differently from code 119
-on.
+on. ETH1 doesn't share the ancestry scale with ETH2 and ETH3: its 98 is "No ethnicity
+mentioned", an answer, where theirs is "Don't know".
 
 ## Known findings
 

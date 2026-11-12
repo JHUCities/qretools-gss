@@ -64,7 +64,7 @@ CONCEPTS = {
 # Shared scales, each named for the variable whose question it was first written for.
 # A scale holds every code the codebook gives any question that uses it.
 SCALES = {"yes_no": "widowed", "yes_no_3_4": "wksubs1", "race_census": "racecen1",
-          "ancestry": "eth1", "college_major": "major1", "language_list": "othlang1",
+          "ancestry": "eth2", "college_major": "major1", "language_list": "othlang1",
           "income_12": "income", "income_26": "income16"}
 
 # name: (folder, concept, title, fields). The title is ours. Fields: text (the question, a
@@ -77,7 +77,7 @@ SPEC = {
     "racecen2": (D, "race", "Race, second mentioned", dict(text="What is your race? Indicate one or more races that you consider yourself to be.", scale="race_census", variant_of={"racecen1": "the second race mentioned in answer to the same question"})),
     "racecen3": (D, "race", "Race, third mentioned", dict(text="What is your race? Indicate one or more races that you consider yourself to be.", scale="race_census", variant_of={"racecen1": "the third race mentioned in answer to the same question", "racecen2": "the third race mentioned, where racecen2 is the second"})),
     "race": (D, "race", "Race, three groups", dict(text="What race do you consider yourself?", instruction="RECORD VERBATIM AND CODE. CODE WITHOUT ASKING ONLY IF THERE IS NO DOUBT IN YOUR MIND.")),
-    "eth1": (D, "ethnicity", "Ancestry, first country", dict(text="From what countries or part of the world did your ancestors come?", scale="ancestry")),
+    "eth1": (D, "ethnicity", "Ancestry, first country", dict(text="From what countries or part of the world did your ancestors come?")),  # its own list: 98 is an answer here, "Don't know" in ETH2 and ETH3
     "eth2": (D, "ethnicity", "Ancestry, second country", dict(text="From what countries or part of the world did your ancestors come?", scale="ancestry", variant_of={"eth1": "the second country mentioned in answer to the same question"})),
     "eth3": (D, "ethnicity", "Ancestry, third country", dict(text="From what countries or part of the world did your ancestors come?", scale="ancestry", variant_of={"eth1": "the third country mentioned in answer to the same question", "eth2": "the third country mentioned, where eth2 is the second"})),
     "hispanic": (D, "hispanic_origin", "Hispanic or Latino origin", dict(text=("Are you Spanish, Hispanic, or Latino/Latina?", "Which group are you from?"))),
@@ -199,7 +199,8 @@ def label_of(entry):
 # responses. Each source's codes are translated to missing.yaml's letters by a later
 # GSS column map, not here.
 MISSING = re.compile(r"(not applicable\b.*|don't know|no answer|refused|don't know, no answer|no answer, don't know"
-                     r"|don't know/uncoded|not possible to code; see ethnic|no ethnicity mentioned)")
+                     r"|don't know/uncoded|not possible to code; see ethnic)")
+# "No ethnicity mentioned" (ETH1's 98) is not here: the respondent answered and named no country.
 # A response label with one of these words is a missing-value row this list doesn't name yet.
 SUSPECT = re.compile(r"\b(know|answer|applicable|refused|uncoded|code|iap)\b")
 
@@ -241,7 +242,7 @@ def asked(name):
 
 QUESTIONS = {n: v for n, v in SPEC.items() if asked(n)}
 # Entries the extractor couldn't read in full, kept only for the reason given.
-KNOWN_PROBLEMS = {"eth3": "three rows (28, 36, 37) lack a count, so the extractor drops them; ETH1 gives the same codes and labels to the ancestry scale"}
+KNOWN_PROBLEMS = {"eth3": "three rows (28, 36, 37) lack a count, so the extractor drops them; ETH2 gives the same codes and labels to the ancestry scale"}
 for n in QUESTIONS:
     assert not ENTRIES[gss(n)].get("problems") or gss(n) in KNOWN_PROBLEMS, f"{n}: {ENTRIES[gss(n)]['problems']}"
 assert CUMULATIVE or YEAR == "2022", "the 2022 codebook gives the questions of 2022"
@@ -268,6 +269,8 @@ for scale in SCALES:
         seen = scales.setdefault(scale, {})
         for c, l in codes(var):
             assert tidy(seen.setdefault(c, l), False) == tidy(l, False), f"scale {scale}: code {c} is '{seen[c]}' and '{l}'"
+
+assert "eth3" not in QUESTIONS or {"28", "36", "37"} <= set(scales["ancestry"]), "eth3's dropped rows aren't in the ancestry scale"
 
 # The generated folders are written afresh, so nothing dropped or renamed stays.
 for folder in ("questions", "scales", "universes", "concepts", "units"):
