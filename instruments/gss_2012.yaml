@@ -1,0 +1,211 @@
+# The GSS of 2012: this workspace's Demographics and Work questions, in the order of the
+# 1972-2018 cumulative codebook's question numbers. Each condition names the codebook's
+# printed page. Who is asked comes from the "IF ..." filter (each question's universe),
+# the routing notes in the response labels (such as "ASK HRS1") and the remarks. Where
+# the codebook is silent, unclear or contradicts itself, the GSS 2012 data settled who
+# was asked (README.md says how). A question with none of this is asked of everyone.
+#
+# POSSLQ and POSSLQY are the two forms of a wording experiment: Form 1 gets POSSLQ, and
+# Form 2 gets POSSLQY (the input `form`).
+#
+# Not asked here (README.md, "The 2008 instrument" and "The 2012 instrument"):
+#   - race: the codebook shows values for it in 2012, but its remarks (page 203) say RACE
+#     was asked from 1972 to 2000, then replaced by RACECEN1-3 and imputed from 2002. The
+#     workspace doesn't hold it from v5.
+#   - racecen2, racecen3, eth2, eth3, othlang2, major2: the second and third mentions in
+#     answer to the question that racecen1, eth1, othlang1 and major1 ask. They are further
+#     answers to one question, not further questions, and the surface can't record more
+#     than one mention.
+name: gss_2012
+title: GSS 2012, Demographics and Work
+description: The Demographics and Work questions the GSS asked in 2012, in the cumulative codebook's order, with the routing the codebook states.
+uses:
+  gss: JHUCities/qretools-gss@v8
+# What the routing and the read-aloud values rest on that this workspace doesn't hold.
+inputs:
+  self_employed:
+    responses:
+      "1": Self-employed
+      "2": Someone else
+    description: The first part of the NUMEMPS question (codebook page 1625), GSS WRKSLF (page 127). NUMEMPS is asked after "Self-employed".
+  earned_income:
+    responses:
+      "1": "Yes"
+      "2": "No"
+    description: The question before RINCOM06, about income from the respondent's occupation in the previous year. The codebook prints it only in RINCOME's entry (page 217), not in RINCOM06's (page 230). RINCOM06 is asked after "Yes".
+  born_in_us:
+    responses:
+      "1": "Yes"
+      "2": "No"
+    description: GSS BORN (codebook page 210). USCITZN follows a "No" (README.md says why).
+  last_year:
+    number: {}
+    description: The year before the interview, which WEEKSWRK, PARTFULL and RINCOM06 read aloud where the codebook writes "[the previous year]".
+  occupation:
+    open: {}
+    description: The respondent's occupation, which RINCOM06 reads aloud from the occupation questions (OCC), which this workspace doesn't hold.
+  are:
+    open: {}
+    description: '"Are" or "Were", read in WRKGOVT. The codebook writes "(Are/Were)" and does not say which is read to whom.'
+  do:
+    open: {}
+    description: '"do" or "did", read in NUMEMPS. The codebook writes "Do/did" and does not say which is read to whom.'
+  degree:
+    responses:
+      "0": Less than high school
+      "1": High school
+      "2": Associate/Junior college
+      "3": Bachelor's
+      "4": Graduate
+    description: The respondent's highest degree, GSS DEGREE (codebook page 182), a recode that this workspace doesn't hold. MAJOR1 is asked after 2, 3 or 4, and reads its label aloud where the codebook writes "(RESPONDENT'S COLLEGE DEGREE)".
+  form:
+    responses:
+      "1": Standard (Form 1)
+      "2": Variant (Form 2)
+    description: The form of the split questionnaire that the respondent gets, GSS FORM (codebook page 513), which this workspace doesn't hold. POSSLQ is on Form 1, POSSLQY on Form 2.
+flow:
+  # 1. Work status, and its follow-ups A to F (pages 122 to 127).
+  - ask: gss.wrkstat
+  # Page 123, HRS1's filter; WRKSTAT 1 and 2 say "ASK HRS1" (page 122).
+  - if: gss.wrkstat in {"1", "2"}
+    then:
+      - ask: gss.hrs1
+  # Page 124, HRS2's filter; WRKSTAT 3 says "ASK HRS2".
+  - if: gss.wrkstat = "3"
+    then:
+      - ask: gss.hrs2
+  # Page 124, EVWORK's filter; WRKSTAT 5 to 8 say "ASK EVWORK".
+  - if: gss.wrkstat in {"5", "6", "7", "8"}
+    then:
+      - ask: gss.evwork
+  # Page 124: EVWORK "No" says "Go to MARITAL", and page 127 gives WRKGOVT's
+  # "Not applicable" as "never worked".
+  - if: isnull(gss.evwork) or gss.evwork <> "2"
+    then:
+      - ask: gss.wrkgovt
+        universe: Respondents who have ever worked
+        fill:
+          are: are
+  # 4. Marital status (pages 135 to 137).
+  - ask: gss.marital
+  # Page 136, DIVORCE's filter; MARITAL 1 and 2 say "ASK ... DIVORCE".
+  - if: gss.marital in {"1", "2"}
+    then:
+      - ask: gss.divorced
+  # Page 137, WIDOWED's filter.
+  - if: gss.marital in {"1", "3", "4"}
+    then:
+      - ask: gss.widowed
+  # 18, 19, 21 (pages 174 to 176).
+  - ask: gss.sibs
+  - ask: gss.childs
+  # Page 176 gives AGEKDBRN no filter; the GSS 2012 data shows it skipped after CHILDS
+  # "None". A missing CHILDS doesn't exclude anyone.
+  - if: isnull(gss.childs) or gss.childs <> 0
+    then:
+      - ask: gss.agekdbrn
+        universe: Respondents who have had children
+  # 32 (page 184): MAJOR1 has no filter of its own; its wording names "(RESPONDENT'S
+  # COLLEGE DEGREE)". The remark of WHENCOL (37, page 192) gives "when DEGREE=2-4". The
+  # GSS 2012 data shows MAJOR1 asked after DEGREE 2, 3 or 4.
+  - if: degree in {"2", "3", "4"}
+    then:
+      - ask: gss.major1
+        fill:
+          degree: label(degree)
+  # 69, 70 (pages 229, 230).
+  - ask: gss.income06
+  # Page 217: the question before RINCOME, "Yes (ASK RINCOME)". RINCOM06's own entry
+  # (page 230) doesn't print it; the GSS 2012 data shows RINCOM06 asked of the same
+  # respondents as RINCOME.
+  - if: earned_income = "1"
+    then:
+      - ask: gss.rincom06
+        universe: Respondents who earned income from their occupation in the previous year
+        fill:
+          job: occupation
+          last_year: last_year
+  # 115, 116, 120 (pages 312 to 318).
+  - ask: gss.relig
+  # Page 312, DENOM's filter; RELIG 1 says "ASK DENOM". Its "Not applicable" label says
+  # 11 (Christian) was "sometimes" asked; the GSS 2012 data shows 11 always asked.
+  - if: gss.relig in {"1", "11"}
+    then:
+      - ask: gss.denom
+        universe: Respondents whose religious preference is Protestant or Christian
+  # Page 314, JEW's filter. Its remark about OTHJEW is for 2008 only.
+  - if: gss.relig = "3"
+    then:
+      - ask: gss.jew
+        universe: Respondents whose religious preference is Jewish
+  # Page 318: RELITEN's "Not applicable" is "Punch 98 in RELIG", Don't know. The GSS 2012
+  # data agrees. No answer to RELIG doesn't exclude anyone.
+  - if: isnull(gss.relig) or gss.relig <> "D"
+    then:
+      - ask: gss.reliten
+        universe: Respondents who gave a religious preference, or none
+        fill:
+          religion: label(gss.relig)
+  # 191 (pages 437, 438).
+  - ask: gss.weekswrk
+    fill:
+      last_year: last_year
+  # Page 438: PARTFULL's "Not applicable" is "Punch 0 in WKSWRK". The GSS 2012 data
+  # also shows it skipped after WEEKSWRK Don't know. A number's Don't know has no value
+  # here, so this condition skips a WEEKSWRK with no value (README.md says why).
+  - if: gss.weekswrk <> 0
+    then:
+      - ask: gss.partfull
+        universe: Respondents who worked in the previous year
+        fill:
+          last_year: last_year
+  # 748 (pages 1284 to 1296) and 755 B (page 1302).
+  - ask: gss.othlang
+  # Page 1284: OTHLANG "No" says "GO TO PARLANG". OTHLANG1 and SPKLANG are "Not applicable"
+  # after OTHLANG "No". BETRLANG (755 B, after PARLANG) has no filter of its own: this
+  # condition is the workspace's universe for it, `other_language_speakers`.
+  - if: gss.othlang = "1"
+    then:
+      - ask: gss.othlang1
+      - ask: gss.spklang
+      - ask: gss.betrlang
+  # 992 (page 1625): NUMEMPS's wording, after "Self-employed". Its remarks also limit it
+  # to WRKSTAT 1-3 and to "Yes" on the second part, but the GSS 2012 data shows it asked
+  # of everyone self-employed.
+  - if: self_employed = "1"
+    then:
+      - ask: gss.numemps
+        fill:
+          do: do
+  # 1394, 1395 (page 2182): the two forms of one wording experiment. FORM (page 513): the
+  # variant or "Y" wordings are on Form 2, the standard ones on Form 1. The GSS 2012 data
+  # shows POSSLQ asked on Form 1 only, and POSSLQY on Form 2 only.
+  - if: form = "1"
+    then:
+      - ask: gss.posslq
+        universe: Respondents given Form 1 of the questionnaire
+    else:
+      - ask: gss.posslqy
+        universe: Respondents given Form 2 of the questionnaire
+  # 1586 (page 2437): LOCALNUM's remarks, "Beginning in 1994", WRKSTAT 1-3.
+  - if: gss.wrkstat in {"1", "2", "3"}
+    then:
+      - ask: gss.localnum
+        universe: Respondents who are working, or have a job but are not at work
+  # 1980 B, 1986, 1987 A (pages 2934 to 2948).
+  - ask: gss.eth1
+  - ask: gss.hispanic
+  - ask: gss.racecen1
+  # 1989, 1990 (page 2954).
+  - if: born_in_us = "2"
+    then:
+      - ask: gss.uscitzn
+      # FUCITZN's "Not applicable" is "Not Punch 2 or 9 in USCITZN": Not a U.S. citizen, or Refused.
+      - if: gss.uscitzn in {"2", "R"}
+        then:
+          - ask: gss.fucitzn
+            universe: Respondents who are not U.S. citizens, or refused to say
+  # 1992 (page 2956): VETYEARS has no filter, and the GSS 2012 data shows everyone asked.
+  # "No active duty" answers its first part; the lengths of time answer its "IF YES"
+  # part. It is one question.
+  - ask: gss.vetyears

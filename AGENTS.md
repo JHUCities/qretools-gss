@@ -42,19 +42,28 @@ Tags:
   the questions of 2008. `v4` adds the instrument for 2008. `v5` holds the questions of
   2010. `v6` adds the instrument for 2010, and changes the instrument for 2008 to read
   `v5`. `v7` removes the notice comment from each file, and corrects PARTFULL in the
-  instrument for 2008. `v8` holds the questions of 2012.
+  instrument for 2008. `v8` holds the questions of 2012. `v9` adds the instrument for
+  2012, and changes the instruments for 2008 and 2010 to read `v8`.
 
 ## The instrument for a year
 
 Each year has one instrument, `instruments/gss_<year>.yaml`, written by hand. It reads the
-year's tag, or a later tag that replaces a question it asks. `instruments/gss_2008.yaml`
-and `instruments/gss_2010.yaml` read `v5`. `README.md` lists their conditions, their
-inputs, and what the codebook does not settle.
+year's tag, or a later tag. `instruments/gss_2008.yaml`, `instruments/gss_2010.yaml` and
+`instruments/gss_2012.yaml` read `v8`. `README.md` lists their conditions, their inputs,
+and what the codebook does not settle.
 
-If a tag removes or replaces a question that an earlier instrument asks, change that
-instrument to read the tag. Do this in the pull request for the next instrument. Example:
-`v5` replaces INCOME and RINCOME with INCOME06 and RINCOM06, so the 2008 instrument reads
-`v5`. Do not ask a question that the year did not ask.
+In the pull request for the next instrument, examine each earlier instrument:
+
+1. Run `git diff <its tag> <the latest tag> -- <each question and shared file it names>`.
+2. If no question that it asks changes in substance, change the instrument to read the
+   latest tag. A removed notice comment is not a change in substance.
+3. If a question that it asks, or a shared file that it names, changes in substance, keep
+   the instrument on its tag.
+4. If the latest tag removes or replaces a question that it asks, change the instrument
+   to read the latest tag, and ask the new question. Example: `v5` replaces INCOME and
+   RINCOME with INCOME06 and RINCOM06, so the 2008 instrument reads `v5` from `v6`.
+
+Do not ask a question that the year did not ask.
 
 Rules:
 
@@ -72,9 +81,11 @@ Rules:
 - **If neither the codebook nor the data gives a condition, ask the question of
   everyone.** Say so in `README.md`.
 - **Make an input for each value that the workspace does not hold.** This applies to a
-  filter on a question outside the workspace, and to a value that the wording reads aloud.
-- **Ask one question for each set of mentions.** RACECEN2-3, ETH2-3 and OTHLANG2 are more
-  answers to one question. Do not ask them.
+  filter on a question outside the workspace, to a value that the wording reads aloud, and
+  to the form of a split questionnaire (FORM). If one input gives the filter and the value
+  that is read aloud, use one input (example: `degree` for MAJOR1).
+- **Ask one question for each set of mentions.** RACECEN2-3, ETH2-3, OTHLANG2 and MAJOR2
+  are more answers to one question. Do not ask them.
 - **Do not ask a question that the codebook says nobody was asked in the year.** An
   example is RACE from 2002.
 - **Give a universe to each question that not everyone reaches.** Quote the codebook's
