@@ -10,7 +10,8 @@
 # idk
 # Not asked here (README.md, "The 2008 instrument"):
 #   - race: its remarks (page 203) say RACE was asked from 1972 to 2000, then replaced by
-#     RACECEN1-3 and imputed from 2002.
+#     RACECEN1-3 and imputed from 2002. The workspace doesn't hold it from v5.
+#   - vetyears: the codebook shows no answers for it in 2008.
 #   - racecen2, racecen3, eth2, eth3, othlang2: the second and third mentions in answer to
 #     the question that racecen1, eth1 and othlang1 ask. They are further answers to one
 #     question, not further questions, and the surface can't record more than one mention.
@@ -18,7 +19,7 @@ name: gss_2008
 title: GSS 2008, Demographics and Work
 description: The Demographics and Work questions the GSS asked in 2008, in the cumulative codebook's order, with the routing the codebook states.
 uses:
-  gss: JHUCities/qretools-gss@v3
+  gss: JHUCities/qretools-gss@v5
 # What the routing and the read-aloud values rest on that this workspace doesn't hold.
 inputs:
   self_employed:
@@ -30,7 +31,7 @@ inputs:
     responses:
       "1": "Yes"
       "2": "No"
-    description: The question before RINCOME (codebook page 217), about income from the respondent's occupation in the previous year. RINCOME is asked after "Yes".
+    description: The question before RINCOM06, about income from the respondent's occupation in the previous year. The codebook prints it only in RINCOME's entry (page 217), not in RINCOM06's (page 230). RINCOM06 is asked after "Yes".
   born_in_us:
     responses:
       "1": "Yes"
@@ -38,10 +39,10 @@ inputs:
     description: GSS BORN (codebook page 210). USCITZN follows a "No" (README.md says why).
   last_year:
     number: {}
-    description: The year before the interview, which WEEKSWRK, PARTFULL and RINCOME read aloud where the codebook writes "[the previous year]".
+    description: The year before the interview, which WEEKSWRK, PARTFULL and RINCOM06 read aloud where the codebook writes "[the previous year]".
   occupation:
     open: {}
-    description: The respondent's occupation, which RINCOME reads aloud from the occupation questions (OCC), which this workspace doesn't hold.
+    description: The respondent's occupation, which RINCOM06 reads aloud from the occupation questions (OCC), which this workspace doesn't hold.
   are:
     open: {}
     description: '"Are" or "Were", read in WRKGOVT. The codebook writes "(Are/Were)" and does not say which is read to whom.'
@@ -90,12 +91,14 @@ flow:
     then:
       - ask: gss.agekdbrn
         universe: Respondents who have had children
-  # 56, 57 (pages 216, 217).
-  - ask: gss.income
-  # Page 217: RINCOME's "IF YES".
+  # 69, 70 (pages 229, 230).
+  - ask: gss.income06
+  # Page 217: the question before RINCOME, "Yes (ASK RINCOME)". RINCOM06's own entry
+  # (page 230) doesn't print it; the GSS 2008 data shows RINCOM06 asked of the same
+  # respondents as RINCOME.
   - if: earned_income = "1"
     then:
-      - ask: gss.rincome
+      - ask: gss.rincom06
         universe: Respondents who earned income from their occupation in the previous year
         fill:
           job: occupation

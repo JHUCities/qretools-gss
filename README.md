@@ -97,13 +97,14 @@ existed, so its questions all read as version 1.
 Data Explorer's documentation, and held an instrument, `replicating_core`. An import from
 the 2022 codebook followed, but the replay replaced it before any release. From `v3`, the
 tags follow the replay, in the order of the survey years: `v3` holds the questions of
-2008, `v4` adds the 2008 instrument, and `v5` holds the questions of 2010. The instrument
-for each GSS year comes in the pull request after that year's questions.
+2008, `v4` adds the 2008 instrument, and `v5` holds the questions of 2010. `v6` adds the
+2010 instrument, and corrects the 2008 instrument to read `v5`. The instrument for each
+GSS year comes in the pull request after that year's questions.
 
 ## The 2008 instrument
 
-`instruments/gss_2008.yaml` asks the 2008 questions. It reads this workspace at `v3`
-(`uses: gss: JHUCities/qretools-gss@v3`), and `workspace.yaml` locks that tag to its
+`instruments/gss_2008.yaml` asks the 2008 questions. It reads this workspace at `v5`
+(`uses: gss: JHUCities/qretools-gss@v5`), and `workspace.yaml` locks that tag to its
 commit. Each comment in the file names the codebook page that a condition comes from.
 
 **The 2008 data.** Where the codebook is unclear or contradicts itself, the owner settled
@@ -111,11 +112,17 @@ who was asked from the GSS 1972-2024 cumulative data file (release 3a), read loc
 as asked of a respondent unless the value is "iap" (inapplicable). No figure from the data
 is published here, because the data is not licensed for publication.
 
-**INCOME and RINCOME.** The 2008 instrument, in release `v4`, asks `gss.income` and
-`gss.rincome` from `v3`. These are recodes, not the questions that the respondents
-answered (see "Left out"). From `v5`, the workspace holds INCOME06 and RINCOM06 in their
-place. A later pull request changes the instrument to read `v5` and ask them. A release
-never changes, so `v4` keeps the recodes.
+**INCOME06 and RINCOM06.** The 2008 instrument in release `v4` read `v3` and asked
+INCOME and RINCOME. These are recodes, not the questions that the respondents answered
+(see "Left out"). From `v6`, it reads `v5` and asks INCOME06 and RINCOM06 in their place.
+A release never changes, so `v4` keeps the recodes.
+
+RINCOM06's entry (page 230) doesn't print the question before it, "Did you earn any
+income from (OCCUPATION DESCRIBED IN OCC-INDUSTRY) in [the previous year]?". RINCOME's
+entry (page 217) prints it, with "Yes (ASK RINCOME)". The 2008 data shows RINCOM06 "iap"
+for the same respondents as RINCOME, and asked at every value of WRKSTAT. So the input
+`earned_income` stays, and RINCOM06 is asked after its "Yes". The data can't tell a "No"
+to that question from a respondent who wasn't asked it: both are "iap".
 
 **Order.** The cumulative codebook's question numbers, which follow its pages. They are
 the codebook's order, not known to be the order of the 2008 interview: for example,
@@ -140,7 +147,7 @@ ballot split for these questions in 2008, so the instrument has none.
 | DIVORCE (`divorced`) | MARITAL is 1 or 2 | pages 135, 136 |
 | WIDOWED | MARITAL is 1, 3 or 4 | page 137 |
 | AGEKDBRN | CHILDS isn't 0 (the 2008 data) | page 176 |
-| RINCOME | the question before it is "Yes" (input `earned_income`) | page 217 |
+| RINCOM06 | the question before it is "Yes" (input `earned_income`; the 2008 data) | pages 217, 230 |
 | DENOM | RELIG is 1 or 11 (Christian; the 2008 data) | page 312 |
 | JEW | RELIG is 3 | page 314 |
 | RELITEN | RELIG isn't Don't know | page 318 |
@@ -155,11 +162,11 @@ ballot split for these questions in 2008, so the instrument has none.
 doesn't hold:
 
 - `self_employed`: the first part of the NUMEMPS question, GSS WRKSLF.
-- `earned_income`: the question before RINCOME.
+- `earned_income`: the question before RINCOM06, printed only in RINCOME's entry.
 - `born_in_us`: GSS BORN, outside this workspace's scope.
 - `last_year`: the year that "[the previous year]" means in WEEKSWRK, PARTFULL and
-  RINCOME.
-- `occupation`: the occupation that RINCOME names, from questions this workspace doesn't
+  RINCOM06.
+- `occupation`: the occupation that RINCOM06 names, from questions this workspace doesn't
   hold.
 - `are` and `do`: the codebook writes "(Are/Were)" in WRKGOVT and "Do/did" in NUMEMPS,
   and doesn't say which word is read to whom.
@@ -170,11 +177,13 @@ holds.
 A question that not everyone reaches has a universe. Where the workspace's question has
 none, the instrument gives it one, in our own words.
 
-**Not asked.** Six of the 36 questions:
+**Not asked.** Six of the 36 questions in `v5`:
 
-- `race`: its remarks say RACE was asked from 1972 to 2000, and replaced by RACECEN1-3
-  and imputed from 2002. The cumulative codebook shows values for it in 2008, so `v3`
-  holds it, but nobody was asked it. It left the workspace in 2010 (below, "Left out").
+- `vetyears`: the codebook shows no answers for it in 2008.
+- `race` isn't in `v5`. Its remarks say RACE was asked from 1972 to 2000, and replaced by
+  RACECEN1-3 and imputed from 2002. The cumulative codebook shows values for it in 2008,
+  so `v3` holds it, but nobody was asked it. It left the workspace in 2010 (below, "Left
+  out").
 - `racecen2`, `racecen3`, `eth2`, `eth3` and `othlang2`: the second and third mentions
   in answer to the question that `racecen1`, `eth1` and `othlang1` ask. They are further
   answers to one question, not further questions, and an instrument can't yet record
@@ -216,13 +225,64 @@ none, the instrument gives it one, in our own words.
 - **Codes for missing values.** The conditions on RELITEN and FUCITZN name the codebook's
   "Don't know" (98) and "Refused" (9) by the letters in `missing.yaml`, `D` and `R`,
   matched by label.
-- **Who is asked the questions before RINCOME and NUMEMPS** (inputs here) is not in the
+- **Who is asked the questions before RINCOM06 and NUMEMPS** (inputs here) is not in the
   codebook's entries for those questions.
 
 Measured with QREtools 2.0.0-alpha.8: `qretools instrument check` gives 0 findings, and
 `qretools paths` counts 5,760 ways through the routing, 13 to 27 questions on each
 (median 20). Each of the 30 questions asked is reachable. QREtools 2.0.0-alpha.9 gives
-the same results.
+the same results, before and after the change to INCOME06 and RINCOM06.
+
+## The 2010 instrument
+
+`instruments/gss_2010.yaml` asks the 2010 questions. It reads this workspace at `v5`. It
+is a copy of the 2008 instrument, with the changes below. Each condition was checked
+again against the 2010 data, in the same way as for 2008.
+
+**What it asks.** The 2008 questions, and VETYEARS, last (page 2956): 31 of the
+workspace's 36 questions. The five not asked are the second and third mentions, as in
+2008. The codebook shows values for RACE in 2010 too, but its remarks say that nobody was
+asked it from 2002, and the workspace doesn't hold it from `v5`.
+
+**Routing.** The same as in 2008 (the table above), with these changes:
+
+| Question | Asked when | Codebook |
+|---|---|---|
+| RELITEN | always (the 2010 data) | page 318 |
+| PARTFULL | WEEKSWRK has a value that isn't 0 (the 2010 data) | page 438 |
+| JEW | RELIG is 3 (its remark about OTHJEW is for 2008 only) | page 314 |
+| VETYEARS | always | page 2956 |
+
+The inputs are the same as in 2008.
+
+**What the 2010 data settled.**
+
+- **RELITEN.** Its "Not applicable" label says that RELIG "Don't know" was not asked it.
+  The 2010 data shows it asked after RELIG "Don't know" too. The instrument asks
+  everyone.
+- **VETYEARS.** Its wording has two parts: "Have you ever been on active duty ...?",
+  then "IF YES: What was your total time on active duty?". It is one variable: "No active
+  duty" answers the first part, and the lengths of time answer the second. The codebook
+  gives no filter, and the 2010 data shows everyone asked. The instrument asks it of
+  everyone, as one question.
+- **RINCOM06.** As in 2008: the 2010 data shows it "iap" for the same respondents as
+  RINCOME, at every value of WRKSTAT.
+- **AGEKDBRN, DENOM, NUMEMPS, USCITZN.** The 2010 data shows the same as the 2008 data.
+- **PARTFULL.** In the 2008 and 2010 data, PARTFULL is "iap" after WEEKSWRK "Don't
+  know". The codebook gives only "Punch 0 in WKSWRK". In QREtools 2.0.0-alpha.9 a number
+  question's "Don't know" has no value in a condition, so the 2010 instrument asks
+  PARTFULL when WEEKSWRK has a value that isn't 0. This also skips WEEKSWRK "No answer",
+  which shows nothing about who was asked (below). The 2008 instrument still asks PARTFULL
+  after a WEEKSWRK with no value.
+- **HRS2.** In the 2010 data, a few respondents with WRKSTAT 3 are "iap" for HRS2.
+  Nothing in the codebook says why. The instrument follows HRS2's filter.
+- **No answer.** Where a respondent gave no answer to a filter question (WRKSTAT, RELIG),
+  the 2010 data codes the follow-up questions "No answer", not "iap". This
+  doesn't show who was asked. The instruments treat them as in 2008.
+
+Measured with QREtools 2.0.0-alpha.9: `qretools instrument check` gives 0 findings, and
+`qretools paths` counts 5,760 ways through the routing, 14 to 28 questions on each
+(median 21). Each of the 31 questions asked is reachable.
 
 ## Universes we wrote
 

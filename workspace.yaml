@@ -31,3 +31,4 @@ agency: us.jhu
 # check on every pull request.
 locked:
   jhucities/qretools-gss@v3: 938563ccf161e5292682311a6f8e86d45ac35ced
+  jhucities/qretools-gss@v5: f491d29117f0f7f7f5bfda07ed3a9d73bf0fcf6d
