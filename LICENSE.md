@@ -33,6 +33,8 @@ It's in these files, each of which opens with a comment naming its codebook:
 - `universes/`, except those we wrote (listed in `README.md`: `born_outside_us`,
   `other_language_speakers`, `self_employed`, `has_supervisor` and `supervises_someone`);
 - `tools/generate.py`, whose `SPEC` holds spans of the codebooks' wording.
+- `instruments/`, whose comments and input descriptions quote the cumulative codebook's
+  variable names and routing notes.
 
 The 2022 codebook carries this notice, which applies to that material here (from both
 codebooks) and to any copy of it. It is quoted as printed, with its spacing and quotation marks made plain:

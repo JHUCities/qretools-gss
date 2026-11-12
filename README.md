@@ -63,7 +63,8 @@ One name here differs from the GSS variable: `divorced` is GSS `DIVORCE`. (From 
 ## Its DDI and its releases
 
 Every push to `main` publishes the workspace's DDI at
-<https://jhucities.github.io/qretools-gss/ddi.json>.
+<https://jhucities.github.io/qretools-gss/ddi.json>, and each instrument's DDI beside it,
+in `instruments/` (`gss_2008.json`).
 
 An instrument uses a release of this workspace, named by its tag:
 `uses: gss: JHUCities/qretools-gss@v3`. It gets the questions as they were at that tag.
@@ -86,8 +87,126 @@ existed, so its questions all read as version 1.
 `v1` and `v2` were made from an earlier import, which took its material from the GSS
 Data Explorer's documentation, and held an instrument, `replicating_core`. An import from
 the 2022 codebook followed, but the replay replaced it before any release. From `v3`, each
-tag holds one year of the replay, in the order of the survey years: `v3` is 2008. An
-instrument for each GSS year comes in a later pull request.
+tag holds one year of the replay, in the order of the survey years: `v3` is 2008. The
+instrument for each GSS year comes in the pull request after that year's questions.
+
+## The 2008 instrument
+
+`instruments/gss_2008.yaml` asks the 2008 questions. It reads this workspace at `v3`
+(`uses: gss: JHUCities/qretools-gss@v3`), and `workspace.yaml` locks that tag to its
+commit. Each comment in the file names the codebook page that a condition comes from.
+
+**The 2008 data.** Where the codebook is unclear or contradicts itself, the owner settled
+who was asked from the GSS 1972-2024 cumulative data file (release 3a), read locally: in 2008, a question counts
+as asked of a respondent unless the value is "iap" (inapplicable). No figure from the data
+is published here, because the data is not licensed for publication.
+
+**Order.** The cumulative codebook's question numbers, which follow its pages. They are
+the codebook's order, not known to be the order of the 2008 interview: for example,
+BETRLANG (755 B) comes after SPKLANG (748 E), and the questions on work come first.
+
+**Routing.** What the codebook states, from three places, checked against the 2008 data:
+
+- the "IF …" filter of a question (its `universe`);
+- a routing note in a response label, such as "(ASK HRS1)" or "(Go to MARITAL)";
+- a remark or a "Not applicable" label that says who was asked.
+
+A question with none of these is asked of everyone, unless the 2008 data shows a skip
+(AGEKDBRN). The codebook shows no form or
+ballot split for these questions in 2008, so the instrument has none.
+
+| Question | Asked when | Codebook |
+|---|---|---|
+| HRS1 | WRKSTAT is 1 or 2 | pages 122, 123 |
+| HRS2 | WRKSTAT is 3 | pages 122, 124 |
+| EVWORK | WRKSTAT is 5, 6, 7 or 8 | pages 122, 124 |
+| WRKGOVT | EVWORK isn't "No" ("Go to MARITAL"; "Not applicable (never worked)") | pages 124, 127 |
+| DIVORCE (`divorced`) | MARITAL is 1 or 2 | pages 135, 136 |
+| WIDOWED | MARITAL is 1, 3 or 4 | page 137 |
+| AGEKDBRN | CHILDS isn't 0 (the 2008 data) | page 176 |
+| RINCOME | the question before it is "Yes" (input `earned_income`) | page 217 |
+| DENOM | RELIG is 1 or 11 (Christian; the 2008 data) | page 312 |
+| JEW | RELIG is 3 | page 314 |
+| RELITEN | RELIG isn't Don't know | page 318 |
+| PARTFULL | WEEKSWRK isn't 0 | page 438 |
+| OTHLANG1, SPKLANG, BETRLANG | OTHLANG is 1 ("No (GO TO PARLANG)") | page 1284 |
+| NUMEMPS | the part before it is "Self-employed" (input `self_employed`; the 2008 data) | page 1625 |
+| LOCALNUM | WRKSTAT is 1, 2 or 3 (the remarks, "Beginning in 1994") | page 2437 |
+| USCITZN | BORN is "No" (input `born_in_us`; the 2008 data) | pages 210, 2954 |
+| FUCITZN | USCITZN is 2 or Refused | page 2954 |
+
+**Inputs.** Each one is a value that the routing or the wording needs and this workspace
+doesn't hold:
+
+- `self_employed`: the first part of the NUMEMPS question, GSS WRKSLF.
+- `earned_income`: the question before RINCOME.
+- `born_in_us`: GSS BORN, outside this workspace's scope.
+- `last_year`: the year that "[the previous year]" means in WEEKSWRK, PARTFULL and
+  RINCOME.
+- `occupation`: the occupation that RINCOME names, from questions this workspace doesn't
+  hold.
+- `are` and `do`: the codebook writes "(Are/Were)" in WRKGOVT and "Do/did" in NUMEMPS,
+  and doesn't say which word is read to whom.
+
+RELITEN names the religion from RELIG's answer (`label(gss.relig)`), which the workspace
+holds.
+
+A question that not everyone reaches has a universe. Where the workspace's question has
+none, the instrument gives it one, in our own words.
+
+**Not asked.** Six of the 36 questions:
+
+- `race`: its remarks say RACE was asked from 1972 to 2000, and replaced by RACECEN1-3
+  and imputed from 2002. The cumulative codebook shows values for it in 2008, so the
+  workspace holds it, but nobody was asked it.
+- `racecen2`, `racecen3`, `eth2`, `eth3` and `othlang2`: the second and third mentions
+  in answer to the question that `racecen1`, `eth1` and `othlang1` ask. They are further
+  answers to one question, not further questions, and an instrument can't yet record
+  more than one mention of an answer.
+
+**What the codebook doesn't settle, and how the 2008 data settled it.**
+
+- **USCITZN.** Its "Not applicable" label reads "Not Punch 1 in BORN", which would mean
+  that only people born in the country were asked. The question's own answers, and the
+  workspace's universe `born_outside_us`, say the opposite. The 2008 data confirms the
+  opposite: it was asked after BORN "No", and never after "Yes". The instrument asks it
+  after BORN "No".
+- **WIDOWED.** Its "Not applicable" label reads "Punches 3-5 in MARITAL", which disagrees
+  with its own filter (married, separated or divorced). The instrument follows the filter.
+- **LOCALNUM.** Its heading says it is for those whose employer has more than one
+  location, but the codebook shows answers to that screener (NUMSITES) only in 1988-91. The
+  instrument follows the remark for 1994 on.
+- **NUMEMPS.** Its remarks limit it to WRKSTAT 1-3, and its wording skips it after "No"
+  to "Do/did you have any employees?". The 2008 data shows neither: it was asked of
+  everyone self-employed, whatever WRKSTAT was, and "0" employees is an answer. The
+  instrument asks it after "Self-employed" only.
+- **JEW.** Its remark for 2008 says that OTHJEW "Yes" or "Half or part" also led to JEW.
+  The 2008 data shows JEW skipped for those respondents. The instrument asks it after
+  RELIG "Jewish" only.
+- **RELITEN.** "ASK EVERYONE WITH ANY RELIGIOUS PREFERENCE NAMED IN RELIG" could leave out
+  "None", but RELITEN has the answer "No religion", and its "Not applicable" names only
+  Don't know. The 2008 data shows no skip for the other religions. The instrument asks
+  everyone except Don't know.
+- **AGEKDBRN.** The codebook gives no filter, although it asks about a first child. The
+  2008 data shows it skipped after CHILDS "None". The instrument asks it unless CHILDS
+  is 0.
+- **BETRLANG.** It is printed under another question (755 B), after PARLANG, where OTHLANG
+  "No" goes, and it has no filter. The condition, OTHLANG "Yes", is the workspace's own
+  universe for it (`other_language_speakers`). SPKLANG's direction, to ask about the most
+  fluent language, suggests that BETRLANG came before SPKLANG in the interview.
+- **DENOM.** Its "Not applicable" label says that RELIG 5 and 11 were "often" or
+  "sometimes" asked it too. The 2008 data shows it asked after 11 (Christian) every time,
+  and never after 5. The instrument asks it after RELIG 1 or 11.
+- **Codes for missing values.** The conditions on RELITEN and FUCITZN name the codebook's
+  "Don't know" (98) and "Refused" (9) by the letters in `missing.yaml`, `D` and `R`,
+  matched by label.
+- **Who is asked the questions before RINCOME and NUMEMPS** (inputs here) is not in the
+  codebook's entries for those questions.
+
+Measured with QREtools 2.0.0-alpha.8: `qretools instrument check` gives 0 findings, and
+`qretools paths` counts 5,760 ways through the routing, 13 to 27 questions on each
+(median 20). Each of the 30 questions asked is reachable. QREtools 2.0.0-alpha.9 gives
+the same results.
 
 ## Universes we wrote
 
