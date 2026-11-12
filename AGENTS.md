@@ -202,8 +202,8 @@ cumulative codebook stay in `sources/`, because some of them hold counts.
   (`LICENSE.md`). Never take wording, codes or labels from NORC's website, the GSS Data
   Explorer or a package that copies them: the website's terms forbid it. Another
   codebook may be added only with a permission notice, recorded in `LICENSE.md`.
-- **Every file with NORC's material keeps the notice comment** that `tools/generate.py`
-  writes at its top.
+- **The notice lives in `LICENSE.md` alone.** Don't add a notice comment to a file;
+  `LICENSE.md` lists the files that hold NORC's material.
 - **Never invent or paraphrase wording.** Where the codebook has none, leave the item out
   and say so in `README.md`. Titles, intents and concept labels are ours, in our own words.
 - **No counts or percentages.** They come from the data, not the questionnaire. The
