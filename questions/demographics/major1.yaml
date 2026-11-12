@@ -1,0 +1,12 @@
+name: major1
+title: Field of study, first
+text: What was your major or field of study when you received your {{degree}} degree?
+intent: Field of study, as the GSS Replicating Core measures it (MAJOR1).
+concept: education
+universe: college_degree
+responses: college_major
+instruction: IF THE RESPONDENT RECEIVED MORE THAN ONE GRADUATE LEVEL DEGREE, ASK ABOUT THE HIGHEST DEGREE OBTAINED (E.G. ABOUT A Ph.D. RATHER THAN AN M.B.A).
+source: GSS MAJOR1; GSS 1972-2018 cumulative codebook (NORC), page 184; asked in the 2012 survey
+note: "Codebook wording: What was your major or field of study when you received your (RESPONDENT'S COLLEGE DEGREE) degree? IF THE RESPONDENT RECEIVED MORE THAN ONE GRADUATE LEVEL DEGREE, ASK ABOUT THE HIGHEST DEGREE OBTAINED (E.G. ABOUT A Ph.D. RATHER THAN AN M.B.A). [COUNT UP TO 2 MENTIONS]"
+fills:
+  degree: text

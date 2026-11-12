@@ -11,8 +11,8 @@ the questions of SPEC that the source says were asked in any replay year up to <
 NORC's material here comes only from those codebooks, under the 2022 codebook's
 permission notice (see LICENSE.md): question text, filters, interviewer directions,
 codes and their labels, and the reserved (missing-value) codes. Each text of NORC's in
-SPEC is a span of its variable's codebook wording, word for word apart from case and
-spacing, where a {{fill}} stands for the codebook's placeholder: the asserts below check
+SPEC is a span of its variable's codebook wording (or of the variable's that `wording`
+names), word for word apart from case and spacing, where a {{fill}} stands for the codebook's placeholder: the asserts below check
 it for the questions written. Titles, intents, concept labels and the universes in OURS
 are our own words.
 """
@@ -65,8 +65,9 @@ SCALES = {"yes_no": "widowed", "yes_no_3_4": "wksubs1", "race_census": "racecen1
 
 # name: (folder, concept, title, fields). The title is ours. Fields: text (the question, a
 # span of the codebook's label), universe, instruction (a span of the label), fills,
-# number (its unit), scale, variant_of (ours), and gss (the GSS variable, where its name
-# differs).
+# number (its unit), scale, variant_of (ours), gss (the GSS variable, where its name
+# differs), and wording (the variable under which the codebook prints the wording, where
+# the variable has none of its own).
 D, W = "demographics", "work"
 SPEC = {
     "racecen1": (D, "race", "Race, first mentioned", dict(text="What is your race? Indicate one or more races that you consider yourself to be.", scale="race_census")),
@@ -80,12 +81,12 @@ SPEC = {
     "marital": (D, "marital_status", "Marital status", dict(text="Are you currently--married, widowed, divorced, separated, or have you never been married?")),
     "widowed": (D, "marital_status", "Ever widowed", dict(text="Have you ever been widowed?", universe="currently_married_separated_divorced", scale="yes_no")),
     "divorced": (D, "marital_status", "Ever divorced or separated", dict(gss="divorce", text="Have you ever been divorced or legally separated?", universe="currently_married_widowed", scale="yes_no")),
-    "posslq": (D, "marital_status", "Living arrangement with a partner", dict(text="Which of these statements applies to you?")),
-    "posslqy": (D, "marital_status", "Living arrangement with a partner, Y wording", dict(text="Which of these statements applies to you?", variant_of={"posslq": "the Y form of the X/Y wording experiment: option 2 reads 'steady partner' for 'living as married'"})),
+    "posslq": (D, "marital_status", "Living arrangement with a partner", dict(text="Which of these statements applies to you?", instruction="CODE ONE ONLY.")),
+    "posslqy": (D, "marital_status", "Living arrangement with a partner, Y wording", dict(text="Which of these statements applies to you?", instruction="CODE ONE ONLY.", variant_of={"posslq": "the Y form of the X/Y wording experiment: option 2 reads 'steady partner' for 'living as married'"})),
     "childs": (D, "number_of_children", "Number of children", dict(text="How many children have you ever had? Please count all that were born alive at any time (including any you had from a previous marriage).", number=None)),
     "agekdbrn": (D, "age_at_first_birth", "Age when the first child was born", dict(text="How old were you when your first child was born?", number="years")),
-    "major1": (D, "education", "Field of study, first", dict(text="What was your major or field of study when you received your {{degree}} degree?", instruction="IF THE RESPONDENT RECEIVED MORE THAN ONE GRADUATE LEVEL DEGREE, ASK ABOUT THE HIGHEST DEGREE OBTAINED (E.G. ABOUT A Ph.D. RATHER THAN AN M.B.A).", fills={"degree": "text"}, scale="college_major")),
-    "major2": (D, "education", "Field of study, second", dict(text="What was your major or field of study when you received your {{degree}} degree?", instruction="IF THE RESPONDENT RECEIVED MORE THAN ONE GRADUATE LEVEL DEGREE, ASK ABOUT THE HIGHEST DEGREE OBTAINED (E.G. ABOUT A Ph.D. RATHER THAN AN M.B.A).", fills={"degree": "text"}, scale="college_major", variant_of={"major1": "the second field of study mentioned in answer to the same question"})),
+    "major1": (D, "education", "Field of study, first", dict(text="What was your major or field of study when you received your {{degree}} degree?", instruction="IF THE RESPONDENT RECEIVED MORE THAN ONE GRADUATE LEVEL DEGREE, ASK ABOUT THE HIGHEST DEGREE OBTAINED (E.G. ABOUT A Ph.D. RATHER THAN AN M.B.A).", fills={"degree": "text"}, universe="college_degree", scale="college_major")),
+    "major2": (D, "education", "Field of study, second", dict(text="What was your major or field of study when you received your {{degree}} degree?", instruction="IF THE RESPONDENT RECEIVED MORE THAN ONE GRADUATE LEVEL DEGREE, ASK ABOUT THE HIGHEST DEGREE OBTAINED (E.G. ABOUT A Ph.D. RATHER THAN AN M.B.A).", fills={"degree": "text"}, universe="college_degree", scale="college_major", wording="major1", variant_of={"major1": "the second field of study mentioned in answer to the same question"})),
     "relig": (D, "religious_affiliation", "Religion", dict(text="What is your religious preference? Is it Protestant, Catholic, Jewish, some other religion, or no religion?")),
     "denom": (D, "religious_affiliation", "Protestant denomination", dict(text="What specific denomination is that, if any?", instruction="PROBE FOR EXACT DENOMINATION")),
     "other": (D, "religious_affiliation", "Other Protestant denomination", dict(text="What specific denomination is that, if any?", variant_of={"denom": "the GSS's detailed list of other Protestant denominations, coded from the same question"})),
@@ -146,8 +147,9 @@ UNIVERSES = {
     "self_employed": "Respondents who are or were self-employed",
     "has_supervisor": "Respondents who have a supervisor at work",
     "supervises_someone": "Respondents who supervise someone at work",
+    "college_degree": "Respondents with a junior college degree or higher",
 }
-OURS = {"born_outside_us", "other_language_speakers", "self_employed", "has_supervisor", "supervises_someone"}
+OURS = {"born_outside_us", "other_language_speakers", "self_employed", "has_supervisor", "supervises_someone", "college_degree"}
 
 # The 2022 codebook writes labels in capitals. These lists are mostly names, so each word gets
 # a capital, except small words such as "and" (SMALL); the others are in sentence case.
@@ -252,6 +254,8 @@ assert not CUMULATIVE or YEAR in REPLAY, f"{YEAR} isn't a year of the replay"
 QUESTIONS = {n: v for n, v in SPEC.items() if first_asked(n)}
 # Entries the extractor couldn't read in full, kept only for the reason given.
 KNOWN_PROBLEMS = {"eth3": "three rows (28, 36, 37) lack a count in one column; their codes and labels are read, and ETH2 gives the same ones to the ancestry scale",
+                  "major1": "a stray number after code 71's second line; MAJOR2 and another table print the label without it",
+                  "major2": "no wording of its own: its table follows MAJOR1's, whose question counts up to 2 mentions, so its wording is MAJOR1's",
                   "rincom06": "its 2016 column holds only Don't know and No answer counts; that doesn't change the first year that asked it",
                   "vetyears": "one row (4) lacks a count in one column; its code and label are read, and its other rows give the years asked"}
 for n in QUESTIONS:
@@ -263,8 +267,7 @@ assert not CUMULATIVE or YEAR in SOURCE["columns"], f"{YEAR} isn't a column of t
 # Each text of NORC's is the codebook's, word for word. Only the questions written are
 # checked: an item's text is set to its source in the year it is first asked.
 for name, (_, _, _, f) in QUESTIONS.items():
-    entry = ENTRIES[gss(name)]
-    label = label_of(entry)
+    label = label_of(ENTRIES[f.get("wording", gss(name))])
     for key in ("text", "instruction"):
         assert key not in f or is_span(f[key], {"label": label}), f"{name}.{key} isn't in the codebook's wording: {label}"
     if "universe" in f and f["universe"] not in OURS:
@@ -325,7 +328,9 @@ for name, (folder, concept, title, f) in QUESTIONS.items():
     survey = f"; asked in the {first_asked(name)} survey" if CUMULATIVE else ""
     out.append(f"source: {scalar(f'GSS {var.upper()}; {CITE}, page {page}{survey}')}")
     if CUMULATIVE:  # remarks stay in the source: some hold counts
-        note = (f"Codebook stem: {entry['stem']} " if "stem" in entry else "") + f"Codebook wording: {entry['wording']}"
+        shown = ENTRIES[f["wording"]] if "wording" in f else entry
+        under = f", printed under {f['wording'].upper()}" if "wording" in f else ""
+        note = (f"Codebook stem: {shown['stem']} " if "stem" in shown else "") + f"Codebook wording{under}: {shown['wording']}"
     else:
         note = f"Codebook label: {entry['label']}" + (f" Codebook notes: {entry['notes']}" if entry["notes"] else "")
     out.append(f"note: {scalar(note)}")

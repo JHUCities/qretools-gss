@@ -1,0 +1,15 @@
+name: posslqy
+title: Living arrangement with a partner, Y wording
+text: Which of these statements applies to you?
+intent: Marital and partnership status, as the GSS Replicating Core measures it (POSSLQY).
+concept: marital_status
+responses:
+  "1": I am married and living in the same household as my husband or wife.
+  "2": I have a steady partner, and we live in the same household.
+  "3": I have a husband or wife or steady partner, but we don’t live in the same household.
+  "4": I don’t have a steady partner.
+instruction: CODE ONE ONLY.
+source: GSS POSSLQY; GSS 1972-2018 cumulative codebook (NORC), page 2182; asked in the 2012 survey
+note: "Codebook wording: Which of these statements applies to you? CODE ONE ONLY."
+variant_of:
+  posslq: "the Y form of the X/Y wording experiment: option 2 reads 'steady partner' for 'living as married'"
