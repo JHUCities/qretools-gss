@@ -5,5 +5,6 @@ intent: Number of siblings, as the GSS Replicating Core measures it (SIBS).
 concept: siblings
 number:
   min: 0
+  max: 97
 source: GSS SIBS; GSS 1972-2018 cumulative codebook (NORC), page 174; asked in the 2008 survey
 note: "Codebook wording: How many brothers and sisters did you have? Please count those born alive, but no longer living, as well as those alive now. Also include stepbrothers and stepsisters, and children adopted by your parents."

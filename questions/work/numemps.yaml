@@ -6,6 +6,7 @@ concept: number_of_employees
 universe: self_employed
 number:
   min: 0
+  max: 99999
 source: GSS NUMEMPS; GSS 1972-2018 cumulative codebook (NORC), page 1625; asked in the 2008 survey
 note: "Codebook wording: Are/were you self-employed or do/did you work for someone else? [If \"Self-employed\"] Do/did you have any employees? [If \"Yes\"] How many employees do/did you have?"
 fills:
