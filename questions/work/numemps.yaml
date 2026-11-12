@@ -1,22 +1,13 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: numemps
 title: Number of employees
 text: How many employees {{do}} you have?
 intent: Employees of the self-employed, as the GSS Replicating Core measures it (NUMEMPS).
 concept: number_of_employees
 universe: self_employed
-responses:
-  "0": "0"
-  "1": "1-9"
-  "10": "10-19"
-  "20": "20-29"
-  "35": "30-39"
-  "40": "40-49"
-  "50": "50-59"
-  "70": "70-79"
-  "80": "80-89"
-  "97": "97"
-source: GSS NUMEMPS; GSS 2022 codebook (NORC), page 334
-note: "Codebook label: Are/were you self-employed or do/did you work for someone else? [If 'Self-employed'] Do/did you have any employees? [If 'Yes'] How many employees do/did you have? Codebook notes: If respondents answered 'Self-employed' to the first part but 'No' to the second part, they did not receive the third part of the question."
+number:
+  min: 0
+source: GSS NUMEMPS; GSS 1972-2018 cumulative codebook (NORC), page 1625; asked in the 2008 survey
+note: "Codebook wording: Are/were you self-employed or do/did you work for someone else? [If \"Self-employed\"] Do/did you have any employees? [If \"Yes\"] How many employees do/did you have?"
 fills:
   do: text

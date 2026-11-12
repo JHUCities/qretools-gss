@@ -1,4 +1,4 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: race
 title: Race, three groups
 text: What race do you consider yourself?
@@ -7,7 +7,7 @@ concept: race
 responses:
   "1": White
   "2": Black
-  "3": Other
+  "3": Other (SPECIFY)
 instruction: RECORD VERBATIM AND CODE. CODE WITHOUT ASKING ONLY IF THERE IS NO DOUBT IN YOUR MIND.
-source: GSS RACE; GSS 2022 codebook (NORC), page 162
-note: "Codebook label: What race do you consider yourself? RECORD VERBATIM AND CODE. CODE WITHOUT ASKING ONLY IF THERE IS NO DOUBT IN YOUR MIND. Codebook notes: Prior to 2021, interviewer coded, except when asked per instructions. If planning to perform trend analysis with this variable, please consult GSS Methodological Report No. 56. RACE was replaced with RACECEN1,2,3 in 2002, but imputed for trend analysis. I"
+source: GSS RACE; GSS 1972-2018 cumulative codebook (NORC), page 203; asked in the 2008 survey
+note: "Codebook wording: What race do you consider yourself? RECORD VERBATIM AND CODE. CODE WITHOUT ASKING ONLY IF THERE IS NO DOUBT IN YOUR MIND."

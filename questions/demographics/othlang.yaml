@@ -1,9 +1,9 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: othlang
 title: Speaks another language
 text: Can you speak a language other than English [Spanish]?
 intent: Languages spoken, as the GSS Replicating Core measures it (OTHLANG).
 concept: language
 responses: yes_no
-source: GSS OTHLANG; GSS 2022 codebook (NORC), page 320
-note: "Codebook label: Can you speak a language other than English [Spanish]? Codebook notes: For those interviewed in Spanish, they were asked if they spoke a language other than Spanish."
+source: GSS OTHLANG; GSS 1972-2018 cumulative codebook (NORC), page 1284; asked in the 2008 survey
+note: "Codebook wording: Can you speak a language other than English [Spanish]?"

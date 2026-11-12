@@ -1,4 +1,4 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: uscitzn
 title: U.S. citizenship
 text: Now we would like to ask you about U.S. citizenship. Are you…
@@ -8,7 +8,7 @@ universe: born_outside_us
 responses:
   "1": A U.S. citizen
   "2": Not a U.S. citizen
-  "3": A U.S. citizen born in puerto rico, the U.S. virgin islands, or the northern marianas islands
-  "4": Born outside of the U.S. to parents who were U.S. citizens at that time
-source: GSS USCITZN; GSS 2022 codebook (NORC), page 358
-note: "Codebook label: Now we would like to ask you about U.S. citizenship. Are you… Codebook notes: RESPONDENT SAYS S/HE IS 'NATURALIZED,' CODE 'A U.S. CITIZEN.' USCITZNV and USCITZNNV replace USCITZN in the 2022 GSS Cross-section web mode. This variable shows sensitivity to mode of administration. Research and interpretation done using the data should take extra care to ensure the analysis reflects actual changes in public opinion and is not unduly influenced by the change in data collection methods."
+  "3": A U.S. citizen born in Puerto Rico, the U.S. Virgin Islands, or the Northern Marianas Islands (if volunteered)
+  "4": Born outside of the US to parents who were U.S. citizens at that time (if volunteered)
+source: GSS USCITZN; GSS 1972-2018 cumulative codebook (NORC), page 2954; asked in the 2008 survey
+note: "Codebook wording: Now we would like to ask you about U.S. citizenship. Are you…"

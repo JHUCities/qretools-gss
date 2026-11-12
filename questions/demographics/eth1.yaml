@@ -1,9 +1,52 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: eth1
 title: Ancestry, first country
 text: From what countries or part of the world did your ancestors come?
 intent: Ancestry, as the GSS Replicating Core measures it (ETH1).
 concept: ethnicity
-responses: ancestry
-source: GSS ETH1; GSS 2022 codebook (NORC), page 349
-note: "Codebook label: (From what countries or part of the world did your ancestors come?) FIRST ETHNICITY MENTIONED"
+responses:
+  "1": Africa
+  "2": Austria
+  "3": Canada (French)
+  "4": Canada (Other)
+  "5": China
+  "6": Czechoslovakia
+  "7": Denmark
+  "8": England and Wales
+  "9": Finland
+  "10": France
+  "11": Germany
+  "12": Greece
+  "13": Hungary
+  "14": Ireland
+  "15": Italy
+  "16": Japan
+  "17": Mexico
+  "18": Netherlands (Dutch/Holland)
+  "19": Norway
+  "20": Philippines
+  "21": Poland
+  "22": Puerto Rico
+  "23": Russia (USSR)
+  "24": Scotland
+  "25": Spain
+  "26": Sweden
+  "27": Switzerland
+  "28": West Indies (Not Specified)
+  "29": Other (SPECIFY)
+  "30": American Indian
+  "31": India
+  "32": Portugal
+  "33": Lithuania
+  "34": Yugoslavia
+  "35": Romania
+  "36": Belgium
+  "37": Arabic
+  "38": Other Spanish
+  "39": West Indies (Non-Spanish)
+  "40": Other Asian
+  "41": Other European
+  "97": American Only
+  "98": No ethnicity mentioned
+source: GSS ETH1; GSS 1972-2018 cumulative codebook (NORC), page 2934; asked in the 2008 survey
+note: "Codebook stem: From what countries or part of the world did your ancestors come? Codebook wording: FIRST ETHNICITY MENTIONED"

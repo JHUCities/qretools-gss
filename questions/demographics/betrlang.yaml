@@ -1,4 +1,4 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: betrlang
 title: Language spoken more fluently
 text: Which language do you speak more fluently?
@@ -8,5 +8,5 @@ universe: other_language_speakers
 responses:
   "1": First language mentioned
   "2": Second language mentioned
-source: GSS BETRLANG; GSS 2022 codebook (NORC), page 325
-note: "Codebook label: Which language do you speak more fluently?"
+source: GSS BETRLANG; GSS 1972-2018 cumulative codebook (NORC), page 1302; asked in the 2008 survey
+note: "Codebook wording: Which language do you speak more fluently?"

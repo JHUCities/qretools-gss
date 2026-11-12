@@ -3,12 +3,19 @@
 This repository holds two kinds of material, under different terms, and most files mix
 them.
 
-## NORC's material: from the 2022 GSS codebook, under its notice
+## NORC's material: from two GSS codebooks, under the 2022 codebook's notice
 
 The General Social Survey's material here is NORC's (NORC at the University of
-Chicago). From release `v3` on, all of it comes from one source: the
-[GSS 2022 codebook](https://gss.norc.org/content/dam/gss/get-documentation/pdf/codebook/GSS%202022%20Codebook.pdf)
-(Release 4, November 21, 2024). It is:
+Chicago). From release `v3` on, all of it comes from two sources:
+
+- the [GSS 2022 codebook](https://gss.norc.org/content/dam/gss/get-documentation/pdf/codebook/GSS%202022%20Codebook.pdf)
+  (Release 4, November 21, 2024), which carries the notice below;
+- the [GSS 1972-2018 cumulative codebook](https://gss.norc.org/content/dam/gss/get-documentation/pdf/codebook/GSS_Codebook_mainbody.pdf)
+  (main body, December 2019), used from the replay of 2008 on. It carries no notice of
+  its own. By the owner's decision of 2026-11-12, the 2022 codebook's notice is applied
+  to it. That is our decision, not a grant from NORC.
+
+The material is:
 
 - question wording and interviewer instructions, word for word;
 - response codes and their labels, and the reserved (missing-value) codes;
@@ -16,16 +23,19 @@ Chicago). From release `v3` on, all of it comes from one source: the
 - the filters quoted in universes;
 - the codebook's labels and notes, quoted in each question's `note`.
 
-It's in these files, each of which opens with a comment naming the codebook:
+It's in these files, each of which opens with a comment naming its codebook:
 
-- `sources/gss-2022-codebook.json`, the entries `tools/extract.py` takes from the codebook;
-- `questions/`, `scales/` and `missing.yaml`;
-- `universes/`, except `born_outside_us`, `other_language_speakers`, `self_employed`,
-  `has_supervisor` and `supervises_someone`, which are ours;
-- `tools/generate.py`, whose `SPEC` holds spans of the codebook's wording.
+- `sources/gss-2022-codebook.json`, the entries `tools/extract.py` takes from the 2022
+  codebook, and `missing.yaml`;
+- `sources/gss-1972-2018-codebook.json`, the entries `tools/extract_cumulative.py` takes
+  from the cumulative codebook, which carries the notice below and says it is applied;
+- `questions/` and `scales/`;
+- `universes/`, except those we wrote (listed in `README.md`: `born_outside_us`,
+  `other_language_speakers`, `self_employed`, `has_supervisor` and `supervises_someone`);
+- `tools/generate.py`, whose `SPEC` holds spans of the codebooks' wording.
 
-The codebook carries this notice, which applies to that material here and to any copy
-of it. It is quoted as printed, with its spacing and quotation marks made plain:
+The 2022 codebook carries this notice, which applies to that material here (from both
+codebooks) and to any copy of it. It is quoted as printed, with its spacing and quotation marks made plain:
 
 > Copyright 2021-2024 NORC
 >
@@ -58,6 +68,8 @@ Some examples:
 - the titles, intents and concept labels;
 - the `{{fill}}` placeholders and fill names;
 - the universes we wrote, listed above;
+- the tools' rules for reading the codebooks (which rows are missing values, which lines
+  are wording);
 - the names of scales, universes and concepts;
 - the `variant_of` reasons;
 - the workspace's layout and configuration;

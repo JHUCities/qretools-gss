@@ -1,11 +1,11 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: eth2
 title: Ancestry, second country
 text: From what countries or part of the world did your ancestors come?
 intent: Ancestry, as the GSS Replicating Core measures it (ETH2).
 concept: ethnicity
 responses: ancestry
-source: GSS ETH2; GSS 2022 codebook (NORC), page 351
-note: "Codebook label: (From what countries or part of the world did your ancestors come?) SECOND ETHNICITY MENTIONED"
+source: GSS ETH2; GSS 1972-2018 cumulative codebook (NORC), page 2936; asked in the 2008 survey
+note: "Codebook stem: From what countries or part of the world did your ancestors come? Codebook wording: SECOND ETHNICITY MENTIONED"
 variant_of:
   eth1: the second country mentioned in answer to the same question

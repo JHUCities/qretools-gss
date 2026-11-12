@@ -1,4 +1,4 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: childs
 title: Number of children
 text: How many children have you ever had? Please count all that were born alive at any time (including any you had from a previous marriage).
@@ -6,5 +6,5 @@ intent: Number of children, as the GSS Replicating Core measures it (CHILDS).
 concept: number_of_children
 number:
   min: 0
-source: GSS CHILDS; GSS 2022 codebook (NORC), page 145
-note: "Codebook label: How many children have you ever had? Please count all that were born alive at any time (including any you had from a previous marriage)."
+source: GSS CHILDS; GSS 1972-2018 cumulative codebook (NORC), page 175; asked in the 2008 survey
+note: "Codebook wording: How many children have you ever had? Please count all that were born alive at any time (including any you had from a previous marriage)."

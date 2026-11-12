@@ -1,18 +1,18 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 labels:
   "1": White
   "2": Black or African American
-  "3": American Indian or Alaska Native
+  "3": American Indian or Alaska Native [SPECIFY]
   "4": Asian Indian
   "5": Chinese
   "6": Filipino
   "7": Japanese
   "8": Korean
   "9": Vietnamese
-  "10": Other Asian
+  "10": Other Asian [SPECIFY]
   "11": Native Hawaiian
   "12": Guamanian or Chamorro
   "13": Samoan
-  "14": Other Pacific Islander
-  "15": Some Other Race
+  "14": Other Pacific Islander [SPECIFY]
+  "15": Some other race [SPECIFY]
   "16": Hispanic

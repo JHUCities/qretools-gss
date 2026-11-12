@@ -1,11 +1,11 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: racecen2
 title: Race, second mentioned
 text: What is your race? Indicate one or more races that you consider yourself to be.
 intent: Race, as the GSS Replicating Core measures it (RACECEN2).
 concept: race
 responses: race_census
-source: GSS RACECEN2; GSS 2022 codebook (NORC), page 357
-note: "Codebook label: (What is your race? Indicate one or more races that you consider yourself to be.) Second mention"
+source: GSS RACECEN2; GSS 1972-2018 cumulative codebook (NORC), page 2949; asked in the 2008 survey
+note: "Codebook stem: What is your race? Indicate one or more races that you consider yourself to be. Codebook wording: Second mention"
 variant_of:
   racecen1: the second race mentioned in answer to the same question

@@ -1,4 +1,4 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: spklang
 title: How well the other language is spoken
 text: How well do you speak that language?
@@ -9,7 +9,7 @@ responses:
   "1": Very well
   "2": Well
   "3": Not well
-  "4": Poorly/hardly at all
+  "4": Poorly/Hardly at all
 instruction: IF SPEAKS 2 OR MORE, ASK ONLY OF THE MOST FLUENT LANGUAGE
-source: GSS SPKLANG; GSS 2022 codebook (NORC), page 324
-note: "Codebook label: How well do you speak that language? [IF SPEAKS 2 OR MORE, ASK ONLY OF THE MOST FLUENT LANGUAGE] READ CATEGORIES"
+source: GSS SPKLANG; GSS 1972-2018 cumulative codebook (NORC), page 1296; asked in the 2008 survey
+note: "Codebook wording: How well do you speak that language? [IF SPEAKS 2 OR MORE, ASK ONLY OF THE MOST FLUENT LANGUAGE] READ CATEGORIES"

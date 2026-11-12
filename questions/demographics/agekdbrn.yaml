@@ -1,4 +1,4 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: agekdbrn
 title: Age when the first child was born
 text: How old were you when your first child was born?
@@ -7,5 +7,5 @@ concept: age_at_first_birth
 number:
   min: 0
   unit: years
-source: GSS AGEKDBRN; GSS 2022 codebook (NORC), page 146
-note: "Codebook label: How old were you when your first child was born? Codebook notes: AGEKDBRN is coded in two digits. The collapsed numbers are for convenience of display only."
+source: GSS AGEKDBRN; GSS 1972-2018 cumulative codebook (NORC), page 176; asked in the 2008 survey
+note: "Codebook wording: How old were you when your first child was born?"

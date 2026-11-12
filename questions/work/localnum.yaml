@@ -1,4 +1,4 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: localnum
 title: People at the workplace
 text: About how many people work at the location where you work? (Count part-time as well as full-time employees in all areas, departments and buildings.)
@@ -12,5 +12,5 @@ responses:
   "5": "500-999"
   "6": "1,000-1,999"
   "7": More than 2,000
-source: GSS LOCALNUM; GSS 2022 codebook (NORC), page 339
-note: "Codebook label: About how many people work at the location where you work? (Count part-time as well as full-time employees in all areas, departments and buildings.) Codebook notes: Card A3 contained responses for punches 1-7."
+source: GSS LOCALNUM; GSS 1972-2018 cumulative codebook (NORC), page 2437; asked in the 2008 survey
+note: "Codebook wording: About how many people work at the location where you work? (Count part-time as well as full-time employees in all areas, departments and buildings.)"

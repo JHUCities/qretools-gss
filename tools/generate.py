@@ -1,26 +1,40 @@
-"""Write this GSS example workspace from NORC's 2022 GSS codebook.
+"""Write this GSS example workspace, as it was for one GSS year, from a NORC codebook.
 
-Usage: python -I tools/generate.py [workspace_dir]
-It reads sources/gss-2022-codebook.json, which tools/extract.py makes from the codebook.
+Usage: python -I tools/generate.py <source.json> <year> [workspace_dir]
+For example: python -I tools/generate.py sources/gss-1972-2018-codebook.json 2008
+<source.json> is sources/gss-1972-2018-codebook.json (tools/extract_cumulative.py makes
+it) or sources/gss-2022-codebook.json (tools/extract.py makes it). The workspace gets
+the questions of SPEC that the source says were asked in <year>, and only the scales,
+universes, concepts and units those questions name. missing.yaml always comes from the
+2022 codebook: its letters are this workspace's reserved codes, whatever the source.
 
-NORC's material here comes only from that codebook, under its permission notice (see
-LICENSE.md): question text, filters, interviewer directions, codes and their labels, and
-the reserved (missing-value) codes. Each text of NORC's in SPEC is a span of its
-variable's codebook label, word for word apart from case and spacing, where a {{fill}}
-stands for the codebook's placeholder: the asserts below check it. Titles, intents,
-concept labels and the universes in OURS are our own words.
+NORC's material here comes only from those codebooks, under the 2022 codebook's
+permission notice (see LICENSE.md): question text, filters, interviewer directions,
+codes and their labels, and the reserved (missing-value) codes. Each text of NORC's in
+SPEC is a span of its variable's codebook wording, word for word apart from case and
+spacing, where a {{fill}} stands for the codebook's placeholder: the asserts below check
+it for the year's questions. Titles, intents, concept labels and the universes in OURS
+are our own words.
 """
 import json
 import os
 import re
+import shutil
 import sys
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
-OUT = sys.argv[1] if len(sys.argv) > 1 else ROOT
-SOURCE = json.load(open(os.path.join(ROOT, "sources", "gss-2022-codebook.json"), encoding="utf-8"))
+SOURCE_PATH, YEAR = sys.argv[1], sys.argv[2]
+OUT = sys.argv[3] if len(sys.argv) > 3 else ROOT
+SOURCE = json.load(open(SOURCE_PATH, encoding="utf-8"))
+CUMULATIVE = "notice_applied" in SOURCE
 ENTRIES = SOURCE["entries"]
-# Every file holding NORC's material opens with this line.
-NORC = "# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.\n"
+RESERVED = json.load(open(os.path.join(ROOT, "sources", "gss-2022-codebook.json"), encoding="utf-8"))["entries"]
+# Every file holding NORC's material opens with one of these lines.
+NORC_2022 = "# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.\n"
+NORC = ("# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's"
+        " notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.\n"
+        if CUMULATIVE else NORC_2022)
+CITE = "GSS 1972-2018 cumulative codebook (NORC)" if CUMULATIVE else "GSS 2022 codebook (NORC)"
 
 # Shared concepts: our own labels for the parts of the GSS Replicating Core used here.
 CONCEPTS = {
@@ -50,7 +64,7 @@ CONCEPTS = {
 # Shared scales, each named for the variable whose question it was first written for.
 # A scale holds every code the codebook gives any question that uses it.
 SCALES = {"yes_no": "widowed", "yes_no_3_4": "wksubs1", "race_census": "racecen1",
-          "ancestry": "eth1", "college_major": "major1", "language_list": "othlang1",
+          "ancestry": "eth2", "college_major": "major1", "language_list": "othlang1",
           "income_12": "income", "income_26": "income16"}
 
 # name: (folder, concept, title, fields). The title is ours. Fields: text (the question, a
@@ -63,12 +77,12 @@ SPEC = {
     "racecen2": (D, "race", "Race, second mentioned", dict(text="What is your race? Indicate one or more races that you consider yourself to be.", scale="race_census", variant_of={"racecen1": "the second race mentioned in answer to the same question"})),
     "racecen3": (D, "race", "Race, third mentioned", dict(text="What is your race? Indicate one or more races that you consider yourself to be.", scale="race_census", variant_of={"racecen1": "the third race mentioned in answer to the same question", "racecen2": "the third race mentioned, where racecen2 is the second"})),
     "race": (D, "race", "Race, three groups", dict(text="What race do you consider yourself?", instruction="RECORD VERBATIM AND CODE. CODE WITHOUT ASKING ONLY IF THERE IS NO DOUBT IN YOUR MIND.")),
-    "eth1": (D, "ethnicity", "Ancestry, first country", dict(text="From what countries or part of the world did your ancestors come?", scale="ancestry")),
+    "eth1": (D, "ethnicity", "Ancestry, first country", dict(text="From what countries or part of the world did your ancestors come?")),  # its own list: 98 is an answer here, "Don't know" in ETH2 and ETH3
     "eth2": (D, "ethnicity", "Ancestry, second country", dict(text="From what countries or part of the world did your ancestors come?", scale="ancestry", variant_of={"eth1": "the second country mentioned in answer to the same question"})),
     "eth3": (D, "ethnicity", "Ancestry, third country", dict(text="From what countries or part of the world did your ancestors come?", scale="ancestry", variant_of={"eth1": "the third country mentioned in answer to the same question", "eth2": "the third country mentioned, where eth2 is the second"})),
     "hispanic": (D, "hispanic_origin", "Hispanic or Latino origin", dict(text=("Are you Spanish, Hispanic, or Latino/Latina?", "Which group are you from?"))),
     "sibs": (D, "siblings", "Number of siblings", dict(text="How many brothers and sisters did you have? Please count those born alive, but no longer living, as well as those alive now. Also include stepbrothers and stepsisters, and children adopted by your parents.", number=None)),
-    "marital": (D, "marital_status", "Marital status", dict(text="Are you currently married, widowed, divorced, separated, or have you never been married?")),
+    "marital": (D, "marital_status", "Marital status", dict(text="Are you currently--married, widowed, divorced, separated, or have you never been married?")),
     "widowed": (D, "marital_status", "Ever widowed", dict(text="Have you ever been widowed?", universe="currently_married_separated_divorced", scale="yes_no")),
     "divorced": (D, "marital_status", "Ever divorced or separated", dict(gss="divorce", text="Have you ever been divorced or legally separated?", universe="currently_married_widowed", scale="yes_no")),
     "posslq": (D, "marital_status", "Living arrangement with a partner", dict(text="Which of these statements applies to you?")),
@@ -90,20 +104,22 @@ SPEC = {
     "yrsusa": (D, "citizenship_status", "Years lived in the United States", dict(gss="yearsusa", text="How long have you lived in the United States? If less than a year, please specify the time in months. If you have lived in the United States for more than one period during your life, what is the total number of years you have lived in the United States?", universe="born_outside_us", number="years")),
     "othlang": (D, "language", "Speaks another language", dict(text="Can you speak a language other than English [Spanish]?", scale="yes_no")),
     "othlang1": (D, "language", "Other language, first", dict(text="What other language(s) do you speak?", universe="other_language_speakers", scale="language_list")),
-    "othlang2": (D, "language", "Other language, second", dict(text="What other language(s) do you speak?", universe="other_language_speakers", scale="language_list", variant_of={"othlang1": "the second language mentioned in answer to the same question"})),
+    "othlang2": (D, "language", "Other language, second", dict(text="What other language(s) do you speak?", universe="other_language_speakers", variant_of={"othlang1": "the second language mentioned in answer to the same question"})),
     "betrlang": (D, "language", "Language spoken more fluently", dict(text="Which language do you speak more fluently?", universe="other_language_speakers")),
     "spklang": (D, "language", "How well the other language is spoken", dict(text="How well do you speak that language?", universe="other_language_speakers", instruction="IF SPEAKS 2 OR MORE, ASK ONLY OF THE MOST FLUENT LANGUAGE")),
     "wrkstat": (W, "employment_status", "Work status last week", dict(text="Last week were you working full time, part time, going to school, keeping house, or what?")),
     "evwork": (W, "employment_status", "Ever worked for a year", dict(text="Did you ever work for as long as one year?", universe="not_in_labor_force", scale="yes_no")),
     "wrkselffam": (W, "employment_status", "Works in a family business or farm", dict(gss="wrkslffam", text="{{do}} you work in your own family business or farm?", fills={"do": "text"}, scale="yes_no")),
     "whatslf2": (W, "industry", "Kind of workplace", dict(text="How would you classify the place where you {{work}}? Was this mainly...?", fills={"work": "text"})),
+    "wrkgovt": (W, "sector", "Government or private employer", dict(text="{{are}} you employed by the federal, state or local government or by a private employer (including non-profit organizations)?", fills={"are": "text"})),
     "wrkgovt1": (W, "sector", "Employed by the government", dict(text="{{are}} you employed by the government? (Please consider federal, state, or local government.)", fills={"are": "text"}, scale="yes_no")),
     "wrkgovt2": (W, "sector", "Employed by a private employer", dict(text="{{are}} you employed by a private employer (including non-profit organizations)?", fills={"are": "text"}, scale="yes_no")),
-    "numemps": (W, "number_of_employees", "Number of employees", dict(text="How many employees {{do}} you have?", fills={"do": "text"}, universe="self_employed")),
+    "numemps": (W, "number_of_employees", "Number of employees", dict(text="How many employees {{do}} you have?", fills={"do": "text"}, universe="self_employed", number=None)),
     "hrs1": (W, "labor_supply", "Hours worked last week", dict(text="How many hours did you work last week, at all jobs?", universe="working", number="hours")),
     "hrs2": (W, "labor_supply", "Usual hours of work", dict(text="How many hours a week do you usually work, at all jobs?", universe="with_job_not_at_work", number="hours")),
     "weekswrk": (W, "labor_supply", "Weeks worked last year", dict(text="Now I'd like to ask you about last year. In {{last_year}} how many weeks did you work either full-time or part-time not counting work around the house--include paid vacations and sick leave?", fills={"last_year": "number"}, number="weeks")),
     "partfull": (W, "labor_supply", "Full or part time last year", dict(text="When you worked in {{last_year}}, was it usually full or part time?", fills={"last_year": "number"})),
+    "rincome": (W, "income_from_occupation", "Earnings from work, 12 groups", dict(text="In which of these groups did your earnings from {{job}} for last year--{{last_year}}--fall? That is, before taxes or other deductions.", fills={"job": "text", "last_year": "text"}, scale="income_12")),
     "rincom16": (W, "income_from_occupation", "Earnings from work, 26 groups", dict(text="In which of these groups did your earnings from {{job}}, from all sources for {{last_year}} fall? That is, before taxes or other deductions.", fills={"job": "text", "last_year": "text"}, scale="income_26")),
     "localnum": (W, "size_of_workplace", "People at the workplace", dict(text="About how many people work at the location where you work? (Count part-time as well as full-time employees in all areas, departments and buildings.)")),
     "wksub1": (W, "workplace_hierarchy", "Has a supervisor", dict(text="{{do_you}} have a supervisor on {{your}} job to whom {{you_are}} directly responsible?", fills={"do_you": "text", "your": "text", "you_are": "text"}, scale="yes_no")),
@@ -128,11 +144,10 @@ UNIVERSES = {
     "supervises_someone": "Respondents who supervise someone at work",
 }
 OURS = {"born_outside_us", "other_language_speakers", "self_employed", "has_supervisor", "supervises_someone"}
-UNITS = ["years", "months", "hours", "weeks"]
 
-# The codebook writes labels in capitals. These lists are mostly names, so each word gets
+# The 2022 codebook writes labels in capitals. These lists are mostly names, so each word gets
 # a capital, except small words such as "and" (SMALL); the others are in sentence case.
-NAME_LISTS = {"eth1", "othlang1", "relig", "other", "denom", "jew", "racecen1"}
+NAME_LISTS = {"eth1", "othlang1", "othlang2", "relig", "other", "denom", "jew", "racecen1"}
 PROPER = ["hispanic", "latino", "spanish", "mexican", "american", "puerto rican", "cuban", "english", "french", "chinese", "italian", "german", "african", "alaska", "native", "pacific", "asian", "christian", "protestant", "catholic", "jewish"]
 SMALL = {"and", "or", "of", "the", "in", "a", "to", "&", "for", "general"}
 
@@ -156,6 +171,11 @@ def joined(text):
 
 
 def tidy(label, names):
+    """A label as the respondent reads it: routing and "[See REMARKS]" cut, and capitals made ordinary where the codebook writes them all."""
+    label = re.sub(r"\s*\([^()]*\b(ASK|GO TO|SKIP)\b[^()]*\)", "", label, flags=re.I)
+    label = re.sub(r"\s*\[See REMARKS[^\]]*\]", "", label)  # a cross-reference NORC added, not the label
+    if not label.isupper():
+        return label
     label = label.lower()
     label = re.sub(r"\bu\.s\.", "U.S.", re.sub(r"\bi\b", "I", label))
     label = re.sub(r"\b(" + "|".join(PROPER) + r")\b", lambda m: m[1].title(), label)
@@ -170,8 +190,34 @@ def scalar(s):
     return s if plain else json.dumps(s, ensure_ascii=False)
 
 
+def label_of(entry):
+    """The codebook's wording: the 2022 label, or the cumulative stem and wording."""
+    return entry["label"] if "label" in entry else " ".join(x for x in (entry.get("stem"), entry["wording"]) if x)
+
+
+# The labels the cumulative codebook gives its missing-value rows: these are never
+# responses. Each source's codes are translated to missing.yaml's letters by a later
+# GSS column map, not here.
+MISSING = re.compile(r"(not applicable\b.*|don't know|no answer|refused|don't know, no answer|no answer, don't know"
+                     r"|don't know/uncoded|not possible to code; see ethnic)")
+# "No ethnicity mentioned" (ETH1's 98) is not here: the respondent answered and named no country.
+# A response label with one of these words is a missing-value row this list doesn't name yet.
+SUSPECT = re.compile(r"\b(know|answer|applicable|refused|uncoded|code|iap)\b")
+
+
 def codes(var):
-    return [(c["code"], c["label"]) for c in ENTRIES[var]["codes"]]
+    out = []
+    for c in ENTRIES[var]["codes"]:
+        plain = space(c["label"]).replace("’", "'").lower()
+        if MISSING.fullmatch(plain):
+            continue
+        assert not SUSPECT.search(plain) or plain.endswith("don't know which"), f"{var}: is '{c['label']}' a missing-value row?"
+        out.append((c["code"], space(c["label"])))
+    return out
+
+
+def space(s):
+    return re.sub(r"\s+", " ", s).strip()
 
 
 def code_map(pairs, names, indent="  "):
@@ -189,42 +235,67 @@ def gss(name):
     return SPEC[name][3].get("gss", name)
 
 
-# Each text of NORC's is the codebook's, word for word.
-for name, (_, _, _, f) in SPEC.items():
+def asked(name):
+    entry = ENTRIES.get(gss(name))
+    return entry is not None and ("asked" not in entry or YEAR in entry["asked"])
+
+
+QUESTIONS = {n: v for n, v in SPEC.items() if asked(n)}
+# Entries the extractor couldn't read in full, kept only for the reason given.
+KNOWN_PROBLEMS = {"eth3": "three rows (28, 36, 37) lack a count, so the extractor drops them; ETH2 gives the same codes and labels to the ancestry scale"}
+for n in QUESTIONS:
+    assert not ENTRIES[gss(n)].get("problems") or gss(n) in KNOWN_PROBLEMS, f"{n}: {ENTRIES[gss(n)]['problems']}"
+assert CUMULATIVE or YEAR == "2022", "the 2022 codebook gives the questions of 2022"
+assert set(ENTRIES) <= {gss(n) for n in SPEC}, "the extract has a variable SPEC lacks"
+assert not CUMULATIVE or YEAR in SOURCE["columns"], f"{YEAR} isn't a column of the source"
+
+# Each text of NORC's is the codebook's, word for word. Only the year's questions are
+# checked: an item's text is set to its source in the year it is first asked.
+for name, (_, _, _, f) in QUESTIONS.items():
     entry = ENTRIES[gss(name)]
+    label = label_of(entry)
     for key in ("text", "instruction"):
-        assert key not in f or is_span(f[key], entry), f"{name}.{key} isn't in the codebook's label: {entry['label']}"
+        assert key not in f or is_span(f[key], {"label": label}), f"{name}.{key} isn't in the codebook's wording: {label}"
     if "universe" in f and f["universe"] not in OURS:
-        assert norm(UNIVERSES[f["universe"]]) in norm(entry["label"]), f"{name}'s universe isn't its codebook filter"
-assert set(gss(n) for n in SPEC) == set(ENTRIES), "the extract and SPEC name different variables"
+        assert norm(UNIVERSES[f["universe"]]) in norm(label), f"{name}'s universe isn't its codebook filter"
 assert all(f.get("universe", next(iter(UNIVERSES))) in UNIVERSES for _, _, _, f in SPEC.values())
 assert all(f.get("scale", "yes_no") in SCALES for _, _, _, f in SPEC.values())
-assert all(k in SPEC for _, _, _, f in SPEC.values() for k in f.get("variant_of", {}))
+assert all(k in QUESTIONS for _, _, _, f in QUESTIONS.values() for k in f.get("variant_of", {})), "a variant_of names a question not asked this year"
 
-for scale, first in SCALES.items():
-    users = [gss(n) for n, (_, _, _, f) in SPEC.items() if f.get("scale") == scale]
-    seen = dict(codes(first))
-    for var in users:
+# A scale holds every code the year's questions on it give, and a code means the same on each.
+scales = {}
+for scale in SCALES:
+    for var in [gss(n) for n, (_, _, _, f) in QUESTIONS.items() if f.get("scale") == scale]:
+        seen = scales.setdefault(scale, {})
         for c, l in codes(var):
-            seen.setdefault(c, l)
+            assert tidy(seen.setdefault(c, l), False) == tidy(l, False), f"scale {scale}: code {c} is '{seen[c]}' and '{l}'"
+
+assert "eth3" not in QUESTIONS or {"28", "36", "37"} <= set(scales["ancestry"]), "eth3's dropped rows aren't in the ancestry scale"
+
+# The generated folders are written afresh, so nothing dropped or renamed stays.
+for folder in ("questions", "scales", "universes", "concepts", "units"):
+    shutil.rmtree(os.path.join(OUT, folder), ignore_errors=True)
+
+used = lambda key: {f[key] for _, _, _, f in QUESTIONS.values() if f.get(key)}
+for scale, seen in scales.items():
     ordered = sorted(seen.items(), key=lambda cl: float(cl[0]))
-    write(f"scales/{scale}.yaml", NORC + "labels:\n" + code_map(ordered, first in NAME_LISTS))
-for name, text in UNIVERSES.items():
-    write(f"universes/{name}.yaml", ("" if name in OURS else NORC) + f"text: {scalar(text)}\n")
-for name, label in CONCEPTS.items():
-    write(f"concepts/{name}.yaml", f"label: {scalar(label)}\n")
-for unit in UNITS:
+    write(f"scales/{scale}.yaml", NORC + "labels:\n" + code_map(ordered, SCALES[scale] in NAME_LISTS))
+for name in used("universe"):
+    write(f"universes/{name}.yaml", ("" if name in OURS else NORC) + f"text: {scalar(UNIVERSES[name])}\n")
+for name in {c for _, c, _, _ in QUESTIONS.values()}:
+    write(f"concepts/{name}.yaml", f"label: {scalar(CONCEPTS[name])}\n")
+for unit in used("number"):
     write(f"units/{unit}.yaml", f"label: {unit}\n")
 
-# The reserved codes the codebook gives these variables, each with its most common label.
+# The reserved codes the 2022 codebook gives these variables, each with its most common label.
 reserved = {}
-for entry in ENTRIES.values():
+for entry in RESERVED.values():
     for r in entry["reserved"]:
         reserved.setdefault(r["code"], []).append(r["label"])
-write("missing.yaml", NORC + "# The GSS's reserved codes, each written as its letter alone, as the codebook writes them.\nlabels:\n"
+write("missing.yaml", NORC_2022 + "# The GSS's reserved codes, each written as its letter alone, as the codebook writes them.\nlabels:\n"
       + "".join(f"  {c}: {scalar(tidy(max(sorted(set(ls)), key=ls.count), False))}\n" for c, ls in sorted(reserved.items())))
 
-for name, (folder, concept, title, f) in SPEC.items():
+for name, (folder, concept, title, f) in QUESTIONS.items():
     var = gss(name)
     entry = ENTRIES[var]
     page = entry["page"]
@@ -241,10 +312,12 @@ for name, (folder, concept, title, f) in SPEC.items():
         out.append("responses:\n" + code_map(codes(var), var in NAME_LISTS).rstrip("\n"))
     if "instruction" in f:
         out.append(f"instruction: {scalar(f['instruction'])}")
-    out.append(f"source: {scalar(f'GSS {var.upper()}; GSS 2022 codebook (NORC), page {page}')}")
-    note = f"Codebook label: {entry['label']}"
-    if entry["notes"]:
-        note += f" Codebook notes: {entry['notes']}"
+    survey = f"; asked in the {YEAR} survey" if CUMULATIVE else ""
+    out.append(f"source: {scalar(f'GSS {var.upper()}; {CITE}, page {page}{survey}')}")
+    if CUMULATIVE:  # remarks stay in the source: some hold counts
+        note = (f"Codebook stem: {entry['stem']} " if "stem" in entry else "") + f"Codebook wording: {entry['wording']}"
+    else:
+        note = f"Codebook label: {entry['label']}" + (f" Codebook notes: {entry['notes']}" if entry["notes"] else "")
     out.append(f"note: {scalar(note)}")
     if "fills" in f:
         out.append("fills:\n" + "\n".join(f"  {k}: {t}" for k, t in f["fills"].items()))
@@ -252,4 +325,4 @@ for name, (folder, concept, title, f) in SPEC.items():
         out.append("variant_of:\n" + "\n".join(f"  {k}: {scalar(why)}" for k, why in f["variant_of"].items()))
     write(f"questions/{folder}/{name}.yaml", NORC + "\n".join(out) + "\n")
 
-print(len(SPEC), "questions")
+print(len(QUESTIONS), "questions asked in", YEAR, "; not asked:", " ".join(n for n in SPEC if n not in QUESTIONS))

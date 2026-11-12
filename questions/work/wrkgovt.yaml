@@ -1,0 +1,13 @@
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
+name: wrkgovt
+title: Government or private employer
+text: "{{are}} you employed by the federal, state or local government or by a private employer (including non-profit organizations)?"
+intent: Government or private employer, as the GSS Replicating Core measures it (WRKGOVT).
+concept: sector
+responses:
+  "1": Government
+  "2": Private
+source: GSS WRKGOVT; GSS 1972-2018 cumulative codebook (NORC), page 127; asked in the 2008 survey
+note: "Codebook wording: (Are/Were) you employed by the federal, state or local government or by a private employer (including non-profit organizations)? RESPONDENT'S EMPLOYER"
+fills:
+  are: text

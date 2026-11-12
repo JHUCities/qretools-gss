@@ -4,7 +4,19 @@ The demographic and work questions of the General Social Survey's Replicating Co
 YAML file per question. Which questions to include follows the "Demographic and
 life-course data" and "Work/employment data" sections of "The GSS Replicating Core,
 current as of 2020". Everything NORC wrote here (wording, codes, labels, filters) comes
-from the [GSS 2022 codebook](https://gss.norc.org/content/dam/gss/get-documentation/pdf/codebook/GSS%202022%20Codebook.pdf).
+from the [GSS 1972-2018 cumulative codebook](https://gss.norc.org/content/dam/gss/get-documentation/pdf/codebook/GSS_Codebook_mainbody.pdf)
+(main body, December 2019), except the reserved codes in `missing.yaml`, which come from
+the [GSS 2022 codebook](https://gss.norc.org/content/dam/gss/get-documentation/pdf/codebook/GSS%202022%20Codebook.pdf).
+
+**This is the GSS of 2008.** The workspace replays the GSS's history, one survey year in
+each pull request: 2008, 2010, 2012, 2014, 2016, 2018, then 2022 and 2024 (2021 is
+skipped). Each year's workspace holds the questions the cumulative codebook shows answers
+for in that year, and no others: a question leaves in a year that doesn't ask it and
+comes back with the next year that does.
+The cumulative codebook prints one wording for each variable, for all years: a question
+whose wording changed is a new variable. So a question here has the codebook's wording,
+which may not be word for word what the 2008 interviewer read.
+
 The workspace started from [qretools-template](https://github.com/JHUCities/qretools-template)
 and keeps its layout and conventions.
 
@@ -12,8 +24,9 @@ This is an example, not a NORC publication. It's published under JHU's DDI agenc
 `us.jhu` (registered with the DDI Alliance on 2026-10-19).
 
 **Licence.** The GSS material is NORC's, used under the 2022 codebook's permission
-notice, which every copy must keep. Our own work here is MIT (code) and CC BY 4.0
-(everything else). [LICENSE.md](LICENSE.md) says which is which.
+notice, which every copy must keep. The cumulative codebook has no notice of its own;
+the owner decided on 2026-11-12 to apply the 2022 notice to it. Our own work here is MIT
+(code) and CC BY 4.0 (everything else). [LICENSE.md](LICENSE.md) says which is which.
 
 **Scope.** Only two parts of the Replicating Core, on purpose: demographics and work.
 The rest (spouse or partner, parents and family background, household, technical data
@@ -23,20 +36,27 @@ and paradata, and the attitude questions on every ballot) is left for later, not
 
 | Field | Source |
 |---|---|
-| `text` | the codebook's label for the variable, word for word, without the parts that aren't read to the respondent: the "IF …" filter goes to `universe`, directions to the interviewer go to `instruction`, routing inside the label ("IF YES:") is cut, and stand-ins such as "(Are/Were)" become `fills` |
-| `responses`, `scales/` | the codebook's codes and labels, with the capitals made ordinary. These are only the codes the 2022 codebook prints, which can be far fewer than the GSS's full list: OTHER has 37 here. A code missing here may still be a GSS code |
-| `missing.yaml` | the codebook's reserved codes |
+| `text` | the codebook's wording for the variable (or the question it falls under, for a sub-item such as "B. Second mention"), word for word, without the parts that aren't read to the respondent: the "IF …" filter goes to `universe`, directions to the interviewer go to `instruction`, routing inside the label ("IF YES:") is cut, and stand-ins such as "(Are/Were)" become `fills` |
+| `responses`, `scales/` | the codebook's punch codes and labels, without routing ("(ASK HRS1)") or cross-references ("[See REMARKS]"), and with capitals made ordinary where a label is all capitals. Only substantive codes: rows such as "Not applicable", "Don't know", "No answer" and "Refused" are left out. Where the codebook shows ranges of values ("collapsed for convenience of display"), there are no codes, and the question is a number |
+| `missing.yaml` | the 2022 codebook's reserved codes, as letters |
 | `universe` | the codebook's "IF …" filter, quoted; five are ours (below) |
-| `note` | the codebook's full label and notes, word for word, so nothing taken out is lost |
-| `source` | the GSS variable and the codebook's page |
+| `note` | the codebook's full wording (and the question it falls under, as "stem"), word for word, so nothing taken out is lost. The codebook's remarks stay in `sources/`, because some of them hold counts |
+| `source` | the GSS variable, the codebook's printed page, and the survey year that asked it |
 | `title`, `intent`, `concept` | ours |
 
 `tools/generate.py` checks that every text and instruction is a span of the codebook's
-label, so no wording is retyped or paraphrased. Counts and percentages are left out:
-they come from the data, not the questionnaire.
+wording, so no wording is retyped or paraphrased. Counts and percentages are left out:
+they come from the data, not the questionnaire. The extractor reads the codebook's counts
+only to find the years a question was asked.
 
-Three names differ from the GSS variable: `divorced` is GSS `DIVORCE`, `wrkselffam` is
-`WRKSLFFAM` and `yrsusa` is `YEARSUSA`. Each question's `source` names the GSS variable.
+**Codes.** Each source codes missing values its own way: the cumulative codebook with
+punch codes (0 for "Not applicable", 8 or 98 for "Don't know", 9 or 99 for "No
+answer"), the released data with negative codes, and the 2022 codebook with letters.
+`missing.yaml` keeps the letters. Translating each source's codes to them is the job of a
+later GSS column map, not of this workspace.
+
+One name here differs from the GSS variable: `divorced` is GSS `DIVORCE`. (From 2018,
+`wrkselffam` is `WRKSLFFAM` and `yrsusa` is `YEARSUSA`.) Each question's `source` names the GSS variable.
 
 [AGENTS.md](AGENTS.md) says how to open, check, regenerate and extend the workspace.
 
@@ -64,16 +84,16 @@ Never make, move or delete a tag by hand. `v1` was tagged by hand, before the wo
 existed, so its questions all read as version 1.
 
 `v1` and `v2` were made from an earlier import, which took its material from the GSS
-Data Explorer's documentation, and held an instrument, `replicating_core`. From `v3` the
-material comes from the 2022 codebook alone, and there is no instrument here. An
-instrument for each GSS year is planned.
+Data Explorer's documentation, and held an instrument, `replicating_core`. An import from
+the 2022 codebook followed, but the replay replaced it before any release. From `v3`, each
+tag holds one year of the replay, in the order of the survey years: `v3` is 2008. An
+instrument for each GSS year comes in a later pull request.
 
 ## Universes we wrote
 
-Most universes quote the codebook's filter. Five are ours, worked out from the order of
-the questions: `born_outside_us` and `other_language_speakers` (each follows the question
-that decides it), `self_employed`, and `has_supervisor` and `supervises_someone` (each an
-"IF YES" to the question before it).
+Most universes quote the codebook's filter. Three in 2008 are ours, worked out from the
+order of the questions: `born_outside_us` and `other_language_speakers` (each follows the
+question that decides it), and `self_employed`.
 
 ## Left out
 
@@ -88,20 +108,22 @@ the respondent:
 - **Taken from the address**: REGION, XNORCSIZ, SRCBELT, SIZE.
 - **Coded by the interviewer, with no wording for the respondent**: SEX.
 
-These two are left out because the 2022 codebook can't source them:
+**Not asked in 2008**, so out of this year's workspace. Each comes back in the pull
+request for the next year the cumulative codebook shows answers for it: VETYEARS (2010);
+POSSLQ, POSSLQY, MAJOR1 and MAJOR2 (2012); INCOME16, RINCOM16, WKSUB1, WKSUBS1, WKSUP1
+and WKSUPS1 (2016); WRKSLFFAM, YEARSUSA and MNTHSUSA (2018).
 
-- **WRKGOVT** isn't in it; WRKGOVT1 and WRKGOVT2 replace it.
-- **RINCOME**'s label there is the wording of the question before it ("Did you earn any
-  income from …"), while its codes are 12 groups of earnings, so it has no wording to
-  copy for those codes. RINCOM16 asks about earnings in 26 groups.
+**Not in the cumulative codebook**, so they wait for the 2022 pull request: OTHER (the
+codebook says DENOM's "Other" was recoded into it, but has no entry for it), WHATSLF2,
+WRKGOVT1 and WRKGOVT2. WRKGOVT1 and WRKGOVT2 replace WRKGOVT, which is here for 2008.
 
-Some pairs are kept although they're alike, each marked `variant_of`: INCOME and
-INCOME16 (12 and 26 groups), POSSLQ and POSSLQY (the two forms of a wording experiment),
-and the second and third mentions of one question (RACECEN, ETH, OTHLANG, MAJOR).
+Some pairs are kept although they're alike, each marked `variant_of`: the second and
+third mentions of one question (RACECEN, ETH, OTHLANG). OTHLANG1 and OTHLANG2 don't
+share a scale: the cumulative codebook numbers their languages differently from code 119
+on. ETH1 doesn't share the ancestry scale with ETH2 and ETH3: its 98 is "No ethnicity
+mentioned", an answer, where theirs is "Don't know".
 
 ## Known findings
 
 `qretools check` gives two notes: SIBS and WEEKSWRK may ask about two things at once.
-That's GSS's wording, so it stays. It also gives one pair of warnings: the shared
-scales `yes_no` and `yes_no_3_4` have the same labels. GSS codes yes and no as 3 and 4
-for WKSUBS1 and WKSUPS1, and a shared scale can't yet say it's alike on purpose.
+That's GSS's wording, so it stays.

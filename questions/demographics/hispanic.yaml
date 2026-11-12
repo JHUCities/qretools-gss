@@ -1,4 +1,4 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: hispanic
 title: Hispanic or Latino origin
 text: Are you Spanish, Hispanic, or Latino/Latina? Which group are you from?
@@ -6,26 +6,32 @@ intent: Hispanic or Latino origin, as the GSS Replicating Core measures it (HISP
 concept: hispanic_origin
 responses:
   "1": Not Hispanic
-  "2": Mexican, Mexican American, chicano/a
+  "2": Mexican, Mexican American, Chicano/a
   "3": Puerto Rican
   "4": Cuban
   "5": Salvadorian
   "6": Guatemalan
   "7": Panamanian
   "8": Nicaraguan
-  "9": Costa rican
+  "9": Costa Rican
   "10": Central American
   "11": Honduran
   "15": Dominican
+  "16": West Indian
   "20": Peruvian
   "21": Ecuadorian
   "22": Colombian
   "23": Venezuelan
   "24": Argentinian
+  "25": Chilean
   "30": Spanish
+  "31": Basque
   "35": Filipino/a
+  "40": Latin American
   "41": South American
+  "45": Latin
+  "46": Latino/a
   "47": Hispanic
   "50": Other, not specified
-source: GSS HISPANIC; GSS 2022 codebook (NORC), page 355
-note: "Codebook label: Are you Spanish, Hispanic, or Latino/Latina? IF YES: Which group are you from? Codebook notes: The two questions above were asked sequentially of the respondent. Hand Card A5 was given to Latino respondents and had response options 2-4 plus 'Other Hispanic, specify.'"
+source: GSS HISPANIC; GSS 1972-2018 cumulative codebook (NORC), page 2947; asked in the 2008 survey
+note: "Codebook wording: IF R IS FEMALE, READ LATINA; IF MALE, READ LATINO. Are you Spanish, Hispanic, or Latino/Latina? Yes ...............(ASK A)..............................................................................................................1 No ...............(GO TO NEXT QUESTION)............................................................ ……….2 IF YES: Which group are you from? Mexican, Mexican American, Chicano/Chicana..................................................... ……….1 Puerto Rican ....................................................................................................... ……….2 Cuban ................................................................................................................. ……….3 Other _____________________________ .......................................................... ……….4"
