@@ -141,6 +141,12 @@ To write the instrument for a year:
   `qretools build .` writes it to `dist/`, which is gitignored. It builds the last
   commit; commit first.
 
+- **The GSS column map is written by `tools/columns.py`.** Do not edit
+  `instruments/gss_2010-ddi-gss.columns.json` by hand. It holds the digest of the
+  instrument's DDI in one release. If a release changes that DDI, run the tool again
+  with the DDI of that release (`README.md`, "The GSS data and the column map"). Do not
+  commit the GSS data, the CSV that the tool writes, or the answers.
+
 **What `instrument check instruments/gss_2008.yaml` should say:** `0 findings`. `check .`
 also shows the instrument's findings.
 

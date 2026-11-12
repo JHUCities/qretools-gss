@@ -1,4 +1,5 @@
 .venv/
 *.pdf
+*.sav
 __pycache__/
 dist/

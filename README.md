@@ -381,6 +381,66 @@ Measured with QREtools 2.0.0-alpha.9: `qretools instrument check` gives 0 findin
 `qretools paths` counts 23,040 ways through the routing, 15 to 30 questions on each
 (median 23). Each of the 34 questions asked is reachable.
 
+## The GSS data and the column map
+
+`instruments/gss_2010-ddi-gss.columns.json` is the column map of the 2010 instrument for
+the GSS data. With it, `qretools responses` reads the 2010 rows of the GSS data into
+answers to the instrument's DDI variables, as it reads a Qualtrics export with the QSF
+column map. Thus, NORC's answers and the answers of a Qualtrics survey are answers to one
+DDI, by the same Variable URNs. The map holds no data: only GSS variable names, the
+instrument's Variable URNs and the translation of the reserved codes.
+`tools/columns.py` writes the map, and converts the data to CSV for it.
+
+**What the map holds.**
+
+- Each question that the 2010 instrument asks, by its GSS variable (from its `source`),
+  except NUMEMPS (below).
+- The inputs that are GSS variables: `born_in_us` (BORN) and `self_employed` (WRKSLF).
+  The other inputs have no GSS variable: `earned_income`, `last_year`, `occupation`, `are`
+  and `do`. `display_label_1` is computed by the instrument, and is not data.
+- The reserved codes, translated by label to the letters of `missing.yaml`: "don't know"
+  to D, "no answer" to N, "refused" to R, "skipped on web" to S. "iap" (inapplicable) is
+  no answer: the respondent was not asked, so there is no value. It is not I. The other
+  reserved codes ("see codebook", "uncodeable" and so on) have no letter. If one occurs,
+  `qretools responses` gives a finding.
+- The digest of the instrument's DDI in release `v9`. If a later release changes the
+  instrument's DDI, write the map again from that release's DDI.
+
+**Where the data and the workspace disagree.** The map does not hide these:
+
+- **NUMEMPS.** The data release groups it (0, 1-9, 10 or more employees). The question asks
+  for a number. Read as numbers, 1 and 2 would be wrong values with no finding, so the map
+  leaves NUMEMPS out.
+- **DENOM.** The data release holds broad groups (Baptist, Methodist and so on). The
+  workspace keeps the codebook's detailed codes, as it does for MAJOR1. A broad group
+  can't be translated to one detailed code, so each answer to DENOM is a finding.
+- **Inputs and reserved codes.** An input has no missing values in the instrument's DDI. So
+  a "no answer" or "don't know" in BORN or WRKSLF is a finding.
+- **Top and bottom codes.** The data release labels SIBS 6 "6 or more", CHILDS 8 "8 or
+  more", AGEKDBRN 17 "17 and younger" and 45 "45 and older", and HRS1 and HRS2 89 "89+
+  hours". These are read as the numbers 6, 8, 17, 45 and 89.
+
+To read the 2010 data, do these steps:
+
+1. Get the GSS cumulative data file in SPSS format (release 3a, `gss7224_r3a.sav`). Put it
+   outside this repository. **Caution: do not commit the data or publish it. It is not
+   licensed for publication.**
+2. Make an environment with pyreadstat:
+   `python3 -m venv .venv && .venv/bin/pip install pyreadstat`
+3. Download the instrument's DDI of release `v9`:
+   <https://jhucities.github.io/qretools-gss/v9/instruments/gss_2010.json>.
+4. Write the map and the CSV. Use a folder outside this repository for the CSV:
+   `.venv/bin/python -I tools/columns.py <gss7224_r3a.sav> <gss_2010.json> 2010 -o <folder>`
+5. Read the lines that the tool writes. Each line names a variable that the map leaves
+   out, or codes that the data labels and the workspace does not hold.
+6. Run `git status`. If the map changed, examine the diff.
+7. Read the answers, with a QREtools that reads a data file's column map (later than
+   2.0.0-alpha.9):
+   `qretools responses <folder>/gss_2010-2010.csv --map instruments/gss_2010-ddi-gss.columns.json --ddi <gss_2010.json> -o <folder>/answers.csv`
+8. **Caution: do not write the answers into this repository or into `dist/`.**
+
+The tests of the tool use no data: `python3 -I -m unittest discover -s tools`.
+
 ## Universes we wrote
 
 Most universes quote the codebook's filter. Three in 2008 are ours, worked out from the
