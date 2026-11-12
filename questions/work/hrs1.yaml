@@ -6,6 +6,7 @@ concept: labor_supply
 universe: working
 number:
   min: 0
+  max: 168
   unit: hours
 source: GSS HRS1; GSS 1972-2018 cumulative codebook (NORC), page 123; asked in the 2008 survey
 note: "Codebook stem: Last week were you working full time, part time, going to school, keeping house, or what? CIRCLE ONE CODE ONLY. IF MORE THAN ONE RESPONSE, GIVE PREFERENCE TO SMALLEST CODE NUMBER THAT APPLIES Codebook wording: IF WORKING, FULL OR PART TIME: How many hours did you work last week, at all jobs?"

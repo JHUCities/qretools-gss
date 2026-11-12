@@ -41,6 +41,7 @@ and paradata, and the attitude questions on every ballot) is left for later, not
 |---|---|
 | `text` | the codebook's wording for the variable (or the question it falls under, for a sub-item such as "B. Second mention"), word for word, without the parts that aren't read to the respondent: the "IF …" filter goes to `universe`, directions to the interviewer go to `instruction`, routing inside the label ("IF YES:") is cut, and stand-ins such as "(Are/Were)" become `fills` |
 | `responses`, `scales/` | the codebook's punch codes and labels, without routing ("(ASK HRS1)") or cross-references ("[See REMARKS]"), and with capitals made ordinary where a label is all capitals. Only substantive codes: rows such as "Not applicable", "Don't know", "No answer" and "Refused" are left out. Where the codebook shows ranges of values ("collapsed for convenience of display"), there are no codes, and the question is a number |
+| `number` | `min` is 0. `max` is the bound that the question sets: 168 hours in a week (HRS1, HRS2), 52 weeks in a year (WEEKSWRK). For SIBS and AGEKDBRN it is 97, the largest answer that the codebook's two-digit field holds below "Don't know" (98) and "No answer" (99) (pages 174 and 176). CHILDS takes 97 from SIBS: the codebook codes CHILDS in one digit, with "Eight or more" as a top code (page 175). NUMEMPS's 99999 is our choice: the codebook's "97 or more" (page 1625) is a top code, and no source gives a bound. From 2018, MNTHSUSA takes 11 (it asks for months only below a year) and YRSUSA 97 (page 2955). A top code is never a `max`, because respondents answer above it |
 | `missing.yaml` | the 2022 codebook's reserved codes, as letters |
 | `universe` | the codebook's "IF …" filter, quoted; five are ours (below) |
 | `note` | the codebook's full wording (and the question it falls under, as "stem"), word for word, so nothing taken out is lost. The codebook's remarks stay in `sources/`, because some of them hold counts |
@@ -95,20 +96,23 @@ Never make, move or delete a tag by hand. `v1` was tagged by hand, before the wo
 existed, so its questions all read as version 1.
 
 `v1` and `v2` were made from an earlier import, which took its material from the GSS
-Data Explorer's documentation, and held an instrument, `replicating_core`. An import from
-the 2022 codebook followed, but the replay replaced it before any release. From `v3`, the
-tags follow the replay, in the order of the survey years: `v3` holds the questions of
-2008, `v4` adds the 2008 instrument, and `v5` holds the questions of 2010. `v6` adds the
-2010 instrument, and corrects the 2008 instrument to read `v5`. `v7` removes the notice
-comment from each file and corrects PARTFULL in the 2008 instrument. `v8` holds the
-questions of 2012. The instrument for each GSS year comes in the pull request after that
-year's questions.
+Data Explorer's documentation, and held an instrument, `replicating_core`. An import
+from the 2022 codebook followed, but the replay replaced it before any release. From
+`v3`, the tags follow the replay, in the order of the survey years: `v3` holds the
+questions of 2008, `v4` adds the 2008 instrument, and `v5` holds the questions of 2010.
+`v6` adds the 2010 instrument, and corrects the 2008 instrument to read `v5`. `v7`
+removes the notice comment from each file and corrects PARTFULL in the 2008 instrument.
+`v8` holds the questions of 2012. `v9` adds the 2012 instrument, and changes the 2008
+and 2010 instruments to read `v8`. The instrument for each GSS year comes in the pull
+request after that year's questions.
 
 ## The 2008 instrument
 
-`instruments/gss_2008.yaml` asks the 2008 questions. It reads this workspace at `v5`
-(`uses: gss: JHUCities/qretools-gss@v5`), and `workspace.yaml` locks that tag to its
-commit. Each comment in the file names the codebook page that a condition comes from.
+`instruments/gss_2008.yaml` asks the 2008 questions. It reads this workspace at `v8`
+(`uses: gss: JHUCities/qretools-gss@v8`), and `workspace.yaml` locks that tag to its
+commit. Until `v9`, it read `v5`. Between `v5` and `v8`, no question or shared file that
+it names changes in substance: only the notice comment is removed. Each comment in the
+file names the codebook page that a condition comes from.
 
 **The 2008 data.** Where the codebook is unclear or contradicts itself, the owner settled
 who was asked from the GSS 1972-2024 cumulative data file (release 3a), read locally: in 2008, a question counts
@@ -180,13 +184,15 @@ holds.
 A question that not everyone reaches has a universe. Where the workspace's question has
 none, the instrument gives it one, in our own words.
 
-**Not asked.** Six of the 36 questions in `v5`:
+**Not asked.** Ten of the 40 questions in `v8`:
 
 - `vetyears`: the codebook shows no answers for it in 2008.
-- `race` isn't in `v5`. Its remarks say RACE was asked from 1972 to 2000, and replaced by
-  RACECEN1-3 and imputed from 2002. The cumulative codebook shows values for it in 2008,
-  so `v3` holds it, but nobody was asked it. It left the workspace in 2010 (below, "Left
-  out").
+- `posslq`, `posslqy`, `major1` and `major2`: the codebook shows no answers for them in
+  2008.
+- `race` isn't in `v5` or a later tag. Its remarks say RACE was asked from 1972 to 2000,
+  and replaced by RACECEN1-3 and imputed from 2002. The cumulative codebook shows values
+  for it in 2008, so `v3` holds it, but nobody was asked it. It left the workspace in
+  2010 (below, "Left out").
 - `racecen2`, `racecen3`, `eth2`, `eth3` and `othlang2`: the second and third mentions
   in answer to the question that `racecen1`, `eth1` and `othlang1` ask. They are further
   answers to one question, not further questions, and an instrument can't yet record
@@ -235,18 +241,20 @@ under the 2010 instrument below: the 2008 and 2010 data agree on it.
 Measured with QREtools 2.0.0-alpha.8: `qretools instrument check` gives 0 findings, and
 `qretools paths` counts 5,760 ways through the routing, 13 to 27 questions on each
 (median 20). Each of the 30 questions asked is reachable. QREtools 2.0.0-alpha.9 gives
-the same results, before and after the change to INCOME06 and RINCOM06.
+the same results, before and after the change to INCOME06 and RINCOM06, and at `v8`.
 
 ## The 2010 instrument
 
-`instruments/gss_2010.yaml` asks the 2010 questions. It reads this workspace at `v5`. It
-is a copy of the 2008 instrument, with the changes below. Each condition was checked
-again against the 2010 data, in the same way as for 2008.
+`instruments/gss_2010.yaml` asks the 2010 questions. It reads this workspace at `v8`
+(until `v9`, at `v5`; as for 2008, nothing that it asks changes in substance). It is a
+copy of the 2008 instrument, with the changes below. Each condition was checked again
+against the 2010 data, in the same way as for 2008.
 
-**What it asks.** The 2008 questions, and VETYEARS, last (page 2956): 31 of the
-workspace's 36 questions. The five not asked are the second and third mentions, as in
-2008. The codebook shows values for RACE in 2010 too, but its remarks say that nobody was
-asked it from 2002, and the workspace doesn't hold it from `v5`.
+**What it asks.** The 2008 questions, and VETYEARS, last (page 2956): 31 of the 40
+questions in `v8`. The second and third mentions are not asked, as in 2008, and the
+codebook shows no answers in 2010 for POSSLQ, POSSLQY, MAJOR1 and MAJOR2. The codebook
+shows values for RACE in 2010 too, but its remarks say that nobody was asked it from
+2002, and the workspace doesn't hold it from `v5`.
 
 **Routing.** The same as in 2008 (the table above), with these changes:
 
@@ -285,7 +293,8 @@ The inputs are the same as in 2008.
 
 Measured with QREtools 2.0.0-alpha.9: `qretools instrument check` gives 0 findings, and
 `qretools paths` counts 5,760 ways through the routing, 14 to 28 questions on each
-(median 21). Each of the 31 questions asked is reachable.
+(median 21). Each of the 31 questions asked is reachable. The results are the same at
+`v8`.
 
 ## The questions of 2012
 
@@ -304,9 +313,11 @@ respondent's answer.
   ends "[COUNT UP TO 2 MENTIONS]". The codebook prints the wording under MAJOR1 only,
   and MAJOR2's table follows MAJOR1's with no wording. So MAJOR2's text is MAJOR1's, and its `note` says that
   the wording is printed under MAJOR1. Its `source` is its own page.
-- **MAJOR1 and MAJOR2's codes.** The workspace keeps the codebook's codes. In the GSS
-  data release used here, MAJOR1 and MAJOR2 hold a shorter list of broad fields, not the
-  codebook's codes. A column map for 2012 must translate between them.
+- **MAJOR1 and MAJOR2's codes.** By the owner's decision, the workspace keeps the
+  codebook's detailed codes (the shared scale `college_major`). In the GSS data release
+  used here, MAJOR1 and MAJOR2 hold a shorter list of broad fields, not the codebook's
+  codes. These broad fields are a grouping of the detailed codes, and the GSS column map
+  will translate between them, as it translates the codes for missing values.
 
 Two labels of the shared scale `college_major` were wrong in the extract, and the
 extractor now reads them correctly. A label that wraps after "/" no longer gets a space
@@ -314,13 +325,142 @@ after the "/". MAJOR1's code 71 has a stray number after the second line of its 
 The extractor drops it and records the problem; MAJOR2 and another table of the
 codebook print the same label without it.
 
+## The 2012 instrument
+
+`instruments/gss_2012.yaml` asks the 2012 questions. It reads this workspace at `v8`. It
+is a copy of the 2010 instrument, with the changes below. Each condition was checked
+again against the 2012 data, in the same way as for 2008 and 2010.
+
+**What it asks.** The 31 questions of 2010, and MAJOR1 (32, page 184, after AGEKDBRN),
+POSSLQ and POSSLQY (1394 and 1395, page 2182, after NUMEMPS): 34 of the 40 questions in
+`v8`. Each respondent gets one of POSSLQ and POSSLQY. Not asked: the second and third
+mentions (RACECEN2-3, ETH2-3, OTHLANG2), and MAJOR2, the second mention of MAJOR1's
+question ("[COUNT UP TO 2 MENTIONS]").
+
+**Routing.** The same as in 2010 (the tables above), with these changes:
+
+| Question | Asked when | Codebook |
+|---|---|---|
+| RELITEN | RELIG isn't Don't know (as in 2008; the 2012 data) | page 318 |
+| MAJOR1 | DEGREE is 2, 3 or 4 (input `degree`; the 2012 data) | pages 182, 184, 192 |
+| POSSLQ | Form 1 (input `form`; the 2012 data) | pages 513, 2182 |
+| POSSLQY | Form 2 (input `form`; the 2012 data) | pages 513, 2182 |
+
+**Inputs.** The inputs of 2010, and two more:
+
+- `degree`: GSS DEGREE (page 182), the respondent's highest degree. It is a recode (see
+  "Left out"), so the workspace doesn't hold it. It is the filter on MAJOR1, and MAJOR1
+  reads its label aloud where the codebook writes "(RESPONDENT'S COLLEGE DEGREE)"
+  (`label(degree)`, as RELITEN reads RELIG's).
+- `form`: GSS FORM (page 513), the form of the split questionnaire that the respondent
+  gets. The workspace doesn't hold it, because it isn't a question.
+
+**What the 2012 data settled.**
+
+- **POSSLQ and POSSLQY.** FORM's entry says that the variant or "Y" wordings are on Form 2,
+  and the standard wordings on Form 1. The entries for POSSLQ and POSSLQY don't say which
+  form each is on. In the 2012 data, every respondent on Form 1 answered POSSLQ and no
+  respondent on Form 2 did, and POSSLQY is the reverse. BALLOT and MARITAL don't decide
+  it. The instrument asks POSSLQ on Form 1, and POSSLQY on Form 2.
+- **MAJOR1.** It has no filter of its own. WHENCOL's remark (page 192) says that WHENCOL
+  was asked "when DEGREE=2-4". In the 2012 data, MAJOR1 was asked after every DEGREE of 2,
+  3 or 4, never after 0, and after 1 for an isolated respondent only. The instrument asks
+  it after DEGREE 2, 3 or 4.
+- **RELITEN.** The 2012 data shows it not asked after RELIG "Don't know", as its "Not
+  applicable" label says. The 2010 data showed it asked. The 2012 instrument follows the
+  2012 data, and uses the condition of 2008. The 2010 instrument doesn't change.
+- **Isolated skips.** The 2012 data shows a few respondents asked or skipped against the
+  codebook, with no pattern that a condition can show: EVWORK asked after WRKSTAT 2,
+  WRKGOVT asked after EVWORK "No", DENOM asked after RELIG "None", BETRLANG skipped after
+  OTHLANG "Yes", and, as in 2010, HRS2 skipped after WRKSTAT 3. The instrument keeps the
+  codebook's filter for each.
+- **The other conditions.** The 2012 data agrees with each other condition of 2010:
+  HRS1, DIVORCE, WIDOWED, AGEKDBRN, RINCOM06, JEW, PARTFULL, OTHLANG1, SPKLANG, NUMEMPS,
+  LOCALNUM, USCITZN, FUCITZN and VETYEARS.
+
+Measured with QREtools 2.0.0-alpha.9: `qretools instrument check` gives 0 findings, and
+`qretools paths` counts 23,040 ways through the routing, 15 to 30 questions on each
+(median 23). Each of the 34 questions asked is reachable.
+
+## The GSS data and the column map
+
+`instruments/gss_2010-ddi-gss.columns.json` is the column map of the 2010 instrument for
+the GSS data. With it, `qretools responses` reads the 2010 rows of the GSS data into
+answers to the instrument's DDI variables, as it reads a Qualtrics export with the QSF
+column map. Thus, NORC's answers and the answers of a Qualtrics survey are answers to one
+DDI, by the same Variable URNs. The map holds no data: only GSS variable names, the
+instrument's Variable URNs and the translation of the reserved codes.
+`tools/columns.py` writes the map, and converts the data to CSV for it.
+
+**What the map holds.**
+
+- Each question that the 2010 instrument asks, by its GSS variable (from its `source`).
+  DENOM and NUMEMPS are marked `filtered` (below).
+- The inputs that are GSS variables: `born_in_us` (BORN) and `self_employed` (WRKSLF).
+  The other inputs have no GSS variable: `earned_income`, `last_year`, `occupation`, `are`
+  and `do`. `display_label_1` is computed by the instrument, and is not data.
+- The reserved codes, translated by label to the letters of `missing.yaml`: "don't know"
+  to D, "no answer" to N, "refused" to R, "skipped on web" to S. "iap" (inapplicable) is
+  no answer: the respondent was not asked, so there is no value. It is not I. The other
+  reserved codes ("see codebook", "uncodeable" and so on) have no letter. If one occurs,
+  `qretools responses` gives a finding.
+- The top and bottom codes of the questions that are numbers (below), marked `censored`.
+  The tool reads them from the data's value labels ("6 or more", "17 and younger", "89+").
+  It writes a note for a label that it cannot read as a range or as the number.
+- The digest of the instrument's DDI in release `v10`. If a later release changes the
+  instrument's DDI, write the map again from that release's DDI.
+
+**Where the data and the workspace disagree.** The map does not hide these.
+`qretools responses` writes a note for each of them, and no error.
+
+- **Filtered: NUMEMPS and DENOM.** A variable is filtered from a data file when the data
+  file does not hold its values at the level of access that you have (QREtools' README,
+  "Read a data file", defines the word). The data release holds these two in a form that
+  the questions do not record. It groups NUMEMPS (0, 1-9, 10 or more employees), and the
+  question asks for a number. It holds DENOM as broad groups (Baptist, Methodist and so
+  on), and the workspace keeps the codebook's detailed codes, as it does for MAJOR1. So
+  the map marks both `filtered`, and no value is read from them.
+- **Top and bottom codes.** The data release labels SIBS 6 "6 or more", CHILDS 8 "8 or
+  more", AGEKDBRN 17 "17 and younger" and 45 "45 and older", and HRS1 and HRS2 89 "89+
+  hours". Such a value is a range, not a number, so it gives no answer. The codebook
+  agrees on CHILDS (its code 8 is "Eight or more") and on HRS1 and HRS2 (their remarks:
+  "Responses greater than 89 were coded 89"). For SIBS and AGEKDBRN, the codebook gives no
+  top or bottom code: their remarks say only that the categories are collapsed for
+  display. These caps are the data release's.
+- **Inputs and reserved codes.** The data gives "no answer" and "don't know" for BORN and
+  WRKSLF. An input accepts the workspace's missing values in a DDI built with QREtools
+  2.0.0-alpha.10 or later, as release `v10` is. In a DDI built with an earlier QREtools,
+  these values are findings.
+
+To read the 2010 data, do these steps:
+
+1. Get the GSS cumulative data file in SPSS format (release 3a, `gss7224_r3a.sav`). Put it
+   outside this repository. **Caution: do not commit the data or publish it. It is not
+   licensed for publication.**
+2. Make an environment with pyreadstat:
+   `python3 -m venv .venv && .venv/bin/pip install pyreadstat`
+3. Download the instrument's DDI of release `v10`:
+   <https://jhucities.github.io/qretools-gss/v10/instruments/gss_2010.json>.
+4. Write the map and the CSV. Use a folder outside this repository for the CSV:
+   `.venv/bin/python -I tools/columns.py <gss7224_r3a.sav> <gss_2010.json> 2010 -o <folder>`
+5. Read the lines that the tool writes. Each line names a variable that the map leaves
+   out or marks `filtered`, codes that the data labels and the workspace does not hold,
+   or a label of a number that the tool cannot read as a range or as the number.
+6. Run `git status`. If the map changed, examine the diff.
+7. Read the answers, with QREtools 2.0.0-alpha.10 or later:
+   `qretools responses <folder>/gss_2010-2010.csv --map instruments/gss_2010-ddi-gss.columns.json --ddi <gss_2010.json> -o <folder>/answers.csv`
+8. **Caution: do not write the answers into this repository or into `dist/`.**
+
+The tests of the tool use no data: `python3 -I -m unittest discover -s tools`.
+
 ## Universes we wrote
 
 Most universes quote the codebook's filter. Three in 2008 are ours, worked out from the
 order of the questions: `born_outside_us` and `other_language_speakers` (each follows the
 question that decides it), and `self_employed`. One in 2012 is ours: `college_degree`, for
 MAJOR1 and MAJOR2. The wording names "(RESPONDENT'S COLLEGE DEGREE)", and in the 2012 data
-only respondents with a junior college degree or higher answered MAJOR1.
+the respondents with a junior college degree or higher answered MAJOR1, with an isolated
+exception (see "The 2012 instrument").
 
 ## Left out
 

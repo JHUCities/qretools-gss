@@ -1,0 +1,163 @@
+{
+  "ddi": "sha256:8fc5b9be5b27491222cdb95b46bafaaa36923956472ecda3ee1dcef8f0b53a59",
+  "respondent": "id",
+  "values": {
+    "-90": "R",
+    "-97": "S",
+    "-98": "D",
+    "-99": "N",
+    "-100": null
+  },
+  "columns": [
+    {
+      "column": "wrkslf",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-self_employed:3"
+    },
+    {
+      "column": "born",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-born_in_us:3"
+    },
+    {
+      "column": "wrkstat",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-wrkstat:3"
+    },
+    {
+      "column": "hrs1",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-hrs1:3",
+      "censored": {
+        "89": "89+ hours"
+      }
+    },
+    {
+      "column": "hrs2",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-hrs2:3",
+      "censored": {
+        "89": "89+ hours"
+      }
+    },
+    {
+      "column": "evwork",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-evwork:3"
+    },
+    {
+      "column": "wrkgovt",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-wrkgovt:3"
+    },
+    {
+      "column": "marital",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-marital:3"
+    },
+    {
+      "column": "divorce",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-divorced:3"
+    },
+    {
+      "column": "widowed",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-widowed:3"
+    },
+    {
+      "column": "sibs",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-sibs:3",
+      "censored": {
+        "6": "6 or more"
+      }
+    },
+    {
+      "column": "childs",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-childs:3",
+      "censored": {
+        "8": "8 or more"
+      }
+    },
+    {
+      "column": "agekdbrn",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-agekdbrn:3",
+      "censored": {
+        "17": "17 and younger",
+        "45": "45 and older"
+      }
+    },
+    {
+      "column": "income06",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-income06:3"
+    },
+    {
+      "column": "rincom06",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-rincom06:3"
+    },
+    {
+      "column": "relig",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-relig:3"
+    },
+    {
+      "column": "denom",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-denom:3",
+      "filtered": true
+    },
+    {
+      "column": "jew",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-jew:3"
+    },
+    {
+      "column": "reliten",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-reliten:3"
+    },
+    {
+      "column": "weekswrk",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-weekswrk:3"
+    },
+    {
+      "column": "partfull",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-partfull:3"
+    },
+    {
+      "column": "othlang",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-othlang:3"
+    },
+    {
+      "column": "othlang1",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-othlang1:3"
+    },
+    {
+      "column": "spklang",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-spklang:3"
+    },
+    {
+      "column": "betrlang",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-betrlang:3"
+    },
+    {
+      "column": "numemps",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-numemps:3",
+      "filtered": true
+    },
+    {
+      "column": "localnum",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-localnum:3"
+    },
+    {
+      "column": "eth1",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-eth1:3"
+    },
+    {
+      "column": "hispanic",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-hispanic:3"
+    },
+    {
+      "column": "racecen1",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-racecen1:3"
+    },
+    {
+      "column": "uscitzn",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-uscitzn:3"
+    },
+    {
+      "column": "fucitzn",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-fucitzn:3"
+    },
+    {
+      "column": "vetyears",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-vetyears:3"
+    }
+  ]
+}

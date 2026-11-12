@@ -65,9 +65,10 @@ SCALES = {"yes_no": "widowed", "yes_no_3_4": "wksubs1", "race_census": "racecen1
 
 # name: (folder, concept, title, fields). The title is ours. Fields: text (the question, a
 # span of the codebook's label), universe, instruction (a span of the label), fills,
-# number (its unit), scale, variant_of (ours), gss (the GSS variable, where its name
+# number (its unit) and max (its largest answer: see the rules below), scale, variant_of (ours), gss (the GSS variable, where its name
 # differs), and wording (the variable under which the codebook prints the wording, where
 # the variable has none of its own).
+# max: the rule and its sources are in README.md ("Where each field comes from", `number`).
 D, W = "demographics", "work"
 SPEC = {
     "racecen1": (D, "race", "Race, first mentioned", dict(text="What is your race? Indicate one or more races that you consider yourself to be.", scale="race_census")),
@@ -77,14 +78,14 @@ SPEC = {
     "eth2": (D, "ethnicity", "Ancestry, second country", dict(text="From what countries or part of the world did your ancestors come?", scale="ancestry", variant_of={"eth1": "the second country mentioned in answer to the same question"})),
     "eth3": (D, "ethnicity", "Ancestry, third country", dict(text="From what countries or part of the world did your ancestors come?", scale="ancestry", variant_of={"eth1": "the third country mentioned in answer to the same question", "eth2": "the third country mentioned, where eth2 is the second"})),
     "hispanic": (D, "hispanic_origin", "Hispanic or Latino origin", dict(text=("Are you Spanish, Hispanic, or Latino/Latina?", "Which group are you from?"))),
-    "sibs": (D, "siblings", "Number of siblings", dict(text="How many brothers and sisters did you have? Please count those born alive, but no longer living, as well as those alive now. Also include stepbrothers and stepsisters, and children adopted by your parents.", number=None)),
+    "sibs": (D, "siblings", "Number of siblings", dict(text="How many brothers and sisters did you have? Please count those born alive, but no longer living, as well as those alive now. Also include stepbrothers and stepsisters, and children adopted by your parents.", number=None, max=97)),
     "marital": (D, "marital_status", "Marital status", dict(text="Are you currently--married, widowed, divorced, separated, or have you never been married?")),
     "widowed": (D, "marital_status", "Ever widowed", dict(text="Have you ever been widowed?", universe="currently_married_separated_divorced", scale="yes_no")),
     "divorced": (D, "marital_status", "Ever divorced or separated", dict(gss="divorce", text="Have you ever been divorced or legally separated?", universe="currently_married_widowed", scale="yes_no")),
     "posslq": (D, "marital_status", "Living arrangement with a partner", dict(text="Which of these statements applies to you?", instruction="CODE ONE ONLY.")),
     "posslqy": (D, "marital_status", "Living arrangement with a partner, Y wording", dict(text="Which of these statements applies to you?", instruction="CODE ONE ONLY.", variant_of={"posslq": "the Y form of the X/Y wording experiment: option 2 reads 'steady partner' for 'living as married'"})),
-    "childs": (D, "number_of_children", "Number of children", dict(text="How many children have you ever had? Please count all that were born alive at any time (including any you had from a previous marriage).", number=None)),
-    "agekdbrn": (D, "age_at_first_birth", "Age when the first child was born", dict(text="How old were you when your first child was born?", number="years")),
+    "childs": (D, "number_of_children", "Number of children", dict(text="How many children have you ever had? Please count all that were born alive at any time (including any you had from a previous marriage).", number=None, max=97)),
+    "agekdbrn": (D, "age_at_first_birth", "Age when the first child was born", dict(text="How old were you when your first child was born?", number="years", max=97)),
     "major1": (D, "education", "Field of study, first", dict(text="What was your major or field of study when you received your {{degree}} degree?", instruction="IF THE RESPONDENT RECEIVED MORE THAN ONE GRADUATE LEVEL DEGREE, ASK ABOUT THE HIGHEST DEGREE OBTAINED (E.G. ABOUT A Ph.D. RATHER THAN AN M.B.A).", fills={"degree": "text"}, universe="college_degree", scale="college_major")),
     "major2": (D, "education", "Field of study, second", dict(text="What was your major or field of study when you received your {{degree}} degree?", instruction="IF THE RESPONDENT RECEIVED MORE THAN ONE GRADUATE LEVEL DEGREE, ASK ABOUT THE HIGHEST DEGREE OBTAINED (E.G. ABOUT A Ph.D. RATHER THAN AN M.B.A).", fills={"degree": "text"}, universe="college_degree", scale="college_major", wording="major1", variant_of={"major1": "the second field of study mentioned in answer to the same question"})),
     "relig": (D, "religious_affiliation", "Religion", dict(text="What is your religious preference? Is it Protestant, Catholic, Jewish, some other religion, or no religion?")),
@@ -96,8 +97,8 @@ SPEC = {
     "income16": (D, "household_income", "Family income, 26 groups", dict(text="In which of these groups did your total family income, from all sources, fall last year? That is, before taxes.", scale="income_26", variant_of={"income06": "the 26-group version, from 2016"})),
     "uscitzn": (D, "citizenship_status", "U.S. citizenship", dict(text="Now we would like to ask you about U.S. citizenship. Are you…", universe="born_outside_us")),
     "fucitzn": (D, "citizenship_status", "Citizenship, follow-up", dict(text="Are you…")),
-    "mnthsusa": (D, "citizenship_status", "Months lived in the United States", dict(text="How long have you lived in the United States? If less than a year, please specify the time in months. If you have lived in the United States for more than one period during your life, what is the total number of years you have lived in the United States?", universe="born_outside_us", number="months", variant_of={"yrsusa": "the months part of the answer, when it is less than a year"})),
-    "yrsusa": (D, "citizenship_status", "Years lived in the United States", dict(gss="yearsusa", text="How long have you lived in the United States? If less than a year, please specify the time in months. If you have lived in the United States for more than one period during your life, what is the total number of years you have lived in the United States?", universe="born_outside_us", number="years")),
+    "mnthsusa": (D, "citizenship_status", "Months lived in the United States", dict(text="How long have you lived in the United States? If less than a year, please specify the time in months. If you have lived in the United States for more than one period during your life, what is the total number of years you have lived in the United States?", universe="born_outside_us", number="months", max=11, variant_of={"yrsusa": "the months part of the answer, when it is less than a year"})),
+    "yrsusa": (D, "citizenship_status", "Years lived in the United States", dict(gss="yearsusa", text="How long have you lived in the United States? If less than a year, please specify the time in months. If you have lived in the United States for more than one period during your life, what is the total number of years you have lived in the United States?", universe="born_outside_us", number="years", max=97)),
     "othlang": (D, "language", "Speaks another language", dict(text="Can you speak a language other than English [Spanish]?", scale="yes_no")),
     "othlang1": (D, "language", "Other language, first", dict(text="What other language(s) do you speak?", universe="other_language_speakers", scale="language_list")),
     "othlang2": (D, "language", "Other language, second", dict(text="What other language(s) do you speak?", universe="other_language_speakers", variant_of={"othlang1": "the second language mentioned in answer to the same question"})),
@@ -110,10 +111,10 @@ SPEC = {
     "wrkgovt": (W, "sector", "Government or private employer", dict(text="{{are}} you employed by the federal, state or local government or by a private employer (including non-profit organizations)?", fills={"are": "text"})),
     "wrkgovt1": (W, "sector", "Employed by the government", dict(text="{{are}} you employed by the government? (Please consider federal, state, or local government.)", fills={"are": "text"}, scale="yes_no")),
     "wrkgovt2": (W, "sector", "Employed by a private employer", dict(text="{{are}} you employed by a private employer (including non-profit organizations)?", fills={"are": "text"}, scale="yes_no")),
-    "numemps": (W, "number_of_employees", "Number of employees", dict(text="How many employees {{do}} you have?", fills={"do": "text"}, universe="self_employed", number=None)),
-    "hrs1": (W, "labor_supply", "Hours worked last week", dict(text="How many hours did you work last week, at all jobs?", universe="working", number="hours")),
-    "hrs2": (W, "labor_supply", "Usual hours of work", dict(text="How many hours a week do you usually work, at all jobs?", universe="with_job_not_at_work", number="hours")),
-    "weekswrk": (W, "labor_supply", "Weeks worked last year", dict(text="Now I'd like to ask you about last year. In {{last_year}} how many weeks did you work either full-time or part-time not counting work around the house--include paid vacations and sick leave?", fills={"last_year": "number"}, number="weeks")),
+    "numemps": (W, "number_of_employees", "Number of employees", dict(text="How many employees {{do}} you have?", fills={"do": "text"}, universe="self_employed", number=None, max=99999)),
+    "hrs1": (W, "labor_supply", "Hours worked last week", dict(text="How many hours did you work last week, at all jobs?", universe="working", number="hours", max=168)),
+    "hrs2": (W, "labor_supply", "Usual hours of work", dict(text="How many hours a week do you usually work, at all jobs?", universe="with_job_not_at_work", number="hours", max=168)),
+    "weekswrk": (W, "labor_supply", "Weeks worked last year", dict(text="Now I'd like to ask you about last year. In {{last_year}} how many weeks did you work either full-time or part-time not counting work around the house--include paid vacations and sick leave?", fills={"last_year": "number"}, number="weeks", max=52)),
     "partfull": (W, "labor_supply", "Full or part time last year", dict(text="When you worked in {{last_year}}, was it usually full or part time?", fills={"last_year": "number"})),
     "rincom06": (W, "income_from_occupation", "Earnings from work, 25 groups", dict(text="In which of these groups did your earnings from {{job}}, from all sources for {{last_year}} fall? That is, before taxes or other deductions.", fills={"job": "text", "last_year": "text"}, scale="income_25")),
     "rincom16": (W, "income_from_occupation", "Earnings from work, 26 groups", dict(text="In which of these groups did your earnings from {{job}}, from all sources for {{last_year}} fall? That is, before taxes or other deductions.", fills={"job": "text", "last_year": "text"}, scale="income_26", variant_of={"rincom06": "the 26-group version, from 2016"})),
@@ -317,7 +318,7 @@ for name, (folder, concept, title, f) in QUESTIONS.items():
     if "universe" in f:
         out.append(f"universe: {f['universe']}")
     if "number" in f:
-        out.append("number:\n  min: 0" + (f"\n  unit: {f['number']}" if f["number"] else ""))
+        out.append(f"number:\n  min: 0\n  max: {f['max']}" + (f"\n  unit: {f['number']}" if f["number"] else ""))
     elif "scale" in f:
         out.append(f"responses: {f['scale']}")
     else:
