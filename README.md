@@ -151,7 +151,7 @@ ballot split for these questions in 2008, so the instrument has none.
 | DENOM | RELIG is 1 or 11 (Christian; the 2008 data) | page 312 |
 | JEW | RELIG is 3 | page 314 |
 | RELITEN | RELIG isn't Don't know | page 318 |
-| PARTFULL | WEEKSWRK isn't 0 | page 438 |
+| PARTFULL | WEEKSWRK has a value that isn't 0 (the 2008 data) | page 438 |
 | OTHLANG1, SPKLANG, BETRLANG | OTHLANG is 1 ("No (GO TO PARLANG)") | page 1284 |
 | NUMEMPS | the part before it is "Self-employed" (input `self_employed`; the 2008 data) | page 1625 |
 | LOCALNUM | WRKSTAT is 1, 2 or 3 (the remarks, "Beginning in 1994") | page 2437 |
@@ -189,7 +189,8 @@ none, the instrument gives it one, in our own words.
   answers to one question, not further questions, and an instrument can't yet record
   more than one mention of an answer.
 
-**What the codebook doesn't settle, and how the 2008 data settled it.**
+**What the codebook doesn't settle, and how the 2008 data settled it.** PARTFULL is
+under the 2010 instrument below: the 2008 and 2010 data agree on it.
 
 - **USCITZN.** Its "Not applicable" label reads "Not Punch 1 in BORN", which would mean
   that only people born in the country were asked. The question's own answers, and the
@@ -249,7 +250,6 @@ asked it from 2002, and the workspace doesn't hold it from `v5`.
 | Question | Asked when | Codebook |
 |---|---|---|
 | RELITEN | always (the 2010 data) | page 318 |
-| PARTFULL | WEEKSWRK has a value that isn't 0 (the 2010 data) | page 438 |
 | JEW | RELIG is 3 (its remark about OTHJEW is for 2008 only) | page 314 |
 | VETYEARS | always | page 2956 |
 
