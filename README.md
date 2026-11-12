@@ -393,8 +393,8 @@ instrument's Variable URNs and the translation of the reserved codes.
 
 **What the map holds.**
 
-- Each question that the 2010 instrument asks, by its GSS variable (from its `source`),
-  except NUMEMPS (below).
+- Each question that the 2010 instrument asks, by its GSS variable (from its `source`).
+  DENOM and NUMEMPS are marked `filtered` (below).
 - The inputs that are GSS variables: `born_in_us` (BORN) and `self_employed` (WRKSLF).
   The other inputs have no GSS variable: `earned_income`, `last_year`, `occupation`, `are`
   and `do`. `display_label_1` is computed by the instrument, and is not data.
@@ -403,22 +403,33 @@ instrument's Variable URNs and the translation of the reserved codes.
   no answer: the respondent was not asked, so there is no value. It is not I. The other
   reserved codes ("see codebook", "uncodeable" and so on) have no letter. If one occurs,
   `qretools responses` gives a finding.
+- The top and bottom codes of the questions that are numbers (below), marked `censored`.
+  The tool reads them from the data's value labels ("6 or more", "17 and younger", "89+").
+  It writes a note for a label that it cannot read as a range or as the number.
 - The digest of the instrument's DDI in release `v9`. If a later release changes the
   instrument's DDI, write the map again from that release's DDI.
 
-**Where the data and the workspace disagree.** The map does not hide these:
+**Where the data and the workspace disagree.** The map does not hide these.
+`qretools responses` writes a note for each of them, and no error.
 
-- **NUMEMPS.** The data release groups it (0, 1-9, 10 or more employees). The question asks
-  for a number. Read as numbers, 1 and 2 would be wrong values with no finding, so the map
-  leaves NUMEMPS out.
-- **DENOM.** The data release holds broad groups (Baptist, Methodist and so on). The
-  workspace keeps the codebook's detailed codes, as it does for MAJOR1. A broad group
-  can't be translated to one detailed code, so each answer to DENOM is a finding.
-- **Inputs and reserved codes.** An input has no missing values in the instrument's DDI. So
-  a "no answer" or "don't know" in BORN or WRKSLF is a finding.
+- **Filtered: NUMEMPS and DENOM.** A variable is filtered from a data file when the data
+  file does not hold its values at the level of access that you have (QREtools' README,
+  "Read a data file", defines the word). The data release holds these two in a form that
+  the questions do not record. It groups NUMEMPS (0, 1-9, 10 or more employees), and the
+  question asks for a number. It holds DENOM as broad groups (Baptist, Methodist and so
+  on), and the workspace keeps the codebook's detailed codes, as it does for MAJOR1. So
+  the map marks both `filtered`, and no value is read from them.
 - **Top and bottom codes.** The data release labels SIBS 6 "6 or more", CHILDS 8 "8 or
   more", AGEKDBRN 17 "17 and younger" and 45 "45 and older", and HRS1 and HRS2 89 "89+
-  hours". These are read as the numbers 6, 8, 17, 45 and 89.
+  hours". Such a value is a range, not a number, so it gives no answer. The codebook
+  agrees on CHILDS (its code 8 is "Eight or more") and on HRS1 and HRS2 (their remarks:
+  "Responses greater than 89 were coded 89"). For SIBS and AGEKDBRN, the codebook gives no
+  top or bottom code: their remarks say only that the categories are collapsed for
+  display. These caps are the data release's.
+- **Inputs and reserved codes.** The data gives "no answer" and "don't know" for BORN and
+  WRKSLF. An input accepts the workspace's missing values only in a DDI built with a
+  QREtools later than 2.0.0-alpha.9. The DDI of release `v9` was built with 2.0.0-alpha.9,
+  so with it, these values are findings.
 
 To read the 2010 data, do these steps:
 
@@ -432,7 +443,8 @@ To read the 2010 data, do these steps:
 4. Write the map and the CSV. Use a folder outside this repository for the CSV:
    `.venv/bin/python -I tools/columns.py <gss7224_r3a.sav> <gss_2010.json> 2010 -o <folder>`
 5. Read the lines that the tool writes. Each line names a variable that the map leaves
-   out, or codes that the data labels and the workspace does not hold.
+   out or marks `filtered`, codes that the data labels and the workspace does not hold,
+   or a label of a number that the tool cannot read as a range or as the number.
 6. Run `git status`. If the map changed, examine the diff.
 7. Read the answers, with a QREtools that reads a data file's column map (later than
    2.0.0-alpha.9):

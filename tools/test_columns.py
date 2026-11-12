@@ -5,6 +5,7 @@ Run: python3 -I -m unittest discover -s tools
 import os
 import sys
 import unittest
+from unittest import mock
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import columns  # noqa: E402
@@ -76,6 +77,29 @@ class ColumnMap(unittest.TestCase):
             columns.column_map(DDI, "sha256:0", {**LABELS, "born": {-98.0: "dk"}})
         with self.assertRaises(SystemExit):
             columns.column_map(DDI, "sha256:0", {"qcol": LABELS["qcol"]})
+
+    def test_filtered_and_censored(self):
+        number = variable("kids", QuestionReference=[{"value": ["x", "kids", "1"]}], VariableRepresentation={"ValueRepresentation": {"$type": "NumericDomain"}})
+        ddi = {
+            **DDI,
+            "Variable": {**DDI["Variable"], "e": number},
+            "QuestionItem": {
+                **DDI["QuestionItem"],
+                "x:kids:1": {"BasedOnObject": {"BasedOnRationaleDescription": {"String": [{"MultilingualStringValue": {"Value": "GSS KIDS; page 2"}}]}}},
+            },
+        }
+        kids = {0.0: "none", 1.0: "1", 8.0: "8 or more", 17.0: "17 and younger", 9.0: "a stray label", **RESERVED}
+        with mock.patch.dict(columns.FILTERED, {"q": "held in another form"}):
+            the_map, _ = columns.column_map(ddi, "sha256:0", {**LABELS, "kids": kids})
+        self.assertEqual(
+            the_map["columns"],
+            [
+                {"column": "qcol", "variable": "urn:ddi:x:instrument-t.var-q:1", "filtered": True},
+                {"column": "born", "variable": "urn:ddi:x:instrument-t.var-born_in_us:1"},
+                # A label that is neither a range nor the number is printed, never taken as a cap.
+                {"column": "kids", "variable": "urn:ddi:x:instrument-t.var-kids:1", "censored": {"8": "8 or more", "17": "17 and younger"}},
+            ],
+        )
 
     def test_cell(self):
         self.assertEqual([columns.cell(v) for v in (40.0, -100.0, 1.5, float("nan"))], ["40", "-100", "1.5", ""])

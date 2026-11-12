@@ -23,11 +23,17 @@
     },
     {
       "column": "hrs1",
-      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-hrs1:3"
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-hrs1:3",
+      "censored": {
+        "89": "89+ hours"
+      }
     },
     {
       "column": "hrs2",
-      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-hrs2:3"
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-hrs2:3",
+      "censored": {
+        "89": "89+ hours"
+      }
     },
     {
       "column": "evwork",
@@ -51,15 +57,25 @@
     },
     {
       "column": "sibs",
-      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-sibs:3"
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-sibs:3",
+      "censored": {
+        "6": "6 or more"
+      }
     },
     {
       "column": "childs",
-      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-childs:3"
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-childs:3",
+      "censored": {
+        "8": "8 or more"
+      }
     },
     {
       "column": "agekdbrn",
-      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-agekdbrn:3"
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-agekdbrn:3",
+      "censored": {
+        "17": "17 and younger",
+        "45": "45 and older"
+      }
     },
     {
       "column": "income06",
@@ -75,7 +91,8 @@
     },
     {
       "column": "denom",
-      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-denom:3"
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-denom:3",
+      "filtered": true
     },
     {
       "column": "jew",
@@ -108,6 +125,11 @@
     {
       "column": "betrlang",
       "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-betrlang:3"
+    },
+    {
+      "column": "numemps",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-numemps:3",
+      "filtered": true
     },
     {
       "column": "localnum",

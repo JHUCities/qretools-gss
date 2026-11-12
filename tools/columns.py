@@ -35,12 +35,18 @@ INPUTS = {
     "self_employed": "wrkslf",  # GSS WRKSLF, codebook page 127
 }
 
-# Questions whose column in the data doesn't hold what the question asks. Leave a column
-# out only when reading it would give wrong values with no finding; keep it when each
-# disagreement shows as a finding (DENOM's broad groups are kept for that reason).
-EXCLUDE = {
+# Questions filtered from the data: the data holds them in another form than the
+# question records, so the map marks them `filtered` and nothing is read from them.
+FILTERED = {
     "numemps": "the data groups it (0, 1-9, 10 or more employees), and the question asks for a number",
+    "denom": "the data holds broad groups (Baptist, Methodist and so on), and the question records the codebook's detailed codes",
 }
+
+# A number's value label that means a range, not the number: a top or a bottom code.
+TOP = re.compile(r"\+|\b(or|and) (more|older|over|above)\b", re.IGNORECASE)
+BOTTOM = re.compile(r"\b(or|and) (younger|less|fewer|under|below)\b", re.IGNORECASE)
+# A number's value label that is the number itself.
+EXACT = re.compile(r"^(none|zero|none or zero|\d+)$", re.IGNORECASE)
 
 # The data's code for "iap" (inapplicable): the respondent wasn't asked, so no answer.
 # It isn't the letter I ("Not applicable"), which a respondent's answer can't be.
@@ -91,7 +97,8 @@ def codes_of(ddi, variable):
 def plan(ddi):
     """Each Variable's GSS column, or why it has none: (columns, without).
 
-    columns: [(variable, its GSS column)] in the DDI's order. without: [(name, reason)].
+    columns: [(variable, its GSS column, why it's filtered or None)] in the DDI's order.
+    without: [(name, reason)].
     """
     computed = {item["AssignedVariableReference"]["URN"] for item in ddi.get("ComputationItem", {}).values()}
     columns, without = [], []
@@ -103,12 +110,9 @@ def plan(ddi):
             match = SOURCE.match(rationale["MultilingualStringValue"]["Value"])
             if match is None:
                 sys.exit(f"{n}: its source doesn't start with the GSS variable (`GSS NAME;`).")
-            if n in EXCLUDE:
-                without.append((n, EXCLUDE[n]))
-            else:
-                columns.append((variable, match.group(1).lower()))
+            columns.append((variable, match.group(1).lower(), FILTERED.get(n)))
         elif n in INPUTS:
-            columns.append((variable, INPUTS[n]))
+            columns.append((variable, INPUTS[n], None))
         elif variable.get("OutParameter", {}).get("URN") in computed:
             without.append((n, "computed by the instrument, not data"))
         else:
@@ -149,28 +153,54 @@ def cell(value):
     return str(value)
 
 
+def censored(column, labels):
+    """A number column's top and bottom codes, from the data's labels: {value: label}.
+
+    A label that is neither a range nor the number itself is printed, never guessed.
+    """
+    ranges = {}
+    for code in sorted(c for c in labels if c >= 0):
+        label = labels[code]
+        if TOP.search(label) or BOTTOM.search(label):
+            ranges[cell(code)] = label
+        elif not EXACT.match(label.strip()):
+            print(f"note: {column}: the data labels {cell(code)} \"{label}\", which isn't read as a range or as the number", file=sys.stderr)
+    return ranges
+
+
 def column_map(ddi, digest, labels_by_column):
     """The column map, and the variables it leaves out with why."""
     columns, without = plan(ddi)
     letters = missing_letters(ddi)
-    for variable, column in columns:
-        codes = codes_of(ddi, variable)
+    entries = []
+    for variable, column, filtered in columns:
+        entry = {"column": column, "variable": variable["URN"]}
+        entries.append(entry)
         labels = labels_by_column.get(column)
         if labels is None:
             sys.exit(f"{name(variable)}: the data has no column `{column}`.")
-        if codes is not None:
+        if filtered is not None:
+            entry["filtered"] = True
+            print(f"filtered: {name(variable)}: {filtered}", file=sys.stderr)
+            continue
+        codes = codes_of(ddi, variable)
+        if codes is None:
+            ranges = censored(column, labels)
+            if ranges:
+                entry["censored"] = ranges
+        else:
             # Codes the data labels that the workspace doesn't hold: printed, not fatal, so
             # each shows as a finding where it occurs. Codes only: the data's labels are its
             # own, not the codebook's, so comparing them would mostly be noise.
             other = [cell(c) for c in sorted(labels) if c >= 0 and cell(c) not in codes]
             if other:
                 print(f"note: {column}: the data labels {len(other)} codes that `{name(variable)}` doesn't hold: {', '.join(other)}", file=sys.stderr)
-    values = reserved_values(letters, {c: labels_by_column[c] for _, c in columns})
+    values = reserved_values(letters, {c: labels_by_column[c] for _, c, f in columns if f is None})
     return {
         "ddi": digest,
         "respondent": "id",
         "values": values,
-        "columns": [{"column": c, "variable": v["URN"]} for v, c in columns],
+        "columns": entries,
     }, without
 
 
@@ -193,7 +223,8 @@ def main(argv):
         print(f"not mapped: {n}: {reason}", file=sys.stderr)
 
     by_lower = {n.lower(): n for n in meta.column_names}
-    names = ["id"] + [c["column"] for c in the_map["columns"]]
+    # A filtered column's data isn't read, so it isn't written either.
+    names = ["id"] + [c["column"] for c in the_map["columns"] if not c.get("filtered")]
     data, _ = pyreadstat.read_sav(sav, usecols=[by_lower["year"]] + [by_lower[n] for n in names], user_missing=True)
     data.columns = [c.lower() for c in data.columns]
     rows = data[data["year"] == int(year)]
