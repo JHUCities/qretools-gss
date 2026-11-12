@@ -885,6 +885,10 @@
      "label": "Switzerland"
     },
     {
+     "code": "28",
+     "label": "West Indies (Not Specified)"
+    },
+    {
      "code": "29",
      "label": "Other (SPECIFY) [See REMARKS]"
     },
@@ -911,6 +915,14 @@
     {
      "code": "35",
      "label": "Romania"
+    },
+    {
+     "code": "36",
+     "label": "Belgium"
+    },
+    {
+     "code": "37",
+     "label": "Arabic"
     },
     {
      "code": "38",
@@ -961,9 +973,9 @@
     "2018"
    ],
    "problems": [
-    "unreadable row (not a label, a punch code and 15 counts): 'West Indies (Not Specified) 28 0 0 0 1 0 0 0 0 0 0 0 1 0 2'",
-    "unreadable row (not a label, a punch code and 15 counts): 'Belgium 36 0 0 1 0 1 8 4 0 2 2 2 1 0 21'",
-    "unreadable row (not a label, a punch code and 15 counts): 'Arabic 37 0 0 0 0 1 1 0 2 0 3 2 1 2 12'"
+    "a row with 14 counts: its punch code and label are kept, its counts aren't read: 'West Indies (Not Specified)'",
+    "a row with 14 counts: its punch code and label are kept, its counts aren't read: 'Belgium'",
+    "a row with 14 counts: its punch code and label are kept, its counts aren't read: 'Arabic'"
    ]
   },
   "hispanic": {
@@ -5118,6 +5130,10 @@
      "label": "Yes, more than 4 years"
     },
     {
+     "code": "4",
+     "label": "Some, don't know how long"
+    },
+    {
      "code": "9",
      "label": "No answer"
     },
@@ -5140,7 +5156,7 @@
     "2018"
    ],
    "problems": [
-    "unreadable row (not a label, a punch code and 15 counts): \"Some, don't know how long 4 5 0 0 0 0 0 0 0 1 0 2 0 0 8\""
+    "a row with 14 counts: its punch code and label are kept, its counts aren't read: \"Some, don't know how long\""
    ]
   }
  }

@@ -4,8 +4,8 @@ Usage: python -I tools/generate.py <source.json> <year> [workspace_dir]
 For example: python -I tools/generate.py sources/gss-1972-2018-codebook.json 2008
 <source.json> is sources/gss-1972-2018-codebook.json (tools/extract_cumulative.py makes
 it) or sources/gss-2022-codebook.json (tools/extract.py makes it). The workspace gets
-the questions of SPEC that the source says were asked in <year>, and only the scales,
-universes, concepts and units those questions name. missing.yaml always comes from the
+the questions of SPEC that the source says were asked in any replay year up to <year>
+(REPLAY), and only the scales, universes, concepts and units those questions name. missing.yaml always comes from the
 2022 codebook: its letters are this workspace's reserved codes, whatever the source.
 
 NORC's material here comes only from those codebooks, under the 2022 codebook's
@@ -13,7 +13,7 @@ permission notice (see LICENSE.md): question text, filters, interviewer directio
 codes and their labels, and the reserved (missing-value) codes. Each text of NORC's in
 SPEC is a span of its variable's codebook wording, word for word apart from case and
 spacing, where a {{fill}} stands for the codebook's placeholder: the asserts below check
-it for the year's questions. Titles, intents, concept labels and the universes in OURS
+it for the questions written. Titles, intents, concept labels and the universes in OURS
 are our own words.
 """
 import json
@@ -76,7 +76,6 @@ SPEC = {
     "racecen1": (D, "race", "Race, first mentioned", dict(text="What is your race? Indicate one or more races that you consider yourself to be.", scale="race_census")),
     "racecen2": (D, "race", "Race, second mentioned", dict(text="What is your race? Indicate one or more races that you consider yourself to be.", scale="race_census", variant_of={"racecen1": "the second race mentioned in answer to the same question"})),
     "racecen3": (D, "race", "Race, third mentioned", dict(text="What is your race? Indicate one or more races that you consider yourself to be.", scale="race_census", variant_of={"racecen1": "the third race mentioned in answer to the same question", "racecen2": "the third race mentioned, where racecen2 is the second"})),
-    "race": (D, "race", "Race, three groups", dict(text="What race do you consider yourself?", instruction="RECORD VERBATIM AND CODE. CODE WITHOUT ASKING ONLY IF THERE IS NO DOUBT IN YOUR MIND.")),
     "eth1": (D, "ethnicity", "Ancestry, first country", dict(text="From what countries or part of the world did your ancestors come?")),  # its own list: 98 is an answer here, "Don't know" in ETH2 and ETH3
     "eth2": (D, "ethnicity", "Ancestry, second country", dict(text="From what countries or part of the world did your ancestors come?", scale="ancestry", variant_of={"eth1": "the second country mentioned in answer to the same question"})),
     "eth3": (D, "ethnicity", "Ancestry, third country", dict(text="From what countries or part of the world did your ancestors come?", scale="ancestry", variant_of={"eth1": "the third country mentioned in answer to the same question", "eth2": "the third country mentioned, where eth2 is the second"})),
@@ -128,6 +127,13 @@ SPEC = {
     "wksups1": (W, "workplace_hierarchy", "Those supervised supervise others", dict(text="Do any of those persons supervise anyone else?", universe="supervises_someone", scale="yes_no_3_4")),
     "vetyears": (W, "veteran_status", "Time on active military duty", dict(text=("Have you ever been on active duty for military training or service for two consecutive months or more?", "What was your total time on active duty?"))),
 }
+
+# Variables in an extract that are left out of the workspace, and why (README.md, "Left out").
+LEFT_OUT = {"race": "from 2002 RACECEN1-3 replaced it and it was imputed (its remarks)"}
+
+# The replay's years in the cumulative codebook, oldest first. Year Y holds every question
+# asked in any of them up to Y: a bank keeps a question that a later year doesn't ask.
+REPLAY = ["2008", "2010", "2012", "2014", "2016", "2018"]
 
 # Universes: the codebook's filters, word for word, or our own description (OURS) of who
 # is asked, where we infer it from the order of the questions.
@@ -211,7 +217,7 @@ def codes(var):
         plain = space(c["label"]).replace("’", "'").lower()
         if MISSING.fullmatch(plain):
             continue
-        assert not SUSPECT.search(plain) or plain.endswith("don't know which"), f"{var}: is '{c['label']}' a missing-value row?"
+        assert not SUSPECT.search(plain) or plain.endswith(("don't know which", "don't know how long")), f"{var}: is '{c['label']}' a missing-value row?"
         out.append((c["code"], space(c["label"])))
     return out
 
@@ -235,21 +241,27 @@ def gss(name):
     return SPEC[name][3].get("gss", name)
 
 
-def asked(name):
+def first_asked(name):
+    """The first replay year, up to YEAR, that asked the question; None if none did. The 2022 codebook has no years: its questions are asked in 2022."""
     entry = ENTRIES.get(gss(name))
-    return entry is not None and ("asked" not in entry or YEAR in entry["asked"])
+    if entry is None or not CUMULATIVE:
+        # shortcut: the 2022 source alone, so it drops a question only the cumulative codebook asked; the 2022 pull request reads both sources.
+        return entry and YEAR
+    return next((y for y in REPLAY[:REPLAY.index(YEAR) + 1] if y in entry["asked"]), None)
 
 
-QUESTIONS = {n: v for n, v in SPEC.items() if asked(n)}
+assert not CUMULATIVE or YEAR in REPLAY, f"{YEAR} isn't a year of the replay"
+QUESTIONS = {n: v for n, v in SPEC.items() if first_asked(n)}
 # Entries the extractor couldn't read in full, kept only for the reason given.
-KNOWN_PROBLEMS = {"eth3": "three rows (28, 36, 37) lack a count, so the extractor drops them; ETH2 gives the same codes and labels to the ancestry scale"}
+KNOWN_PROBLEMS = {"eth3": "three rows (28, 36, 37) lack a count in one column; their codes and labels are read, and ETH2 gives the same ones to the ancestry scale",
+                  "vetyears": "one row (4) lacks a count in one column; its code and label are read, and its other rows give the years asked"}
 for n in QUESTIONS:
     assert not ENTRIES[gss(n)].get("problems") or gss(n) in KNOWN_PROBLEMS, f"{n}: {ENTRIES[gss(n)]['problems']}"
 assert CUMULATIVE or YEAR == "2022", "the 2022 codebook gives the questions of 2022"
-assert set(ENTRIES) <= {gss(n) for n in SPEC}, "the extract has a variable SPEC lacks"
+assert set(ENTRIES) <= {gss(n) for n in SPEC} | set(LEFT_OUT), "the extract has a variable SPEC lacks"
 assert not CUMULATIVE or YEAR in SOURCE["columns"], f"{YEAR} isn't a column of the source"
 
-# Each text of NORC's is the codebook's, word for word. Only the year's questions are
+# Each text of NORC's is the codebook's, word for word. Only the questions written are
 # checked: an item's text is set to its source in the year it is first asked.
 for name, (_, _, _, f) in QUESTIONS.items():
     entry = ENTRIES[gss(name)]
@@ -262,15 +274,13 @@ assert all(f.get("universe", next(iter(UNIVERSES))) in UNIVERSES for _, _, _, f 
 assert all(f.get("scale", "yes_no") in SCALES for _, _, _, f in SPEC.values())
 assert all(k in QUESTIONS for _, _, _, f in QUESTIONS.values() for k in f.get("variant_of", {})), "a variant_of names a question not asked this year"
 
-# A scale holds every code the year's questions on it give, and a code means the same on each.
+# A scale holds every code the questions written on it give, and a code means the same on each.
 scales = {}
 for scale in SCALES:
     for var in [gss(n) for n, (_, _, _, f) in QUESTIONS.items() if f.get("scale") == scale]:
         seen = scales.setdefault(scale, {})
         for c, l in codes(var):
             assert tidy(seen.setdefault(c, l), False) == tidy(l, False), f"scale {scale}: code {c} is '{seen[c]}' and '{l}'"
-
-assert "eth3" not in QUESTIONS or {"28", "36", "37"} <= set(scales["ancestry"]), "eth3's dropped rows aren't in the ancestry scale"
 
 # The generated folders are written afresh, so nothing dropped or renamed stays.
 for folder in ("questions", "scales", "universes", "concepts", "units"):
@@ -312,7 +322,8 @@ for name, (folder, concept, title, f) in QUESTIONS.items():
         out.append("responses:\n" + code_map(codes(var), var in NAME_LISTS).rstrip("\n"))
     if "instruction" in f:
         out.append(f"instruction: {scalar(f['instruction'])}")
-    survey = f"; asked in the {YEAR} survey" if CUMULATIVE else ""
+    # The first replay year that asked it, so a question's file (and its DDI version) doesn't change when a later year asks it again.
+    survey = f"; asked in the {first_asked(name)} survey" if CUMULATIVE else ""
     out.append(f"source: {scalar(f'GSS {var.upper()}; {CITE}, page {page}{survey}')}")
     if CUMULATIVE:  # remarks stay in the source: some hold counts
         note = (f"Codebook stem: {entry['stem']} " if "stem" in entry else "") + f"Codebook wording: {entry['wording']}"
@@ -325,4 +336,4 @@ for name, (folder, concept, title, f) in QUESTIONS.items():
         out.append("variant_of:\n" + "\n".join(f"  {k}: {scalar(why)}" for k, why in f["variant_of"].items()))
     write(f"questions/{folder}/{name}.yaml", NORC + "\n".join(out) + "\n")
 
-print(len(QUESTIONS), "questions asked in", YEAR, "; not asked:", " ".join(n for n in SPEC if n not in QUESTIONS))
+print(len(QUESTIONS), "questions asked by", YEAR, "; not yet asked:", " ".join(n for n in SPEC if n not in QUESTIONS))

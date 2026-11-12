@@ -1,0 +1,14 @@
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
+name: vetyears
+title: Time on active military duty
+text: Have you ever been on active duty for military training or service for two consecutive months or more? What was your total time on active duty?
+intent: Military service, as the GSS Replicating Core measures it (VETYEARS).
+concept: veteran_status
+responses:
+  "0": No active duty
+  "1": Yes, less than 2 years
+  "2": Yes, 2-4 years
+  "3": Yes, more than 4 years
+  "4": Some, don't know how long
+source: GSS VETYEARS; GSS 1972-2018 cumulative codebook (NORC), page 2956; asked in the 2010 survey
+note: "Codebook wording: Have you ever been on active duty for military training or service for two consecutive months or more? IF YES: What was your total time on active duty?"
