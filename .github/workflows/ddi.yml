@@ -1,12 +1,22 @@
-# On every push to main, builds this workspace's DDI with `qretools build` and publishes
-# it on GitHub Pages at <pages url>/ddi.json. Each question's version is counted from
-# this repository's history, so the checkout needs all of it (fetch-depth: 0); a shallow
-# one is refused.
+# Publishes this workspace's DDI on GitHub Pages: the build of main at <pages url>/, and
+# the build of each release tag at <pages url>/<tag>/ (for example /v3/ddi.json), so the
+# files of a release stay at the same address. Pages replaces the whole site on each
+# deploy, so each tag is built again each time, with the qretools that the tag's own
+# mise.toml pins. A tag listed in .github/pages-skip (one tag on a line) is not
+# published. A tag whose mise.toml pins no qretools isn't a workspace release, and is not
+# published either. If a build fails, nothing is deployed and the site stays as it was:
+# correct the cause, or list the tag in .github/pages-skip. A LICENSE file at the root
+# of the built commit goes with its build.
 name: DDI
 
 on:
   push:
     branches: [main]
+  # The Release workflow pushes its tag with GITHUB_TOKEN, which starts no workflow, so
+  # this publishes the new tag when Release ends.
+  workflow_run:
+    workflows: [Release]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -20,6 +30,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -27,15 +38,47 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
+          # All history and tags: build counts versions from history, and refuses a
+          # shallow clone.
           fetch-depth: 0
-      # Node and the qretools npm package, as mise.toml pins them.
-      - uses: jdx/mise-action@v4
-      - run: qretools build . -o dist
-      # The DDI holds NORC's material, so the codebook's notice goes with it.
-      - run: cp LICENSE.md dist/LICENSE.md
+      - uses: jdx/mise-action@v5
+      - name: Build main, then each release tag
+        run: |
+          site="$RUNNER_TEMP/site"
+          # Read on main, before a tag is checked out: a tag has its own copy, or none.
+          skip=$(cat .github/pages-skip 2>/dev/null || true)
+          build() {
+            echo "::group::Build $1"
+            mise install
+            # The qretools that this commit's mise.toml pins, never another one on PATH.
+            pinned=$(mise where npm:qretools)
+            if ! qretools=$(mise exec -- which qretools) || [[ "$qretools" != "$pinned"/* ]]; then
+              echo "::error::$1: the qretools on PATH isn't the one its mise.toml pins."
+              exit 1
+            fi
+            if ! "$qretools" build . -o "$2"; then
+              echo "::error::$1 didn't build, so nothing was published. Correct the cause, or list $1 in .github/pages-skip."
+              exit 1
+            fi
+            find . -maxdepth 1 -name 'LICENSE*' -exec cp {} "$2/" \;
+            echo "::endgroup::"
+          }
+          build main "$site"
+          for tag in $(git tag --list 'v*' | grep -xE 'v[1-9][0-9]*'); do
+            if grep -qxF "$tag" <<<"$skip"; then
+              echo "::notice::$tag isn't published: it is in .github/pages-skip."
+              continue
+            fi
+            git checkout -q --detach "$tag"
+            if ! grep -q '^"npm:qretools"' mise.toml 2>/dev/null; then
+              echo "::notice::$tag isn't published: its mise.toml pins no qretools, so it isn't a workspace release."
+              continue
+            fi
+            build "$tag" "$site/$tag"
+          done
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
         with:
-          path: dist
+          path: ${{ runner.temp }}/site
       - id: deployment
         uses: actions/deploy-pages@v5
