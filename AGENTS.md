@@ -40,13 +40,20 @@ Tags:
 - No tag holds the import from the 2022 codebook. The replay replaced it before a release.
 - From `v3`, the tags follow the replay, in the order of the survey years. `v3` holds
   the questions of 2008. `v4` adds the instrument for 2008. `v5` holds the questions of
-  2010.
+  2010. `v6` adds the instrument for 2010, and changes the instrument for 2008 to read
+  `v5`.
 
 ## The instrument for a year
 
 Each year has one instrument, `instruments/gss_<year>.yaml`, written by hand. It reads the
-year's tag. `instruments/gss_2008.yaml` reads `v3`. `README.md` lists its conditions, its
+year's tag, or a later tag that replaces a question it asks. `instruments/gss_2008.yaml`
+and `instruments/gss_2010.yaml` read `v5`. `README.md` lists their conditions, their
 inputs, and what the codebook does not settle.
+
+If a tag removes or replaces a question that an earlier instrument asks, change that
+instrument to read the tag. Do this in the pull request for the next instrument. Example:
+`v5` replaces INCOME and RINCOME with INCOME06 and RINCOM06, so the 2008 instrument reads
+`v5`. Do not ask a question that the year did not ask.
 
 Rules:
 
@@ -56,7 +63,9 @@ Rules:
   codebook's page in a comment above the condition.
 - **The owner can settle the routing from the GSS data for the year.** Use the data where
   the codebook is silent, is unclear, or contradicts itself. A question is asked of a
-  respondent unless the value is "iap".
+  respondent unless the value is "iap". If a filter question has "No answer", the data
+  gives "No answer" to its follow-up questions, not "iap". This does not show who was
+  asked.
   Say in `README.md` what the data settled. Do not write a count, a percentage or another
   figure from the data in a tracked file: the data is not licensed for publication.
 - **If neither the codebook nor the data gives a condition, ask the question of
