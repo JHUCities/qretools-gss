@@ -151,7 +151,7 @@ ballot split for these questions in 2008, so the instrument has none.
 | DENOM | RELIG is 1 or 11 (Christian; the 2008 data) | page 312 |
 | JEW | RELIG is 3 | page 314 |
 | RELITEN | RELIG isn't Don't know | page 318 |
-| PARTFULL | WEEKSWRK isn't 0 | page 438 |
+| PARTFULL | WEEKSWRK has a value that isn't 0 (the 2008 data) | page 438 |
 | OTHLANG1, SPKLANG, BETRLANG | OTHLANG is 1 ("No (GO TO PARLANG)") | page 1284 |
 | NUMEMPS | the part before it is "Self-employed" (input `self_employed`; the 2008 data) | page 1625 |
 | LOCALNUM | WRKSTAT is 1, 2 or 3 (the remarks, "Beginning in 1994") | page 2437 |
@@ -189,7 +189,8 @@ none, the instrument gives it one, in our own words.
   answers to one question, not further questions, and an instrument can't yet record
   more than one mention of an answer.
 
-**What the codebook doesn't settle, and how the 2008 data settled it.**
+**What the codebook doesn't settle, and how the 2008 data settled it.** PARTFULL is
+under the 2010 instrument below: the 2008 and 2010 data agree on it.
 
 - **USCITZN.** Its "Not applicable" label reads "Not Punch 1 in BORN", which would mean
   that only people born in the country were asked. The question's own answers, and the
@@ -249,7 +250,6 @@ asked it from 2002, and the workspace doesn't hold it from `v5`.
 | Question | Asked when | Codebook |
 |---|---|---|
 | RELITEN | always (the 2010 data) | page 318 |
-| PARTFULL | WEEKSWRK has a value that isn't 0 (the 2010 data) | page 438 |
 | JEW | RELIG is 3 (its remark about OTHJEW is for 2008 only) | page 314 |
 | VETYEARS | always | page 2956 |
 
@@ -270,10 +270,10 @@ The inputs are the same as in 2008.
 - **AGEKDBRN, DENOM, NUMEMPS, USCITZN.** The 2010 data shows the same as the 2008 data.
 - **PARTFULL.** In the 2008 and 2010 data, PARTFULL is "iap" after WEEKSWRK "Don't
   know". The codebook gives only "Punch 0 in WKSWRK". In QREtools 2.0.0-alpha.9 a number
-  question's "Don't know" has no value in a condition, so the 2010 instrument asks
-  PARTFULL when WEEKSWRK has a value that isn't 0. This also skips WEEKSWRK "No answer",
-  which shows nothing about who was asked (below). The 2008 instrument still asks PARTFULL
-  after a WEEKSWRK with no value.
+  question's "Don't know" has no value in a condition, so both instruments ask PARTFULL
+  when WEEKSWRK has a value that isn't 0. This also skips WEEKSWRK "No answer", which
+  shows nothing about who was asked (below). Until release `v7`, the 2008 instrument
+  asked PARTFULL after a WEEKSWRK with no value.
 - **HRS2.** In the 2010 data, a few respondents with WRKSTAT 3 are "iap" for HRS2.
   Nothing in the codebook says why. The instrument follows HRS2's filter.
 - **No answer.** Where a respondent gave no answer to a filter question (WRKSTAT, RELIG),

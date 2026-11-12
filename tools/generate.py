@@ -29,11 +29,6 @@ SOURCE = json.load(open(SOURCE_PATH, encoding="utf-8"))
 CUMULATIVE = "notice_applied" in SOURCE
 ENTRIES = SOURCE["entries"]
 RESERVED = json.load(open(os.path.join(ROOT, "sources", "gss-2022-codebook.json"), encoding="utf-8"))["entries"]
-# Every file holding NORC's material opens with one of these lines.
-NORC_2022 = "# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.\n"
-NORC = ("# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's"
-        " notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.\n"
-        if CUMULATIVE else NORC_2022)
 CITE = "GSS 1972-2018 cumulative codebook (NORC)" if CUMULATIVE else "GSS 2022 codebook (NORC)"
 
 # Shared concepts: our own labels for the parts of the GSS Replicating Core used here.
@@ -293,9 +288,9 @@ for folder in ("questions", "scales", "universes", "concepts", "units"):
 used = lambda key: {f[key] for _, _, _, f in QUESTIONS.values() if f.get(key)}
 for scale, seen in scales.items():
     ordered = sorted(seen.items(), key=lambda cl: float(cl[0]))
-    write(f"scales/{scale}.yaml", NORC + "labels:\n" + code_map(ordered, SCALES[scale] in NAME_LISTS))
+    write(f"scales/{scale}.yaml", "labels:\n" + code_map(ordered, SCALES[scale] in NAME_LISTS))
 for name in used("universe"):
-    write(f"universes/{name}.yaml", ("" if name in OURS else NORC) + f"text: {scalar(UNIVERSES[name])}\n")
+    write(f"universes/{name}.yaml", f"text: {scalar(UNIVERSES[name])}\n")
 for name in {c for _, c, _, _ in QUESTIONS.values()}:
     write(f"concepts/{name}.yaml", f"label: {scalar(CONCEPTS[name])}\n")
 for unit in used("number"):
@@ -306,7 +301,7 @@ reserved = {}
 for entry in RESERVED.values():
     for r in entry["reserved"]:
         reserved.setdefault(r["code"], []).append(r["label"])
-write("missing.yaml", NORC_2022 + "# The GSS's reserved codes, each written as its letter alone, as the codebook writes them.\nlabels:\n"
+write("missing.yaml", "# The GSS's reserved codes, each written as its letter alone, as the codebook writes them.\nlabels:\n"
       + "".join(f"  {c}: {scalar(tidy(max(sorted(set(ls)), key=ls.count), False))}\n" for c, ls in sorted(reserved.items())))
 
 for name, (folder, concept, title, f) in QUESTIONS.items():
@@ -338,6 +333,6 @@ for name, (folder, concept, title, f) in QUESTIONS.items():
         out.append("fills:\n" + "\n".join(f"  {k}: {t}" for k, t in f["fills"].items()))
     if "variant_of" in f:
         out.append("variant_of:\n" + "\n".join(f"  {k}: {scalar(why)}" for k, why in f["variant_of"].items()))
-    write(f"questions/{folder}/{name}.yaml", NORC + "\n".join(out) + "\n")
+    write(f"questions/{folder}/{name}.yaml", "\n".join(out) + "\n")
 
 print(len(QUESTIONS), "questions asked by", YEAR, "; not yet asked:", " ".join(n for n in SPEC if n not in QUESTIONS))
