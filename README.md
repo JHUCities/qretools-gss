@@ -67,6 +67,12 @@ Every push to `main` publishes the workspace's DDI at
 publishes three files for each instrument: its DDI (`gss_2008.json`), its Qualtrics
 survey (`gss_2008.qsf`) and its QSF column map (`gss_2008-ddi-qsf.columns.json`).
 
+Each release is also published in a folder named for its tag, and it stays there: for
+example <https://jhucities.github.io/qretools-gss/v3/ddi.json> holds the questions of
+2008, and `v4/instruments/gss_2008.json` the 2008 instrument. Each release is built with
+the qretools that it pins. `v1` and `v2` are not published (`.github/pages-skip`): they
+hold material from NORC's website, which this repository may not republish.
+
 An instrument uses a release of this workspace, named by its tag:
 `uses: gss: JHUCities/qretools-gss@v3`. It gets the questions as they were at that tag.
 Changes merged into `main` reach it only after a new release, when the instrument's
