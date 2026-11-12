@@ -1,0 +1,13 @@
+name: posslq
+title: Living arrangement with a partner
+text: Which of these statements applies to you?
+intent: Marital and partnership status, as the GSS Replicating Core measures it (POSSLQ).
+concept: marital_status
+responses:
+  "1": Married, together
+  "2": Partner, together
+  "3": Married/Partner apart
+  "4": No Partner
+instruction: CODE ONE ONLY.
+source: GSS POSSLQ; GSS 1972-2018 cumulative codebook (NORC), page 2182; asked in the 2012 survey
+note: "Codebook wording: Which of these statements applies to you? CODE ONE ONLY. A. I am married and living in the same household as my husband or wife.......................................... 1 B. I am living as married and my partner and I together live in the same household…........................ 2 C. I have a husband or wife or steady partner, but we don't live in the same household…….............. 3 D. I don't have a steady partner.......................................................................................................... 4"

@@ -8,13 +8,14 @@ from the [GSS 1972-2018 cumulative codebook](https://gss.norc.org/content/dam/gs
 (main body, December 2019), except the reserved codes in `missing.yaml`, which come from
 the [GSS 2022 codebook](https://gss.norc.org/content/dam/gss/get-documentation/pdf/codebook/GSS%202022%20Codebook.pdf).
 
-**This is the GSS of 2010.** The workspace replays the GSS's history, one survey year in
+**This is the GSS of 2012.** The workspace replays the GSS's history, one survey year in
 each pull request: 2008, 2010, 2012, 2014, 2016, 2018, then 2022 and 2024 (2021 is
 skipped). Each year's workspace holds every question the cumulative codebook shows answers
 for in that year or an earlier year of the replay. A question comes in with the first year
 that asks it and stays, as it would in a question bank, even when a later year doesn't ask
 it. 2010 adds VETYEARS. It also replaces INCOME and RINCOME, which are recodes, with the
-questions they are recoded from, INCOME06 and RINCOM06 (see "Left out").
+questions they are recoded from, INCOME06 and RINCOM06 (see "Left out"). 2012 adds
+POSSLQ, POSSLQY, MAJOR1 and MAJOR2 (see "The questions of 2012").
 The cumulative codebook prints one wording for each variable, for all years: a question
 whose wording changed is a new variable. So a question here has the codebook's wording,
 which may not be word for word what the interviewer read in a given year.
@@ -98,8 +99,10 @@ Data Explorer's documentation, and held an instrument, `replicating_core`. An im
 the 2022 codebook followed, but the replay replaced it before any release. From `v3`, the
 tags follow the replay, in the order of the survey years: `v3` holds the questions of
 2008, `v4` adds the 2008 instrument, and `v5` holds the questions of 2010. `v6` adds the
-2010 instrument, and corrects the 2008 instrument to read `v5`. The instrument for each
-GSS year comes in the pull request after that year's questions.
+2010 instrument, and corrects the 2008 instrument to read `v5`. `v7` removes the notice
+comment from each file and corrects PARTFULL in the 2008 instrument. `v8` holds the
+questions of 2012. The instrument for each GSS year comes in the pull request after that
+year's questions.
 
 ## The 2008 instrument
 
@@ -284,11 +287,40 @@ Measured with QREtools 2.0.0-alpha.9: `qretools instrument check` gives 0 findin
 `qretools paths` counts 5,760 ways through the routing, 14 to 28 questions on each
 (median 21). Each of the 31 questions asked is reachable.
 
+## The questions of 2012
+
+The cumulative codebook shows answers in 2012, and in no earlier year of the replay, for
+four questions: POSSLQ, POSSLQY, MAJOR1 and MAJOR2. The 2012 data agrees: each has
+answers in 2012, and none has answers in 2008 or 2010. Each question that the codebook
+shows as asked in 2012 has answers in the 2012 data, and each question that waits for a
+later year has none. None of the four is derived from another variable: each holds the
+respondent's answer.
+
+- **POSSLQ and POSSLQY** are the two forms of one wording experiment, on cards A1.2a and
+  A1.2b. In the 2012 data each respondent answered one form, never both. POSSLQ's codes
+  have the codebook's short labels ("Married, together"); its card's statements are in
+  its `note`. Both have the direction "CODE ONE ONLY." as their instruction.
+- **MAJOR1 and MAJOR2** are the first and second mentions of one question, whose wording
+  ends "[COUNT UP TO 2 MENTIONS]". The codebook prints the wording under MAJOR1 only,
+  and MAJOR2's table follows MAJOR1's with no wording. So MAJOR2's text is MAJOR1's, and its `note` says that
+  the wording is printed under MAJOR1. Its `source` is its own page.
+- **MAJOR1 and MAJOR2's codes.** The workspace keeps the codebook's codes. In the GSS
+  data release used here, MAJOR1 and MAJOR2 hold a shorter list of broad fields, not the
+  codebook's codes. A column map for 2012 must translate between them.
+
+Two labels of the shared scale `college_major` were wrong in the extract, and the
+extractor now reads them correctly. A label that wraps after "/" no longer gets a space
+after the "/". MAJOR1's code 71 has a stray number after the second line of its label.
+The extractor drops it and records the problem; MAJOR2 and another table of the
+codebook print the same label without it.
+
 ## Universes we wrote
 
 Most universes quote the codebook's filter. Three in 2008 are ours, worked out from the
 order of the questions: `born_outside_us` and `other_language_speakers` (each follows the
-question that decides it), and `self_employed`.
+question that decides it), and `self_employed`. One in 2012 is ours: `college_degree`, for
+MAJOR1 and MAJOR2. The wording names "(RESPONDENT'S COLLEGE DEGREE)", and in the 2012 data
+only respondents with a junior college degree or higher answered MAJOR1.
 
 ## Left out
 
@@ -310,17 +342,17 @@ the respondent:
 - **Taken from the address**: REGION, XNORCSIZ, SRCBELT, SIZE.
 - **Coded by the interviewer, with no wording for the respondent**: SEX.
 
-**Not yet asked by 2010**, so not yet in the workspace. Each comes in with the first
-later year the cumulative codebook shows answers for: POSSLQ, POSSLQY, MAJOR1 and MAJOR2
-(2012); INCOME16, RINCOM16, WKSUB1, WKSUBS1, WKSUP1 and WKSUPS1 (2016); WRKSLFFAM,
-YEARSUSA and MNTHSUSA (2018).
+**Not yet asked by 2012**, so not yet in the workspace. Each comes in with the first
+later year the cumulative codebook shows answers for: INCOME16, RINCOM16, WKSUB1,
+WKSUBS1, WKSUP1 and WKSUPS1 (2016); WRKSLFFAM, YEARSUSA and MNTHSUSA (2018).
 
 **Not in the cumulative codebook**, so they wait for the 2022 pull request: OTHER (the
 codebook says DENOM's "Other" was recoded into it, but has no entry for it), WHATSLF2,
 WRKGOVT1 and WRKGOVT2. WRKGOVT1 and WRKGOVT2 replace WRKGOVT, which is here for 2008.
 
 Some pairs are kept although they're alike, each marked `variant_of`: the second and
-third mentions of one question (RACECEN, ETH, OTHLANG). OTHLANG1 and OTHLANG2 don't
+third mentions of one question (RACECEN, ETH, OTHLANG, MAJOR), and the two forms of
+POSSLQ's wording experiment (POSSLQ, POSSLQY). OTHLANG1 and OTHLANG2 don't
 share a scale: the cumulative codebook numbers their languages differently from code 119
 on. ETH1 doesn't share the ancestry scale with ETH2 and ETH3: its 98 is "No ethnicity
 mentioned", an answer, where theirs is "Don't know".

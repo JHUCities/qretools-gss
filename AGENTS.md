@@ -41,7 +41,8 @@ Tags:
 - From `v3`, the tags follow the replay, in the order of the survey years. `v3` holds
   the questions of 2008. `v4` adds the instrument for 2008. `v5` holds the questions of
   2010. `v6` adds the instrument for 2010, and changes the instrument for 2008 to read
-  `v5`.
+  `v5`. `v7` removes the notice comment from each file, and corrects PARTFULL in the
+  instrument for 2008. `v8` holds the questions of 2012.
 
 ## The instrument for a year
 
@@ -155,8 +156,8 @@ Python that reads it with `-I`.
    `.venv/bin/python -I tools/extract_cumulative.py "<path to GSS_Codebook_mainbody.pdf>" sources/gss-1972-2018-codebook.json`
 3. Read each line that starts with `problem:`. Each line names an entry that the
    extractor cannot read. The extractor does not guess these entries.
-4. Write the workspace for the year. For example, for 2010:
-   `python3 -I tools/generate.py sources/gss-1972-2018-codebook.json 2010`
+4. Write the workspace for the year. For example, for 2012:
+   `python3 -I tools/generate.py sources/gss-1972-2018-codebook.json 2012`
 5. Run `qretools check .`.
 6. Run step 4 again. Then run `git status`. The second run must not change a file.
 
@@ -188,6 +189,8 @@ Python that reads it with `-I`.
    - `scale`: a key of `SCALES`, when the list is shared.
    - `variant_of`: why the item looks like another item on purpose.
    - `gss`: the GSS variable, when the name of the question is different.
+   - `wording`: the GSS variable under which the codebook prints the wording. Use it
+     only when the variable has no wording of its own. Example: MAJOR2 uses MAJOR1.
 3. Regenerate. Then run `check`.
 
 The generator writes these fields without a `SPEC` entry: `intent`, `responses`,
