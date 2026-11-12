@@ -34,10 +34,9 @@ The history of `main` replays the GSS, one survey year at a time: 2008, 2010, 20
 Tags:
 
 - `v1` and `v2` hold an earlier import from the GSS Data Explorer, with an instrument.
-- `v3` holds the import from the 2022 codebook alone.
-- Each tag after `v3` holds the questions of one year of the replay. The tags follow the
-  order of the replay, not the order of the survey years: `v3` (2022) comes before the
-  tag for 2008.
+- No tag holds the import from the 2022 codebook. The replay replaced it before a release.
+- From `v3`, each tag holds one year of the replay, in the order of the survey years.
+  `v3` holds the questions of 2008.
 
 ## Open it
 

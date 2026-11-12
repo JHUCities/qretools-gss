@@ -84,10 +84,10 @@ Never make, move or delete a tag by hand. `v1` was tagged by hand, before the wo
 existed, so its questions all read as version 1.
 
 `v1` and `v2` were made from an earlier import, which took its material from the GSS
-Data Explorer's documentation, and held an instrument, `replicating_core`. `v3` holds the
-import from the 2022 codebook alone, with no instrument. Each tag after `v3` holds one
-year of the replay, so the tags don't follow the survey years: `v3` (2022) comes before
-the tag for 2008. An instrument for each GSS year comes in a later pull request.
+Data Explorer's documentation, and held an instrument, `replicating_core`. An import from
+the 2022 codebook followed, but the replay replaced it before any release. From `v3`, each
+tag holds one year of the replay, in the order of the survey years: `v3` is 2008. An
+instrument for each GSS year comes in a later pull request.
 
 ## Universes we wrote
 
