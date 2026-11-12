@@ -18,7 +18,7 @@ name: gss_2008
 title: GSS 2008, Demographics and Work
 description: The Demographics and Work questions the GSS asked in 2008, in the cumulative codebook's order, with the routing the codebook states.
 uses:
-  gss: JHUCities/qretools-gss@v8
+  gss: JHUCities/qretools-gss@v12
 # What the routing and the read-aloud values rest on that this workspace doesn't hold.
 inputs:
   self_employed:

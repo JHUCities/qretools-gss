@@ -43,20 +43,23 @@ Tags:
   2010. `v6` adds the instrument for 2010, and changes the instrument for 2008 to read
   `v5`. `v7` removes the notice comment from each file, and corrects PARTFULL in the
   instrument for 2008. `v8` holds the questions of 2012. `v9` adds the instrument for
-  2012, and changes the instruments for 2008 and 2010 to read `v8`.
+  2012, and changes the instruments for 2008 and 2010 to read `v8`. `v12` adds a maximum to
+  each number question. `v13` changes the instruments for 2008, 2010 and 2012 to read
+  `v12`.
 
 ## The instrument for a year
 
 Each year has one instrument, `instruments/gss_<year>.yaml`, written by hand. It reads the
 year's tag, or a later tag. `instruments/gss_2008.yaml`, `instruments/gss_2010.yaml` and
-`instruments/gss_2012.yaml` read `v8`. `README.md` lists their conditions, their inputs,
+`instruments/gss_2012.yaml` read `v12`. `README.md` lists their conditions, their inputs,
 and what the codebook does not settle.
 
 In the pull request for the next instrument, examine each earlier instrument:
 
 1. Run `git diff <its tag> <the latest tag> -- <each question and shared file it names>`.
 2. If no question that it asks changes in substance, change the instrument to read the
-   latest tag. A removed notice comment is not a change in substance.
+   latest tag. A removed notice comment is not a change in substance. A new maximum on a
+   number question is a correction, not a change in substance (owner, 2026-11-12).
 3. If a question that it asks, or a shared file that it names, changes in substance, keep
    the instrument on its tag.
 4. If the latest tag removes or replaces a question that it asks, change the instrument

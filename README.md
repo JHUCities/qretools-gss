@@ -103,15 +103,18 @@ questions of 2008, `v4` adds the 2008 instrument, and `v5` holds the questions o
 `v6` adds the 2010 instrument, and corrects the 2008 instrument to read `v5`. `v7`
 removes the notice comment from each file and corrects PARTFULL in the 2008 instrument.
 `v8` holds the questions of 2012. `v9` adds the 2012 instrument, and changes the 2008
-and 2010 instruments to read `v8`. The instrument for each GSS year comes in the pull
+and 2010 instruments to read `v8`. `v12` adds a maximum to each number question, and `v13`
+changes the 2008, 2010 and 2012 instruments to read `v12`. The instrument for each GSS year comes in the pull
 request after that year's questions.
 
 ## The 2008 instrument
 
-`instruments/gss_2008.yaml` asks the 2008 questions. It reads this workspace at `v8`
-(`uses: gss: JHUCities/qretools-gss@v8`), and `workspace.yaml` locks that tag to its
-commit. Until `v9`, it read `v5`. Between `v5` and `v8`, no question or shared file that
-it names changes in substance: only the notice comment is removed. Each comment in the
+`instruments/gss_2008.yaml` asks the 2008 questions. It reads this workspace at `v12`
+(`uses: gss: JHUCities/qretools-gss@v12`), and `workspace.yaml` locks that tag to its
+commit. Until `v9`, it read `v5`, and until `v13`, `v8`. Between `v5` and `v8`, no question
+or shared file that it names changes in substance: only the notice comment is removed.
+Between `v8` and `v12`, the only change is a maximum on each number question, which is a
+correction. Each comment in the
 file names the codebook page that a condition comes from.
 
 **The 2008 data.** Where the codebook is unclear or contradicts itself, the owner settled
@@ -245,8 +248,9 @@ the same results, before and after the change to INCOME06 and RINCOM06, and at `
 
 ## The 2010 instrument
 
-`instruments/gss_2010.yaml` asks the 2010 questions. It reads this workspace at `v8`
-(until `v9`, at `v5`; as for 2008, nothing that it asks changes in substance). It is a
+`instruments/gss_2010.yaml` asks the 2010 questions. It reads this workspace at `v12`
+(until `v9`, at `v5`, and until `v13`, at `v8`; as for 2008, nothing that it asks changes
+in substance). It is a
 copy of the 2008 instrument, with the changes below. Each condition was checked again
 against the 2010 data, in the same way as for 2008.
 
@@ -327,7 +331,8 @@ codebook print the same label without it.
 
 ## The 2012 instrument
 
-`instruments/gss_2012.yaml` asks the 2012 questions. It reads this workspace at `v8`. It
+`instruments/gss_2012.yaml` asks the 2012 questions. It reads this workspace at `v12`
+(until `v13`, at `v8`). It
 is a copy of the 2010 instrument, with the changes below. Each condition was checked
 again against the 2012 data, in the same way as for 2008 and 2010.
 
@@ -407,7 +412,7 @@ instrument's Variable URNs and the translation of the reserved codes.
 - The top and bottom codes of the questions that are numbers (below), marked `censored`.
   The tool reads them from the data's value labels ("6 or more", "17 and younger", "89+").
   It writes a note for a label that it cannot read as a range or as the number.
-- The digest of the instrument's DDI in release `v10`. If a later release changes the
+- The digest of the instrument's DDI in release `v13`. If a later release changes the
   instrument's DDI, write the map again from that release's DDI.
 
 **Where the data and the workspace disagree.** The map does not hide these.
@@ -439,8 +444,8 @@ To read the 2010 data, do these steps:
    licensed for publication.**
 2. Make an environment with pyreadstat:
    `python3 -m venv .venv && .venv/bin/pip install pyreadstat`
-3. Download the instrument's DDI of release `v10`:
-   <https://jhucities.github.io/qretools-gss/v10/instruments/gss_2010.json>.
+3. Download the instrument's DDI of release `v13`:
+   <https://jhucities.github.io/qretools-gss/v13/instruments/gss_2010.json>.
 4. Write the map and the CSV. Use a folder outside this repository for the CSV:
    `.venv/bin/python -I tools/columns.py <gss7224_r3a.sav> <gss_2010.json> 2010 -o <folder>`
 5. Read the lines that the tool writes. Each line names a variable that the map leaves
