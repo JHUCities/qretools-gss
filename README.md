@@ -406,7 +406,7 @@ instrument's Variable URNs and the translation of the reserved codes.
 - The top and bottom codes of the questions that are numbers (below), marked `censored`.
   The tool reads them from the data's value labels ("6 or more", "17 and younger", "89+").
   It writes a note for a label that it cannot read as a range or as the number.
-- The digest of the instrument's DDI in release `v9`. If a later release changes the
+- The digest of the instrument's DDI in release `v10`. If a later release changes the
   instrument's DDI, write the map again from that release's DDI.
 
 **Where the data and the workspace disagree.** The map does not hide these.
@@ -427,9 +427,9 @@ instrument's Variable URNs and the translation of the reserved codes.
   top or bottom code: their remarks say only that the categories are collapsed for
   display. These caps are the data release's.
 - **Inputs and reserved codes.** The data gives "no answer" and "don't know" for BORN and
-  WRKSLF. An input accepts the workspace's missing values only in a DDI built with a
-  QREtools later than 2.0.0-alpha.9. The DDI of release `v9` was built with 2.0.0-alpha.9,
-  so with it, these values are findings.
+  WRKSLF. An input accepts the workspace's missing values in a DDI built with QREtools
+  2.0.0-alpha.10 or later, as release `v10` is. In a DDI built with an earlier QREtools,
+  these values are findings.
 
 To read the 2010 data, do these steps:
 
@@ -438,16 +438,15 @@ To read the 2010 data, do these steps:
    licensed for publication.**
 2. Make an environment with pyreadstat:
    `python3 -m venv .venv && .venv/bin/pip install pyreadstat`
-3. Download the instrument's DDI of release `v9`:
-   <https://jhucities.github.io/qretools-gss/v9/instruments/gss_2010.json>.
+3. Download the instrument's DDI of release `v10`:
+   <https://jhucities.github.io/qretools-gss/v10/instruments/gss_2010.json>.
 4. Write the map and the CSV. Use a folder outside this repository for the CSV:
    `.venv/bin/python -I tools/columns.py <gss7224_r3a.sav> <gss_2010.json> 2010 -o <folder>`
 5. Read the lines that the tool writes. Each line names a variable that the map leaves
    out or marks `filtered`, codes that the data labels and the workspace does not hold,
    or a label of a number that the tool cannot read as a range or as the number.
 6. Run `git status`. If the map changed, examine the diff.
-7. Read the answers, with a QREtools that reads a data file's column map (later than
-   2.0.0-alpha.9):
+7. Read the answers, with QREtools 2.0.0-alpha.10 or later:
    `qretools responses <folder>/gss_2010-2010.csv --map instruments/gss_2010-ddi-gss.columns.json --ddi <gss_2010.json> -o <folder>/answers.csv`
 8. **Caution: do not write the answers into this repository or into `dist/`.**
 
