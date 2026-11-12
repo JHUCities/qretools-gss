@@ -57,15 +57,15 @@ instrument to read the tag. Do this in the pull request for the next instrument.
 
 Rules:
 
-- **Write a condition only where the codebook states it, or where the owner settles it
-  from the year's data.** The codebook's sources are the "IF …" filter, a routing note in
+- **Write a condition only where the codebook states it, or where the year's data shows
+  it (next rule).** The codebook's sources are the "IF …" filter, a routing note in
   a response label (such as "(ASK HRS1)"), a remark, or a "Not applicable" label. Put the
   codebook's page in a comment above the condition.
-- **The owner can settle the routing from the GSS data for the year.** Use the data where
-  the codebook is silent, is unclear, or contradicts itself. A question is asked of a
-  respondent unless the value is "iap". If a filter question has "No answer", the data
-  gives "No answer" to its follow-up questions, not "iap". This does not show who was
-  asked.
+- **Where the codebook and the GSS data for the year disagree, follow the data** (owner,
+  2026-11-12). Also use the data where the codebook is silent or unclear. A question is
+  asked of a respondent unless the value is "iap". If a filter question has "No answer",
+  the data gives "No answer" to its follow-up questions, not "iap". A "No answer" in a
+  follow-up question does not show who was asked.
   Say in `README.md` what the data settled. Do not write a count, a percentage or another
   figure from the data in a tracked file: the data is not licensed for publication.
 - **If neither the codebook nor the data gives a condition, ask the question of
@@ -202,8 +202,8 @@ cumulative codebook stay in `sources/`, because some of them hold counts.
   (`LICENSE.md`). Never take wording, codes or labels from NORC's website, the GSS Data
   Explorer or a package that copies them: the website's terms forbid it. Another
   codebook may be added only with a permission notice, recorded in `LICENSE.md`.
-- **Every file with NORC's material keeps the notice comment** that `tools/generate.py`
-  writes at its top.
+- **The notice lives in `LICENSE.md` alone.** Don't add a notice comment to a file;
+  `LICENSE.md` lists the files that hold NORC's material.
 - **Never invent or paraphrase wording.** Where the codebook has none, leave the item out
   and say so in `README.md`. Titles, intents and concept labels are ours, in our own words.
 - **No counts or percentages.** They come from the data, not the questionnaire. The

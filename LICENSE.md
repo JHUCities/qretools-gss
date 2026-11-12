@@ -23,7 +23,7 @@ The material is:
 - the filters quoted in universes;
 - the codebook's labels and notes, quoted in each question's `note`.
 
-It's in these files, each of which opens with a comment naming its codebook:
+It's in these files:
 
 - `sources/gss-2022-codebook.json`, the entries `tools/extract.py` takes from the 2022
   codebook, and `missing.yaml`;
@@ -53,10 +53,9 @@ copying without NORC's written consent. Nothing from the website is in `v3` or l
 but earlier commits and the tags `v1` and `v2` hold material taken from it (through the
 GSS Data Explorer's documentation), which this notice doesn't cover.
 
-**Where the notice travels.** Each file with NORC's material opens with the copyright
-line and a pointer to this file, rather than the whole notice; a copy of such a file
-should take this file with it. The files published on GitHub Pages hold NORC's material
-too: the DDI (`ddi.json`), and each instrument's DDI, Qualtrics survey and QSF column map
+**Where the notice travels.** This file holds the notice for every file listed above; a
+copy of such a file should take this file with it. The files published on GitHub Pages
+hold NORC's material too: the DDI (`ddi.json`), and each instrument's DDI, Qualtrics survey and QSF column map
 in `instruments/`. So the workflow publishes this file beside them, as `LICENSE.md`, and
 each release's folder (`v3/`, `v4/`, …) carries that release's own `LICENSE.md`. The
 tags `v1` and `v2` are never published.
