@@ -2,7 +2,7 @@
 
 Usage: python3 -I tools/columns.py <gss.sav> <instrument DDI .json> <year> -o <scratch dir>
 For example:
-  python3 -I tools/columns.py gss7224_r3a.sav v13/instruments/gss_2010.json 2010 -o <scratch dir>
+  python3 -I tools/columns.py gss7224_r3a.sav v14/instruments/gss_2010.json 2010 -o <scratch dir>
 
 <instrument DDI .json> is the instrument's DDI as a release publishes it (or as
 `qretools build` writes it at that release's tag). The tool writes two files:
