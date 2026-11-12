@@ -128,9 +128,10 @@ flow:
   - ask: gss.weekswrk
     fill:
       last_year: last_year
-  # Page 438: PARTFULL's "Not applicable" is "Punch 0 in WKSWRK". A skipped or missing
-  # WEEKSWRK doesn't exclude anyone.
-  - if: isnull(gss.weekswrk) or gss.weekswrk <> 0
+  # Page 438: PARTFULL's "Not applicable" is "Punch 0 in WKSWRK". The GSS 2008 data
+  # also shows it skipped after WEEKSWRK Don't know. A number's Don't know has no value
+  # here, so this condition skips a WEEKSWRK with no value (README.md says why).
+  - if: gss.weekswrk <> 0
     then:
       - ask: gss.partfull
         universe: Respondents who worked in the previous year

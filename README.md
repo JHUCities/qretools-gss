@@ -270,10 +270,10 @@ The inputs are the same as in 2008.
 - **AGEKDBRN, DENOM, NUMEMPS, USCITZN.** The 2010 data shows the same as the 2008 data.
 - **PARTFULL.** In the 2008 and 2010 data, PARTFULL is "iap" after WEEKSWRK "Don't
   know". The codebook gives only "Punch 0 in WKSWRK". In QREtools 2.0.0-alpha.9 a number
-  question's "Don't know" has no value in a condition, so the 2010 instrument asks
-  PARTFULL when WEEKSWRK has a value that isn't 0. This also skips WEEKSWRK "No answer",
-  which shows nothing about who was asked (below). The 2008 instrument still asks PARTFULL
-  after a WEEKSWRK with no value.
+  question's "Don't know" has no value in a condition, so both instruments ask PARTFULL
+  when WEEKSWRK has a value that isn't 0. This also skips WEEKSWRK "No answer", which
+  shows nothing about who was asked (below). Until release `v7`, the 2008 instrument
+  asked PARTFULL after a WEEKSWRK with no value.
 - **HRS2.** In the 2010 data, a few respondents with WRKSTAT 3 are "iap" for HRS2.
   Nothing in the codebook says why. The instrument follows HRS2's filter.
 - **No answer.** Where a respondent gave no answer to a filter question (WRKSTAT, RELIG),

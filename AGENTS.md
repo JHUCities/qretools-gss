@@ -61,8 +61,8 @@ Rules:
   from the year's data.** The codebook's sources are the "IF …" filter, a routing note in
   a response label (such as "(ASK HRS1)"), a remark, or a "Not applicable" label. Put the
   codebook's page in a comment above the condition.
-- **The owner can settle the routing from the GSS data for the year.** Use the data where
-  the codebook is silent, is unclear, or contradicts itself. A question is asked of a
+- **Where the codebook and the GSS data for the year disagree, follow the data** (owner,
+  2026-11-12). Also use the data where the codebook is silent or unclear. A question is asked of a
   respondent unless the value is "iap". If a filter question has "No answer", the data
   gives "No answer" to its follow-up questions, not "iap". This does not show who was
   asked.
