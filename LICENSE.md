@@ -55,8 +55,9 @@ GSS Data Explorer's documentation), which this notice doesn't cover.
 
 **Where the notice travels.** Each file with NORC's material opens with the copyright
 line and a pointer to this file, rather than the whole notice; a copy of such a file
-should take this file with it. The DDI published on GitHub Pages (`ddi.json`) holds
-NORC's material too, so the workflow publishes this file beside it, as `LICENSE.md`.
+should take this file with it. The files published on GitHub Pages hold NORC's material
+too: the DDI (`ddi.json`), and each instrument's DDI, Qualtrics survey and QSF column map
+in `instruments/`. So the workflow publishes this file beside them, as `LICENSE.md`.
 
 The General Social Survey (GSS) is a project of the independent research organization
 NORC at the University of Chicago, with principal funding from the National Science

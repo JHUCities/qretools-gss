@@ -110,9 +110,9 @@ To write the instrument for a year:
   `qretools build`, and so the check on every pull request, refuses one that reads `../`.
   Use `../` only to write an instrument on a branch.
 - **On every push to `main`,** `.github/workflows/ddi.yml` runs `build` and deploys
-  `dist/`: the DDI to <https://jhucities.github.io/qretools-gss/ddi.json>, each
-  instrument's DDI to `instruments/` beside it, with
-  `LICENSE.md` beside it, because the DDI holds NORC's material. Locally,
+  `dist/`: the DDI to <https://jhucities.github.io/qretools-gss/ddi.json>, and for each
+  instrument its DDI, its Qualtrics survey and its QSF column map to `instruments/`
+  beside it, with `LICENSE.md`, because these files hold NORC's material. Locally,
   `qretools build .` writes it to `dist/`, which is gitignored. It builds the last
   commit; commit first.
 

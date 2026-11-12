@@ -63,8 +63,9 @@ One name here differs from the GSS variable: `divorced` is GSS `DIVORCE`. (From 
 ## Its DDI and its releases
 
 Every push to `main` publishes the workspace's DDI at
-<https://jhucities.github.io/qretools-gss/ddi.json>, and each instrument's DDI beside it,
-in `instruments/` (`gss_2008.json`).
+<https://jhucities.github.io/qretools-gss/ddi.json>. Beside it, in `instruments/`, it
+publishes three files for each instrument: its DDI (`gss_2008.json`), its Qualtrics
+survey (`gss_2008.qsf`) and its QSF column map (`gss_2008-ddi-qsf.columns.json`).
 
 An instrument uses a release of this workspace, named by its tag:
 `uses: gss: JHUCities/qretools-gss@v3`. It gets the questions as they were at that tag.
