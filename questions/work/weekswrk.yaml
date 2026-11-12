@@ -5,6 +5,7 @@ intent: Time worked, as the GSS Replicating Core measures it (WEEKSWRK).
 concept: labor_supply
 number:
   min: 0
+  max: 52
   unit: weeks
 source: GSS WEEKSWRK; GSS 1972-2018 cumulative codebook (NORC), page 437; asked in the 2008 survey
 note: "Codebook wording: Now I'd like to ask you about last year. In [the previous year] how many weeks did you work either full-time or part-time not counting work around the house--include paid vacations and sick leave?"

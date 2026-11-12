@@ -5,6 +5,7 @@ intent: Age when the first child was born, as the GSS Replicating Core measures 
 concept: age_at_first_birth
 number:
   min: 0
+  max: 97
   unit: years
 source: GSS AGEKDBRN; GSS 1972-2018 cumulative codebook (NORC), page 176; asked in the 2008 survey
 note: "Codebook wording: How old were you when your first child was born?"
