@@ -1,0 +1,9 @@
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
+name: income06
+title: Family income, 25 groups
+text: In which of these groups did your total family income, from all sources, fall last year before taxes, that is.
+intent: Family income, as the GSS Replicating Core measures it (INCOME06).
+concept: household_income
+responses: income_25
+source: GSS INCOME06; GSS 1972-2018 cumulative codebook (NORC), page 229; asked in the 2008 survey
+note: "Codebook wording: In which of these groups did your total family income, from all sources, fall last year before taxes, that is. Just tell me the letter."

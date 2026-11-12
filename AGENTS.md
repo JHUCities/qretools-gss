@@ -22,12 +22,15 @@ The generator reads two sources:
 The history of `main` replays the GSS, one survey year at a time: 2008, 2010, 2012,
 2014, 2016 and 2018, then 2022 and 2024. There is no pull request for 2021.
 
-- Each pull request does what a team did in that year. The workspace holds the
-  questions that the source shows as asked in that year, and no other questions.
-- A question that the year did not ask goes out of the workspace. It comes back in the
-  pull request for the next year that asks it.
-- The generator also removes each scale, universe, concept and unit that no question
-  of the year uses.
+- Each pull request does what a team did in that year. The workspace holds each
+  question that the source shows as asked in that year or in an earlier year of the
+  replay. A question bank keeps a question that a later year does not ask.
+- A question that a year asks for the first time comes in with that year.
+- The generator writes only the scales, universes, concepts and units that these
+  questions use.
+- The `source` of a question names the first year of the replay that asked it. Do not
+  change this year when a later year asks the question again. If the `source` changes,
+  the DDI version of the question changes.
 - The pull request for one year holds only questions. The instrument for that year comes
   in the next pull request, after the release of the year's tag.
 
@@ -35,8 +38,9 @@ Tags:
 
 - `v1` and `v2` hold an earlier import from the GSS Data Explorer, with an instrument.
 - No tag holds the import from the 2022 codebook. The replay replaced it before a release.
-- From `v3`, each tag holds one year of the replay, in the order of the survey years.
-  `v3` holds the questions of 2008.
+- From `v3`, the tags follow the replay, in the order of the survey years. `v3` holds
+  the questions of 2008. `v4` adds the instrument for 2008. `v5` holds the questions of
+  2010.
 
 ## The instrument for a year
 
@@ -73,7 +77,7 @@ To write the instrument for a year:
 2. Copy the instrument of the previous year to `instruments/gss_<year>.yaml`. For 2008,
    there is no previous instrument. Start from the codebook.
 3. Change the tag in `uses` to the year's tag.
-4. Ask each question of the year in the order of the codebook's question numbers.
+4. Ask each question that the year asked, in the order of the codebook's question numbers.
 5. Add the conditions and the inputs. Obey the rules above.
 6. Run `qretools instrument export instruments/gss_<year>.yaml -o <a scratch file>`.
    The command writes the lock of the tag under `locked:` in `workspace.yaml`.
@@ -142,15 +146,15 @@ Python that reads it with `-I`.
    `.venv/bin/python -I tools/extract_cumulative.py "<path to GSS_Codebook_mainbody.pdf>" sources/gss-1972-2018-codebook.json`
 3. Read each line that starts with `problem:`. Each line names an entry that the
    extractor cannot read. The extractor does not guess these entries.
-4. Write the workspace for the year:
-   `python3 -I tools/generate.py sources/gss-1972-2018-codebook.json 2008`
+4. Write the workspace for the year. For example, for 2010:
+   `python3 -I tools/generate.py sources/gss-1972-2018-codebook.json 2010`
 5. Run `qretools check .`.
 6. Run step 4 again. Then run `git status`. The second run must not change a file.
 
 - **The generator removes the generated folders first.** Then it writes them again.
-  Thus a question that the year did not ask, or a renamed item, does not stay.
+  Thus a removed or renamed item does not stay.
 - **The generator stops if a text is not in the codebook.** Each text and instruction
-  of the year's questions must be a span of the codebook's wording. If the generator
+  of the questions must be a span of the codebook's wording. If the generator
   stops, correct the `SPEC` entry. Do not change the JSON by hand.
 - **The generator stops on a code it cannot sort.** A response label that looks like a
   missing value ("Don't know"), but is not in `MISSING`, stops it. A shared scale whose

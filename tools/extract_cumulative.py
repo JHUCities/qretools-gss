@@ -26,8 +26,9 @@ find those columns, and are never written.
   an indented line.
 - Where the remarks say the rows are "collapsed for convenience of display", or a punch
   code is a range ("1-9"), the rows are display bins, not codes: no rows are kept.
-- A row whose counts don't add up to its ALL column, or that has 14 counts, has a cell
-  in the wrong column or none: it is a problem, never read.
+- A row whose counts don't add up to its ALL column has a cell in the wrong column: it
+  is a problem. A row with 14 counts has a blank cell, and which column is blank is not
+  known: its punch code and label are kept, its counts are never read, and it is a problem.
 - Remarks are kept as printed; some of them hold counts.
 - What can't be read is never guessed: it goes in the entry's `problems`, and is printed.
 """
@@ -42,9 +43,9 @@ from pypdf import PdfReader
 VARIABLES = """
 racecen1 racecen2 racecen3 race eth1 eth2 eth3 hispanic sibs marital widowed divorce
 posslq posslqy childs agekdbrn major1 major2 relig denom jew reliten income income16
-uscitzn fucitzn mnthsusa yearsusa othlang othlang1 othlang2 betrlang spklang wrkstat
-evwork wrkslffam wrkgovt numemps hrs1 hrs2 weekswrk partfull rincome rincom16 localnum
-wksub1 wksubs1 wksup1 wksups1 vetyears
+income06 rincom06 uscitzn fucitzn mnthsusa yearsusa othlang othlang1 othlang2 betrlang
+spklang wrkstat evwork wrkslffam wrkgovt numemps hrs1 hrs2 weekswrk partfull rincome
+rincom16 localnum wksub1 wksubs1 wksup1 wksups1 vetyears
 """.split()
 # Variables of this workspace that have no entry in the main body.
 ABSENT = {"other", "whatslf2", "wrkgovt1", "wrkgovt2"}
@@ -53,6 +54,7 @@ COLUMNS = "1972-82 1982B 1983-87 1987B 1988-91 1993-98 2000-04 2006 2008 2010 20
 PAGE = re.compile(r"^Page (\d+)$")
 VAR = re.compile(r"^\[VAR:\s*([A-Z0-9_]+)\]\s*(\(CONTINUED\))?$")
 ROW = re.compile(r"^(.*?)\s*(\S+)((?:\s+\d+){15})$")
+SHORT = re.compile(r"^(.*?)\s*(-?\d+)((?:\s+\d+){14})$")  # a row with one cell blank
 PUNCH = re.compile(r"-?\d+")
 RANGE = re.compile(r"\d+(-\d+|\+)")
 NUMBER = re.compile(r"^\d+\.\s")
@@ -185,7 +187,11 @@ def parse(texts):
             r = ROW.match(s)
             if r and state == "table":
                 label, punch = space(r[1]), r[2]
-                if not (PUNCH.fullmatch(punch) or RANGE.fullmatch(punch)):
+                short = SHORT.match(s)
+                if not (PUNCH.fullmatch(punch) or RANGE.fullmatch(punch)) and short and space(short[1]):
+                    flag(cur, f"a row with 14 counts: its punch code and label are kept, its counts aren't read: {space(short[1])!r}")
+                    cur["rows"].append({"code": short[2], "label": space(short[1])})
+                elif not (PUNCH.fullmatch(punch) or RANGE.fullmatch(punch)):
                     flag(cur, f"unreadable row (not a label, a punch code and 15 counts): {space(s)!r}")
                     cur["rows"].append(None)
                 elif not label:
@@ -207,8 +213,10 @@ def parse(texts):
                 state, gap, buf = "item", [s], []
                 continue
             if raw[:1].isspace() and cur["rows"] and cur["rows"][-1] and not buf:
-                cur["rows"][-1]["label"] = join([cur["rows"][-1]["label"], s])
-                cur["counts"][-1] = (cur["rows"][-1]["label"], cur["counts"][-1][1])
+                old = cur["rows"][-1]["label"]
+                cur["rows"][-1]["label"] = join([old, s])
+                if cur["counts"] and cur["counts"][-1][0] == old:  # a row with 14 counts has none
+                    cur["counts"][-1] = (cur["rows"][-1]["label"], cur["counts"][-1][1])
                 continue
             buf.append(s)  # a group heading, or text after the table: kept only if a [VAR:] follows
             continue

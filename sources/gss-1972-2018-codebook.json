@@ -885,6 +885,10 @@
      "label": "Switzerland"
     },
     {
+     "code": "28",
+     "label": "West Indies (Not Specified)"
+    },
+    {
      "code": "29",
      "label": "Other (SPECIFY) [See REMARKS]"
     },
@@ -911,6 +915,14 @@
     {
      "code": "35",
      "label": "Romania"
+    },
+    {
+     "code": "36",
+     "label": "Belgium"
+    },
+    {
+     "code": "37",
+     "label": "Arabic"
     },
     {
      "code": "38",
@@ -961,9 +973,9 @@
     "2018"
    ],
    "problems": [
-    "unreadable row (not a label, a punch code and 15 counts): 'West Indies (Not Specified) 28 0 0 0 1 0 0 0 0 0 0 0 1 0 2'",
-    "unreadable row (not a label, a punch code and 15 counts): 'Belgium 36 0 0 1 0 1 8 4 0 2 2 2 1 0 21'",
-    "unreadable row (not a label, a punch code and 15 counts): 'Arabic 37 0 0 0 0 1 1 0 2 0 3 2 1 2 12'"
+    "a row with 14 counts: its punch code and label are kept, its counts aren't read: 'West Indies (Not Specified)'",
+    "a row with 14 counts: its punch code and label are kept, its counts aren't read: 'Belgium'",
+    "a row with 14 counts: its punch code and label are kept, its counts aren't read: 'Arabic'"
    ]
   },
   "hispanic": {
@@ -2748,6 +2760,272 @@
    "asked": [
     "2016",
     "2018"
+   ]
+  },
+  "income06": {
+   "variable": "income06",
+   "page": 229,
+   "pdf_page": 108,
+   "wording": "In which of these groups did your total family income, from all sources, fall last year before taxes, that is. Just tell me the letter.",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "UNDER $1,000"
+    },
+    {
+     "code": "2",
+     "label": "$1,000 to $2,999"
+    },
+    {
+     "code": "3",
+     "label": "$3,000 to $3,999"
+    },
+    {
+     "code": "4",
+     "label": "$4,000 to $4,999"
+    },
+    {
+     "code": "5",
+     "label": "$5,000 to $5,999"
+    },
+    {
+     "code": "6",
+     "label": "$6,000 to $6,999"
+    },
+    {
+     "code": "7",
+     "label": "$7,000 to $7,999"
+    },
+    {
+     "code": "8",
+     "label": "$8,000 to $9,999"
+    },
+    {
+     "code": "9",
+     "label": "$10,000 to $12,499"
+    },
+    {
+     "code": "10",
+     "label": "$12,500 to $14,999"
+    },
+    {
+     "code": "11",
+     "label": "$15,000 to $17,499"
+    },
+    {
+     "code": "12",
+     "label": "$17,500 to $19,999"
+    },
+    {
+     "code": "13",
+     "label": "$20,000 to $22,499"
+    },
+    {
+     "code": "14",
+     "label": "$22,500 to $24,999"
+    },
+    {
+     "code": "15",
+     "label": "$25,000 to $29,999"
+    },
+    {
+     "code": "16",
+     "label": "$30,000 to $34,999"
+    },
+    {
+     "code": "17",
+     "label": "$35,000 to $39,999"
+    },
+    {
+     "code": "18",
+     "label": "$40,000 to $49,999"
+    },
+    {
+     "code": "19",
+     "label": "$50,000 to $59,999"
+    },
+    {
+     "code": "20",
+     "label": "$60,000 to $74,999"
+    },
+    {
+     "code": "21",
+     "label": "$75,000 to $89,999"
+    },
+    {
+     "code": "22",
+     "label": "$90,000 to $109,999"
+    },
+    {
+     "code": "23",
+     "label": "$110,000 to $129,999"
+    },
+    {
+     "code": "24",
+     "label": "$130,000 to $149,999"
+    },
+    {
+     "code": "25",
+     "label": "$150,000 or over"
+    },
+    {
+     "code": "26",
+     "label": "Refused"
+    },
+    {
+     "code": "98",
+     "label": "Don't know"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable"
+    }
+   ],
+   "remarks": "Hand Card A20 reads: Total income includes interest or dividends, rent, Social Security, other pension, alimony or child support, unemployment compensation, public aid (welfare), armed forces or veteran’s allotment.",
+   "asked": [
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014"
+   ]
+  },
+  "rincom06": {
+   "variable": "rincom06",
+   "page": 230,
+   "pdf_page": 109,
+   "wording": "In which of these groups did your earnings from (OCC), from all sources for [last year] fall? That is, before taxes or other deductions. Just tell me the letter.",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "UNDER $1,000"
+    },
+    {
+     "code": "2",
+     "label": "$1,000 to $2,999"
+    },
+    {
+     "code": "3",
+     "label": "$3,000 to $3,999"
+    },
+    {
+     "code": "4",
+     "label": "$4,000 to $4,999"
+    },
+    {
+     "code": "5",
+     "label": "$5,000 to $5,999"
+    },
+    {
+     "code": "6",
+     "label": "$6,000 to $6,999"
+    },
+    {
+     "code": "7",
+     "label": "$7,000 to $7,999"
+    },
+    {
+     "code": "8",
+     "label": "$8,000 to $9,999"
+    },
+    {
+     "code": "9",
+     "label": "$10,000 to $12,499"
+    },
+    {
+     "code": "10",
+     "label": "$12,500 to $14,999"
+    },
+    {
+     "code": "11",
+     "label": "$15,000 to $17,499"
+    },
+    {
+     "code": "12",
+     "label": "$17,500 to $19,999"
+    },
+    {
+     "code": "13",
+     "label": "$20,000 to $22,499"
+    },
+    {
+     "code": "14",
+     "label": "$22,500 to $24,999"
+    },
+    {
+     "code": "15",
+     "label": "$25,000 to $29,999"
+    },
+    {
+     "code": "16",
+     "label": "$30,000 to $34,999"
+    },
+    {
+     "code": "17",
+     "label": "$35,000 to $39,999"
+    },
+    {
+     "code": "18",
+     "label": "$40,000 to $49,999"
+    },
+    {
+     "code": "19",
+     "label": "$50,000 to $59,999"
+    },
+    {
+     "code": "20",
+     "label": "$60,000 to $74,999"
+    },
+    {
+     "code": "21",
+     "label": "$75,000 to $89,999"
+    },
+    {
+     "code": "22",
+     "label": "$90,000 to $109,999"
+    },
+    {
+     "code": "23",
+     "label": "$110,000 to $129,999"
+    },
+    {
+     "code": "24",
+     "label": "$130,000 to $149,999"
+    },
+    {
+     "code": "25",
+     "label": "$150,000 or over"
+    },
+    {
+     "code": "26",
+     "label": "Refused"
+    },
+    {
+     "code": "98",
+     "label": "Don't know"
+    },
+    {
+     "code": "99",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not Applicable"
+    }
+   ],
+   "remarks": "Hand Card A20 reads: Total income includes interest or dividends, rent, Social Security, other pension, alimony or child support, unemployment compensation, public aid (welfare), armed forces or veteran’s allotment.",
+   "asked": [
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016"
+   ],
+   "problems": [
+    "asked in 2016 only by \"Don't know\" or \"No answer\" counts"
    ]
   },
   "uscitzn": {
@@ -5118,6 +5396,10 @@
      "label": "Yes, more than 4 years"
     },
     {
+     "code": "4",
+     "label": "Some, don't know how long"
+    },
+    {
      "code": "9",
      "label": "No answer"
     },
@@ -5140,7 +5422,7 @@
     "2018"
    ],
    "problems": [
-    "unreadable row (not a label, a punch code and 15 counts): \"Some, don't know how long 4 5 0 0 0 0 0 0 0 1 0 2 0 0 8\""
+    "a row with 14 counts: its punch code and label are kept, its counts aren't read: \"Some, don't know how long\""
    ]
   }
  }

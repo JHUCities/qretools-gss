@@ -8,14 +8,16 @@ from the [GSS 1972-2018 cumulative codebook](https://gss.norc.org/content/dam/gs
 (main body, December 2019), except the reserved codes in `missing.yaml`, which come from
 the [GSS 2022 codebook](https://gss.norc.org/content/dam/gss/get-documentation/pdf/codebook/GSS%202022%20Codebook.pdf).
 
-**This is the GSS of 2008.** The workspace replays the GSS's history, one survey year in
+**This is the GSS of 2010.** The workspace replays the GSS's history, one survey year in
 each pull request: 2008, 2010, 2012, 2014, 2016, 2018, then 2022 and 2024 (2021 is
-skipped). Each year's workspace holds the questions the cumulative codebook shows answers
-for in that year, and no others: a question leaves in a year that doesn't ask it and
-comes back with the next year that does.
+skipped). Each year's workspace holds every question the cumulative codebook shows answers
+for in that year or an earlier year of the replay. A question comes in with the first year
+that asks it and stays, as it would in a question bank, even when a later year doesn't ask
+it. 2010 adds VETYEARS. It also replaces INCOME and RINCOME, which are recodes, with the
+questions they are recoded from, INCOME06 and RINCOM06 (see "Left out").
 The cumulative codebook prints one wording for each variable, for all years: a question
 whose wording changed is a new variable. So a question here has the codebook's wording,
-which may not be word for word what the 2008 interviewer read.
+which may not be word for word what the interviewer read in a given year.
 
 The workspace started from [qretools-template](https://github.com/JHUCities/qretools-template)
 and keeps its layout and conventions.
@@ -41,7 +43,7 @@ and paradata, and the attitude questions on every ballot) is left for later, not
 | `missing.yaml` | the 2022 codebook's reserved codes, as letters |
 | `universe` | the codebook's "IF …" filter, quoted; five are ours (below) |
 | `note` | the codebook's full wording (and the question it falls under, as "stem"), word for word, so nothing taken out is lost. The codebook's remarks stay in `sources/`, because some of them hold counts |
-| `source` | the GSS variable, the codebook's printed page, and the survey year that asked it |
+| `source` | the GSS variable, the codebook's printed page, and the first survey year of the replay that asked it. It doesn't change when a later year asks the question again, so neither does the question's version |
 | `title`, `intent`, `concept` | ours |
 
 `tools/generate.py` checks that every text and instruction is a span of the codebook's
@@ -93,9 +95,10 @@ existed, so its questions all read as version 1.
 
 `v1` and `v2` were made from an earlier import, which took its material from the GSS
 Data Explorer's documentation, and held an instrument, `replicating_core`. An import from
-the 2022 codebook followed, but the replay replaced it before any release. From `v3`, each
-tag holds one year of the replay, in the order of the survey years: `v3` is 2008. The
-instrument for each GSS year comes in the pull request after that year's questions.
+the 2022 codebook followed, but the replay replaced it before any release. From `v3`, the
+tags follow the replay, in the order of the survey years: `v3` holds the questions of
+2008, `v4` adds the 2008 instrument, and `v5` holds the questions of 2010. The instrument
+for each GSS year comes in the pull request after that year's questions.
 
 ## The 2008 instrument
 
@@ -107,6 +110,12 @@ commit. Each comment in the file names the codebook page that a condition comes 
 who was asked from the GSS 1972-2024 cumulative data file (release 3a), read locally: in 2008, a question counts
 as asked of a respondent unless the value is "iap" (inapplicable). No figure from the data
 is published here, because the data is not licensed for publication.
+
+**INCOME and RINCOME.** The 2008 instrument, in release `v4`, asks `gss.income` and
+`gss.rincome` from `v3`. These are recodes, not the questions that the respondents
+answered (see "Left out"). From `v5`, the workspace holds INCOME06 and RINCOM06 in their
+place. A later pull request changes the instrument to read `v5` and ask them. A release
+never changes, so `v4` keeps the recodes.
 
 **Order.** The cumulative codebook's question numbers, which follow its pages. They are
 the codebook's order, not known to be the order of the 2008 interview: for example,
@@ -164,8 +173,8 @@ none, the instrument gives it one, in our own words.
 **Not asked.** Six of the 36 questions:
 
 - `race`: its remarks say RACE was asked from 1972 to 2000, and replaced by RACECEN1-3
-  and imputed from 2002. The cumulative codebook shows values for it in 2008, so the
-  workspace holds it, but nobody was asked it.
+  and imputed from 2002. The cumulative codebook shows values for it in 2008, so `v3`
+  holds it, but nobody was asked it. It left the workspace in 2010 (below, "Left out").
 - `racecen2`, `racecen3`, `eth2`, `eth3` and `othlang2`: the second and third mentions
   in answer to the question that `racecen1`, `eth1` and `othlang1` ask. They are further
   answers to one question, not further questions, and an instrument can't yet record
@@ -230,14 +239,21 @@ the respondent:
   REALINC, INDUS10, OCC10, ISCO08, PRESTG10, PRESTG105PLUS, SEI10, SEI10EDUC, SEI10INC,
   CONRINC, REALRINC. Also COHORT ("Birth cohort of respondent", in ranges) and MARTYPE,
   which the 2022 codebook says is coded from the interviewer's information and the
-  Household Enumeration Form.
+  Household Enumeration Form. And RACE: its remarks say that from 2002 RACECEN1-3
+  replaced it and RACE was imputed from them and other variables, so from 2002 nobody was
+  asked it. It was in the workspace for 2008 (`v3`). And INCOME and RINCOME: in the GSS
+  data for 2006 to 2012, RINCOME is RINCOM06 regrouped into fewer groups, and INCOME is
+  nearly always INCOME06 regrouped. INCOME's remarks also say that it was recoded from
+  other questions up to 2006.
+  The respondents answered INCOME06 and RINCOM06, which the workspace holds. INCOME and
+  RINCOME were in the workspace for 2008 (`v3`).
 - **Taken from the address**: REGION, XNORCSIZ, SRCBELT, SIZE.
 - **Coded by the interviewer, with no wording for the respondent**: SEX.
 
-**Not asked in 2008**, so out of this year's workspace. Each comes back in the pull
-request for the next year the cumulative codebook shows answers for it: VETYEARS (2010);
-POSSLQ, POSSLQY, MAJOR1 and MAJOR2 (2012); INCOME16, RINCOM16, WKSUB1, WKSUBS1, WKSUP1
-and WKSUPS1 (2016); WRKSLFFAM, YEARSUSA and MNTHSUSA (2018).
+**Not yet asked by 2010**, so not yet in the workspace. Each comes in with the first
+later year the cumulative codebook shows answers for: POSSLQ, POSSLQY, MAJOR1 and MAJOR2
+(2012); INCOME16, RINCOM16, WKSUB1, WKSUBS1, WKSUP1 and WKSUPS1 (2016); WRKSLFFAM,
+YEARSUSA and MNTHSUSA (2018).
 
 **Not in the cumulative codebook**, so they wait for the 2022 pull request: OTHER (the
 codebook says DENOM's "Other" was recoded into it, but has no entry for it), WHATSLF2,
