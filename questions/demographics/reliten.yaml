@@ -1,4 +1,4 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: reliten
 title: Strength of religion
 text: Would you call yourself a strong {{religion}} or a not very strong {{religion}}?
@@ -7,9 +7,9 @@ concept: religious_affiliation
 responses:
   "1": Strong
   "2": Not very strong
-  "3": Somewhat strong
+  "3": Somewhat strong (Vol.)
   "4": No religion
-source: GSS RELITEN; GSS 2022 codebook (NORC), page 215
-note: "Codebook label: (ASK EVERYONE WITH ANY RELIGIOUS PREFERENCE NAMED IN RELIG) Would you call yourself a strong (PREFERENCE NAMED IN RELIG) or a not very strong (PREFERENCE NAMED IN RELIG)? Codebook notes: RELITENV and RELITENNV replace RELITEN in the 2022 GSS Cross-section web mode. This variable shows sensitivity to mode of administration. Research and interpretation done using the data should take extra care to ensure the analysis reflects actual changes in public opinion and is not unduly influenced by the change in data collection methods."
+source: GSS RELITEN; GSS 1972-2018 cumulative codebook (NORC), page 318; asked in the 2008 survey
+note: "Codebook wording: ASK EVERYONE WITH ANY RELIGIOUS PREFERENCE NAMED IN RELIG Would you call yourself a strong (PREFERENCE NAMED IN RELIG) or a not very strong (PREFERENCE NAMED IN RELIG)?"
 fills:
   religion: text

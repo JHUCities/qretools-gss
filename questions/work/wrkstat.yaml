@@ -1,4 +1,4 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: wrkstat
 title: Work status last week
 text: Last week were you working full time, part time, going to school, keeping house, or what?
@@ -13,5 +13,5 @@ responses:
   "6": In school
   "7": Keeping house
   "8": Other
-source: GSS WRKSTAT; GSS 2022 codebook (NORC), page 108
-note: "Codebook label: Last week were you working full time, part time, going to school, keeping house, or what? Codebook notes: Card A2 contained responses for punches 1 through 7. Contents of WRKSTAT, punch 8 (Other, SPECIFY) available from NORC."
+source: GSS WRKSTAT; GSS 1972-2018 cumulative codebook (NORC), page 122; asked in the 2008 survey
+note: "Codebook wording: Last week were you working full time, part time, going to school, keeping house, or what? CIRCLE ONE CODE ONLY. IF MORE THAN ONE RESPONSE, GIVE PREFERENCE TO SMALLEST CODE NUMBER THAT APPLIES"

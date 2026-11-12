@@ -1,4 +1,4 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: relig
 title: Religion
 text: What is your religious preference? Is it Protestant, Catholic, Jewish, some other religion, or no religion?
@@ -9,14 +9,14 @@ responses:
   "2": Catholic
   "3": Jewish
   "4": None
-  "5": Other
+  "5": Other (SPECIFY RELIGION AND/OR CHURCH AND DENOMINATION)
   "6": Buddhism
   "7": Hinduism
   "8": Other Eastern Religions
-  "9": Muslim/islam
+  "9": Muslim/Islam
   "10": Orthodox-Christian
   "11": Christian
   "12": Native American
-  "13": Inter-nondenominational
-source: GSS RELIG; GSS 2022 codebook (NORC), page 210
-note: "Codebook label: What is your religious preference? Is it Protestant, Catholic, Jewish, some other religion, or no religion?"
+  "13": Inter-Nondenomenational
+source: GSS RELIG; GSS 1972-2018 cumulative codebook (NORC), page 312; asked in the 2008 survey
+note: "Codebook wording: What is your religious preference? Is it Protestant, Catholic, Jewish, some other religion, or no religion?"

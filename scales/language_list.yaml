@@ -1,4 +1,4 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 labels:
   "1": English
   "2": Spanish
@@ -6,72 +6,163 @@ labels:
   "4": French
   "5": Hebrew
   "6": Russian
-  "7": Tagalog
+  "7": Tagalog/Filipino
   "8": Chinese
   "9": Urdu
   "10": Italian
   "11": Romanian
   "12": German
+  "13": Pashtu
   "14": Chamorro
-  "15": Ukranian
+  "15": Ukrainian
   "16": Hungarian
   "17": Turkish
+  "18": Khmer
   "19": Korean
   "20": Navajo
   "21": Malayam
   "22": Arabic
-  "23": Farsi/persian
+  "23": Farsi/Persian
   "24": Serbian
   "25": Lithuanian
   "27": Thai
   "28": Gujarati
+  "30": Dari
+  "31": Slovak
   "32": Japanese
   "33": Portuguese
+  "34": Vajun
   "35": Yiddish
   "36": Creole
   "37": Vietnamese
   "38": Norwegian
+  "39": Malaysian
   "40": Latin
   "41": Czech
   "42": Hindi
+  "43": Hakka
   "44": Swedish
-  "46": Sign Language
+  "45": Vesaya
+  "46": Sign language
+  "47": Tongan
   "48": Armenian
+  "49": Ibo
   "50": Dutch
+  "51": Cherokee
   "52": Samoan
+  "53": Yoruba
   "54": Greek
+  "55": Lakota
+  "56": African
+  "57": Anishnabee
+  "58": Ilokand
   "59": Assyrian
+  "60": Danish
   "61": Laotian
+  "62": Finnish
+  "63": Mohawk
   "64": Amharic
   "65": Bengali
+  "66": Oriya
+  "67": Hawaiian
+  "68": Albanian
   "69": Hmong
   "70": Indonesian
   "71": Swahili
   "72": Telugu
   "73": Kannada
+  "74": Bulgarian
+  "75": Guarani
   "76": Bosnian
   "77": Punjabi
   "78": Latvian
+  "79": Basque
+  "80": Bikol/Bicolano
   "81": Croatian
-  "85": Mandingo
+  "82": Romani/Gypsy/Tigan
+  "83": Slovenian
+  "84": Belgian
+  "85": Mandingo/Mandinka
   "86": Jamaican
+  "87": Somali
   "88": Other Native American Language
+  "89": Tigrigna
+  "90": Krio
   "91": Unspecified Asian Indian Language
   "92": Cebuano
+  "93": Macedonian
+  "94": Patois
+  "95": Pangasinan
+  "96": Ilocano
+  "97": Marathi
+  "98": Kashmiri / Cashmiri
   "99": Tamil
+  "100": Akan
+  "101": Ethiopian
+  "102": Georgian
+  "103": Yugoslavian
+  "104": Irish
+  "105": Catalan
+  "106": Mixtec
+  "107": Garifuna
+  "108": Fang
+  "109": Apache
+  "110": Bassa
+  "111": Efik
   "112": Twi
+  "113": Maltese
+  "114": Zuni
+  "115": Ga
+  "116": Mina
+  "117": Surinamese
+  "118": Yaqui
+  "119": Quichoa
+  "120": Tok Pisin
   "121": Pima
+  "122": Lingala
+  "123": Otomi
+  "124": Chindali
+  "125": Tibetan
+  "126": Oromo
   "127": Nepali
+  "128": Eskimo
   "129": Mam
+  "130": Choctaw
+  "131": Ashanti
+  "132": Burmese
+  "133": Hewa
+  "134": Sango
+  "135": Chitumbuka
+  "136": Maratsi
+  "137": Yemba
   "138": Kiche
+  "139": Fante
+  "140": Sinhalase
+  "141": Icelandic
+  "142": Maricopa
+  "143": Quechan
+  "144": Pohnpeian
   "145": Luganda
+  "146": Shona
+  "147": Urhobo
+  "148": Colville Tribe
+  "149": Chickasau
+  "150": Dakota
+  "151": Hokkien
+  "152": Wolof
   "153": Ewe
   "154": Igbo
+  "155": Luhya
+  "156": Black Feet
+  "157": Inupiaq
+  "158": Paiute
+  "159": Afrikaans
+  "160": Kaien
+  "161": Shawnee
+  "162": Welsh
+  "163": Chuj
+  "164": Oremagna
+  "165": Kaugel
+  "166": Sanskrit
   "167": Hausa
-  "171": Fijian
-  "177": Estonian
-  "179": Chibemba
-  "180": Chewa
-  "181": Gusii
-  "182": Gun
-  "183": Nuer
+  "168": Aramaic

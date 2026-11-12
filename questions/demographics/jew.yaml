@@ -1,4 +1,4 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: jew
 title: Jewish denomination
 text: Do you consider yourself Orthodox, Conservative, Reform or none of these?
@@ -8,7 +8,7 @@ responses:
   "1": Orthodox
   "2": Conservative
   "3": Reform
-  "4": None of These
+  "4": None of these
   "5": Other
-source: GSS JEW; GSS 2022 codebook (NORC), page 213
-note: "Codebook label: IF JEWISH:  Do you consider yourself Orthodox, Conservative, Reform or none of these? (PROBE FOR EXACT DENOMINATION) Codebook notes: In 2008, if respondent answered RELIG=3 or OTHJEW= 1 (Yes) or 2 (Half or Part) , then JEW was asked."
+source: GSS JEW; GSS 1972-2018 cumulative codebook (NORC), page 314; asked in the 2008 survey
+note: "Codebook wording: IF JEWISH (RELIG=3): B. Do you consider yourself Orthodox, Conservative, Reform or none of these? (PROBE FOR EXACT DENOMINATION)"

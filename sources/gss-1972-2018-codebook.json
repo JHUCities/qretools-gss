@@ -1,0 +1,5147 @@
+{
+ "source": "General Social Survey 1972-2018 cumulative codebook, main body (NORC, December 2019)",
+ "url": "https://gss.norc.org/content/dam/gss/get-documentation/pdf/codebook/GSS_Codebook_mainbody.pdf",
+ "notice": "Copyright 2021-2024 NORC\nPermission is hereby granted, free of charge, to any person obtaining a copy of this codebook, portions thereof, and the associated documentation (the \"codebook\"), to use the codebook, including, without limitation, the rights to use, copy, modify, merge, publish, and distribute copies of the codebook, and to permit persons to whom the codebook is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or portions of the codebook. Any distribution of the codebook must be free of charge to the recipient, except for charges to recover duplicating costs.\nThe codebook is provided \"as is,\" without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of, or in connection with the codebook or the use or other dealings in the codebook.",
+ "notice_applied": "The cumulative codebook carries no notice of its own. By the owner's decision of 2026-11-12, the 2022 codebook's notice above is applied to it.",
+ "columns": [
+  "1972-82",
+  "1982B",
+  "1983-87",
+  "1987B",
+  "1988-91",
+  "1993-98",
+  "2000-04",
+  "2006",
+  "2008",
+  "2010",
+  "2012",
+  "2014",
+  "2016",
+  "2018"
+ ],
+ "entries": {
+  "racecen1": {
+   "variable": "racecen1",
+   "page": 2948,
+   "pdf_page": 2828,
+   "wording": "What is your race? Indicate one or more races that you consider yourself to be. A. First mention",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "White"
+    },
+    {
+     "code": "2",
+     "label": "Black or African American"
+    },
+    {
+     "code": "3",
+     "label": "American Indian or Alaska Native [SPECIFY]"
+    },
+    {
+     "code": "4",
+     "label": "Asian Indian"
+    },
+    {
+     "code": "5",
+     "label": "Chinese"
+    },
+    {
+     "code": "6",
+     "label": "Filipino"
+    },
+    {
+     "code": "7",
+     "label": "Japanese"
+    },
+    {
+     "code": "8",
+     "label": "Korean"
+    },
+    {
+     "code": "9",
+     "label": "Vietnamese"
+    },
+    {
+     "code": "10",
+     "label": "Other Asian [SPECIFY]"
+    },
+    {
+     "code": "11",
+     "label": "Native Hawaiian"
+    },
+    {
+     "code": "12",
+     "label": "Guamanian or Chamorro"
+    },
+    {
+     "code": "13",
+     "label": "Samoan"
+    },
+    {
+     "code": "14",
+     "label": "Other Pacific Islander [SPECIFY]"
+    },
+    {
+     "code": "15",
+     "label": "Some other race [SPECIFY]"
+    },
+    {
+     "code": "16",
+     "label": "Hispanic"
+    },
+    {
+     "code": "98",
+     "label": "Don't know"
+    },
+    {
+     "code": "99",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "racecen2": {
+   "variable": "racecen2",
+   "page": 2949,
+   "pdf_page": 2829,
+   "stem": "What is your race? Indicate one or more races that you consider yourself to be.",
+   "wording": "Second mention",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "White"
+    },
+    {
+     "code": "2",
+     "label": "Black or African American"
+    },
+    {
+     "code": "3",
+     "label": "American Indian or Alaska Native [SPECIFY]"
+    },
+    {
+     "code": "4",
+     "label": "Asian Indian"
+    },
+    {
+     "code": "5",
+     "label": "Chinese"
+    },
+    {
+     "code": "6",
+     "label": "Filipino"
+    },
+    {
+     "code": "7",
+     "label": "Japanese"
+    },
+    {
+     "code": "8",
+     "label": "Korean"
+    },
+    {
+     "code": "9",
+     "label": "Vietnamese"
+    },
+    {
+     "code": "10",
+     "label": "Other Asian [SPECIFY]"
+    },
+    {
+     "code": "11",
+     "label": "Native Hawaiian"
+    },
+    {
+     "code": "12",
+     "label": "Guamanian or Chamorro"
+    },
+    {
+     "code": "13",
+     "label": "Samoan"
+    },
+    {
+     "code": "14",
+     "label": "Other Pacific Islander [SPECIFY]"
+    },
+    {
+     "code": "15",
+     "label": "Some other race [SPECIFY]"
+    },
+    {
+     "code": "16",
+     "label": "Hispanic"
+    },
+    {
+     "code": "98",
+     "label": "Don't know"
+    },
+    {
+     "code": "99",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable (No second mention)"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "racecen3": {
+   "variable": "racecen3",
+   "page": 2950,
+   "pdf_page": 2830,
+   "stem": "What is your race? Indicate one or more races that you consider yourself to be.",
+   "wording": "Third mention",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "White"
+    },
+    {
+     "code": "2",
+     "label": "Black or African American"
+    },
+    {
+     "code": "3",
+     "label": "American Indian or Alaska Native [SPECIFY]"
+    },
+    {
+     "code": "4",
+     "label": "Asian Indian"
+    },
+    {
+     "code": "5",
+     "label": "Chinese"
+    },
+    {
+     "code": "6",
+     "label": "Filipino"
+    },
+    {
+     "code": "7",
+     "label": "Japanese"
+    },
+    {
+     "code": "8",
+     "label": "Korean"
+    },
+    {
+     "code": "9",
+     "label": "Vietnamese"
+    },
+    {
+     "code": "10",
+     "label": "Other Asian [SPECIFY]"
+    },
+    {
+     "code": "11",
+     "label": "Native Hawaiian"
+    },
+    {
+     "code": "12",
+     "label": "Guamanian or Chamorro"
+    },
+    {
+     "code": "13",
+     "label": "Samoan"
+    },
+    {
+     "code": "14",
+     "label": "Other Pacific Islander [SPECIFY]"
+    },
+    {
+     "code": "15",
+     "label": "Some other race [SPECIFY]"
+    },
+    {
+     "code": "16",
+     "label": "Hispanic"
+    },
+    {
+     "code": "98",
+     "label": "Don't know"
+    },
+    {
+     "code": "99",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable (No third mention)"
+    }
+   ],
+   "remarks": "Hand card A6 contained response options 1-15 and prompts for options 3,10,14, and 15. If RACECEE disagrees with RACECEN1-3, Interviewer went to DIFRACE1. Else, skip to USCITZN",
+   "asked": [
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "race": {
+   "variable": "race",
+   "page": 203,
+   "pdf_page": 82,
+   "wording": "What race do you consider yourself? RECORD VERBATIM AND CODE. CODE WITHOUT ASKING ONLY IF THERE IS NO DOUBT IN YOUR MIND.",
+   "directions": [
+    "RECORD VERBATIM AND CODE. CODE WITHOUT ASKING ONLY IF THERE IS NO DOUBT IN YOUR MIND."
+   ],
+   "codes": [
+    {
+     "code": "1",
+     "label": "White"
+    },
+    {
+     "code": "2",
+     "label": "Black"
+    },
+    {
+     "code": "3",
+     "label": "Other (SPECIFY) [See REMARKS]"
+    }
+   ],
+   "remarks": "Interviewer coded except in cases where question suggested was asked. Punch 3 in RACE (Other SPECIFY) included 1 Aleut, 154 American Indian, 1 Arab, 6 Hindu, 267 Hispanic, 1 Hmong, 4 Human, 31 Indian (Asian), 1 Indonesian, 1 Israelite, 3 Iranian, 1 Jamaican, 29 Japanese, 11 Korean, 3 Laos, 4 Latin, 3 Latino, 2 Lebanese, 1 Malaysian, 2 Mestizo, 59 Mexican, 3 Mulatto, 18 Native American, 49 Oriental, 5 Pacific Islander, 3 Polynesian, 22 Puerto Rican, 30 Spanish, 2 Thai, 3 Vietnamese, 1 West Indies, 8 \"Mixed\", 1 \"mixed bag\", 1 \"person of color\", \"1/2 American Indian, 1/2 Hispanic\", 1 \"halfbreed\", 5 \"Brown,\" and 3 \"Yellow,\" 2 \"Amerasian,\" 2 \"Biracial,\", 1 \"Black and Asian,\" and 1 \"Black and White,\" 1 \"Black, American Indian, and Spanish\", 1 \"Asian Pacific Islander,\" 1 \"White Indian American,\" and 1 \"American Indian/White,\" 1 \"Euro-Asian,\" 1 \"don't have one, just me,\" 1 \"White+Mexican,\" 2 \"1/2 Caucasian, 1/2 Philippines,\" 1 \"African Cherokee,\" 1 \"Mexican and Indian,\" 1 \"American/Bangdi\" and 1 \"wheat color.\" If planning to perform trend analysis with this variable, please consult GSS Methodological Report No. 56. In 2000 RACE was based on RACESEE, RACEDBTF and RACESELF. RACE was asked as indicated above from 1972 to 2000. Starting in 2002 RACE was replaced by RACECEN1,2,3 and RACE was imputed based on these and other variables. See Appendix D: Recodes. See RACECEN1,2,3 for the new race variables first used in 2000. See GSS Methodological Reports 85 and 89. Intent of Recode: In 2002 the GSS switched from asking race in this three category format and adopted an item based on the new Census race questions (RACECEN1,2,3). For 2002 onwards RACE is imputed based on RACECEN1,2,3; ETHNIC, ETH1,2,3; and HISPANIC so researchers have one race variable covering all years. Method of Recode: In 2000 both RACE and RACECEN1,2,3 were asked on the GSS. Along with other racial and ethnicity variables (ETHNIC, ETH1,2,3, HISPANIC), RACECEN1,2,3 were used to reproduce the racial classification produced by RACE. This same procedure has since been used to create RACE in 2002 onwards.",
+   "asked": [
+    "1972-82",
+    "1982B",
+    "1983-87",
+    "1987B",
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "eth1": {
+   "variable": "eth1",
+   "page": 2934,
+   "pdf_page": 2814,
+   "stem": "From what countries or part of the world did your ancestors come?",
+   "wording": "FIRST ETHNICITY MENTIONED",
+   "directions": [
+    "FIRST ETHNICITY MENTIONED"
+   ],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Africa"
+    },
+    {
+     "code": "2",
+     "label": "Austria"
+    },
+    {
+     "code": "3",
+     "label": "Canada (French)"
+    },
+    {
+     "code": "4",
+     "label": "Canada (Other)"
+    },
+    {
+     "code": "5",
+     "label": "China"
+    },
+    {
+     "code": "6",
+     "label": "Czechoslovakia"
+    },
+    {
+     "code": "7",
+     "label": "Denmark"
+    },
+    {
+     "code": "8",
+     "label": "England and Wales"
+    },
+    {
+     "code": "9",
+     "label": "Finland"
+    },
+    {
+     "code": "10",
+     "label": "France"
+    },
+    {
+     "code": "11",
+     "label": "Germany"
+    },
+    {
+     "code": "12",
+     "label": "Greece"
+    },
+    {
+     "code": "13",
+     "label": "Hungary"
+    },
+    {
+     "code": "14",
+     "label": "Ireland"
+    },
+    {
+     "code": "15",
+     "label": "Italy"
+    },
+    {
+     "code": "16",
+     "label": "Japan"
+    },
+    {
+     "code": "17",
+     "label": "Mexico"
+    },
+    {
+     "code": "18",
+     "label": "Netherlands (Dutch/Holland)"
+    },
+    {
+     "code": "19",
+     "label": "Norway"
+    },
+    {
+     "code": "20",
+     "label": "Philippines"
+    },
+    {
+     "code": "21",
+     "label": "Poland"
+    },
+    {
+     "code": "22",
+     "label": "Puerto Rico"
+    },
+    {
+     "code": "23",
+     "label": "Russia (USSR)"
+    },
+    {
+     "code": "24",
+     "label": "Scotland"
+    },
+    {
+     "code": "25",
+     "label": "Spain"
+    },
+    {
+     "code": "26",
+     "label": "Sweden"
+    },
+    {
+     "code": "27",
+     "label": "Switzerland"
+    },
+    {
+     "code": "28",
+     "label": "West Indies (Not Specified)"
+    },
+    {
+     "code": "29",
+     "label": "Other (SPECIFY) [See REMARKS]"
+    },
+    {
+     "code": "30",
+     "label": "American Indian"
+    },
+    {
+     "code": "31",
+     "label": "India"
+    },
+    {
+     "code": "32",
+     "label": "Portugal"
+    },
+    {
+     "code": "33",
+     "label": "Lithuania"
+    },
+    {
+     "code": "34",
+     "label": "Yugoslavia"
+    },
+    {
+     "code": "35",
+     "label": "Romania"
+    },
+    {
+     "code": "36",
+     "label": "Belgium"
+    },
+    {
+     "code": "37",
+     "label": "Arabic"
+    },
+    {
+     "code": "38",
+     "label": "Other Spanish"
+    },
+    {
+     "code": "39",
+     "label": "West Indies (Non-Spanish)"
+    },
+    {
+     "code": "40",
+     "label": "Other Asian"
+    },
+    {
+     "code": "41",
+     "label": "Other European"
+    },
+    {
+     "code": "97",
+     "label": "American Only"
+    },
+    {
+     "code": "98",
+     "label": "No ethnicity mentioned"
+    },
+    {
+     "code": "99",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not possible to code; see ETHNIC"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "1972-82",
+    "1982B",
+    "1983-87",
+    "1987B",
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "eth2": {
+   "variable": "eth2",
+   "page": 2936,
+   "pdf_page": 2816,
+   "stem": "From what countries or part of the world did your ancestors come?",
+   "wording": "SECOND ETHNICITY MENTIONED",
+   "directions": [
+    "SECOND ETHNICITY MENTIONED"
+   ],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Africa"
+    },
+    {
+     "code": "2",
+     "label": "Austria"
+    },
+    {
+     "code": "3",
+     "label": "Canada (French)"
+    },
+    {
+     "code": "4",
+     "label": "Canada (Other)"
+    },
+    {
+     "code": "5",
+     "label": "China"
+    },
+    {
+     "code": "6",
+     "label": "Czechoslovakia"
+    },
+    {
+     "code": "7",
+     "label": "Denmark"
+    },
+    {
+     "code": "8",
+     "label": "England and Wales"
+    },
+    {
+     "code": "9",
+     "label": "Finland"
+    },
+    {
+     "code": "10",
+     "label": "France"
+    },
+    {
+     "code": "11",
+     "label": "Germany"
+    },
+    {
+     "code": "12",
+     "label": "Greece"
+    },
+    {
+     "code": "13",
+     "label": "Hungary"
+    },
+    {
+     "code": "14",
+     "label": "Ireland"
+    },
+    {
+     "code": "15",
+     "label": "Italy"
+    },
+    {
+     "code": "16",
+     "label": "Japan"
+    },
+    {
+     "code": "17",
+     "label": "Mexico"
+    },
+    {
+     "code": "18",
+     "label": "Netherlands (Dutch/Holland)"
+    },
+    {
+     "code": "19",
+     "label": "Norway"
+    },
+    {
+     "code": "20",
+     "label": "Philippines"
+    },
+    {
+     "code": "21",
+     "label": "Poland"
+    },
+    {
+     "code": "22",
+     "label": "Puerto Rico"
+    },
+    {
+     "code": "23",
+     "label": "Russia (USSR)"
+    },
+    {
+     "code": "24",
+     "label": "Scotland"
+    },
+    {
+     "code": "25",
+     "label": "Spain"
+    },
+    {
+     "code": "26",
+     "label": "Sweden"
+    },
+    {
+     "code": "27",
+     "label": "Switzerland"
+    },
+    {
+     "code": "28",
+     "label": "West Indies (Not Specified)"
+    },
+    {
+     "code": "29",
+     "label": "Other (SPECIFY) [See REMARKS]"
+    },
+    {
+     "code": "30",
+     "label": "American Indian"
+    },
+    {
+     "code": "31",
+     "label": "India"
+    },
+    {
+     "code": "32",
+     "label": "Portugal"
+    },
+    {
+     "code": "33",
+     "label": "Lithuania"
+    },
+    {
+     "code": "34",
+     "label": "Yugoslavia"
+    },
+    {
+     "code": "35",
+     "label": "Romania"
+    },
+    {
+     "code": "36",
+     "label": "Belgium"
+    },
+    {
+     "code": "37",
+     "label": "Arabic"
+    },
+    {
+     "code": "38",
+     "label": "Other Spanish"
+    },
+    {
+     "code": "39",
+     "label": "West Indies (Non-Spanish)"
+    },
+    {
+     "code": "40",
+     "label": "Other Asian"
+    },
+    {
+     "code": "41",
+     "label": "Other European"
+    },
+    {
+     "code": "97",
+     "label": "American Only"
+    },
+    {
+     "code": "98",
+     "label": "Don't know"
+    },
+    {
+     "code": "99",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable; No second metion, see ETHNIC"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "1983-87",
+    "1987B",
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "eth3": {
+   "variable": "eth3",
+   "page": 2937,
+   "pdf_page": 2817,
+   "stem": "From what countries or part of the world did your ancestors come?",
+   "wording": "THIRD ETHNICITY MENTIONED",
+   "directions": [
+    "THIRD ETHNICITY MENTIONED"
+   ],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Africa"
+    },
+    {
+     "code": "2",
+     "label": "Austria"
+    },
+    {
+     "code": "3",
+     "label": "Canada (French)"
+    },
+    {
+     "code": "4",
+     "label": "Canada (Other)"
+    },
+    {
+     "code": "5",
+     "label": "China"
+    },
+    {
+     "code": "6",
+     "label": "Czechoslovakia"
+    },
+    {
+     "code": "7",
+     "label": "Denmark"
+    },
+    {
+     "code": "8",
+     "label": "England and Wales"
+    },
+    {
+     "code": "9",
+     "label": "Finland"
+    },
+    {
+     "code": "10",
+     "label": "France"
+    },
+    {
+     "code": "11",
+     "label": "Germany"
+    },
+    {
+     "code": "12",
+     "label": "Greece"
+    },
+    {
+     "code": "13",
+     "label": "Hungary"
+    },
+    {
+     "code": "14",
+     "label": "Ireland"
+    },
+    {
+     "code": "15",
+     "label": "Italy"
+    },
+    {
+     "code": "16",
+     "label": "Japan"
+    },
+    {
+     "code": "17",
+     "label": "Mexico"
+    },
+    {
+     "code": "18",
+     "label": "Netherlands (Dutch/Holland)"
+    },
+    {
+     "code": "19",
+     "label": "Norway"
+    },
+    {
+     "code": "20",
+     "label": "Philippines"
+    },
+    {
+     "code": "21",
+     "label": "Poland"
+    },
+    {
+     "code": "22",
+     "label": "Puerto Rico"
+    },
+    {
+     "code": "23",
+     "label": "Russia (USSR)"
+    },
+    {
+     "code": "24",
+     "label": "Scotland"
+    },
+    {
+     "code": "25",
+     "label": "Spain"
+    },
+    {
+     "code": "26",
+     "label": "Sweden"
+    },
+    {
+     "code": "27",
+     "label": "Switzerland"
+    },
+    {
+     "code": "29",
+     "label": "Other (SPECIFY) [See REMARKS]"
+    },
+    {
+     "code": "30",
+     "label": "American Indian"
+    },
+    {
+     "code": "31",
+     "label": "India"
+    },
+    {
+     "code": "32",
+     "label": "Portugal"
+    },
+    {
+     "code": "33",
+     "label": "Lithuania"
+    },
+    {
+     "code": "34",
+     "label": "Yugoslavia"
+    },
+    {
+     "code": "35",
+     "label": "Romania"
+    },
+    {
+     "code": "38",
+     "label": "Other Spanish"
+    },
+    {
+     "code": "39",
+     "label": "West Indies (Non-Spanish)"
+    },
+    {
+     "code": "40",
+     "label": "Other Asian"
+    },
+    {
+     "code": "41",
+     "label": "Other European"
+    },
+    {
+     "code": "97",
+     "label": "American Only"
+    },
+    {
+     "code": "98",
+     "label": "Don't know"
+    },
+    {
+     "code": "99",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable; No third mention, see ETHNIC"
+    }
+   ],
+   "remarks": "Question was recoded so that the summary ethnicity of the respondent appears in ETHNIC, whether obtained in ETHNIC or ETH1-ETH3. See Appendix D: Recodes, for details. Content of Punch 29 (Other SPECIFY) available from NORC. See Appendix N for changes across surveys. See Appendix T, GSS Methodological Reports Nos. 6, 12, and 18. Codes 40 and 41 were used starting in 1994. If planning to perform trend analysis with ETHNIC, please consult GSS Methodological Report No. 56.",
+   "asked": [
+    "1983-87",
+    "1987B",
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ],
+   "problems": [
+    "unreadable row (not a label, a punch code and 15 counts): 'West Indies (Not Specified) 28 0 0 0 1 0 0 0 0 0 0 0 1 0 2'",
+    "unreadable row (not a label, a punch code and 15 counts): 'Belgium 36 0 0 1 0 1 8 4 0 2 2 2 1 0 21'",
+    "unreadable row (not a label, a punch code and 15 counts): 'Arabic 37 0 0 0 0 1 1 0 2 0 3 2 1 2 12'"
+   ]
+  },
+  "hispanic": {
+   "variable": "hispanic",
+   "page": 2947,
+   "pdf_page": 2827,
+   "wording": "IF R IS FEMALE, READ LATINA; IF MALE, READ LATINO. Are you Spanish, Hispanic, or Latino/Latina? Yes ...............(ASK A)..............................................................................................................1 No ...............(GO TO NEXT QUESTION)............................................................ ……….2 IF YES: Which group are you from? Mexican, Mexican American, Chicano/Chicana..................................................... ……….1 Puerto Rican ....................................................................................................... ……….2 Cuban ................................................................................................................. ……….3 Other _____________________________ .......................................................... ……….4",
+   "directions": [
+    "IF R IS FEMALE, READ LATINA; IF MALE, READ LATINO.",
+    "...............(GO TO NEXT QUESTION)............................................................ ……….2 IF YES:"
+   ],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Not Hispanic"
+    },
+    {
+     "code": "2",
+     "label": "Mexican, Mexican American, Chicano/a"
+    },
+    {
+     "code": "3",
+     "label": "Puerto Rican"
+    },
+    {
+     "code": "4",
+     "label": "Cuban"
+    },
+    {
+     "code": "5",
+     "label": "Salvadorian"
+    },
+    {
+     "code": "6",
+     "label": "Guatemalan"
+    },
+    {
+     "code": "7",
+     "label": "Panamanian"
+    },
+    {
+     "code": "8",
+     "label": "Nicaraguan"
+    },
+    {
+     "code": "9",
+     "label": "Costa Rican"
+    },
+    {
+     "code": "10",
+     "label": "Central American"
+    },
+    {
+     "code": "11",
+     "label": "Honduran"
+    },
+    {
+     "code": "15",
+     "label": "Dominican"
+    },
+    {
+     "code": "16",
+     "label": "West Indian"
+    },
+    {
+     "code": "20",
+     "label": "Peruvian"
+    },
+    {
+     "code": "21",
+     "label": "Ecuadorian"
+    },
+    {
+     "code": "22",
+     "label": "Colombian"
+    },
+    {
+     "code": "23",
+     "label": "Venezuelan"
+    },
+    {
+     "code": "24",
+     "label": "Argentinian"
+    },
+    {
+     "code": "25",
+     "label": "Chilean"
+    },
+    {
+     "code": "30",
+     "label": "Spanish"
+    },
+    {
+     "code": "31",
+     "label": "Basque"
+    },
+    {
+     "code": "35",
+     "label": "Filipino/a"
+    },
+    {
+     "code": "40",
+     "label": "Latin American"
+    },
+    {
+     "code": "41",
+     "label": "South American"
+    },
+    {
+     "code": "45",
+     "label": "Latin"
+    },
+    {
+     "code": "46",
+     "label": "Latino/a"
+    },
+    {
+     "code": "47",
+     "label": "Hispanic"
+    },
+    {
+     "code": "50",
+     "label": "Other, not specified"
+    },
+    {
+     "code": "98",
+     "label": "Don't know"
+    },
+    {
+     "code": "99",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable"
+    }
+   ],
+   "remarks": "The two questions above were asked sequentially of the respondent. Hand Card A5 was given to Latino respondents and had response options 2-4 plus “Other Hispanic, specify.” See Recodes, Appendix D.",
+   "asked": [
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "sibs": {
+   "variable": "sibs",
+   "page": 174,
+   "pdf_page": 53,
+   "wording": "How many brothers and sisters did you have? Please count those born alive, but no longer living, as well as those alive now. Also include stepbrothers and stepsisters, and children adopted by your parents.",
+   "directions": [],
+   "codes": [],
+   "remarks": "See Appendix N for changes across surveys. If planning to perform trend analysis with this variable, please consult GSS Methodological Report No. 56. The response categories have been collapsed for convenience of display.",
+   "asked": [
+    "1972-82",
+    "1982B",
+    "1983-87",
+    "1987B",
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "marital": {
+   "variable": "marital",
+   "page": 135,
+   "pdf_page": 14,
+   "wording": "Are you currently--married, widowed, divorced, separated, or have you never been married?",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Married (ASK AGEWED and DIVORCE)"
+    },
+    {
+     "code": "2",
+     "label": "Widowed (ASK AGEWED and DIVORCE)"
+    },
+    {
+     "code": "3",
+     "label": "Divorced (ASK AGEWED)"
+    },
+    {
+     "code": "4",
+     "label": "Separated (ASK AGEWED)"
+    },
+    {
+     "code": "5",
+     "label": "Never married (GO TO SPWRKSTA)"
+    },
+    {
+     "code": "9",
+     "label": "No answer"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "1972-82",
+    "1982B",
+    "1983-87",
+    "1987B",
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "widowed": {
+   "variable": "widowed",
+   "page": 137,
+   "pdf_page": 16,
+   "stem": "Are you currently--married, widowed, divorced, separated, or have you never been married?",
+   "wording": "IF CURRENTLY MARRIED, SEPARATED, OR DIVORCED: Have you ever been widowed?",
+   "directions": [
+    "IF CURRENTLY MARRIED, SEPARATED, OR DIVORCED:"
+   ],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Yes"
+    },
+    {
+     "code": "2",
+     "label": "No"
+    },
+    {
+     "code": "8",
+     "label": "Don't know"
+    },
+    {
+     "code": "9",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable (Punches 3-5 in MARITAL)"
+    }
+   ],
+   "remarks": "See Appendix E: Age distributions, for detailed responses.",
+   "asked": [
+    "1983-87",
+    "1987B",
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "divorce": {
+   "variable": "divorce",
+   "page": 136,
+   "pdf_page": 15,
+   "stem": "Are you currently--married, widowed, divorced, separated, or have you never been married?",
+   "wording": "IF CURRENTLY MARRIED OR WIDOWED: Have you ever been divorced or legally separated?",
+   "directions": [
+    "IF CURRENTLY MARRIED OR WIDOWED:"
+   ],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Yes"
+    },
+    {
+     "code": "2",
+     "label": "No"
+    },
+    {
+     "code": "8",
+     "label": "Don't know"
+    },
+    {
+     "code": "9",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable (Punches 3-5 in MARITAL)"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "1972-82",
+    "1982B",
+    "1983-87",
+    "1987B",
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "posslq": {
+   "variable": "posslq",
+   "page": 2182,
+   "pdf_page": 2061,
+   "wording": "Which of these statements applies to you? CODE ONE ONLY. A. I am married and living in the same household as my husband or wife.......................................... 1 B. I am living as married and my partner and I together live in the same household…........................ 2 C. I have a husband or wife or steady partner, but we don't live in the same household…….............. 3 D. I don't have a steady partner.......................................................................................................... 4",
+   "directions": [
+    "CODE ONE ONLY. A. I"
+   ],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Married, together"
+    },
+    {
+     "code": "2",
+     "label": "Partner, together"
+    },
+    {
+     "code": "3",
+     "label": "Married/Partner apart"
+    },
+    {
+     "code": "4",
+     "label": "No Partner"
+    },
+    {
+     "code": "8",
+     "label": "Don't Know"
+    },
+    {
+     "code": "9",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable"
+    }
+   ],
+   "remarks": "Card A1.2a contained responses 1-4. POSSLQ and POSSLQY are used to drive certain spouse/partner skips in the replicating core.",
+   "asked": [
+    "1983-87",
+    "2000-04",
+    "2006",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "posslqy": {
+   "variable": "posslqy",
+   "page": 2182,
+   "pdf_page": 2061,
+   "wording": "Which of these statements applies to you? CODE ONE ONLY.",
+   "directions": [
+    "CODE ONE ONLY."
+   ],
+   "codes": [
+    {
+     "code": "1",
+     "label": "I am married and living in the same household as my husband or wife."
+    },
+    {
+     "code": "2",
+     "label": "I have a steady partner, and we live in the same household."
+    },
+    {
+     "code": "3",
+     "label": "I have a husband or wife or steady partner, but we don’t live in the same household."
+    },
+    {
+     "code": "4",
+     "label": "I don’t have a steady partner."
+    },
+    {
+     "code": "8",
+     "label": "Don't know"
+    },
+    {
+     "code": "9",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable"
+    }
+   ],
+   "remarks": "Card A1.2b contained responses 1-4. See POSSLQ.",
+   "asked": [
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "childs": {
+   "variable": "childs",
+   "page": 175,
+   "pdf_page": 54,
+   "wording": "How many children have you ever had? Please count all that were born alive at any time (including any you had from a previous marriage).",
+   "directions": [],
+   "codes": [
+    {
+     "code": "0",
+     "label": "None"
+    },
+    {
+     "code": "1",
+     "label": "One"
+    },
+    {
+     "code": "2",
+     "label": "Two"
+    },
+    {
+     "code": "3",
+     "label": "Three"
+    },
+    {
+     "code": "4",
+     "label": "Four"
+    },
+    {
+     "code": "5",
+     "label": "Five"
+    },
+    {
+     "code": "6",
+     "label": "Six"
+    },
+    {
+     "code": "7",
+     "label": "Seven"
+    },
+    {
+     "code": "8",
+     "label": "Eight or more"
+    },
+    {
+     "code": "9",
+     "label": "No answer, Don’t know"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "1972-82",
+    "1982B",
+    "1983-87",
+    "1987B",
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "agekdbrn": {
+   "variable": "agekdbrn",
+   "page": 176,
+   "pdf_page": 55,
+   "wording": "How old were you when your first child was born?",
+   "directions": [],
+   "codes": [],
+   "remarks": "AGEKDBRN is coded in two digits. The collapsed numbers above are for convenience of display only.",
+   "asked": [
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "major1": {
+   "variable": "major1",
+   "page": 184,
+   "pdf_page": 63,
+   "wording": "What was your major or field of study when you received your (RESPONDENT'S COLLEGE DEGREE) degree? IF THE RESPONDENT RECEIVED MORE THAN ONE GRADUATE LEVEL DEGREE, ASK ABOUT THE HIGHEST DEGREE OBTAINED (E.G. ABOUT A Ph.D. RATHER THAN AN M.B.A). [COUNT UP TO 2 MENTIONS]",
+   "directions": [
+    "(RESPONDENT'S COLLEGE DEGREE)",
+    "IF THE RESPONDENT RECEIVED MORE THAN ONE GRADUATE LEVEL DEGREE, ASK ABOUT THE HIGHEST DEGREE OBTAINED (E.G. ABOUT A Ph.D. RATHER THAN AN M.B.A). [COUNT UP TO 2 MENTIONS]"
+   ],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Accounting/bookkeeping"
+    },
+    {
+     "code": "2",
+     "label": "Advertising"
+    },
+    {
+     "code": "3",
+     "label": "Agriculture/horticulture"
+    },
+    {
+     "code": "4",
+     "label": "Allied health"
+    },
+    {
+     "code": "5",
+     "label": "Anthropology"
+    },
+    {
+     "code": "6",
+     "label": "Architecture"
+    },
+    {
+     "code": "7",
+     "label": "Art"
+    },
+    {
+     "code": "8",
+     "label": "Biology"
+    },
+    {
+     "code": "9",
+     "label": "Business administration"
+    },
+    {
+     "code": "11",
+     "label": "Chemistry"
+    },
+    {
+     "code": "12",
+     "label": "Communications/speech"
+    },
+    {
+     "code": "13",
+     "label": "Comm. disorders"
+    },
+    {
+     "code": "14",
+     "label": "Computer science"
+    },
+    {
+     "code": "15",
+     "label": "Dentistry"
+    },
+    {
+     "code": "16",
+     "label": "Education"
+    },
+    {
+     "code": "17",
+     "label": "Economics"
+    },
+    {
+     "code": "18",
+     "label": "Engineering"
+    },
+    {
+     "code": "19",
+     "label": "English"
+    },
+    {
+     "code": "20",
+     "label": "Finance"
+    },
+    {
+     "code": "21",
+     "label": "Foreign language"
+    },
+    {
+     "code": "22",
+     "label": "Forestry"
+    },
+    {
+     "code": "23",
+     "label": "Geography"
+    },
+    {
+     "code": "24",
+     "label": "Geology"
+    },
+    {
+     "code": "25",
+     "label": "History"
+    },
+    {
+     "code": "26",
+     "label": "Home economics"
+    },
+    {
+     "code": "27",
+     "label": "Industry & techn"
+    },
+    {
+     "code": "28",
+     "label": "Journalism"
+    },
+    {
+     "code": "29",
+     "label": "Law"
+    },
+    {
+     "code": "30",
+     "label": "Law enforcement"
+    },
+    {
+     "code": "31",
+     "label": "Library science"
+    },
+    {
+     "code": "32",
+     "label": "Marketing"
+    },
+    {
+     "code": "33",
+     "label": "Mathematics"
+    },
+    {
+     "code": "34",
+     "label": "Medicine"
+    },
+    {
+     "code": "35",
+     "label": "Music"
+    },
+    {
+     "code": "36",
+     "label": "Nursing"
+    },
+    {
+     "code": "37",
+     "label": "Optometry"
+    },
+    {
+     "code": "38",
+     "label": "Pharmacy"
+    },
+    {
+     "code": "39",
+     "label": "Philosophy"
+    },
+    {
+     "code": "40",
+     "label": "Physical education"
+    },
+    {
+     "code": "41",
+     "label": "Physics"
+    },
+    {
+     "code": "42",
+     "label": "Psychology"
+    },
+    {
+     "code": "43",
+     "label": "Political science/international relations"
+    },
+    {
+     "code": "44",
+     "label": "Sociology"
+    },
+    {
+     "code": "45",
+     "label": "Special education"
+    },
+    {
+     "code": "46",
+     "label": "Theater arts"
+    },
+    {
+     "code": "47",
+     "label": "Theology"
+    },
+    {
+     "code": "48",
+     "label": "Veterinary medicine"
+    },
+    {
+     "code": "49",
+     "label": "Liberal arts"
+    },
+    {
+     "code": "50",
+     "label": "Other"
+    },
+    {
+     "code": "51",
+     "label": "General sciences"
+    },
+    {
+     "code": "52",
+     "label": "Social work"
+    },
+    {
+     "code": "53",
+     "label": "General studies"
+    },
+    {
+     "code": "54",
+     "label": "Other vocational"
+    },
+    {
+     "code": "55",
+     "label": "Health"
+    },
+    {
+     "code": "56",
+     "label": "Industrial Relations"
+    },
+    {
+     "code": "57",
+     "label": "Child/Human/Family Development"
+    },
+    {
+     "code": "58",
+     "label": "Food Science/Nutrition/Culinary Arts"
+    },
+    {
+     "code": "59",
+     "label": "Environmental Science/Ecology"
+    },
+    {
+     "code": "60",
+     "label": "Social Sciences"
+    },
+    {
+     "code": "61",
+     "label": "Human Services/Human Resources"
+    },
+    {
+     "code": "62",
+     "label": "Visual Arts/Graphic Design/Design and Drafting"
+    },
+    {
+     "code": "63",
+     "label": "Fine Arts"
+    },
+    {
+     "code": "64",
+     "label": "Humanities"
+    },
+    {
+     "code": "65",
+     "label": "Ethnic studies"
+    },
+    {
+     "code": "66",
+     "label": "Educational administration"
+    },
+    {
+     "code": "67",
+     "label": "Television/Film"
+    },
+    {
+     "code": "68",
+     "label": "Aviation/Aeronatics"
+    },
+    {
+     "code": "69",
+     "label": "Statistics/Biostatistics"
+    },
+    {
+     "code": "70",
+     "label": "Criminology/Criminal Justice"
+    },
+    {
+     "code": "71",
+     "label": "Administrative Science/Public Administration 0"
+    },
+    {
+     "code": "72",
+     "label": "Electronics"
+    },
+    {
+     "code": "73",
+     "label": "Urban and Regional Planning"
+    },
+    {
+     "code": "74",
+     "label": "Mechanics/Machine Trade"
+    },
+    {
+     "code": "75",
+     "label": "Dance"
+    },
+    {
+     "code": "76",
+     "label": "Gerontology"
+    },
+    {
+     "code": "77",
+     "label": "Public Relations"
+    },
+    {
+     "code": "78",
+     "label": "Textiles/Cloth"
+    },
+    {
+     "code": "79",
+     "label": "Parks and Recreation"
+    },
+    {
+     "code": "80",
+     "label": "Information Technology"
+    },
+    {
+     "code": "81",
+     "label": "Fashion"
+    },
+    {
+     "code": "82",
+     "label": "Counseling"
+    },
+    {
+     "code": "98",
+     "label": "Don't know/UNCODED"
+    },
+    {
+     "code": "99",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "major2": {
+   "variable": "major2",
+   "page": 187,
+   "pdf_page": 66,
+   "wording": "",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Accounting/bookkeeping"
+    },
+    {
+     "code": "2",
+     "label": "Advertising"
+    },
+    {
+     "code": "3",
+     "label": "Agriculture/horticulture"
+    },
+    {
+     "code": "4",
+     "label": "Allied health"
+    },
+    {
+     "code": "5",
+     "label": "Anthropology"
+    },
+    {
+     "code": "6",
+     "label": "Architecture"
+    },
+    {
+     "code": "7",
+     "label": "Art"
+    },
+    {
+     "code": "8",
+     "label": "Biology"
+    },
+    {
+     "code": "9",
+     "label": "Business administration"
+    },
+    {
+     "code": "11",
+     "label": "Chemistry"
+    },
+    {
+     "code": "12",
+     "label": "Communications/speech"
+    },
+    {
+     "code": "13",
+     "label": "Comm. disorders"
+    },
+    {
+     "code": "14",
+     "label": "Computer science"
+    },
+    {
+     "code": "15",
+     "label": "Dentistry"
+    },
+    {
+     "code": "16",
+     "label": "Education"
+    },
+    {
+     "code": "17",
+     "label": "Economics"
+    },
+    {
+     "code": "18",
+     "label": "Engineering"
+    },
+    {
+     "code": "19",
+     "label": "English"
+    },
+    {
+     "code": "20",
+     "label": "Finance"
+    },
+    {
+     "code": "21",
+     "label": "Foreign language"
+    },
+    {
+     "code": "22",
+     "label": "Forestry"
+    },
+    {
+     "code": "23",
+     "label": "Geography"
+    },
+    {
+     "code": "24",
+     "label": "Geology"
+    },
+    {
+     "code": "25",
+     "label": "History"
+    },
+    {
+     "code": "26",
+     "label": "Home economics"
+    },
+    {
+     "code": "27",
+     "label": "Industry & techn"
+    },
+    {
+     "code": "28",
+     "label": "Journalism"
+    },
+    {
+     "code": "29",
+     "label": "Law"
+    },
+    {
+     "code": "30",
+     "label": "Law enforcement"
+    },
+    {
+     "code": "31",
+     "label": "Library science"
+    },
+    {
+     "code": "32",
+     "label": "Marketing"
+    },
+    {
+     "code": "33",
+     "label": "Mathematics"
+    },
+    {
+     "code": "34",
+     "label": "Medicine"
+    },
+    {
+     "code": "35",
+     "label": "Music"
+    },
+    {
+     "code": "36",
+     "label": "Nursing"
+    },
+    {
+     "code": "37",
+     "label": "Optometry"
+    },
+    {
+     "code": "38",
+     "label": "Pharmacy"
+    },
+    {
+     "code": "39",
+     "label": "Philosophy"
+    },
+    {
+     "code": "40",
+     "label": "Physical education"
+    },
+    {
+     "code": "41",
+     "label": "Physics"
+    },
+    {
+     "code": "42",
+     "label": "Psychology"
+    },
+    {
+     "code": "43",
+     "label": "Political science/international relations"
+    },
+    {
+     "code": "44",
+     "label": "Sociology"
+    },
+    {
+     "code": "45",
+     "label": "Special education"
+    },
+    {
+     "code": "46",
+     "label": "Theater arts"
+    },
+    {
+     "code": "47",
+     "label": "Theology"
+    },
+    {
+     "code": "48",
+     "label": "Veterinary medicine"
+    },
+    {
+     "code": "49",
+     "label": "Liberal arts"
+    },
+    {
+     "code": "50",
+     "label": "Other"
+    },
+    {
+     "code": "51",
+     "label": "General sciences"
+    },
+    {
+     "code": "52",
+     "label": "Social work"
+    },
+    {
+     "code": "53",
+     "label": "General studies"
+    },
+    {
+     "code": "54",
+     "label": "Other vocational"
+    },
+    {
+     "code": "55",
+     "label": "Health"
+    },
+    {
+     "code": "56",
+     "label": "Industrial Relations"
+    },
+    {
+     "code": "57",
+     "label": "Child/Human/Family Development"
+    },
+    {
+     "code": "58",
+     "label": "Food Science/Nutrition/Culinary Arts"
+    },
+    {
+     "code": "59",
+     "label": "Environmental Science/Ecology"
+    },
+    {
+     "code": "60",
+     "label": "Social Sciences"
+    },
+    {
+     "code": "61",
+     "label": "Human Services/Human Resources"
+    },
+    {
+     "code": "62",
+     "label": "Visual Arts/Graphic Design/ Design and Drafting"
+    },
+    {
+     "code": "63",
+     "label": "Fine Arts"
+    },
+    {
+     "code": "64",
+     "label": "Humanities"
+    },
+    {
+     "code": "65",
+     "label": "Ethnic studies"
+    },
+    {
+     "code": "66",
+     "label": "Educational administration"
+    },
+    {
+     "code": "67",
+     "label": "Television/Film"
+    },
+    {
+     "code": "68",
+     "label": "Aviation/Aeronatics"
+    },
+    {
+     "code": "69",
+     "label": "Statistics/Biostatistics"
+    },
+    {
+     "code": "70",
+     "label": "Criminology/Criminal Justice"
+    },
+    {
+     "code": "71",
+     "label": "Administrative Science/ Public Administration"
+    },
+    {
+     "code": "72",
+     "label": "Electronics"
+    },
+    {
+     "code": "73",
+     "label": "Urban and Regional Planning"
+    },
+    {
+     "code": "74",
+     "label": "Mechanics/Machine Trade"
+    },
+    {
+     "code": "75",
+     "label": "Dance"
+    },
+    {
+     "code": "76",
+     "label": "Gerontology"
+    },
+    {
+     "code": "77",
+     "label": "Public Relations"
+    },
+    {
+     "code": "78",
+     "label": "Textiles/Cloth"
+    },
+    {
+     "code": "79",
+     "label": "Parks and Recreation"
+    },
+    {
+     "code": "80",
+     "label": "Information Technology"
+    },
+    {
+     "code": "81",
+     "label": "Fashion"
+    },
+    {
+     "code": "82",
+     "label": "Counseling"
+    },
+    {
+     "code": "98",
+     "label": "Don't know/UNCODED"
+    },
+    {
+     "code": "99",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ],
+   "problems": [
+    "no wording of its own"
+   ]
+  },
+  "relig": {
+   "variable": "relig",
+   "page": 312,
+   "pdf_page": 191,
+   "wording": "What is your religious preference? Is it Protestant, Catholic, Jewish, some other religion, or no religion?",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Protestant (ASK DENOM)"
+    },
+    {
+     "code": "2",
+     "label": "Catholic"
+    },
+    {
+     "code": "3",
+     "label": "Jewish"
+    },
+    {
+     "code": "4",
+     "label": "None"
+    },
+    {
+     "code": "5",
+     "label": "Other (SPECIFY RELIGION AND/OR CHURCH AND DENOMINATION) [See REMARKS below]"
+    },
+    {
+     "code": "6",
+     "label": "Buddhism"
+    },
+    {
+     "code": "7",
+     "label": "Hinduism"
+    },
+    {
+     "code": "8",
+     "label": "Other Eastern Religions"
+    },
+    {
+     "code": "9",
+     "label": "Muslim/Islam"
+    },
+    {
+     "code": "10",
+     "label": "Orthodox-Christian"
+    },
+    {
+     "code": "11",
+     "label": "Christian"
+    },
+    {
+     "code": "12",
+     "label": "Native American"
+    },
+    {
+     "code": "13",
+     "label": "Inter-Nondenomenational"
+    },
+    {
+     "code": "98",
+     "label": "Don't know"
+    },
+    {
+     "code": "99",
+     "label": "No answer"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "1972-82",
+    "1982B",
+    "1983-87",
+    "1987B",
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "denom": {
+   "variable": "denom",
+   "page": 312,
+   "pdf_page": 191,
+   "stem": "What is your religious preference? Is it Protestant, Catholic, Jewish, some other religion, or no religion?",
+   "wording": "IF PROTESTANT: A. What specific denomination is that, if any? (PROBE FOR EXACT DENOMINATION)",
+   "directions": [
+    "IF PROTESTANT: A.",
+    "(PROBE FOR EXACT DENOMINATION)"
+   ],
+   "codes": [
+    {
+     "code": "10",
+     "label": "American Baptist Assoc."
+    },
+    {
+     "code": "11",
+     "label": "American Baptist Churches in the U.S.A"
+    },
+    {
+     "code": "12",
+     "label": "National Baptist Convention of America"
+    },
+    {
+     "code": "13",
+     "label": "National Baptist Convention, U.S.A., Inc"
+    },
+    {
+     "code": "14",
+     "label": "Southern Baptist Convention"
+    },
+    {
+     "code": "15",
+     "label": "Other Baptist Churches"
+    },
+    {
+     "code": "18",
+     "label": "Baptist, Don't know which"
+    },
+    {
+     "code": "20",
+     "label": "African Methodist Episcopal Church"
+    },
+    {
+     "code": "21",
+     "label": "African Methodist Episcopal Zion Church"
+    },
+    {
+     "code": "22",
+     "label": "United Methodist Church"
+    },
+    {
+     "code": "23",
+     "label": "Other Methodist Churches"
+    },
+    {
+     "code": "28",
+     "label": "Methodist, Don't know which"
+    },
+    {
+     "code": "30",
+     "label": "American Lutheran Church"
+    },
+    {
+     "code": "31",
+     "label": "Lutheran Church in America"
+    },
+    {
+     "code": "32",
+     "label": "Lutheran Church-- Missouri Synod"
+    },
+    {
+     "code": "33",
+     "label": "Wisconsin Evangelical Lutheran Synod"
+    },
+    {
+     "code": "34",
+     "label": "Other Lutheran Churches"
+    },
+    {
+     "code": "35",
+     "label": "Evangelical Lutheran"
+    },
+    {
+     "code": "38",
+     "label": "Lutheran, Don't know which"
+    },
+    {
+     "code": "40",
+     "label": "Presbyterian Church in the U.S.A"
+    },
+    {
+     "code": "41",
+     "label": "United Presbyterian Church in the U.S.A"
+    },
+    {
+     "code": "42",
+     "label": "Other Presbyterian Churches"
+    },
+    {
+     "code": "43",
+     "label": "Presbyterian, merged"
+    },
+    {
+     "code": "48",
+     "label": "Presbyterian, don't know which"
+    },
+    {
+     "code": "50",
+     "label": "EPISCOPAL CHURCH"
+    },
+    {
+     "code": "60",
+     "label": "Other (SPECIFY) _____________"
+    },
+    {
+     "code": "70",
+     "label": "No denomination given or non-denominational church"
+    },
+    {
+     "code": "98",
+     "label": "Don't know"
+    },
+    {
+     "code": "99",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable (punches 2-13 in RELIG, often including 5 and sometimes 11)"
+    }
+   ],
+   "remarks": "RELIG, punch 5 (Other, SPECIFY), is available from NORC. DENOM, punch 60 (N = 7788), recoded into OTHER. Until 2008 the following codes were used: LDS=59, LDS-Mormon=60, DS- Jesus Christ; Church of Jesus Christ LDS= 62; Mormon= 64. These codes did not distinguish different denominations and were not consistently used over time. In 2008 codes 59, 60, and 62 were recorded as code 64 for all years. Punch 43 of DENOM was renamed Presbyterian, merged in 2012. If planning to perform trend analysis with this variable, please consult GSS Methodological Report No. 56. See Appendix K: Protestant denominations. See Appendix N for changes across surveys.",
+   "asked": [
+    "1972-82",
+    "1982B",
+    "1983-87",
+    "1987B",
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "jew": {
+   "variable": "jew",
+   "page": 314,
+   "pdf_page": 193,
+   "wording": "IF JEWISH (RELIG=3): B. Do you consider yourself Orthodox, Conservative, Reform or none of these? (PROBE FOR EXACT DENOMINATION)",
+   "directions": [
+    "IF JEWISH (RELIG=3): B.",
+    "(PROBE FOR EXACT DENOMINATION)"
+   ],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Orthodox"
+    },
+    {
+     "code": "2",
+     "label": "Conservative"
+    },
+    {
+     "code": "3",
+     "label": "Reform"
+    },
+    {
+     "code": "4",
+     "label": "None of these"
+    },
+    {
+     "code": "5",
+     "label": "Other"
+    },
+    {
+     "code": "8",
+     "label": "Don't know"
+    },
+    {
+     "code": "9",
+     "label": "No Answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable"
+    }
+   ],
+   "remarks": "In 2008, if respondent answered RELIG=3 or OTHJEW= 1 (Yes) or 2 (Half or Part) , then JEW was asked.",
+   "asked": [
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "reliten": {
+   "variable": "reliten",
+   "page": 318,
+   "pdf_page": 197,
+   "wording": "ASK EVERYONE WITH ANY RELIGIOUS PREFERENCE NAMED IN RELIG Would you call yourself a strong (PREFERENCE NAMED IN RELIG) or a not very strong (PREFERENCE NAMED IN RELIG)?",
+   "directions": [
+    "ASK EVERYONE WITH ANY RELIGIOUS PREFERENCE NAMED IN RELIG",
+    "(PREFERENCE NAMED IN RELIG)",
+    "(PREFERENCE NAMED IN RELIG)?"
+   ],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Strong"
+    },
+    {
+     "code": "2",
+     "label": "Not very strong"
+    },
+    {
+     "code": "3",
+     "label": "Somewhat strong (Vol.)"
+    },
+    {
+     "code": "4",
+     "label": "No religion"
+    },
+    {
+     "code": "8",
+     "label": "Don't know"
+    },
+    {
+     "code": "9",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable (Punch 98 in RELIG)"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "1972-82",
+    "1982B",
+    "1983-87",
+    "1987B",
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "income": {
+   "variable": "income",
+   "page": 216,
+   "pdf_page": 95,
+   "wording": "In which of these groups did your total family income, from all sources, fall last year before taxes, that is? Just tell me the letter.",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Under $1,000"
+    },
+    {
+     "code": "2",
+     "label": "$ 1,000 to 2,999"
+    },
+    {
+     "code": "3",
+     "label": "$ 3,000 to 3,999"
+    },
+    {
+     "code": "4",
+     "label": "$ 4,000 to 4,999"
+    },
+    {
+     "code": "5",
+     "label": "$ 5,000 to 5,999"
+    },
+    {
+     "code": "6",
+     "label": "$ 6,000 to 6,999"
+    },
+    {
+     "code": "7",
+     "label": "$ 7,000 to 7,999"
+    },
+    {
+     "code": "8",
+     "label": "$ 8,000 to 9,999"
+    },
+    {
+     "code": "9",
+     "label": "$10,000 to 14,999"
+    },
+    {
+     "code": "10",
+     "label": "$15,000 to 19,999"
+    },
+    {
+     "code": "11",
+     "label": "$20,000 to 24,999"
+    },
+    {
+     "code": "12",
+     "label": "$25,000 or over"
+    },
+    {
+     "code": "13",
+     "label": "Refused"
+    },
+    {
+     "code": "98",
+     "label": "Don't know"
+    },
+    {
+     "code": "99",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable"
+    }
+   ],
+   "remarks": "Card D contained responses for Punches 01-12 only. See RINCOME, INCOME72, INCOME77, INCOME82, INCOME86, INCOME91, and INCOME06 for comparable questions in 1972 and 1977+. For 1972, 1977, 1978, 1980, and 1982-2006 income has been recoded from these questions to match the categories in INCOME. If planning to perform trend analysis with this variable, please consult GSS Methodological Report No. 56.",
+   "asked": [
+    "1972-82",
+    "1982B",
+    "1983-87",
+    "1987B",
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "income16": {
+   "variable": "income16",
+   "page": 231,
+   "pdf_page": 110,
+   "wording": "In which of these groups did your total family income, from all sources, fall last year before taxes, that is. Just tell me the letter.",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "UNDER $1,000"
+    },
+    {
+     "code": "2",
+     "label": "$1,000 to $2,999"
+    },
+    {
+     "code": "3",
+     "label": "$3,000 to $3,999"
+    },
+    {
+     "code": "4",
+     "label": "$4,000 to $4,999"
+    },
+    {
+     "code": "5",
+     "label": "$5,000 to $5,999"
+    },
+    {
+     "code": "6",
+     "label": "$6,000 to $6,999"
+    },
+    {
+     "code": "7",
+     "label": "$7,000 to $7,999"
+    },
+    {
+     "code": "8",
+     "label": "$8,000 to $9,999"
+    },
+    {
+     "code": "9",
+     "label": "$10,000 to $12,499"
+    },
+    {
+     "code": "10",
+     "label": "$12,500 to $14,999"
+    },
+    {
+     "code": "11",
+     "label": "$15,000 to $17,499"
+    },
+    {
+     "code": "12",
+     "label": "$17,500 to $19,999"
+    },
+    {
+     "code": "13",
+     "label": "$20,000 to $22,499"
+    },
+    {
+     "code": "14",
+     "label": "$22,500 to $24,999"
+    },
+    {
+     "code": "15",
+     "label": "$25,000 to $29,999"
+    },
+    {
+     "code": "16",
+     "label": "$30,000 to $34,999"
+    },
+    {
+     "code": "17",
+     "label": "$35,000 to $39,999"
+    },
+    {
+     "code": "18",
+     "label": "$40,000 to $49,999"
+    },
+    {
+     "code": "19",
+     "label": "$50,000 to $59,999"
+    },
+    {
+     "code": "20",
+     "label": "$60,000 to $74,999"
+    },
+    {
+     "code": "21",
+     "label": "$75,000 to $89,999"
+    },
+    {
+     "code": "22",
+     "label": "$90,000 to $109,999"
+    },
+    {
+     "code": "23",
+     "label": "$110,000 to $129,999"
+    },
+    {
+     "code": "24",
+     "label": "$130,000 to $149,999"
+    },
+    {
+     "code": "25",
+     "label": "$150,000 or over"
+    },
+    {
+     "code": "26",
+     "label": "$170,000 or over"
+    },
+    {
+     "code": "27",
+     "label": "Refused"
+    },
+    {
+     "code": "98",
+     "label": "Don't know"
+    },
+    {
+     "code": "99",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not Applicable"
+    }
+   ],
+   "remarks": "Hand Card A20 reads: Total income includes interest or dividends, rent, Social Security, other pension, alimony or child support, unemployment compensation, public aid (welfare), armed forces or veteran’s allotment.",
+   "asked": [
+    "2016",
+    "2018"
+   ]
+  },
+  "uscitzn": {
+   "variable": "uscitzn",
+   "page": 2954,
+   "pdf_page": 2834,
+   "wording": "Now we would like to ask you about U.S. citizenship. Are you…",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "A U.S. citizen"
+    },
+    {
+     "code": "2",
+     "label": "Not a U.S. citizen"
+    },
+    {
+     "code": "3",
+     "label": "A U.S. citizen born in Puerto Rico, the U.S. Virgin Islands, or the Northern Marianas Islands (if volunteered)"
+    },
+    {
+     "code": "4",
+     "label": "Born outside of the US to parents who were U.S. citizens at that time (if volunteered)"
+    },
+    {
+     "code": "8",
+     "label": "Don't know"
+    },
+    {
+     "code": "9",
+     "label": "Refused"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable (Not Punch 1 in BORN)"
+    }
+   ],
+   "remarks": "RESPONDENT SAYS S/HE IS “NATURALIZED,” CODE “A U.S. CITIZEN.”",
+   "asked": [
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "fucitzn": {
+   "variable": "fucitzn",
+   "page": 2954,
+   "pdf_page": 2834,
+   "wording": "Are you…",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Currently applying for US citizenship"
+    },
+    {
+     "code": "2",
+     "label": "Planning to apply for US citizenship"
+    },
+    {
+     "code": "3",
+     "label": "Not planning to apply for US citizenship"
+    },
+    {
+     "code": "4",
+     "label": "Not eligible to become a US citizen (if volunteered)"
+    },
+    {
+     "code": "8",
+     "label": "Don't know"
+    },
+    {
+     "code": "9",
+     "label": "Refused"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable (Not Punch 2 or 9 in USCITZN)"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "mnthsusa": {
+   "variable": "mnthsusa",
+   "page": 2955,
+   "pdf_page": 2835,
+   "stem": "How long have you lived in the United States? If you have lived in the United States for more than one period during your life, what is the total number of years you have lived in the United States?",
+   "wording": "(If less than 1 year) Months in US",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "1 month"
+    },
+    {
+     "code": "11",
+     "label": "11 months"
+    },
+    {
+     "code": "98",
+     "label": "Don't know"
+    },
+    {
+     "code": "99",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable (Not Punch 2 or 9 in USCITZN, more than 11 months spent in US)"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "2018"
+   ],
+   "problems": [
+    "a row with one value before its counts ('2'): its label or its punch code is missing",
+    "a row with one value before its counts ('3'): its label or its punch code is missing",
+    "a row with one value before its counts ('4'): its label or its punch code is missing",
+    "a row with one value before its counts ('5'): its label or its punch code is missing",
+    "a row with one value before its counts ('6'): its label or its punch code is missing",
+    "a row with one value before its counts ('7'): its label or its punch code is missing",
+    "a row with one value before its counts ('8'): its label or its punch code is missing",
+    "a row with one value before its counts ('9'): its label or its punch code is missing",
+    "a row with one value before its counts ('10'): its label or its punch code is missing"
+   ]
+  },
+  "yearsusa": {
+   "variable": "yearsusa",
+   "page": 2955,
+   "pdf_page": 2835,
+   "wording": "How long have you lived in the United States? If you have lived in the United States for more than one period during your life, what is the total number of years you have lived in the United States? A. Years in US",
+   "directions": [],
+   "codes": [],
+   "remarks": "",
+   "asked": [
+    "2018"
+   ]
+  },
+  "othlang": {
+   "variable": "othlang",
+   "page": 1284,
+   "pdf_page": 1163,
+   "wording": "Can you speak a language other than English [Spanish]?",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Yes"
+    },
+    {
+     "code": "2",
+     "label": "No (GO TO PARLANG)"
+    },
+    {
+     "code": "8",
+     "label": "Don't know"
+    },
+    {
+     "code": "9",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable"
+    }
+   ],
+   "remarks": "For those interviewed in Spanish, they were asked if they spoke a language other than Spanish.",
+   "asked": [
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "othlang1": {
+   "variable": "othlang1",
+   "page": 1285,
+   "pdf_page": 1164,
+   "wording": "What other language(s) do you speak? First response.",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "English"
+    },
+    {
+     "code": "2",
+     "label": "Spanish"
+    },
+    {
+     "code": "3",
+     "label": "Polish"
+    },
+    {
+     "code": "4",
+     "label": "French"
+    },
+    {
+     "code": "5",
+     "label": "Hebrew"
+    },
+    {
+     "code": "6",
+     "label": "Russian"
+    },
+    {
+     "code": "7",
+     "label": "Tagalog/Filipino"
+    },
+    {
+     "code": "8",
+     "label": "Chinese"
+    },
+    {
+     "code": "9",
+     "label": "Urdu"
+    },
+    {
+     "code": "10",
+     "label": "Italian"
+    },
+    {
+     "code": "11",
+     "label": "Romanian"
+    },
+    {
+     "code": "12",
+     "label": "German"
+    },
+    {
+     "code": "13",
+     "label": "Pashtu"
+    },
+    {
+     "code": "14",
+     "label": "Chamorro"
+    },
+    {
+     "code": "15",
+     "label": "Ukrainian"
+    },
+    {
+     "code": "16",
+     "label": "Hungarian"
+    },
+    {
+     "code": "17",
+     "label": "Turkish"
+    },
+    {
+     "code": "18",
+     "label": "Khmer"
+    },
+    {
+     "code": "19",
+     "label": "Korean"
+    },
+    {
+     "code": "20",
+     "label": "Navajo"
+    },
+    {
+     "code": "21",
+     "label": "Malayam"
+    },
+    {
+     "code": "22",
+     "label": "Arabic"
+    },
+    {
+     "code": "23",
+     "label": "Farsi/Persian"
+    },
+    {
+     "code": "24",
+     "label": "Serbian"
+    },
+    {
+     "code": "25",
+     "label": "Lithuanian"
+    },
+    {
+     "code": "27",
+     "label": "Thai"
+    },
+    {
+     "code": "28",
+     "label": "Gujarati"
+    },
+    {
+     "code": "30",
+     "label": "Dari"
+    },
+    {
+     "code": "31",
+     "label": "Slovak"
+    },
+    {
+     "code": "32",
+     "label": "Japanese"
+    },
+    {
+     "code": "33",
+     "label": "Portuguese"
+    },
+    {
+     "code": "34",
+     "label": "Vajun"
+    },
+    {
+     "code": "35",
+     "label": "Yiddish"
+    },
+    {
+     "code": "36",
+     "label": "Creole"
+    },
+    {
+     "code": "37",
+     "label": "Vietnamese"
+    },
+    {
+     "code": "38",
+     "label": "Norwegian"
+    },
+    {
+     "code": "39",
+     "label": "Malaysian"
+    },
+    {
+     "code": "40",
+     "label": "Latin"
+    },
+    {
+     "code": "41",
+     "label": "Czech"
+    },
+    {
+     "code": "42",
+     "label": "Hindi"
+    },
+    {
+     "code": "43",
+     "label": "Hakka"
+    },
+    {
+     "code": "44",
+     "label": "Swedish"
+    },
+    {
+     "code": "45",
+     "label": "Vesaya"
+    },
+    {
+     "code": "46",
+     "label": "Sign language"
+    },
+    {
+     "code": "47",
+     "label": "Tongan"
+    },
+    {
+     "code": "48",
+     "label": "Armenian"
+    },
+    {
+     "code": "49",
+     "label": "Ibo"
+    },
+    {
+     "code": "50",
+     "label": "Dutch"
+    },
+    {
+     "code": "51",
+     "label": "Cherokee"
+    },
+    {
+     "code": "52",
+     "label": "Samoan"
+    },
+    {
+     "code": "53",
+     "label": "Yoruba"
+    },
+    {
+     "code": "54",
+     "label": "Greek"
+    },
+    {
+     "code": "55",
+     "label": "Lakota"
+    },
+    {
+     "code": "56",
+     "label": "African"
+    },
+    {
+     "code": "57",
+     "label": "Anishnabee"
+    },
+    {
+     "code": "58",
+     "label": "Ilokand"
+    },
+    {
+     "code": "59",
+     "label": "Assyrian"
+    },
+    {
+     "code": "60",
+     "label": "Danish"
+    },
+    {
+     "code": "61",
+     "label": "Laotian"
+    },
+    {
+     "code": "62",
+     "label": "Finnish"
+    },
+    {
+     "code": "63",
+     "label": "Mohawk"
+    },
+    {
+     "code": "64",
+     "label": "Amharic"
+    },
+    {
+     "code": "65",
+     "label": "Bengali"
+    },
+    {
+     "code": "66",
+     "label": "Oriya"
+    },
+    {
+     "code": "67",
+     "label": "Hawaiian"
+    },
+    {
+     "code": "68",
+     "label": "Albanian"
+    },
+    {
+     "code": "69",
+     "label": "Hmong"
+    },
+    {
+     "code": "70",
+     "label": "Indonesian"
+    },
+    {
+     "code": "71",
+     "label": "Swahili"
+    },
+    {
+     "code": "72",
+     "label": "Telugu"
+    },
+    {
+     "code": "73",
+     "label": "Kannada"
+    },
+    {
+     "code": "74",
+     "label": "Bulgarian"
+    },
+    {
+     "code": "75",
+     "label": "Guarani"
+    },
+    {
+     "code": "76",
+     "label": "Bosnian"
+    },
+    {
+     "code": "77",
+     "label": "Punjabi"
+    },
+    {
+     "code": "78",
+     "label": "Latvian"
+    },
+    {
+     "code": "79",
+     "label": "Basque"
+    },
+    {
+     "code": "80",
+     "label": "Bikol/Bicolano"
+    },
+    {
+     "code": "81",
+     "label": "Croatian"
+    },
+    {
+     "code": "82",
+     "label": "Romani/Gypsy/Tigan"
+    },
+    {
+     "code": "83",
+     "label": "Slovenian"
+    },
+    {
+     "code": "84",
+     "label": "Belgian"
+    },
+    {
+     "code": "85",
+     "label": "Mandingo/Mandinka"
+    },
+    {
+     "code": "86",
+     "label": "Jamaican"
+    },
+    {
+     "code": "87",
+     "label": "Somali"
+    },
+    {
+     "code": "88",
+     "label": "Other Native American Language"
+    },
+    {
+     "code": "89",
+     "label": "Tigrigna"
+    },
+    {
+     "code": "90",
+     "label": "Krio"
+    },
+    {
+     "code": "91",
+     "label": "Unspecified Asian Indian Language"
+    },
+    {
+     "code": "92",
+     "label": "Cebuano"
+    },
+    {
+     "code": "93",
+     "label": "Macedonian"
+    },
+    {
+     "code": "94",
+     "label": "Patois"
+    },
+    {
+     "code": "95",
+     "label": "Pangasinan"
+    },
+    {
+     "code": "96",
+     "label": "Ilocano"
+    },
+    {
+     "code": "97",
+     "label": "Marathi"
+    },
+    {
+     "code": "98",
+     "label": "Kashmiri / Cashmiri"
+    },
+    {
+     "code": "99",
+     "label": "Tamil"
+    },
+    {
+     "code": "100",
+     "label": "Akan"
+    },
+    {
+     "code": "101",
+     "label": "Ethiopian"
+    },
+    {
+     "code": "102",
+     "label": "Georgian"
+    },
+    {
+     "code": "103",
+     "label": "Yugoslavian"
+    },
+    {
+     "code": "104",
+     "label": "Irish"
+    },
+    {
+     "code": "105",
+     "label": "Catalan"
+    },
+    {
+     "code": "106",
+     "label": "Mixtec"
+    },
+    {
+     "code": "107",
+     "label": "Garifuna"
+    },
+    {
+     "code": "108",
+     "label": "Fang"
+    },
+    {
+     "code": "109",
+     "label": "Apache"
+    },
+    {
+     "code": "110",
+     "label": "Bassa"
+    },
+    {
+     "code": "111",
+     "label": "Efik"
+    },
+    {
+     "code": "112",
+     "label": "Twi"
+    },
+    {
+     "code": "113",
+     "label": "Maltese"
+    },
+    {
+     "code": "114",
+     "label": "Zuni"
+    },
+    {
+     "code": "115",
+     "label": "Ga"
+    },
+    {
+     "code": "116",
+     "label": "Mina"
+    },
+    {
+     "code": "117",
+     "label": "Surinamese"
+    },
+    {
+     "code": "118",
+     "label": "Yaqui"
+    },
+    {
+     "code": "119",
+     "label": "Quichoa"
+    },
+    {
+     "code": "120",
+     "label": "Tok Pisin"
+    },
+    {
+     "code": "121",
+     "label": "Pima"
+    },
+    {
+     "code": "122",
+     "label": "Lingala"
+    },
+    {
+     "code": "123",
+     "label": "Otomi"
+    },
+    {
+     "code": "124",
+     "label": "Chindali"
+    },
+    {
+     "code": "125",
+     "label": "Tibetan"
+    },
+    {
+     "code": "126",
+     "label": "Oromo"
+    },
+    {
+     "code": "127",
+     "label": "Nepali"
+    },
+    {
+     "code": "128",
+     "label": "Eskimo"
+    },
+    {
+     "code": "129",
+     "label": "Mam"
+    },
+    {
+     "code": "130",
+     "label": "Choctaw"
+    },
+    {
+     "code": "131",
+     "label": "Ashanti"
+    },
+    {
+     "code": "132",
+     "label": "Burmese"
+    },
+    {
+     "code": "133",
+     "label": "Hewa"
+    },
+    {
+     "code": "134",
+     "label": "Sango"
+    },
+    {
+     "code": "135",
+     "label": "Chitumbuka"
+    },
+    {
+     "code": "136",
+     "label": "Maratsi"
+    },
+    {
+     "code": "137",
+     "label": "Yemba"
+    },
+    {
+     "code": "138",
+     "label": "Kiche"
+    },
+    {
+     "code": "139",
+     "label": "Fante"
+    },
+    {
+     "code": "140",
+     "label": "Sinhalase"
+    },
+    {
+     "code": "141",
+     "label": "Icelandic"
+    },
+    {
+     "code": "142",
+     "label": "Maricopa"
+    },
+    {
+     "code": "143",
+     "label": "Quechan"
+    },
+    {
+     "code": "144",
+     "label": "Pohnpeian"
+    },
+    {
+     "code": "145",
+     "label": "Luganda"
+    },
+    {
+     "code": "146",
+     "label": "Shona"
+    },
+    {
+     "code": "147",
+     "label": "Urhobo"
+    },
+    {
+     "code": "148",
+     "label": "Colville Tribe"
+    },
+    {
+     "code": "149",
+     "label": "Chickasau"
+    },
+    {
+     "code": "150",
+     "label": "Dakota"
+    },
+    {
+     "code": "151",
+     "label": "Hokkien"
+    },
+    {
+     "code": "152",
+     "label": "Wolof"
+    },
+    {
+     "code": "153",
+     "label": "Ewe"
+    },
+    {
+     "code": "154",
+     "label": "Igbo"
+    },
+    {
+     "code": "155",
+     "label": "Luhya"
+    },
+    {
+     "code": "156",
+     "label": "Black Feet"
+    },
+    {
+     "code": "157",
+     "label": "Inupiaq"
+    },
+    {
+     "code": "158",
+     "label": "Paiute"
+    },
+    {
+     "code": "159",
+     "label": "Afrikaans"
+    },
+    {
+     "code": "160",
+     "label": "Kaien"
+    },
+    {
+     "code": "161",
+     "label": "Shawnee"
+    },
+    {
+     "code": "162",
+     "label": "Welsh"
+    },
+    {
+     "code": "163",
+     "label": "Chuj"
+    },
+    {
+     "code": "164",
+     "label": "Oremagna"
+    },
+    {
+     "code": "165",
+     "label": "Kaugel"
+    },
+    {
+     "code": "166",
+     "label": "Sanskrit"
+    },
+    {
+     "code": "167",
+     "label": "Hausa"
+    },
+    {
+     "code": "168",
+     "label": "Aramaic"
+    },
+    {
+     "code": "998",
+     "label": "Don't know"
+    },
+    {
+     "code": "999",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable (Punch 2 on OTHLANG)"
+    }
+   ],
+   "remarks": "English was an allowable code for those interviewed in Spanish, see OTHLANG.",
+   "asked": [
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "othlang2": {
+   "variable": "othlang2",
+   "page": 1290,
+   "pdf_page": 1169,
+   "wording": "What other language(s) do you speak? Second response.",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "English"
+    },
+    {
+     "code": "2",
+     "label": "Spanish"
+    },
+    {
+     "code": "3",
+     "label": "Polish"
+    },
+    {
+     "code": "4",
+     "label": "French"
+    },
+    {
+     "code": "5",
+     "label": "Hebrew"
+    },
+    {
+     "code": "6",
+     "label": "Russian"
+    },
+    {
+     "code": "7",
+     "label": "Tagalog/Filipino"
+    },
+    {
+     "code": "8",
+     "label": "Chinese"
+    },
+    {
+     "code": "9",
+     "label": "Urdu"
+    },
+    {
+     "code": "10",
+     "label": "Italian"
+    },
+    {
+     "code": "11",
+     "label": "Romanian"
+    },
+    {
+     "code": "12",
+     "label": "German"
+    },
+    {
+     "code": "13",
+     "label": "Pashtu"
+    },
+    {
+     "code": "14",
+     "label": "Chamorro"
+    },
+    {
+     "code": "15",
+     "label": "Ukrainian"
+    },
+    {
+     "code": "16",
+     "label": "Hungarian"
+    },
+    {
+     "code": "17",
+     "label": "Turkish"
+    },
+    {
+     "code": "18",
+     "label": "Khmer"
+    },
+    {
+     "code": "19",
+     "label": "Korean"
+    },
+    {
+     "code": "20",
+     "label": "Navajo"
+    },
+    {
+     "code": "21",
+     "label": "Malayam"
+    },
+    {
+     "code": "22",
+     "label": "Arabic"
+    },
+    {
+     "code": "23",
+     "label": "Farsi/Persian"
+    },
+    {
+     "code": "24",
+     "label": "Serbian"
+    },
+    {
+     "code": "25",
+     "label": "Lithuanian"
+    },
+    {
+     "code": "27",
+     "label": "Thai"
+    },
+    {
+     "code": "28",
+     "label": "Gujarati"
+    },
+    {
+     "code": "30",
+     "label": "Dari"
+    },
+    {
+     "code": "31",
+     "label": "Slovak"
+    },
+    {
+     "code": "32",
+     "label": "Japanese"
+    },
+    {
+     "code": "33",
+     "label": "Portuguese"
+    },
+    {
+     "code": "34",
+     "label": "Vajun"
+    },
+    {
+     "code": "35",
+     "label": "Yiddish"
+    },
+    {
+     "code": "36",
+     "label": "Creole"
+    },
+    {
+     "code": "37",
+     "label": "Vietnamese"
+    },
+    {
+     "code": "38",
+     "label": "Norwegian"
+    },
+    {
+     "code": "39",
+     "label": "Malaysian"
+    },
+    {
+     "code": "40",
+     "label": "Latin"
+    },
+    {
+     "code": "41",
+     "label": "Czech"
+    },
+    {
+     "code": "42",
+     "label": "Hindi"
+    },
+    {
+     "code": "43",
+     "label": "Hakka"
+    },
+    {
+     "code": "44",
+     "label": "Swedish"
+    },
+    {
+     "code": "45",
+     "label": "Vesaya"
+    },
+    {
+     "code": "46",
+     "label": "Sign language"
+    },
+    {
+     "code": "47",
+     "label": "Tongan"
+    },
+    {
+     "code": "48",
+     "label": "Armenian"
+    },
+    {
+     "code": "49",
+     "label": "Ibo"
+    },
+    {
+     "code": "50",
+     "label": "Dutch"
+    },
+    {
+     "code": "51",
+     "label": "Cherokee"
+    },
+    {
+     "code": "52",
+     "label": "Samoan"
+    },
+    {
+     "code": "53",
+     "label": "Yoruba"
+    },
+    {
+     "code": "54",
+     "label": "Greek"
+    },
+    {
+     "code": "55",
+     "label": "Lakota"
+    },
+    {
+     "code": "56",
+     "label": "African"
+    },
+    {
+     "code": "57",
+     "label": "Anishnabee"
+    },
+    {
+     "code": "58",
+     "label": "Ilokand"
+    },
+    {
+     "code": "59",
+     "label": "Assyrian"
+    },
+    {
+     "code": "60",
+     "label": "Danish"
+    },
+    {
+     "code": "61",
+     "label": "Laotian"
+    },
+    {
+     "code": "62",
+     "label": "Finnish"
+    },
+    {
+     "code": "63",
+     "label": "Mohawk"
+    },
+    {
+     "code": "64",
+     "label": "Amharic"
+    },
+    {
+     "code": "65",
+     "label": "Bengali"
+    },
+    {
+     "code": "66",
+     "label": "Oriya"
+    },
+    {
+     "code": "67",
+     "label": "Hawaiian"
+    },
+    {
+     "code": "68",
+     "label": "Albanian"
+    },
+    {
+     "code": "69",
+     "label": "Hmong"
+    },
+    {
+     "code": "70",
+     "label": "Indonesian"
+    },
+    {
+     "code": "71",
+     "label": "Swahili"
+    },
+    {
+     "code": "72",
+     "label": "Telugu"
+    },
+    {
+     "code": "73",
+     "label": "Kannada"
+    },
+    {
+     "code": "74",
+     "label": "Bulgarian"
+    },
+    {
+     "code": "75",
+     "label": "Guarani"
+    },
+    {
+     "code": "76",
+     "label": "Bosnian"
+    },
+    {
+     "code": "77",
+     "label": "Punjabi"
+    },
+    {
+     "code": "78",
+     "label": "Latvian"
+    },
+    {
+     "code": "79",
+     "label": "Basque"
+    },
+    {
+     "code": "80",
+     "label": "Bikol/Bicolano"
+    },
+    {
+     "code": "81",
+     "label": "Croatian"
+    },
+    {
+     "code": "82",
+     "label": "Romani/Gypsy/Tigan"
+    },
+    {
+     "code": "83",
+     "label": "Slovenian"
+    },
+    {
+     "code": "84",
+     "label": "Belgian"
+    },
+    {
+     "code": "85",
+     "label": "Mandingo/Mandinka"
+    },
+    {
+     "code": "86",
+     "label": "Jamaican"
+    },
+    {
+     "code": "87",
+     "label": "Somali"
+    },
+    {
+     "code": "88",
+     "label": "Other Native American Language"
+    },
+    {
+     "code": "89",
+     "label": "Tigrigna"
+    },
+    {
+     "code": "90",
+     "label": "Krio"
+    },
+    {
+     "code": "91",
+     "label": "Unspecified Asian Indian Language"
+    },
+    {
+     "code": "92",
+     "label": "Cebuano"
+    },
+    {
+     "code": "93",
+     "label": "Macedonian"
+    },
+    {
+     "code": "94",
+     "label": "Patois"
+    },
+    {
+     "code": "95",
+     "label": "Pangasinan"
+    },
+    {
+     "code": "96",
+     "label": "Ilocano"
+    },
+    {
+     "code": "97",
+     "label": "Marathi"
+    },
+    {
+     "code": "98",
+     "label": "Kashmiri / Cashmiri"
+    },
+    {
+     "code": "99",
+     "label": "Tamil"
+    },
+    {
+     "code": "100",
+     "label": "Akan"
+    },
+    {
+     "code": "101",
+     "label": "Ethiopian"
+    },
+    {
+     "code": "102",
+     "label": "Georgian"
+    },
+    {
+     "code": "103",
+     "label": "Yugoslavian"
+    },
+    {
+     "code": "104",
+     "label": "Irish"
+    },
+    {
+     "code": "105",
+     "label": "Catalan"
+    },
+    {
+     "code": "106",
+     "label": "Mixtec"
+    },
+    {
+     "code": "107",
+     "label": "Garifuna"
+    },
+    {
+     "code": "108",
+     "label": "Fang"
+    },
+    {
+     "code": "109",
+     "label": "Apache"
+    },
+    {
+     "code": "110",
+     "label": "Bassa"
+    },
+    {
+     "code": "111",
+     "label": "Efik"
+    },
+    {
+     "code": "112",
+     "label": "Twi"
+    },
+    {
+     "code": "113",
+     "label": "Maltese"
+    },
+    {
+     "code": "114",
+     "label": "Zuni"
+    },
+    {
+     "code": "115",
+     "label": "Ga"
+    },
+    {
+     "code": "116",
+     "label": "Mina"
+    },
+    {
+     "code": "117",
+     "label": "Surinamese"
+    },
+    {
+     "code": "118",
+     "label": "Yaqui"
+    },
+    {
+     "code": "122",
+     "label": "Quichoa"
+    },
+    {
+     "code": "131",
+     "label": "Tok Pisin"
+    },
+    {
+     "code": "132",
+     "label": "Pima"
+    },
+    {
+     "code": "133",
+     "label": "Lingala"
+    },
+    {
+     "code": "134",
+     "label": "Otomi"
+    },
+    {
+     "code": "135",
+     "label": "Chindali"
+    },
+    {
+     "code": "136",
+     "label": "Tibetan"
+    },
+    {
+     "code": "137",
+     "label": "Yemba"
+    },
+    {
+     "code": "138",
+     "label": "Kiche"
+    },
+    {
+     "code": "139",
+     "label": "Fante"
+    },
+    {
+     "code": "140",
+     "label": "Sinhalase"
+    },
+    {
+     "code": "141",
+     "label": "Icelandic"
+    },
+    {
+     "code": "142",
+     "label": "Maricopa"
+    },
+    {
+     "code": "143",
+     "label": "Quechan"
+    },
+    {
+     "code": "144",
+     "label": "Pohnpeian"
+    },
+    {
+     "code": "145",
+     "label": "Luganda"
+    },
+    {
+     "code": "146",
+     "label": "Shona"
+    },
+    {
+     "code": "147",
+     "label": "Urhobo"
+    },
+    {
+     "code": "148",
+     "label": "Colville Tribe"
+    },
+    {
+     "code": "149",
+     "label": "Chickasau"
+    },
+    {
+     "code": "150",
+     "label": "Dakota"
+    },
+    {
+     "code": "151",
+     "label": "Hokkien"
+    },
+    {
+     "code": "152",
+     "label": "Wolof"
+    },
+    {
+     "code": "153",
+     "label": "Ewe"
+    },
+    {
+     "code": "154",
+     "label": "Igbo"
+    },
+    {
+     "code": "155",
+     "label": "Luhya"
+    },
+    {
+     "code": "156",
+     "label": "Black Feet"
+    },
+    {
+     "code": "998",
+     "label": "Don't know"
+    },
+    {
+     "code": "999",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable (Punch 2 on OTHLANG)"
+    }
+   ],
+   "remarks": "English was an allowable code for those interviewed in Spanish, see OTHLANG.",
+   "asked": [
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "betrlang": {
+   "variable": "betrlang",
+   "page": 1302,
+   "pdf_page": 1181,
+   "wording": "Which language do you speak more fluently?",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "First language mentioned"
+    },
+    {
+     "code": "2",
+     "label": "Second language mentioned"
+    },
+    {
+     "code": "8",
+     "label": "Don't Know"
+    },
+    {
+     "code": "9",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not Applicable"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "spklang": {
+   "variable": "spklang",
+   "page": 1296,
+   "pdf_page": 1175,
+   "wording": "How well do you speak that language? [IF SPEAKS 2 OR MORE, ASK ONLY OF THE MOST FLUENT LANGUAGE] READ CATEGORIES",
+   "directions": [
+    "[IF SPEAKS 2 OR MORE, ASK ONLY OF THE MOST FLUENT LANGUAGE] READ CATEGORIES"
+   ],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Very well"
+    },
+    {
+     "code": "2",
+     "label": "Well"
+    },
+    {
+     "code": "3",
+     "label": "Not well"
+    },
+    {
+     "code": "4",
+     "label": "Poorly/Hardly at all"
+    },
+    {
+     "code": "8",
+     "label": "Don't know"
+    },
+    {
+     "code": "9",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable (Punch 2 on OTHLANG)"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "wrkstat": {
+   "variable": "wrkstat",
+   "page": 122,
+   "pdf_page": 1,
+   "wording": "Last week were you working full time, part time, going to school, keeping house, or what? CIRCLE ONE CODE ONLY. IF MORE THAN ONE RESPONSE, GIVE PREFERENCE TO SMALLEST CODE NUMBER THAT APPLIES",
+   "directions": [
+    "CIRCLE ONE CODE ONLY. IF MORE THAN ONE RESPONSE, GIVE PREFERENCE TO SMALLEST CODE NUMBER THAT APPLIES"
+   ],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Working full time (ASK HRS1)"
+    },
+    {
+     "code": "2",
+     "label": "Working part time (ASK HRS1)"
+    },
+    {
+     "code": "3",
+     "label": "With a job, but not at work because of temporary illness, vacation, strike (ASK HRS2)"
+    },
+    {
+     "code": "4",
+     "label": "Unemployed, laid off, looking for work (GO TO OCC to COMMUTE)"
+    },
+    {
+     "code": "5",
+     "label": "Retired (ASK EVWORK)"
+    },
+    {
+     "code": "6",
+     "label": "In school (ASK EVWORK)"
+    },
+    {
+     "code": "7",
+     "label": "Keeping house (ASK EVWORK)"
+    },
+    {
+     "code": "8",
+     "label": "Other (SPECIFY AND ASK EVWORK)"
+    },
+    {
+     "code": "9",
+     "label": "No answer"
+    }
+   ],
+   "remarks": "Card A2 contained responses for punches 1 through 7. Contents of WRKSTAT, punch 8 (Other, SPECIFY) available from NORC.",
+   "asked": [
+    "1972-82",
+    "1982B",
+    "1983-87",
+    "1987B",
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "evwork": {
+   "variable": "evwork",
+   "page": 124,
+   "pdf_page": 3,
+   "stem": "Last week were you working full time, part time, going to school, keeping house, or what? CIRCLE ONE CODE ONLY. IF MORE THAN ONE RESPONSE, GIVE PREFERENCE TO SMALLEST CODE NUMBER THAT APPLIES",
+   "wording": "IF RETIRED, IN SCHOOL, KEEPING HOUSE, OR OTHER: Did you ever work for as long as one year?",
+   "directions": [
+    "IF RETIRED, IN SCHOOL, KEEPING HOUSE, OR OTHER:"
+   ],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Yes (ASK OCC to INDUSTRY)"
+    },
+    {
+     "code": "2",
+     "label": "No (Go to MARITAL)"
+    },
+    {
+     "code": "8",
+     "label": "Don't Know"
+    },
+    {
+     "code": "9",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable (Punches 1,2,3,4 in WRKSTAT)"
+    }
+   ],
+   "remarks": "Card A contained responses for punches 1 through 8. See Appendix N for changes across surveys.",
+   "asked": [
+    "1972-82",
+    "1982B",
+    "1983-87",
+    "1987B",
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "wrkslffam": {
+   "variable": "wrkslffam",
+   "page": 1626,
+   "pdf_page": 1505,
+   "wording": "(Do/did) you work in your own family business or farm?",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Yes"
+    },
+    {
+     "code": "2",
+     "label": "No"
+    },
+    {
+     "code": "8",
+     "label": "Don't know"
+    },
+    {
+     "code": "9",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "2018"
+   ]
+  },
+  "wrkgovt": {
+   "variable": "wrkgovt",
+   "page": 127,
+   "pdf_page": 6,
+   "wording": "(Are/Were) you employed by the federal, state or local government or by a private employer (including non-profit organizations)? RESPONDENT'S EMPLOYER",
+   "directions": [
+    "RESPONDENT'S EMPLOYER"
+   ],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Government"
+    },
+    {
+     "code": "2",
+     "label": "Private"
+    },
+    {
+     "code": "8",
+     "label": "Don’t know"
+    },
+    {
+     "code": "9",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable (never worked)"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "1983-87",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "numemps": {
+   "variable": "numemps",
+   "page": 1625,
+   "pdf_page": 1504,
+   "wording": "Are/were you self-employed or do/did you work for someone else? [If \"Self-employed\"] Do/did you have any employees? [If \"Yes\"] How many employees do/did you have?",
+   "directions": [],
+   "codes": [],
+   "remarks": "If respondents answered \"Self-employed\" to the first part but \"No\" to the second part, they did not receive the third part of the question. NUMEMPS is now asked as part of the replicating core of the GSS. NUMEMPS is only asked of those with WRKSTAT 1-3.",
+   "asked": [
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "hrs1": {
+   "variable": "hrs1",
+   "page": 123,
+   "pdf_page": 2,
+   "stem": "Last week were you working full time, part time, going to school, keeping house, or what? CIRCLE ONE CODE ONLY. IF MORE THAN ONE RESPONSE, GIVE PREFERENCE TO SMALLEST CODE NUMBER THAT APPLIES",
+   "wording": "IF WORKING, FULL OR PART TIME: How many hours did you work last week, at all jobs?",
+   "directions": [
+    "IF WORKING, FULL OR PART TIME:"
+   ],
+   "codes": [],
+   "remarks": "See Appendix L: Hours worked, for detailed distribution and explanation. See Appendix U for the years or surveys that included this item. If planning to perform trend analysis with WRKSTAT, please consult GSS Methodological Report No. 56. The response categories have been collapsed for convenience of display. Responses greater than 89 were coded 89.",
+   "asked": [
+    "1972-82",
+    "1982B",
+    "1983-87",
+    "1987B",
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "hrs2": {
+   "variable": "hrs2",
+   "page": 124,
+   "pdf_page": 3,
+   "stem": "Last week were you working full time, part time, going to school, keeping house, or what? CIRCLE ONE CODE ONLY. IF MORE THAN ONE RESPONSE, GIVE PREFERENCE TO SMALLEST CODE NUMBER THAT APPLIES",
+   "wording": "IF WITH A JOB, BUT NOT AT WORK: How many hours a week do you usually work, at all jobs?",
+   "directions": [
+    "IF WITH A JOB, BUT NOT AT WORK:"
+   ],
+   "codes": [],
+   "remarks": "The response categories have been collapsed for convenience of display. Responses greater than 89 were coded 89.",
+   "asked": [
+    "1972-82",
+    "1982B",
+    "1983-87",
+    "1987B",
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "weekswrk": {
+   "variable": "weekswrk",
+   "page": 437,
+   "pdf_page": 316,
+   "wording": "Now I'd like to ask you about last year. In [the previous year] how many weeks did you work either full-time or part-time not counting work around the house--include paid vacations and sick leave?",
+   "directions": [],
+   "codes": [],
+   "remarks": "WEEKSWRK is coded in two digits. The collapsed numbers above are for convenience of display only.",
+   "asked": [
+    "1972-82",
+    "1983-87",
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "partfull": {
+   "variable": "partfull",
+   "page": 438,
+   "pdf_page": 317,
+   "stem": "Now I'd like to ask you about last year. In [the previous year] how many weeks did you work either full-time or part-time not counting work around the house--include paid vacations and sick leave?",
+   "wording": "When you worked in [the previous year], was it usually full or part time?",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Full-time"
+    },
+    {
+     "code": "2",
+     "label": "Part-time"
+    },
+    {
+     "code": "8",
+     "label": "Don't know"
+    },
+    {
+     "code": "9",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable (Punch 0 in WKSWRK)"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "rincome": {
+   "variable": "rincome",
+   "page": 217,
+   "pdf_page": 96,
+   "wording": "Did you earn any income from (OCCUPATION DESCRIBED IN OCC-INDUSTRY) in [the previous year]? Yes ............. (ASK RINCOME) No .............. [See REMARKS] A. IF YES: In which of these groups did your earnings from (OCCUPATION IN OCC) for last year--[the previous year]--fall? That is, before taxes or other deductions. Just tell me the letter.",
+   "directions": [
+    "(OCCUPATION DESCRIBED IN OCC-INDUSTRY)",
+    "(ASK RINCOME)",
+    "REMARKS] A. IF YES:",
+    "(OCCUPATION IN OCC)"
+   ],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Under $1,000"
+    },
+    {
+     "code": "2",
+     "label": "$ 1,000 to 2,999"
+    },
+    {
+     "code": "3",
+     "label": "$ 3,000 to 3,999"
+    },
+    {
+     "code": "4",
+     "label": "$ 4,000 to 4,999"
+    },
+    {
+     "code": "5",
+     "label": "$ 5,000 to 5,999"
+    },
+    {
+     "code": "6",
+     "label": "$ 6,000 to 6,999"
+    },
+    {
+     "code": "7",
+     "label": "$ 7,000 to 7,999"
+    },
+    {
+     "code": "8",
+     "label": "$ 8,000 to 9,999"
+    },
+    {
+     "code": "9",
+     "label": "$10,000 to 14,999"
+    },
+    {
+     "code": "10",
+     "label": "$15,000 to 19,999"
+    },
+    {
+     "code": "11",
+     "label": "$20,000 to 24,999"
+    },
+    {
+     "code": "12",
+     "label": "$25,000 or over"
+    },
+    {
+     "code": "13",
+     "label": "Refused"
+    },
+    {
+     "code": "98",
+     "label": "Don't know"
+    },
+    {
+     "code": "99",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable"
+    }
+   ],
+   "remarks": "Card E contained responses for Punches 01-12 only. RINCOME responses are not in these data, but are contained in RINCOME. See RINCOM77, RINCOM82, RINCOM86, RINCOM91, RINCOM98 and RINCOM06 for comparable questions in 1977, 1978-1980, 1982-2006 surveys.",
+   "asked": [
+    "1972-82",
+    "1982B",
+    "1983-87",
+    "1987B",
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "rincom16": {
+   "variable": "rincom16",
+   "page": 232,
+   "pdf_page": 111,
+   "wording": "In which of these groups did your earnings from (OCC), from all sources for [last year] fall? That is, before taxes or other deductions. Just tell me the letter.",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "UNDER $1,000"
+    },
+    {
+     "code": "2",
+     "label": "$1,000 to $2,999"
+    },
+    {
+     "code": "3",
+     "label": "$3,000 to $3,999"
+    },
+    {
+     "code": "4",
+     "label": "$4,000 to $4,999"
+    },
+    {
+     "code": "5",
+     "label": "$5,000 to $5,999"
+    },
+    {
+     "code": "6",
+     "label": "$6,000 to $6,999"
+    },
+    {
+     "code": "7",
+     "label": "$7,000 to $7,999"
+    },
+    {
+     "code": "8",
+     "label": "$8,000 to $9,999"
+    },
+    {
+     "code": "9",
+     "label": "$10,000 to $12,499"
+    },
+    {
+     "code": "10",
+     "label": "$12,500 to $14,999"
+    },
+    {
+     "code": "11",
+     "label": "$15,000 to $17,499"
+    },
+    {
+     "code": "12",
+     "label": "$17,500 to $19,999"
+    },
+    {
+     "code": "13",
+     "label": "$20,000 to $22,499"
+    },
+    {
+     "code": "14",
+     "label": "$22,500 to $24,999"
+    },
+    {
+     "code": "15",
+     "label": "$25,000 to $29,999"
+    },
+    {
+     "code": "16",
+     "label": "$30,000 to $34,999"
+    },
+    {
+     "code": "17",
+     "label": "$35,000 to $39,999"
+    },
+    {
+     "code": "18",
+     "label": "$40,000 to $49,999"
+    },
+    {
+     "code": "19",
+     "label": "$50,000 to $59,999"
+    },
+    {
+     "code": "20",
+     "label": "$60,000 to $74,999"
+    },
+    {
+     "code": "21",
+     "label": "$75,000 to $89,999"
+    },
+    {
+     "code": "22",
+     "label": "$90,000 to $109,999"
+    },
+    {
+     "code": "23",
+     "label": "$110,000 to $129,999"
+    },
+    {
+     "code": "24",
+     "label": "$130,000 to $149,999"
+    },
+    {
+     "code": "25",
+     "label": "$150,000 to $169,999"
+    },
+    {
+     "code": "26",
+     "label": "$170,000 or over"
+    },
+    {
+     "code": "27",
+     "label": "Refused"
+    },
+    {
+     "code": "98",
+     "label": "Don't know"
+    },
+    {
+     "code": "99",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not Applicable"
+    }
+   ],
+   "remarks": "Hand Card A20 reads: Total income includes interest or dividends, rent, Social Security, other pension, alimony or child support, unemployment compensation, public aid (welfare), armed forces or veteran’s allotment.",
+   "asked": [
+    "2016",
+    "2018"
+   ]
+  },
+  "localnum": {
+   "variable": "localnum",
+   "page": 2437,
+   "pdf_page": 2316,
+   "wording": "About how many people work at the location where you work? (Count part-time as well as full-time employees in all areas, departments and buildings.)",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "1-9"
+    },
+    {
+     "code": "2",
+     "label": "10-49"
+    },
+    {
+     "code": "3",
+     "label": "50-99"
+    },
+    {
+     "code": "4",
+     "label": "100-499"
+    },
+    {
+     "code": "5",
+     "label": "500-999"
+    },
+    {
+     "code": "6",
+     "label": "1,000-1,999"
+    },
+    {
+     "code": "7",
+     "label": "More than 2,000"
+    },
+    {
+     "code": "8",
+     "label": "Don't know"
+    },
+    {
+     "code": "9",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable (Punches 2, IAP in NUMSITES or did not do ISSP)"
+    }
+   ],
+   "remarks": "In 1989, this question was asked with a screener. In 1991 this question was asked of all employed respondents as part of the Work Organization Module (Qs. GENEJOB-SPLOCNUM). Additionally in 1991, respondents were given the hand card used with SPLOCNUM. Beginning in 1994, this question was asked of all respondents who were currently working (WRKSTAT 1-3). Card A3 contained responses for punches 1-7.",
+   "asked": [
+    "1988-91",
+    "1993-98",
+    "2000-04",
+    "2006",
+    "2008",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ]
+  },
+  "wksub1": {
+   "variable": "wksub1",
+   "page": 462,
+   "pdf_page": 341,
+   "wording": "IF R IS CURRENTLY WORKING (INCLUDING THOSE ON VACATION, STRIKE, ILL, LAST WEEK)--ASK WKSUB1 AND WKSUP1 ABOUT R. IF R MARRIED OR COHABITATING AND NOT CURRENTLY WORKING ASK WKSUB1 AND WKSUP1 ABOUT SPOUSE IF SPOUSE IS WORKING. IF NEITHER R NOR SPOUSE OR PARTNER IS WORKING, SKIP TO UNEMP. Do you (does your (SPOUSE or PARTNER) have a supervisor on (your/his/her) job to whom you are (he/she/is) directly responsible?",
+   "directions": [
+    "IF R IS CURRENTLY WORKING (INCLUDING THOSE ON VACATION, STRIKE, ILL, LAST WEEK)--ASK WKSUB1 AND WKSUP1 ABOUT R. IF R MARRIED OR COHABITATING AND NOT CURRENTLY WORKING ASK WKSUB1 AND WKSUP1 ABOUT SPOUSE IF SPOUSE IS WORKING. IF NEITHER R NOR SPOUSE OR PARTNER IS WORKING, SKIP TO UNEMP."
+   ],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Yes (ASK A)"
+    },
+    {
+     "code": "2",
+     "label": "No"
+    },
+    {
+     "code": "8",
+     "label": "Don't know"
+    },
+    {
+     "code": "9",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable (Not working & no spouse or partner, Partner or spouse not working)"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "2016",
+    "2018"
+   ]
+  },
+  "wksubs1": {
+   "variable": "wksubs1",
+   "page": 462,
+   "pdf_page": 341,
+   "stem": "Do you (does your (SPOUSE or PARTNER) have a supervisor on (your/his/her) job to whom you are (he/she/is) directly responsible?",
+   "wording": "IF YES: Does that person have a supervisor on the job to whom he is directly responsible?",
+   "directions": [
+    "IF YES:"
+   ],
+   "codes": [
+    {
+     "code": "3",
+     "label": "Yes"
+    },
+    {
+     "code": "4",
+     "label": "No"
+    },
+    {
+     "code": "8",
+     "label": "Don't know"
+    },
+    {
+     "code": "9",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable (Punches 2, 8, and IAP in WKSUB1)"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "2016",
+    "2018"
+   ]
+  },
+  "wksup1": {
+   "variable": "wksup1",
+   "page": 463,
+   "pdf_page": 342,
+   "wording": "In your (SPOUSE or PARTNER'S) job, (do you/does he/she) supervise anyone who is directly responsible to (you/him/her)?",
+   "directions": [],
+   "codes": [
+    {
+     "code": "1",
+     "label": "Yes (ASK A)"
+    },
+    {
+     "code": "2",
+     "label": "No"
+    },
+    {
+     "code": "8",
+     "label": "Don't know"
+    },
+    {
+     "code": "9",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable (Not working & no spouse or partner, Partner or spouse not working)"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "2016",
+    "2018"
+   ]
+  },
+  "wksups1": {
+   "variable": "wksups1",
+   "page": 463,
+   "pdf_page": 342,
+   "stem": "In your (SPOUSE or PARTNER'S) job, (do you/does he/she) supervise anyone who is directly responsible to (you/him/her)?",
+   "wording": "IF YES: Do any of those persons supervise anyone else?",
+   "directions": [
+    "IF YES:"
+   ],
+   "codes": [
+    {
+     "code": "3",
+     "label": "Yes"
+    },
+    {
+     "code": "4",
+     "label": "No"
+    },
+    {
+     "code": "8",
+     "label": "Don't know"
+    },
+    {
+     "code": "9",
+     "label": "No answer"
+    },
+    {
+     "code": "0",
+     "label": "Not applicable (Punches 2, 8, and IAP in WKSUP1)"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "2016",
+    "2018"
+   ]
+  },
+  "vetyears": {
+   "variable": "vetyears",
+   "page": 2956,
+   "pdf_page": 2836,
+   "wording": "Have you ever been on active duty for military training or service for two consecutive months or more? IF YES: What was your total time on active duty?",
+   "directions": [
+    "IF YES:"
+   ],
+   "codes": [
+    {
+     "code": "0",
+     "label": "No active duty"
+    },
+    {
+     "code": "1",
+     "label": "Yes, less than 2 years"
+    },
+    {
+     "code": "2",
+     "label": "Yes, 2-4 years"
+    },
+    {
+     "code": "3",
+     "label": "Yes, more than 4 years"
+    },
+    {
+     "code": "9",
+     "label": "No answer"
+    },
+    {
+     "code": "-1",
+     "label": "Not applicable"
+    }
+   ],
+   "remarks": "",
+   "asked": [
+    "1972-82",
+    "1982B",
+    "1983-87",
+    "1988-91",
+    "1993-98",
+    "2010",
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+   ],
+   "problems": [
+    "unreadable row (not a label, a punch code and 15 counts): \"Some, don't know how long 4 5 0 0 0 0 0 0 0 1 0 2 0 0 8\""
+   ]
+  }
+ }
+}

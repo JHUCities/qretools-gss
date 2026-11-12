@@ -1,4 +1,4 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: widowed
 title: Ever widowed
 text: Have you ever been widowed?
@@ -6,5 +6,5 @@ intent: Marital and partnership status, as the GSS Replicating Core measures it 
 concept: marital_status
 universe: currently_married_separated_divorced
 responses: yes_no
-source: GSS WIDOWED; GSS 2022 codebook (NORC), page 124
-note: "Codebook label: IF CURRENTLY MARRIED, SEPARATED, OR DIVORCED: Have you ever been widowed?"
+source: GSS WIDOWED; GSS 1972-2018 cumulative codebook (NORC), page 137; asked in the 2008 survey
+note: "Codebook stem: Are you currently--married, widowed, divorced, separated, or have you never been married? Codebook wording: IF CURRENTLY MARRIED, SEPARATED, OR DIVORCED: Have you ever been widowed?"

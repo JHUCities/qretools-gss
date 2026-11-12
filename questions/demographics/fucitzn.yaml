@@ -1,13 +1,13 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: fucitzn
 title: Citizenship, follow-up
 text: Are you…
 intent: Citizenship and time in the United States, as the GSS Replicating Core measures it (FUCITZN).
 concept: citizenship_status
 responses:
-  "1": Currently applying for U.S. citizenship
-  "2": Planning to apply for U.S. citizenship
-  "3": Not planning to apply to U.S. citizenship
-  "4": Not eligible to become a U.S. citizen
-source: GSS FUCITZN; GSS 2022 codebook (NORC), page 359
-note: "Codebook label: Are you… Codebook notes: FUCITZNV and FUCITZNNV replace FUCITZN in the 2022 GSS Cross-section web mode. This variable shows sensitivity to mode of administration. Research and interpretation done using the data should take extra care to ensure the analysis reflects actual changes in public opinion and is not unduly influenced by the change in data collection methods."
+  "1": Currently applying for US citizenship
+  "2": Planning to apply for US citizenship
+  "3": Not planning to apply for US citizenship
+  "4": Not eligible to become a US citizen (if volunteered)
+source: GSS FUCITZN; GSS 1972-2018 cumulative codebook (NORC), page 2954; asked in the 2008 survey
+note: "Codebook wording: Are you…"

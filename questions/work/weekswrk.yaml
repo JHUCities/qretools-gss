@@ -1,4 +1,4 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: weekswrk
 title: Weeks worked last year
 text: Now I'd like to ask you about last year. In {{last_year}} how many weeks did you work either full-time or part-time not counting work around the house--include paid vacations and sick leave?
@@ -7,7 +7,7 @@ concept: labor_supply
 number:
   min: 0
   unit: weeks
-source: GSS WEEKSWRK; GSS 2022 codebook (NORC), page 256
-note: "Codebook label: Now I'd like to ask you about last year. In [the last year] how many weeks did you work either full-time or part-time not counting work around the house--include paid vacations and sick leave? Codebook notes: WEEKSWRK is coded in two digits. The collapsed numbers above are for convenience of display only."
+source: GSS WEEKSWRK; GSS 1972-2018 cumulative codebook (NORC), page 437; asked in the 2008 survey
+note: "Codebook wording: Now I'd like to ask you about last year. In [the previous year] how many weeks did you work either full-time or part-time not counting work around the house--include paid vacations and sick leave?"
 fills:
   last_year: number

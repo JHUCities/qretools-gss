@@ -1,37 +1,37 @@
-# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# From the GSS 1972-2018 cumulative codebook (NORC), which has no notice of its own; the GSS 2022 codebook's notice (Copyright 2021-2024 NORC) is applied to it by the owner's decision of 2026-11-12: see LICENSE.md.
 name: denom
 title: Protestant denomination
 text: What specific denomination is that, if any?
 intent: Religion, as the GSS Replicating Core measures it (DENOM).
 concept: religious_affiliation
 responses:
-  "10": American Baptist Association
-  "11": American Baptist Churches in the U.S.a.
-  "12": National Baptist Convention U.S.a., Inc.
-  "13": National Baptist Convention of America
+  "10": American Baptist Assoc.
+  "11": American Baptist Churches in the U.S.A
+  "12": National Baptist Convention of America
+  "13": National Baptist Convention, U.S.A., Inc
   "14": Southern Baptist Convention
   "15": Other Baptist Churches
-  "18": Baptist, Don't Know Which
+  "18": Baptist, Don't know which
   "20": African Methodist Episcopal Church
   "21": African Methodist Episcopal Zion Church
   "22": United Methodist Church
   "23": Other Methodist Churches
-  "28": Methodist, Don't Know Which
+  "28": Methodist, Don't know which
   "30": American Lutheran Church
   "31": Lutheran Church in America
-  "32": Lutheran Church - Missouri Synod
+  "32": Lutheran Church-- Missouri Synod
   "33": Wisconsin Evangelical Lutheran Synod
   "34": Other Lutheran Churches
   "35": Evangelical Lutheran
-  "38": Lutheran, Don't Know Which
-  "40": Presbyterian Church in the U.S.
-  "41": United Presbyterian Church in the U.S.a.
+  "38": Lutheran, Don't know which
+  "40": Presbyterian Church in the U.S.A
+  "41": United Presbyterian Church in the U.S.A
   "42": Other Presbyterian Churches
-  "43": Presbyterian, Merged
-  "48": Presbyterian, Don't Know Which
+  "43": Presbyterian, merged
+  "48": Presbyterian, don't know which
   "50": Episcopal Church
-  "60": Other, Specify
-  "70": No Denomination or Non-denominational Church
+  "60": Other (SPECIFY) _____________
+  "70": No denomination given or non-denominational church
 instruction: PROBE FOR EXACT DENOMINATION
-source: GSS DENOM; GSS 2022 codebook (NORC), page 210
-note: "Codebook label: IF PROTESTANT:   What specific denomination is that, if any? (PROBE FOR EXACT DENOMINATION) Codebook notes: RELIG, punch 5 (Other, SPECIFY), is available from NORC. DENOM, punch 60 recoded into OTHER."
+source: GSS DENOM; GSS 1972-2018 cumulative codebook (NORC), page 312; asked in the 2008 survey
+note: "Codebook stem: What is your religious preference? Is it Protestant, Catholic, Jewish, some other religion, or no religion? Codebook wording: IF PROTESTANT: A. What specific denomination is that, if any? (PROBE FOR EXACT DENOMINATION)"
