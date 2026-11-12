@@ -1,8 +1,9 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 name: othlang
-title: Can r speak language other than English/Spanish
+title: Speaks another language
 text: Can you speak a language other than English [Spanish]?
-intent: "Language, in the GSS Replicating Core: can r speak language other than english/spanish (OTHLANG)."
+intent: Languages spoken, as the GSS Replicating Core measures it (OTHLANG).
 concept: language
 responses: yes_no
-source: GSS OTHLANG, https://gssdataexplorer.norc.org/variables/2283/vshow
-note: "GSS documentation wording: A. Can you speak a language other than English [Spanish]?"
+source: GSS OTHLANG; GSS 2022 codebook (NORC), page 320
+note: "Codebook label: Can you speak a language other than English [Spanish]? Codebook notes: For those interviewed in Spanish, they were asked if they spoke a language other than Spanish."

@@ -1,11 +1,12 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 name: othlang2
-title: What other languages does r speak
+title: Other language, second
 text: What other language(s) do you speak?
-intent: "Language, in the GSS Replicating Core: what other languages does r speak (OTHLANG2)."
+intent: Languages spoken, as the GSS Replicating Core measures it (OTHLANG2).
 concept: language
 universe: other_language_speakers
 responses: language_list
-source: GSS OTHLANG2, https://gssdataexplorer.norc.org/variables/2285/vshow
-note: "GSS documentation wording: C. What other language(s) do you speak? Second response."
+source: GSS OTHLANG2; GSS 2022 codebook (NORC), page 322
+note: "Codebook label: What other language(s) do you speak? Second response. Codebook notes: English was an allowable code for those interviewed in Spanish, see OTHLANG."
 variant_of:
   othlang1: the second language mentioned in answer to the same question

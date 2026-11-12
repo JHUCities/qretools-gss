@@ -1,11 +1,12 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 name: yrsusa
-title: "Lived in U.S., years:"
-text: How long have you lived in the United States? If you have lived in the United States for more than one period during your life, what is the total number of years you have lived in the United States?
-intent: "Citizenship status, in the GSS Replicating Core: lived in u.s., years: (YEARSUSA)."
+title: Years lived in the United States
+text: How long have you lived in the United States? If less than a year, please specify the time in months. If you have lived in the United States for more than one period during your life, what is the total number of years you have lived in the United States?
+intent: Citizenship and time in the United States, as the GSS Replicating Core measures it (YEARSUSA).
 concept: citizenship_status
 universe: born_outside_us
 number:
   min: 0
   unit: years
-source: GSS YEARSUSA, https://gssdataexplorer.norc.org/variables/7297/vshow
-note: "GSS documentation wording: How long have you lived in the United States? If you have lived in the United States for more than one period during your life, what is the total number of years you have lived in the United States? - Years"
+source: GSS YEARSUSA; GSS 2022 codebook (NORC), page 359
+note: "Codebook label: How long have you lived in the United States? If less than a year, please specify the time in months. If you have lived in the United States for more than one period during your life, what is the total number of years you have lived in the United States?"

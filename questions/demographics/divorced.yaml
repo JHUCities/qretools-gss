@@ -1,9 +1,10 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 name: divorced
-title: Ever been divorced or separated
+title: Ever divorced or separated
 text: Have you ever been divorced or legally separated?
-intent: "Marital status or cohabitation status, in the GSS Replicating Core: ever been divorced or separated (DIVORCE)."
+intent: Marital and partnership status, as the GSS Replicating Core measures it (DIVORCE).
 concept: marital_status
 universe: currently_married_widowed
 responses: yes_no
-source: GSS DIVORCE, https://gssdataexplorer.norc.org/variables/21/vshow
-note: "GSS documentation wording: Are you currently--married, widowed, divorced, separated, or have you never been married? B. IF CURRENTLY MARRIED OR WIDOWED: Have you ever been divorced or legally separated?"
+source: GSS DIVORCE; GSS 2022 codebook (NORC), page 123
+note: "Codebook label: IF CURRENTLY MARRIED OR WIDOWED: Have you ever been divorced or legally separated?"

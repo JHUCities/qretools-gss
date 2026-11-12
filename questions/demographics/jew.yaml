@@ -1,7 +1,8 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 name: jew
-title: What sort of jew r is
+title: Jewish denomination
 text: Do you consider yourself Orthodox, Conservative, Reform or none of these?
-intent: "Religious affiliation, in the GSS Replicating Core: what sort of jew r is (JEW)."
+intent: Religion, as the GSS Replicating Core measures it (JEW).
 concept: religious_affiliation
 responses:
   "1": Orthodox
@@ -9,6 +10,5 @@ responses:
   "3": Reform
   "4": None of These
   "5": Other
-instruction: PROBE FOR EXACT DENOMINATION
-source: GSS JEW, https://gssdataexplorer.norc.org/variables/291/vshow
-note: "GSS documentation wording: B. Do you consider yourself Orthodox, Conservative, Reform or none of these? (PROBE FOR EXACT DENOMINATION)"
+source: GSS JEW; GSS 2022 codebook (NORC), page 213
+note: "Codebook label: IF JEWISH:  Do you consider yourself Orthodox, Conservative, Reform or none of these? (PROBE FOR EXACT DENOMINATION) Codebook notes: In 2008, if respondent answered RELIG=3 or OTHJEW= 1 (Yes) or 2 (Half or Part) , then JEW was asked."

@@ -1,8 +1,77 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 labels:
   "1": English
   "2": Spanish
-  "3": French
-  "4": Chinese
-  "5": Italian
-  "6": German
-  "7": Other
+  "3": Polish
+  "4": French
+  "5": Hebrew
+  "6": Russian
+  "7": Tagalog
+  "8": Chinese
+  "9": Urdu
+  "10": Italian
+  "11": Romanian
+  "12": German
+  "14": Chamorro
+  "15": Ukranian
+  "16": Hungarian
+  "17": Turkish
+  "19": Korean
+  "20": Navajo
+  "21": Malayam
+  "22": Arabic
+  "23": Farsi/persian
+  "24": Serbian
+  "25": Lithuanian
+  "27": Thai
+  "28": Gujarati
+  "32": Japanese
+  "33": Portuguese
+  "35": Yiddish
+  "36": Creole
+  "37": Vietnamese
+  "38": Norwegian
+  "40": Latin
+  "41": Czech
+  "42": Hindi
+  "44": Swedish
+  "46": Sign Language
+  "48": Armenian
+  "50": Dutch
+  "52": Samoan
+  "54": Greek
+  "59": Assyrian
+  "61": Laotian
+  "64": Amharic
+  "65": Bengali
+  "69": Hmong
+  "70": Indonesian
+  "71": Swahili
+  "72": Telugu
+  "73": Kannada
+  "76": Bosnian
+  "77": Punjabi
+  "78": Latvian
+  "81": Croatian
+  "85": Mandingo
+  "86": Jamaican
+  "88": Other Native American Language
+  "91": Unspecified Asian Indian Language
+  "92": Cebuano
+  "99": Tamil
+  "112": Twi
+  "121": Pima
+  "127": Nepali
+  "129": Mam
+  "138": Kiche
+  "145": Luganda
+  "153": Ewe
+  "154": Igbo
+  "167": Hausa
+  "171": Fijian
+  "177": Estonian
+  "179": Chibemba
+  "180": Chewa
+  "181": Gusii
+  "182": Gun
+  "183": Nuer

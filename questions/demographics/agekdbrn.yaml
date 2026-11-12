@@ -1,10 +1,11 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 name: agekdbrn
-title: R's age when 1st child born
+title: Age when the first child was born
 text: How old were you when your first child was born?
-intent: "Age at birth of first child, in the GSS Replicating Core: r's age when 1st child born (AGEKDBRN)."
+intent: Age when the first child was born, as the GSS Replicating Core measures it (AGEKDBRN).
 concept: age_at_first_birth
 number:
   min: 0
   unit: years
-source: GSS AGEKDBRN, https://gssdataexplorer.norc.org/variables/54/vshow
-note: "GSS documentation wording: How old were you when your first child was born? As of 2024, AGEKDBRN has been recoded to only account for first child born during ages 18-45. This has been retroactively applied to all previous years of AGEKDBRN. The original AGEKDBRN containing data from 1994 to 2022 has been renamed AGEKDBRN_9422. Released data label: 17 and younger; 45 and older."
+source: GSS AGEKDBRN; GSS 2022 codebook (NORC), page 146
+note: "Codebook label: How old were you when your first child was born? Codebook notes: AGEKDBRN is coded in two digits. The collapsed numbers are for convenience of display only."

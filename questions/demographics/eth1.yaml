@@ -1,8 +1,9 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 name: eth1
-title: "1st mentioned country of origin"
+title: Ancestry, first country
 text: From what countries or part of the world did your ancestors come?
-intent: "Ethnicity, in the GSS Replicating Core: 1st mentioned country of origin (ETH1)."
+intent: Ancestry, as the GSS Replicating Core measures it (ETH1).
 concept: ethnicity
 responses: ancestry
-source: GSS ETH1, https://gssdataexplorer.norc.org/variables/5264/vshow
-note: "GSS documentation wording: From what countries or part of the world did your ancestors come? B. FIRST ETHNICITY MENTIONED"
+source: GSS ETH1; GSS 2022 codebook (NORC), page 349
+note: "Codebook label: (From what countries or part of the world did your ancestors come?) FIRST ETHNICITY MENTIONED"

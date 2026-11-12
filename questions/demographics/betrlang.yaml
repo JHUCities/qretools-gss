@@ -1,11 +1,12 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 name: betrlang
-title: Which language r speaks more fluent
-text: Which language do you speak more fluent?
-intent: "Language, in the GSS Replicating Core: which language r speaks more fluent (BETRLANG)."
+title: Language spoken more fluently
+text: Which language do you speak more fluently?
+intent: Languages spoken, as the GSS Replicating Core measures it (BETRLANG).
 concept: language
 universe: other_language_speakers
 responses:
-  "1": Language 1
-  "2": Language 2
-source: GSS BETRLANG, https://gssdataexplorer.norc.org/variables/2302/vshow
-note: "GSS documentation wording: B. Which language do you speak more fluent?"
+  "1": First language mentioned
+  "2": Second language mentioned
+source: GSS BETRLANG; GSS 2022 codebook (NORC), page 325
+note: "Codebook label: Which language do you speak more fluently?"

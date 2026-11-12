@@ -1,12 +1,13 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 name: race
-title: Race of respondent
+title: Race, three groups
 text: What race do you consider yourself?
-intent: "Race, in the GSS Replicating Core: race of respondent (RACE)."
+intent: Race, as the GSS Replicating Core measures it (RACE).
 concept: race
 responses:
   "1": White
   "2": Black
   "3": Other
-instruction: CODE WITHOUT ASKING ONLY IF THERE IS NO DOUBT IN YOUR MIND. RECORD VERBATIM AND CODE.
-source: GSS RACE, https://gssdataexplorer.norc.org/variables/82/vshow
-note: "GSS documentation wording: CODE WITHOUT ASKING ONLY IF THERE IS NO DOUBT IN YOUR MIND. What race do you consider yourself? RECORD VERBATIM AND CODE."
+instruction: RECORD VERBATIM AND CODE. CODE WITHOUT ASKING ONLY IF THERE IS NO DOUBT IN YOUR MIND.
+source: GSS RACE; GSS 2022 codebook (NORC), page 162
+note: "Codebook label: What race do you consider yourself? RECORD VERBATIM AND CODE. CODE WITHOUT ASKING ONLY IF THERE IS NO DOUBT IN YOUR MIND. Codebook notes: Prior to 2021, interviewer coded, except when asked per instructions. If planning to perform trend analysis with this variable, please consult GSS Methodological Report No. 56. RACE was replaced with RACECEN1,2,3 in 2002, but imputed for trend analysis. I"

@@ -1,15 +1,15 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 name: posslqy
-title: Relationship status and cohabitation or not
+title: Living arrangement with a partner, Y wording
 text: Which of these statements applies to you?
-intent: "Marital status or cohabitation status, in the GSS Replicating Core: relationship status and cohabitation or not (POSSLQY)."
+intent: Marital and partnership status, as the GSS Replicating Core measures it (POSSLQY).
 concept: marital_status
 responses:
   "1": I am married and living in the same household as my husband or wife
-  "2": I have a steady partner, and we live in the same household
+  "2": I am living as married and my partner and I together live in the same household
   "3": I have a husband or wife or steady partner, but we don't live in the same household
   "4": I don't have a steady partner
-instruction: CODE ONE ONLY.
-source: GSS POSSLQY, https://gssdataexplorer.norc.org/variables/4152/vshow
-note: "GSS documentation wording: Which of these statements applies to you? CODE ONE ONLY."
+source: GSS POSSLQY; GSS 2022 codebook (NORC), page 336
+note: "Codebook label: Which of these statements applies to you? CODE ONE ONLY. Codebook notes: Card A1.2b contained responses 1-4. See POSSLQ."
 variant_of:
   posslq: "the Y form of the X/Y wording experiment: option 2 reads 'steady partner' for 'living as married'"
