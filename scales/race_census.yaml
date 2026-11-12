@@ -1,3 +1,4 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 labels:
   "1": White
   "2": Black or African American
@@ -9,6 +10,9 @@ labels:
   "8": Korean
   "9": Vietnamese
   "10": Other Asian
+  "11": Native Hawaiian
+  "12": Guamanian or Chamorro
+  "13": Samoan
   "14": Other Pacific Islander
   "15": Some Other Race
   "16": Hispanic

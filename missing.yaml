@@ -1,15 +1,8 @@
-# The GSS's reserved codes, as gssrdoc lists them for every variable (NA(d) and so on).
-# Each is written as its letter alone, as the GSS codebook writes D, N and S.
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
+# The GSS's reserved codes, each written as its letter alone, as the codebook writes them.
 labels:
   D: Don't know
-  I: Inapplicable (IAP)
-  J: I don't have a job
-  M: Don't know, no answer, inapplicable
+  I: Not applicable
   N: No answer
-  P: Not imputable
   R: Refused
   S: Skipped on web
-  U: Uncodeable
-  X: Not available in this release
-  Y: Not available in this year
-  Z: See codebook

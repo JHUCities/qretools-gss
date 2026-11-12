@@ -1,5 +1,4 @@
 .venv/
-gss_doc.rda
-gss_doc.pkl
+*.pdf
 __pycache__/
 dist/

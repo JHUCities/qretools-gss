@@ -1,9 +1,10 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 name: sibs
-title: Number of brothers and sisters
+title: Number of siblings
 text: How many brothers and sisters did you have? Please count those born alive, but no longer living, as well as those alive now. Also include stepbrothers and stepsisters, and children adopted by your parents.
-intent: "Siblings, in the GSS Replicating Core: number of brothers and sisters (SIBS)."
+intent: Number of siblings, as the GSS Replicating Core measures it (SIBS).
 concept: siblings
 number:
   min: 0
-source: GSS SIBS, https://gssdataexplorer.norc.org/variables/51/vshow
-note: "GSS documentation wording: How many brothers and sisters did you have? Please count those born alive, but no longer living, as well as those alive now. Also include stepbrothers and stepsisters, and children adopted by your parents. Released data label: 6 or more."
+source: GSS SIBS; GSS 2022 codebook (NORC), page 144
+note: "Codebook label: How many brothers and sisters did you have? Please count those born alive, but no longer living, as well as those  alive now. Also include stepbrothers and stepsisters, and children adopted by your parents. Codebook notes: If planning to perform trend analysis with this variable, please consult GSS Methodological Report No. 56. The response categories have been collapsed for convenience of display."

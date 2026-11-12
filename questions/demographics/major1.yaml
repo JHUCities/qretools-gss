@@ -1,11 +1,12 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 name: major1
-title: College major 1
+title: Field of study, first
 text: What was your major or field of study when you received your {{degree}} degree?
-intent: "Education, in the GSS Replicating Core: college major 1 (MAJOR1)."
+intent: Field of study, as the GSS Replicating Core measures it (MAJOR1).
 concept: education
 responses: college_major
-instruction: IF THE RESPONDENT RECEIVED MORE THAN ONE GRADUATE LEVEL DEGREE, ASK ABOUT THE HIGHEST DEGREE OBTAINED (E.G. ABOUT A Ph.D. RATHER THAN AN M.B.A). COUNT UP TO 2 MENTIONS.
-source: GSS MAJOR1, https://gssdataexplorer.norc.org/variables/63/vshow
-note: "GSS documentation wording: What was your major or field of study when you received your (RESPONDENT'S COLLEGE DEGREE) degree? IF THE RESPONDENT RECEIVED MORE THAN ONE GRADUATE LEVEL DEGREE, ASK ABOUT THE HIGHEST DEGREE OBTAINED (E.G. ABOUT A Ph.D. RATHER THAN AN M.B.A). [COUNT UP TO 2 MENTIONS]"
+instruction: IF THE RESPONDENT RECEIVED MORE THAN ONE GRADUATE LEVEL DEGREE, ASK ABOUT THE HIGHEST DEGREE OBTAINED (E.G. ABOUT A Ph.D. RATHER THAN AN M.B.A).
+source: GSS MAJOR1; GSS 2022 codebook (NORC), page 155
+note: "Codebook label: What was your major or field of study when you received your (RESPONDENT'S COLLEGE DEGREE) degree? [IF THE RESPONDENT RECEIVED MORE THAN ONE GRADUATE LEVEL DEGREE, ASK ABOUT THE HIGHEST DEGREE OBTAINED (E.G. ABOUT A Ph.D. RATHER THAN AN M.B.A). [COUNT UP"
 fills:
   degree: text

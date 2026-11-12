@@ -1,11 +1,12 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 name: hrs1
-title: Number of hours worked last week
+title: Hours worked last week
 text: How many hours did you work last week, at all jobs?
-intent: "Labor supply, in the GSS Replicating Core: number of hours worked last week (HRS1)."
+intent: Time worked, as the GSS Replicating Core measures it (HRS1).
 concept: labor_supply
 universe: working
 number:
   min: 0
   unit: hours
-source: GSS HRS1, https://gssdataexplorer.norc.org/variables/4/vshow
-note: "GSS documentation wording: Last week were you working full time, part time, going to school, keeping house, or what? A. IF WORKING, FULL OR PART TIME: How many hours did you work last week, at all jobs? Released data label: 89+ hours."
+source: GSS HRS1; GSS 2022 codebook (NORC), page 108
+note: "Codebook label: IF WORKING, FULL OR PART TIME: How many hours did you work last week, at all jobs? Codebook notes: If planning to perform trend analysis with WRKSTAT, please consult GSS Methodological Report No. 56. The response categories have been collapsed for convenience of display. Responses greater than 89 were coded 89."

@@ -1,7 +1,8 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 name: localnum
-title: "Number of employees: r's work site"
+title: People at the workplace
 text: About how many people work at the location where you work? (Count part-time as well as full-time employees in all areas, departments and buildings.)
-intent: "Size of workplace, in the GSS Replicating Core: number of employees: r's work site (LOCALNUM)."
+intent: Size of the workplace, as the GSS Replicating Core measures it (LOCALNUM).
 concept: size_of_workplace
 responses:
   "1": "1-9"
@@ -10,6 +11,6 @@ responses:
   "4": "100-499"
   "5": "500-999"
   "6": "1,000-1,999"
-  "7": "2,000+"
-source: GSS LOCALNUM, https://gssdataexplorer.norc.org/variables/4567/vshow
-note: "GSS documentation wording: About how many people work at the location where you work? (Count part-time as well as full-time employees in all areas, departments and buildings.)"
+  "7": More than 2,000
+source: GSS LOCALNUM; GSS 2022 codebook (NORC), page 339
+note: "Codebook label: About how many people work at the location where you work? (Count part-time as well as full-time employees in all areas, departments and buildings.) Codebook notes: Card A3 contained responses for punches 1-7."

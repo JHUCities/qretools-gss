@@ -29,5 +29,3 @@ agency: us.jhu
 # the instrument, as does `qretools instrument export`. Don't edit them. A tag with
 # no lock, or one that has moved, is refused by `qretools build`, and so by the
 # check on every pull request.
-locked:
-  jhucities/qretools-gss@v2: 347f2cda35d04e3131a9f83df521d37d638bb597

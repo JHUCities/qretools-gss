@@ -1,7 +1,8 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 name: wrkstat
-title: Labor force status
+title: Work status last week
 text: Last week were you working full time, part time, going to school, keeping house, or what?
-intent: "Employment status, in the GSS Replicating Core: labor force status (WRKSTAT)."
+intent: Work status, as the GSS Replicating Core measures it (WRKSTAT).
 concept: employment_status
 responses:
   "1": Working full time
@@ -12,5 +13,5 @@ responses:
   "6": In school
   "7": Keeping house
   "8": Other
-source: GSS WRKSTAT, https://gssdataexplorer.norc.org/variables/3/vshow
-note: "GSS documentation wording: Last week were you working full time, part time, going to school, keeping house, or what?"
+source: GSS WRKSTAT; GSS 2022 codebook (NORC), page 108
+note: "Codebook label: Last week were you working full time, part time, going to school, keeping house, or what? Codebook notes: Card A2 contained responses for punches 1 through 7. Contents of WRKSTAT, punch 8 (Other, SPECIFY) available from NORC."

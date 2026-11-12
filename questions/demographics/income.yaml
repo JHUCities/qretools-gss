@@ -1,8 +1,9 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 name: income
-title: Total family income
-text: In which of these groups did your total family income, from all sources, fall last year before taxes, that is? Just tell me the letter.
-intent: "Household income, in the GSS Replicating Core: total family income (INCOME)."
+title: Family income, 12 groups
+text: In which of these groups did your total family income, from all sources, fall last year before taxes, that is?
+intent: Family income, as the GSS Replicating Core measures it (INCOME).
 concept: household_income
 responses: income_12
-source: GSS INCOME, https://gssdataexplorer.norc.org/variables/104/vshow
-note: "GSS documentation wording: In which of these groups did your total family income, from all sources, fall last year before taxes, that is? Just tell me the letter."
+source: GSS INCOME; GSS 2022 codebook (NORC), page 173
+note: "Codebook label: In which of these groups did your total family income, from all sources, fall last year before taxes, that is? Codebook notes: Showcard D contained responses for Punches 01-12 only. INCOME is coded from the most up-to-date income variable in the given round of the GSS, currently INCOME16. If planning to perform trend analysis with this variable, please consult GSS Methodological 56."

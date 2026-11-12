@@ -1,8 +1,13 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 name: wksub1
-title: Does r or spouse or partner have a supervisor
-text: Do you (does your (SPOUSE or PARTNER)) have a supervisor on (your/his/her) job to whom you are (he/she is) directly responsible?
-intent: "Superiors/subordinates in workplace, in the GSS Replicating Core: does r or spouse or partner have a supervisor (WKSUB1)."
+title: Has a supervisor
+text: "{{do_you}} have a supervisor on {{your}} job to whom {{you_are}} directly responsible?"
+intent: Supervision at work, as the GSS Replicating Core measures it (WKSUB1).
 concept: workplace_hierarchy
 responses: yes_no
-source: GSS WKSUB1, https://gssdataexplorer.norc.org/variables/6176/vshow
-note: "GSS documentation wording: Do you (does your (SPOUSE or PARTNER) have a supervisor on (your/his/her) job to whom you are (he/she/is) directly responsible?"
+source: GSS WKSUB1; GSS 2022 codebook (NORC), page 263
+note: "Codebook label: Do you (does your (SPOUSE or PARTNER) have a supervisor on (your/his/her) job to whom you are (he/she/is) directly responsible?"
+fills:
+  do_you: text
+  your: text
+  you_are: text

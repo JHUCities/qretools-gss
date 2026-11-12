@@ -1,13 +1,13 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 name: posslq
-title: Does r have marital partner
+title: Living arrangement with a partner
 text: Which of these statements applies to you?
-intent: "Marital status or cohabitation status, in the GSS Replicating Core: does r have marital partner (POSSLQ)."
+intent: Marital and partnership status, as the GSS Replicating Core measures it (POSSLQ).
 concept: marital_status
 responses:
   "1": I am married and living in the same household as my husband or wife
   "2": I am living as married and my partner and I together live in the same household
   "3": I have a husband or wife or steady partner, but we don't live in the same household
   "4": I don't have a steady partner
-instruction: CODE ONE ONLY.
-source: GSS POSSLQ, https://gssdataexplorer.norc.org/variables/4151/vshow
-note: "GSS documentation wording: Which of these statements applies to you? CODE ONE ONLY. A. I am married and living in the same household as my husband or wife. B. I am living as married and my partner and I together live in the same household. C. I have a husband or wife or steady partner but we don''t live in the same household. D. I don''t have a steady partner."
+source: GSS POSSLQ; GSS 2022 codebook (NORC), page 335
+note: "Codebook label: Which of these statements applies to you? Codebook notes: Card A1.2a contained responses 1-4. POSSLQ and POSSLQY are used to drive certain spouse/partner skips in the replicating core."

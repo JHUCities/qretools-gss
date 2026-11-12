@@ -1,0 +1,4144 @@
+{
+ "source": "General Social Survey 2022 codebook, Release 4 (NORC, November 21, 2024)",
+ "url": "https://gss.norc.org/content/dam/gss/get-documentation/pdf/codebook/GSS%202022%20Codebook.pdf",
+ "notice": "Copyright 2021-2024 NORC\nPermission is hereby granted, free of charge, to any person obtaining a copy of this codebook, portions thereof, and the associated documentation (the \"codebook\"), to use the codebook, including, without limitation, the rights to use, copy, modify, merge, publish, and distribute copies of the codebook, and to permit persons to whom the codebook is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or portions of the codebook. Any distribution of the codebook must be free of charge to the recipient, except for charges to recover duplicating costs.\nThe codebook is provided \"as is,\" without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of, or in connection with the codebook or the use or other dealings in the codebook.",
+ "entries": {
+  "racecen1": {
+   "variable": "racecen1",
+   "type": "Numeric",
+   "page": 356,
+   "label": "(What is your race? Indicate one or more races that you consider yourself to be.) First mention",
+   "notes": "",
+   "codes": [
+    {
+     "code": "1",
+     "label": "WHITE"
+    },
+    {
+     "code": "2",
+     "label": "BLACK OR AFRICAN AMERICAN"
+    },
+    {
+     "code": "3",
+     "label": "AMERICAN INDIAN OR ALASKA NATIVE"
+    },
+    {
+     "code": "4",
+     "label": "ASIAN INDIAN"
+    },
+    {
+     "code": "5",
+     "label": "CHINESE"
+    },
+    {
+     "code": "6",
+     "label": "FILIPINO"
+    },
+    {
+     "code": "7",
+     "label": "JAPANESE"
+    },
+    {
+     "code": "8",
+     "label": "KOREAN"
+    },
+    {
+     "code": "9",
+     "label": "VIETNAMESE"
+    },
+    {
+     "code": "10",
+     "label": "OTHER ASIAN"
+    },
+    {
+     "code": "12",
+     "label": "GUAMANIAN OR CHAMORRO"
+    },
+    {
+     "code": "13",
+     "label": "SAMOAN"
+    },
+    {
+     "code": "14",
+     "label": "OTHER PACIFIC ISLANDER"
+    },
+    {
+     "code": "15",
+     "label": "SOME OTHER RACE"
+    },
+    {
+     "code": "16",
+     "label": "HISPANIC"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    }
+   ]
+  },
+  "racecen2": {
+   "variable": "racecen2",
+   "type": "Numeric",
+   "page": 357,
+   "label": "(What is your race? Indicate one or more races that you consider yourself to be.) Second mention",
+   "notes": "",
+   "codes": [
+    {
+     "code": "1",
+     "label": "WHITE"
+    },
+    {
+     "code": "2",
+     "label": "BLACK OR AFRICAN AMERICAN"
+    },
+    {
+     "code": "3",
+     "label": "AMERICAN INDIAN OR ALASKA NATIVE"
+    },
+    {
+     "code": "4",
+     "label": "ASIAN INDIAN"
+    },
+    {
+     "code": "5",
+     "label": "CHINESE"
+    },
+    {
+     "code": "6",
+     "label": "FILIPINO"
+    },
+    {
+     "code": "7",
+     "label": "JAPANESE"
+    },
+    {
+     "code": "9",
+     "label": "VIETNAMESE"
+    },
+    {
+     "code": "10",
+     "label": "OTHER ASIAN"
+    },
+    {
+     "code": "11",
+     "label": "NATIVE HAWAIIAN"
+    },
+    {
+     "code": "13",
+     "label": "SAMOAN"
+    },
+    {
+     "code": "14",
+     "label": "OTHER PACIFIC ISLANDER"
+    },
+    {
+     "code": "15",
+     "label": "SOME OTHER RACE"
+    },
+    {
+     "code": "16",
+     "label": "HISPANIC"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    }
+   ]
+  },
+  "racecen3": {
+   "variable": "racecen3",
+   "type": "Numeric",
+   "page": 357,
+   "label": "(What is your race? Indicate one or more races that you consider yourself to be.) Third mention",
+   "notes": "",
+   "codes": [
+    {
+     "code": "1",
+     "label": "WHITE"
+    },
+    {
+     "code": "2",
+     "label": "BLACK OR AFRICAN AMERICAN"
+    },
+    {
+     "code": "3",
+     "label": "AMERICAN INDIAN OR ALASKA NATIVE"
+    },
+    {
+     "code": "4",
+     "label": "ASIAN INDIAN"
+    },
+    {
+     "code": "14",
+     "label": "OTHER PACIFIC ISLANDER"
+    },
+    {
+     "code": "15",
+     "label": "SOME OTHER RACE"
+    },
+    {
+     "code": "16",
+     "label": "HISPANIC"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    }
+   ]
+  },
+  "race": {
+   "variable": "race",
+   "type": "Numeric",
+   "page": 162,
+   "label": "What race do you consider yourself? RECORD VERBATIM AND CODE. CODE WITHOUT ASKING ONLY IF THERE IS NO DOUBT IN YOUR MIND.",
+   "notes": "Prior to 2021, interviewer coded, except when asked per instructions. If planning to perform trend analysis with this variable, please consult GSS Methodological Report No. 56. RACE was replaced with RACECEN1,2,3 in 2002, but imputed for trend analysis. I",
+   "codes": [
+    {
+     "code": "1",
+     "label": "WHITE"
+    },
+    {
+     "code": "2",
+     "label": "BLACK"
+    },
+    {
+     "code": "3",
+     "label": "OTHER"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    }
+   ]
+  },
+  "eth1": {
+   "variable": "eth1",
+   "type": "Numeric",
+   "page": 349,
+   "label": "(From what countries or part of the world did your ancestors come?) FIRST ETHNICITY MENTIONED",
+   "notes": "",
+   "codes": [
+    {
+     "code": "2",
+     "label": "AUSTRIA"
+    },
+    {
+     "code": "3",
+     "label": "CANADA (FRENCH)"
+    },
+    {
+     "code": "4",
+     "label": "CANADA (OTHER)"
+    },
+    {
+     "code": "5",
+     "label": "CHINA"
+    },
+    {
+     "code": "6",
+     "label": "CZECHOSLOVAKIA"
+    },
+    {
+     "code": "7",
+     "label": "DENMARK"
+    },
+    {
+     "code": "8",
+     "label": "ENGLAND AND WALES"
+    },
+    {
+     "code": "9",
+     "label": "FINLAND"
+    },
+    {
+     "code": "10",
+     "label": "FRANCE"
+    },
+    {
+     "code": "11",
+     "label": "GERMANY"
+    },
+    {
+     "code": "12",
+     "label": "GREECE"
+    },
+    {
+     "code": "13",
+     "label": "HUNGARY"
+    },
+    {
+     "code": "14",
+     "label": "IRELAND"
+    },
+    {
+     "code": "15",
+     "label": "ITALY"
+    },
+    {
+     "code": "16",
+     "label": "JAPAN"
+    },
+    {
+     "code": "17",
+     "label": "MEXICO"
+    },
+    {
+     "code": "18",
+     "label": "NETHERLANDS (DUTCH/HOLLAND)"
+    },
+    {
+     "code": "19",
+     "label": "NORWAY"
+    },
+    {
+     "code": "21",
+     "label": "POLAND"
+    },
+    {
+     "code": "22",
+     "label": "PUERTO RICO"
+    },
+    {
+     "code": "23",
+     "label": "RUSSIA (USSR)"
+    },
+    {
+     "code": "24",
+     "label": "SCOTLAND"
+    },
+    {
+     "code": "25",
+     "label": "SPAIN"
+    },
+    {
+     "code": "26",
+     "label": "SWEDEN"
+    },
+    {
+     "code": "27",
+     "label": "SWITZERLAND"
+    },
+    {
+     "code": "30",
+     "label": "AMERICAN INDIAN"
+    },
+    {
+     "code": "31",
+     "label": "INDIA"
+    },
+    {
+     "code": "32",
+     "label": "PORTUGAL"
+    },
+    {
+     "code": "33",
+     "label": "LITHUANIA"
+    },
+    {
+     "code": "34",
+     "label": "YUGOSLAVIA"
+    },
+    {
+     "code": "36",
+     "label": "BELGIUM"
+    },
+    {
+     "code": "40",
+     "label": "OTHER ASIAN"
+    },
+    {
+     "code": "41",
+     "label": "OTHER EUROPEAN"
+    },
+    {
+     "code": "203",
+     "label": "CONGO"
+    },
+    {
+     "code": "204",
+     "label": "EGYPT"
+    },
+    {
+     "code": "205",
+     "label": "ETHIOPIA"
+    },
+    {
+     "code": "206",
+     "label": "KENYA"
+    },
+    {
+     "code": "207",
+     "label": "NIGERIA"
+    },
+    {
+     "code": "208",
+     "label": "SOUTH AFRICA"
+    },
+    {
+     "code": "209",
+     "label": "SUDAN"
+    },
+    {
+     "code": "211",
+     "label": "UGANDA"
+    },
+    {
+     "code": "299",
+     "label": "OTHER AFRICA"
+    },
+    {
+     "code": "301",
+     "label": "S. KOREA"
+    },
+    {
+     "code": "304",
+     "label": "PAKISTAN"
+    },
+    {
+     "code": "306",
+     "label": "THAILAND"
+    },
+    {
+     "code": "499",
+     "label": "OTHER MIDDLE EAST"
+    },
+    {
+     "code": "501",
+     "label": "ARGENTINA"
+    },
+    {
+     "code": "503",
+     "label": "BRAZIL"
+    },
+    {
+     "code": "505",
+     "label": "COLOMBIA"
+    },
+    {
+     "code": "601",
+     "label": "BELIZE"
+    },
+    {
+     "code": "603",
+     "label": "EL SALVADOR"
+    },
+    {
+     "code": "607",
+     "label": "PANAMA"
+    },
+    {
+     "code": "799",
+     "label": "OTHER NORTH AMERICA"
+    },
+    {
+     "code": "801",
+     "label": "CUBA"
+    },
+    {
+     "code": "802",
+     "label": "HAITI"
+    },
+    {
+     "code": "803",
+     "label": "DOMINICAN REPUBLIC"
+    },
+    {
+     "code": "804",
+     "label": "JAMAICA"
+    },
+    {
+     "code": "904",
+     "label": "SAMOA"
+    },
+    {
+     "code": "999",
+     "label": "OTHER OCEANIA"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "eth2": {
+   "variable": "eth2",
+   "type": "Numeric",
+   "page": 351,
+   "label": "(From what countries or part of the world did your ancestors come?) SECOND ETHNICITY MENTIONED",
+   "notes": "",
+   "codes": [
+    {
+     "code": "2",
+     "label": "AUSTRIA"
+    },
+    {
+     "code": "3",
+     "label": "CANADA (FRENCH)"
+    },
+    {
+     "code": "4",
+     "label": "CANADA (OTHER)"
+    },
+    {
+     "code": "6",
+     "label": "CZECHOSLOVAKIA"
+    },
+    {
+     "code": "7",
+     "label": "DENMARK"
+    },
+    {
+     "code": "8",
+     "label": "ENGLAND AND WALES"
+    },
+    {
+     "code": "9",
+     "label": "FINLAND"
+    },
+    {
+     "code": "10",
+     "label": "FRANCE"
+    },
+    {
+     "code": "11",
+     "label": "GERMANY"
+    },
+    {
+     "code": "12",
+     "label": "GREECE"
+    },
+    {
+     "code": "13",
+     "label": "HUNGARY"
+    },
+    {
+     "code": "14",
+     "label": "IRELAND"
+    },
+    {
+     "code": "15",
+     "label": "ITALY"
+    },
+    {
+     "code": "17",
+     "label": "MEXICO"
+    },
+    {
+     "code": "18",
+     "label": "NETHERLANDS (DUTCH/HOLLAND)"
+    },
+    {
+     "code": "19",
+     "label": "NORWAY"
+    },
+    {
+     "code": "20",
+     "label": "PHILIPPINES"
+    },
+    {
+     "code": "21",
+     "label": "POLAND"
+    },
+    {
+     "code": "23",
+     "label": "RUSSIA (USSR)"
+    },
+    {
+     "code": "24",
+     "label": "SCOTLAND"
+    },
+    {
+     "code": "25",
+     "label": "SPAIN"
+    },
+    {
+     "code": "26",
+     "label": "SWEDEN"
+    },
+    {
+     "code": "27",
+     "label": "SWITZERLAND"
+    },
+    {
+     "code": "30",
+     "label": "AMERICAN INDIAN"
+    },
+    {
+     "code": "32",
+     "label": "PORTUGAL"
+    },
+    {
+     "code": "33",
+     "label": "LITHUANIA"
+    },
+    {
+     "code": "34",
+     "label": "YUGOSLAVIA"
+    },
+    {
+     "code": "35",
+     "label": "ROMANIA"
+    },
+    {
+     "code": "36",
+     "label": "BELGIUM"
+    },
+    {
+     "code": "41",
+     "label": "OTHER EUROPEAN"
+    },
+    {
+     "code": "203",
+     "label": "CONGO"
+    },
+    {
+     "code": "204",
+     "label": "EGYPT"
+    },
+    {
+     "code": "205",
+     "label": "ETHIOPIA"
+    },
+    {
+     "code": "206",
+     "label": "KENYA"
+    },
+    {
+     "code": "207",
+     "label": "NIGERIA"
+    },
+    {
+     "code": "211",
+     "label": "UGANDA"
+    },
+    {
+     "code": "299",
+     "label": "OTHER AFRICA"
+    },
+    {
+     "code": "507",
+     "label": "FRENCH GUIANA"
+    },
+    {
+     "code": "599",
+     "label": "OTHER SOUTH AMERICA"
+    },
+    {
+     "code": "601",
+     "label": "BELIZE"
+    },
+    {
+     "code": "803",
+     "label": "DOMINICAN REPUBLIC"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "eth3": {
+   "variable": "eth3",
+   "type": "Numeric",
+   "page": 353,
+   "label": "(From what countries or part of the world did your ancestors come?) THIRD ETHNICITY MENTIONED",
+   "notes": "",
+   "codes": [
+    {
+     "code": "6",
+     "label": "CZECHOSLOVAKIA"
+    },
+    {
+     "code": "7",
+     "label": "DENMARK"
+    },
+    {
+     "code": "8",
+     "label": "ENGLAND AND WALES"
+    },
+    {
+     "code": "9",
+     "label": "FINLAND"
+    },
+    {
+     "code": "10",
+     "label": "FRANCE"
+    },
+    {
+     "code": "11",
+     "label": "GERMANY"
+    },
+    {
+     "code": "12",
+     "label": "GREECE"
+    },
+    {
+     "code": "13",
+     "label": "HUNGARY"
+    },
+    {
+     "code": "14",
+     "label": "IRELAND"
+    },
+    {
+     "code": "15",
+     "label": "ITALY"
+    },
+    {
+     "code": "17",
+     "label": "MEXICO"
+    },
+    {
+     "code": "18",
+     "label": "NETHERLANDS (DUTCH/HOLLAND)"
+    },
+    {
+     "code": "19",
+     "label": "NORWAY"
+    },
+    {
+     "code": "21",
+     "label": "POLAND"
+    },
+    {
+     "code": "23",
+     "label": "RUSSIA (USSR)"
+    },
+    {
+     "code": "24",
+     "label": "SCOTLAND"
+    },
+    {
+     "code": "25",
+     "label": "SPAIN"
+    },
+    {
+     "code": "26",
+     "label": "SWEDEN"
+    },
+    {
+     "code": "27",
+     "label": "SWITZERLAND"
+    },
+    {
+     "code": "30",
+     "label": "AMERICAN INDIAN"
+    },
+    {
+     "code": "33",
+     "label": "LITHUANIA"
+    },
+    {
+     "code": "35",
+     "label": "ROMANIA"
+    },
+    {
+     "code": "36",
+     "label": "BELGIUM"
+    },
+    {
+     "code": "41",
+     "label": "OTHER EUROPEAN"
+    },
+    {
+     "code": "101",
+     "label": "TURKEY"
+    },
+    {
+     "code": "206",
+     "label": "KENYA"
+    },
+    {
+     "code": "210",
+     "label": "TANZANIA"
+    },
+    {
+     "code": "301",
+     "label": "S. KOREA"
+    },
+    {
+     "code": "401",
+     "label": "IRAN"
+    },
+    {
+     "code": "801",
+     "label": "CUBA"
+    },
+    {
+     "code": "803",
+     "label": "DOMINICAN REPUBLIC"
+    },
+    {
+     "code": "804",
+     "label": "JAMAICA"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "hispanic": {
+   "variable": "hispanic",
+   "type": "Numeric",
+   "page": 355,
+   "label": "Are you Spanish, Hispanic, or Latino/Latina? IF YES: Which group are you from?",
+   "notes": "The two questions above were asked sequentially of the respondent. Hand Card A5 was given to Latino respondents and had response options 2-4 plus 'Other Hispanic, specify.'",
+   "codes": [
+    {
+     "code": "1",
+     "label": "NOT HISPANIC"
+    },
+    {
+     "code": "2",
+     "label": "MEXICAN, MEXICAN AMERICAN, CHICANO/A"
+    },
+    {
+     "code": "3",
+     "label": "PUERTO RICAN"
+    },
+    {
+     "code": "4",
+     "label": "CUBAN"
+    },
+    {
+     "code": "5",
+     "label": "SALVADORIAN"
+    },
+    {
+     "code": "6",
+     "label": "GUATEMALAN"
+    },
+    {
+     "code": "7",
+     "label": "PANAMANIAN"
+    },
+    {
+     "code": "8",
+     "label": "NICARAGUAN"
+    },
+    {
+     "code": "9",
+     "label": "COSTA RICAN"
+    },
+    {
+     "code": "10",
+     "label": "CENTRAL AMERICAN"
+    },
+    {
+     "code": "11",
+     "label": "HONDURAN"
+    },
+    {
+     "code": "15",
+     "label": "DOMINICAN"
+    },
+    {
+     "code": "20",
+     "label": "PERUVIAN"
+    },
+    {
+     "code": "21",
+     "label": "ECUADORIAN"
+    },
+    {
+     "code": "22",
+     "label": "COLOMBIAN"
+    },
+    {
+     "code": "23",
+     "label": "VENEZUELAN"
+    },
+    {
+     "code": "24",
+     "label": "ARGENTINIAN"
+    },
+    {
+     "code": "30",
+     "label": "SPANISH"
+    },
+    {
+     "code": "35",
+     "label": "FILIPINO/A"
+    },
+    {
+     "code": "41",
+     "label": "SOUTH AMERICAN"
+    },
+    {
+     "code": "47",
+     "label": "HISPANIC"
+    },
+    {
+     "code": "50",
+     "label": "OTHER, NOT SPECIFIED"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "sibs": {
+   "variable": "sibs",
+   "type": "Numeric",
+   "page": 144,
+   "label": "How many brothers and sisters did you have? Please count those born alive, but no longer living, as well as those  alive now. Also include stepbrothers and stepsisters, and children adopted by your parents.",
+   "notes": "If planning to perform trend analysis with this variable, please consult GSS Methodological Report No. 56. The response categories have been collapsed for convenience of display.",
+   "codes": [],
+   "reserved": [
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "marital": {
+   "variable": "marital",
+   "type": "Numeric",
+   "page": 122,
+   "label": "Are you currently married, widowed, divorced, separated, or have you never been married?",
+   "notes": "",
+   "codes": [
+    {
+     "code": "1",
+     "label": "MARRIED"
+    },
+    {
+     "code": "2",
+     "label": "WIDOWED"
+    },
+    {
+     "code": "3",
+     "label": "DIVORCED"
+    },
+    {
+     "code": "4",
+     "label": "SEPARATED"
+    },
+    {
+     "code": "5",
+     "label": "NEVER MARRIED"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "widowed": {
+   "variable": "widowed",
+   "type": "Numeric",
+   "page": 124,
+   "label": "IF CURRENTLY MARRIED, SEPARATED, OR DIVORCED: Have you ever been widowed?",
+   "notes": "",
+   "codes": [
+    {
+     "code": "1",
+     "label": "YES"
+    },
+    {
+     "code": "2",
+     "label": "NO"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "divorce": {
+   "variable": "divorce",
+   "type": "Numeric",
+   "page": 123,
+   "label": "IF CURRENTLY MARRIED OR WIDOWED: Have you ever been divorced or legally separated?",
+   "notes": "",
+   "codes": [
+    {
+     "code": "1",
+     "label": "YES"
+    },
+    {
+     "code": "2",
+     "label": "NO"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "posslq": {
+   "variable": "posslq",
+   "type": "Numeric",
+   "page": 335,
+   "label": "Which of these statements applies to you?",
+   "notes": "Card A1.2a contained responses 1-4. POSSLQ and POSSLQY are used to drive certain spouse/partner skips in the replicating core.",
+   "codes": [
+    {
+     "code": "1",
+     "label": "I AM MARRIED AND LIVING IN THE SAME HOUSEHOLD AS MY HUSBAND OR WIFE"
+    },
+    {
+     "code": "2",
+     "label": "I AM LIVING AS MARRIED AND MY PARTNER AND I TOGETHER LIVE IN THE SAME HOUSEHOLD"
+    },
+    {
+     "code": "3",
+     "label": "I HAVE A HUSBAND OR WIFE OR STEADY PARTNER, BUT WE DON'T LIVE IN THE SAME HOUSEHOLD"
+    },
+    {
+     "code": "4",
+     "label": "I DON'T HAVE A STEADY PARTNER"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "posslqy": {
+   "variable": "posslqy",
+   "type": "Numeric",
+   "page": 336,
+   "label": "Which of these statements applies to you? CODE ONE ONLY.",
+   "notes": "Card A1.2b contained responses 1-4. See POSSLQ.",
+   "codes": [
+    {
+     "code": "1",
+     "label": "I AM MARRIED AND LIVING IN THE SAME HOUSEHOLD AS MY HUSBAND OR WIFE"
+    },
+    {
+     "code": "2",
+     "label": "I AM LIVING AS MARRIED AND MY PARTNER AND I TOGETHER LIVE IN THE SAME HOUSEHOLD"
+    },
+    {
+     "code": "3",
+     "label": "I HAVE A HUSBAND OR WIFE OR STEADY PARTNER, BUT WE DON'T LIVE IN THE SAME HOUSEHOLD"
+    },
+    {
+     "code": "4",
+     "label": "I DON'T HAVE A STEADY PARTNER"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "childs": {
+   "variable": "childs",
+   "type": "Numeric",
+   "page": 145,
+   "label": "How many children have you ever had? Please count all that were born alive at any time (including any you had from a previous marriage).",
+   "notes": "",
+   "codes": [
+    {
+     "code": "0",
+     "label": "NONE"
+    },
+    {
+     "code": "1",
+     "label": "ONE"
+    },
+    {
+     "code": "2",
+     "label": "TWO"
+    },
+    {
+     "code": "3",
+     "label": "THREE"
+    },
+    {
+     "code": "4",
+     "label": "FOUR"
+    },
+    {
+     "code": "5",
+     "label": "FIVE"
+    },
+    {
+     "code": "6",
+     "label": "SIX"
+    },
+    {
+     "code": "7",
+     "label": "SEVEN"
+    },
+    {
+     "code": "8",
+     "label": "EIGHT OR MORE"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    }
+   ]
+  },
+  "agekdbrn": {
+   "variable": "agekdbrn",
+   "type": "Numeric",
+   "page": 146,
+   "label": "How old were you when your first child was born?",
+   "notes": "AGEKDBRN is coded in two digits. The collapsed numbers are for convenience of display only.",
+   "codes": [
+    {
+     "code": "9",
+     "label": "9-14 YEARS OLD"
+    },
+    {
+     "code": "15",
+     "label": "15-19 YEARS OLD"
+    },
+    {
+     "code": "20",
+     "label": "20-24 YEARS OLD"
+    },
+    {
+     "code": "25",
+     "label": "25-29 YEARS OLD"
+    },
+    {
+     "code": "30",
+     "label": "30-34 YEARS OLD"
+    },
+    {
+     "code": "35",
+     "label": "35-39 YEARS OLD"
+    },
+    {
+     "code": "40",
+     "label": "40-44 YEARS OLD"
+    },
+    {
+     "code": "45",
+     "label": "45-49 YEARS OLD"
+    },
+    {
+     "code": "50",
+     "label": "50-54 YEARS OLD"
+    },
+    {
+     "code": "90",
+     "label": "55 YEARS OLD AND HIGHER"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "major1": {
+   "variable": "major1",
+   "type": "Numeric",
+   "page": 155,
+   "label": "What was your major or field of study when you received your (RESPONDENT'S COLLEGE DEGREE) degree? [IF THE RESPONDENT RECEIVED MORE THAN ONE GRADUATE LEVEL DEGREE, ASK ABOUT THE HIGHEST DEGREE OBTAINED (E.G. ABOUT A Ph.D. RATHER THAN AN M.B.A). [COUNT UP",
+   "notes": "",
+   "codes": [
+    {
+     "code": "1",
+     "label": "ACCOUNTING/BOOKKEEPING"
+    },
+    {
+     "code": "2",
+     "label": "ADVERTISING"
+    },
+    {
+     "code": "3",
+     "label": "AGRICULTURE/HORTICULTURE"
+    },
+    {
+     "code": "5",
+     "label": "ANTHROPOLOGY"
+    },
+    {
+     "code": "6",
+     "label": "ARCHITECTURE"
+    },
+    {
+     "code": "7",
+     "label": "ART"
+    },
+    {
+     "code": "8",
+     "label": "BIOLOGY"
+    },
+    {
+     "code": "9",
+     "label": "BUSINESS ADMINISTRATION"
+    },
+    {
+     "code": "11",
+     "label": "CHEMISTRY"
+    },
+    {
+     "code": "12",
+     "label": "COMMUNICATIONS/SPEECH"
+    },
+    {
+     "code": "13",
+     "label": "COMM. DISORDERS"
+    },
+    {
+     "code": "14",
+     "label": "COMPUTER SCIENCE"
+    },
+    {
+     "code": "15",
+     "label": "DENTISTRY"
+    },
+    {
+     "code": "16",
+     "label": "EDUCATION"
+    },
+    {
+     "code": "17",
+     "label": "ECONOMICS"
+    },
+    {
+     "code": "18",
+     "label": "ENGINEERING"
+    },
+    {
+     "code": "19",
+     "label": "ENGLISH"
+    },
+    {
+     "code": "20",
+     "label": "FINANCE"
+    },
+    {
+     "code": "21",
+     "label": "FOREIGN LANGUAGE"
+    },
+    {
+     "code": "23",
+     "label": "GEOGRAPHY"
+    },
+    {
+     "code": "24",
+     "label": "GEOLOGY"
+    },
+    {
+     "code": "25",
+     "label": "HISTORY"
+    },
+    {
+     "code": "26",
+     "label": "HOME ECONOMICS"
+    },
+    {
+     "code": "27",
+     "label": "INDUSTRY & TECHNOLOGY"
+    },
+    {
+     "code": "28",
+     "label": "JOURNALISM"
+    },
+    {
+     "code": "29",
+     "label": "LAW"
+    },
+    {
+     "code": "30",
+     "label": "LAW ENFORCEMENT"
+    },
+    {
+     "code": "31",
+     "label": "LIBRARY SCIENCE"
+    },
+    {
+     "code": "32",
+     "label": "MARKETING"
+    },
+    {
+     "code": "33",
+     "label": "MATHEMATICS"
+    },
+    {
+     "code": "34",
+     "label": "MEDICINE"
+    },
+    {
+     "code": "35",
+     "label": "MUSIC"
+    },
+    {
+     "code": "36",
+     "label": "NURSING"
+    },
+    {
+     "code": "37",
+     "label": "OPTOMETRY"
+    },
+    {
+     "code": "38",
+     "label": "PHARMACY"
+    },
+    {
+     "code": "39",
+     "label": "PHILOSOPHY"
+    },
+    {
+     "code": "40",
+     "label": "PHYSICAL EDUCATION"
+    },
+    {
+     "code": "41",
+     "label": "PHYSICS"
+    },
+    {
+     "code": "42",
+     "label": "PSYCHOLOGY"
+    },
+    {
+     "code": "43",
+     "label": "POLITICAL SCIENCE/INTERNATIONAL RELATIONS"
+    },
+    {
+     "code": "44",
+     "label": "SOCIOLOGY"
+    },
+    {
+     "code": "45",
+     "label": "SPECIAL EDUCATION"
+    },
+    {
+     "code": "46",
+     "label": "THEATER ARTS"
+    },
+    {
+     "code": "47",
+     "label": "THEOLOGY"
+    },
+    {
+     "code": "48",
+     "label": "VETERINARY MEDICINE"
+    },
+    {
+     "code": "49",
+     "label": "LIBERAL ARTS"
+    },
+    {
+     "code": "50",
+     "label": "OTHER"
+    },
+    {
+     "code": "51",
+     "label": "GENERAL SCIENCES"
+    },
+    {
+     "code": "52",
+     "label": "SOCIAL WORK"
+    },
+    {
+     "code": "53",
+     "label": "GENERAL STUDIES"
+    },
+    {
+     "code": "54",
+     "label": "OTHER VOCATIONAL"
+    },
+    {
+     "code": "55",
+     "label": "HEALTH"
+    },
+    {
+     "code": "56",
+     "label": "INDUSTRIAL RELATIONS"
+    },
+    {
+     "code": "57",
+     "label": "CHILD/HUMAN/FAMILY DEVELOPMENT"
+    },
+    {
+     "code": "58",
+     "label": "FOOD SCIENCE/NUTRITION/CULINARY ARTS"
+    },
+    {
+     "code": "59",
+     "label": "ENVIRONMENTAL SCIENCE/ECOLOGY"
+    },
+    {
+     "code": "60",
+     "label": "SOCIAL SCIENCES"
+    },
+    {
+     "code": "61",
+     "label": "HUMAN SERVICES/HUMAN RESOURCES"
+    },
+    {
+     "code": "62",
+     "label": "VISUAL ARTS/GRAPHIC DESIGN/DESIGN AND DRAFTING"
+    },
+    {
+     "code": "63",
+     "label": "FINE ARTS"
+    },
+    {
+     "code": "64",
+     "label": "HUMANITIES"
+    },
+    {
+     "code": "65",
+     "label": "ETHNIC STUDIES"
+    },
+    {
+     "code": "66",
+     "label": "EDUCATIONAL ADMINISTRATION"
+    },
+    {
+     "code": "67",
+     "label": "TELEVISION/FILM"
+    },
+    {
+     "code": "68",
+     "label": "AVIATION/AERONATICS"
+    },
+    {
+     "code": "70",
+     "label": "CRIMINOLOGY/CRIMINAL JUSTICE"
+    },
+    {
+     "code": "71",
+     "label": "ADMINISTRATIVE SCIENCE/PUBLIC ADMINISTRATION"
+    },
+    {
+     "code": "72",
+     "label": "ELECTRONICS"
+    },
+    {
+     "code": "73",
+     "label": "URBAN AND REGIONAL PLANNING"
+    },
+    {
+     "code": "74",
+     "label": "MECHANICS/MACHINE TRADE"
+    },
+    {
+     "code": "76",
+     "label": "GERONTOLOGY"
+    },
+    {
+     "code": "77",
+     "label": "PUBLIC RELATIONS"
+    },
+    {
+     "code": "78",
+     "label": "TEXTILES/CLOTH"
+    },
+    {
+     "code": "79",
+     "label": "PARKS AND RECREATION"
+    },
+    {
+     "code": "80",
+     "label": "INFORMATION TECHNOLOGY"
+    },
+    {
+     "code": "81",
+     "label": "FASHION"
+    },
+    {
+     "code": "82",
+     "label": "COUNSELING"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "major2": {
+   "variable": "major2",
+   "type": "Numeric",
+   "page": 158,
+   "label": "What was your major or field of study when you received your (RESPONDENT'S COLLEGE DEGREE) degree? [IF THE RESPONDENT RECEIVED MORE THAN ONE GRADUATE LEVEL DEGREE, ASK ABOUT THE HIGHEST DEGREE OBTAINED (E.G. ABOUT A Ph.D. RATHER THAN AN M.B.A).",
+   "notes": "",
+   "codes": [
+    {
+     "code": "1",
+     "label": "ACCOUNTING/BOOKKEEPING"
+    },
+    {
+     "code": "2",
+     "label": "ADVERTISING"
+    },
+    {
+     "code": "3",
+     "label": "AGRICULTURE/HORTICULTURE"
+    },
+    {
+     "code": "5",
+     "label": "ANTHROPOLOGY"
+    },
+    {
+     "code": "6",
+     "label": "ARCHITECTURE"
+    },
+    {
+     "code": "7",
+     "label": "ART"
+    },
+    {
+     "code": "8",
+     "label": "BIOLOGY"
+    },
+    {
+     "code": "9",
+     "label": "BUSINESS ADMINISTRATION"
+    },
+    {
+     "code": "11",
+     "label": "CHEMISTRY"
+    },
+    {
+     "code": "12",
+     "label": "COMMUNICATIONS/SPEECH"
+    },
+    {
+     "code": "14",
+     "label": "COMPUTER SCIENCE"
+    },
+    {
+     "code": "15",
+     "label": "DENTISTRY"
+    },
+    {
+     "code": "16",
+     "label": "EDUCATION"
+    },
+    {
+     "code": "17",
+     "label": "ECONOMICS"
+    },
+    {
+     "code": "18",
+     "label": "ENGINEERING"
+    },
+    {
+     "code": "19",
+     "label": "ENGLISH"
+    },
+    {
+     "code": "20",
+     "label": "FINANCE"
+    },
+    {
+     "code": "21",
+     "label": "FOREIGN LANGUAGE"
+    },
+    {
+     "code": "22",
+     "label": "FORESTRY"
+    },
+    {
+     "code": "24",
+     "label": "GEOLOGY"
+    },
+    {
+     "code": "25",
+     "label": "HISTORY"
+    },
+    {
+     "code": "26",
+     "label": "HOME ECONOMICS"
+    },
+    {
+     "code": "27",
+     "label": "INDUSTRY & TECHNOLOGY"
+    },
+    {
+     "code": "28",
+     "label": "JOURNALISM"
+    },
+    {
+     "code": "29",
+     "label": "LAW"
+    },
+    {
+     "code": "31",
+     "label": "LIBRARY SCIENCE"
+    },
+    {
+     "code": "32",
+     "label": "MARKETING"
+    },
+    {
+     "code": "33",
+     "label": "MATHEMATICS"
+    },
+    {
+     "code": "34",
+     "label": "MEDICINE"
+    },
+    {
+     "code": "35",
+     "label": "MUSIC"
+    },
+    {
+     "code": "36",
+     "label": "NURSING"
+    },
+    {
+     "code": "38",
+     "label": "PHARMACY"
+    },
+    {
+     "code": "39",
+     "label": "PHILOSOPHY"
+    },
+    {
+     "code": "40",
+     "label": "PHYSICAL EDUCATION"
+    },
+    {
+     "code": "41",
+     "label": "PHYSICS"
+    },
+    {
+     "code": "42",
+     "label": "PSYCHOLOGY"
+    },
+    {
+     "code": "43",
+     "label": "POLITICAL SCIENCE/INTERNATIONAL RELATIONS"
+    },
+    {
+     "code": "44",
+     "label": "SOCIOLOGY"
+    },
+    {
+     "code": "45",
+     "label": "SPECIAL EDUCATION"
+    },
+    {
+     "code": "46",
+     "label": "THEATER ARTS"
+    },
+    {
+     "code": "47",
+     "label": "THEOLOGY"
+    },
+    {
+     "code": "49",
+     "label": "LIBERAL ARTS"
+    },
+    {
+     "code": "50",
+     "label": "OTHER"
+    },
+    {
+     "code": "51",
+     "label": "GENERAL SCIENCES"
+    },
+    {
+     "code": "52",
+     "label": "SOCIAL WORK"
+    },
+    {
+     "code": "53",
+     "label": "GENERAL STUDIES"
+    },
+    {
+     "code": "54",
+     "label": "OTHER VOCATIONAL"
+    },
+    {
+     "code": "55",
+     "label": "HEALTH"
+    },
+    {
+     "code": "57",
+     "label": "CHILD/HUMAN/FAMILY DEVELOPMENT"
+    },
+    {
+     "code": "58",
+     "label": "FOOD SCIENCE/NUTRITION/CULINARY ARTS"
+    },
+    {
+     "code": "59",
+     "label": "ENVIRONMENTAL SCIENCE/ECOLOGY"
+    },
+    {
+     "code": "60",
+     "label": "SOCIAL SCIENCES"
+    },
+    {
+     "code": "61",
+     "label": "HUMAN SERVICES/HUMAN RESOURCES"
+    },
+    {
+     "code": "62",
+     "label": "VISUAL ARTS/GRAPHIC DESIGN/DESIGN AND DRAFTING"
+    },
+    {
+     "code": "65",
+     "label": "ETHNIC STUDIES"
+    },
+    {
+     "code": "67",
+     "label": "TELEVISION/FILM"
+    },
+    {
+     "code": "68",
+     "label": "AVIATION/AERONATICS"
+    },
+    {
+     "code": "69",
+     "label": "STATISTICS/BIOSTATISTICS"
+    },
+    {
+     "code": "70",
+     "label": "CRIMINOLOGY/CRIMINAL JUSTICE"
+    },
+    {
+     "code": "71",
+     "label": "ADMINISTRATIVE SCIENCE/PUBLIC ADMINISTRATION"
+    },
+    {
+     "code": "76",
+     "label": "GERONTOLOGY"
+    },
+    {
+     "code": "77",
+     "label": "PUBLIC RELATIONS"
+    },
+    {
+     "code": "80",
+     "label": "INFORMATION TECHNOLOGY"
+    },
+    {
+     "code": "82",
+     "label": "COUNSELING"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "relig": {
+   "variable": "relig",
+   "type": "Numeric",
+   "page": 210,
+   "label": "What is your religious preference? Is it Protestant, Catholic, Jewish, some other religion, or no religion?",
+   "notes": "",
+   "codes": [
+    {
+     "code": "1",
+     "label": "PROTESTANT"
+    },
+    {
+     "code": "2",
+     "label": "CATHOLIC"
+    },
+    {
+     "code": "3",
+     "label": "JEWISH"
+    },
+    {
+     "code": "4",
+     "label": "NONE"
+    },
+    {
+     "code": "5",
+     "label": "OTHER"
+    },
+    {
+     "code": "6",
+     "label": "BUDDHISM"
+    },
+    {
+     "code": "7",
+     "label": "HINDUISM"
+    },
+    {
+     "code": "8",
+     "label": "OTHER EASTERN RELIGIONS"
+    },
+    {
+     "code": "9",
+     "label": "MUSLIM/ISLAM"
+    },
+    {
+     "code": "10",
+     "label": "ORTHODOX-CHRISTIAN"
+    },
+    {
+     "code": "11",
+     "label": "CHRISTIAN"
+    },
+    {
+     "code": "12",
+     "label": "NATIVE AMERICAN"
+    },
+    {
+     "code": "13",
+     "label": "INTER-NONDENOMINATIONAL"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "denom": {
+   "variable": "denom",
+   "type": "Numeric",
+   "page": 210,
+   "label": "IF PROTESTANT:   What specific denomination is that, if any? (PROBE FOR EXACT DENOMINATION)",
+   "notes": "RELIG, punch 5 (Other, SPECIFY), is available from NORC. DENOM, punch 60 recoded into OTHER.",
+   "codes": [
+    {
+     "code": "10",
+     "label": "AMERICAN BAPTIST ASSOCIATION"
+    },
+    {
+     "code": "11",
+     "label": "AMERICAN BAPTIST CHURCHES IN THE U.S.A."
+    },
+    {
+     "code": "12",
+     "label": "NATIONAL BAPTIST CONVENTION U.S.A., INC."
+    },
+    {
+     "code": "13",
+     "label": "NATIONAL BAPTIST CONVENTION OF AMERICA"
+    },
+    {
+     "code": "14",
+     "label": "SOUTHERN BAPTIST CONVENTION"
+    },
+    {
+     "code": "15",
+     "label": "OTHER BAPTIST CHURCHES"
+    },
+    {
+     "code": "18",
+     "label": "BAPTIST, DON'T KNOW WHICH"
+    },
+    {
+     "code": "20",
+     "label": "AFRICAN METHODIST EPISCOPAL CHURCH"
+    },
+    {
+     "code": "21",
+     "label": "AFRICAN METHODIST EPISCOPAL ZION CHURCH"
+    },
+    {
+     "code": "22",
+     "label": "UNITED METHODIST CHURCH"
+    },
+    {
+     "code": "23",
+     "label": "OTHER METHODIST CHURCHES"
+    },
+    {
+     "code": "28",
+     "label": "METHODIST, DON'T KNOW WHICH"
+    },
+    {
+     "code": "30",
+     "label": "AMERICAN LUTHERAN CHURCH"
+    },
+    {
+     "code": "31",
+     "label": "LUTHERAN CHURCH IN AMERICA"
+    },
+    {
+     "code": "32",
+     "label": "LUTHERAN CHURCH - MISSOURI SYNOD"
+    },
+    {
+     "code": "33",
+     "label": "WISCONSIN EVANGELICAL LUTHERAN SYNOD"
+    },
+    {
+     "code": "34",
+     "label": "OTHER LUTHERAN CHURCHES"
+    },
+    {
+     "code": "35",
+     "label": "EVANGELICAL LUTHERAN"
+    },
+    {
+     "code": "38",
+     "label": "LUTHERAN, DON'T KNOW WHICH"
+    },
+    {
+     "code": "40",
+     "label": "PRESBYTERIAN CHURCH IN THE U.S."
+    },
+    {
+     "code": "41",
+     "label": "UNITED PRESBYTERIAN CHURCH IN THE U.S.A."
+    },
+    {
+     "code": "42",
+     "label": "OTHER PRESBYTERIAN CHURCHES"
+    },
+    {
+     "code": "43",
+     "label": "PRESBYTERIAN, MERGED"
+    },
+    {
+     "code": "48",
+     "label": "PRESBYTERIAN, DON'T KNOW WHICH"
+    },
+    {
+     "code": "50",
+     "label": "EPISCOPAL CHURCH"
+    },
+    {
+     "code": "60",
+     "label": "OTHER, SPECIFY"
+    },
+    {
+     "code": "70",
+     "label": "NO DENOMINATION OR NON-DENOMINATIONAL CHURCH"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "other": {
+   "variable": "other",
+   "type": "Numeric",
+   "page": 212,
+   "label": "IF PROTESTANT:   What specific denomination is that, if any?(PROBE FOR EXACT DENOMINATION)",
+   "notes": "",
+   "codes": [
+    {
+     "code": "8",
+     "label": "MORAVIAN"
+    },
+    {
+     "code": "12",
+     "label": "ASSEMBLY OF GOD"
+    },
+    {
+     "code": "14",
+     "label": "APOSTOLIC FAITH"
+    },
+    {
+     "code": "15",
+     "label": "AFRICAN METHODIST"
+    },
+    {
+     "code": "24",
+     "label": "INDEPENDENT"
+    },
+    {
+     "code": "26",
+     "label": "CHRIST IN CHRISTIAN UNION"
+    },
+    {
+     "code": "32",
+     "label": "CHRISTIAN REFORM"
+    },
+    {
+     "code": "35",
+     "label": "CHURCH OF CHRIST"
+    },
+    {
+     "code": "36",
+     "label": "CHURCHES OF GOD (EXCEPT WITH CHRIST AND HOLINESS)"
+    },
+    {
+     "code": "37",
+     "label": "CHURCH OF GOD IN CHRIST"
+    },
+    {
+     "code": "40",
+     "label": "CONGREGATIONALIST, ST CONGREG"
+    },
+    {
+     "code": "44",
+     "label": "DISCIPLES OF CHRIST"
+    },
+    {
+     "code": "45",
+     "label": "EVANGELICAL, EVANGELIST"
+    },
+    {
+     "code": "46",
+     "label": "EVANGELICAL REFORMED"
+    },
+    {
+     "code": "47",
+     "label": "EVANGELIST FREE CHURCH"
+    },
+    {
+     "code": "52",
+     "label": "FULL GOSPEL"
+    },
+    {
+     "code": "58",
+     "label": "JEHOVAHS WITNESSES"
+    },
+    {
+     "code": "64",
+     "label": "MORMON"
+    },
+    {
+     "code": "65",
+     "label": "NAZARENE"
+    },
+    {
+     "code": "66",
+     "label": "PENTECOSTAL ASSEMBLY OF GOD"
+    },
+    {
+     "code": "68",
+     "label": "PENTECOSTAL"
+    },
+    {
+     "code": "70",
+     "label": "QUAKER"
+    },
+    {
+     "code": "71",
+     "label": "REFORMED"
+    },
+    {
+     "code": "74",
+     "label": "RELIGIOUS SCIENCE"
+    },
+    {
+     "code": "77",
+     "label": "7TH DAY ADVENTIST"
+    },
+    {
+     "code": "80",
+     "label": "UNITARIAN, UNIVERSALIST"
+    },
+    {
+     "code": "81",
+     "label": "UNITED CHURCH OF CHRIST"
+    },
+    {
+     "code": "83",
+     "label": "WESLEYAN"
+    },
+    {
+     "code": "90",
+     "label": "HOLINESS CHURCH OF GOD"
+    },
+    {
+     "code": "93",
+     "label": "MISSIONARY BAPTIST"
+    },
+    {
+     "code": "102",
+     "label": "CHARISMATIC"
+    },
+    {
+     "code": "103",
+     "label": "PENTECOSTAL APOSTOLIC"
+    },
+    {
+     "code": "181",
+     "label": "BORN AGAIN"
+    },
+    {
+     "code": "197",
+     "label": "GRACE INDEPENDENT BAPTIST CHURCH"
+    },
+    {
+     "code": "219",
+     "label": "COWBOY CHURCH"
+    },
+    {
+     "code": "220",
+     "label": "PILGRIM CHURCH"
+    },
+    {
+     "code": "221",
+     "label": "GOOD UNITED"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "jew": {
+   "variable": "jew",
+   "type": "Numeric",
+   "page": 213,
+   "label": "IF JEWISH:  Do you consider yourself Orthodox, Conservative, Reform or none of these? (PROBE FOR EXACT DENOMINATION)",
+   "notes": "In 2008, if respondent answered RELIG=3 or OTHJEW= 1 (Yes) or 2 (Half or Part) , then JEW was asked.",
+   "codes": [
+    {
+     "code": "1",
+     "label": "ORTHODOX"
+    },
+    {
+     "code": "2",
+     "label": "CONSERVATIVE"
+    },
+    {
+     "code": "3",
+     "label": "REFORM"
+    },
+    {
+     "code": "4",
+     "label": "NONE OF THESE"
+    },
+    {
+     "code": "5",
+     "label": "OTHER"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "reliten": {
+   "variable": "reliten",
+   "type": "Numeric",
+   "page": 215,
+   "label": "(ASK EVERYONE WITH ANY RELIGIOUS PREFERENCE NAMED IN RELIG) Would you call yourself a strong (PREFERENCE NAMED IN RELIG) or a not very strong (PREFERENCE NAMED IN RELIG)?",
+   "notes": "RELITENV and RELITENNV replace RELITEN in the 2022 GSS Cross-section web mode. This variable shows sensitivity to mode of administration. Research and interpretation done using the data should take extra care to ensure the analysis reflects actual changes in public opinion and is not unduly influenced by the change in data collection methods.",
+   "codes": [
+    {
+     "code": "1",
+     "label": "STRONG"
+    },
+    {
+     "code": "2",
+     "label": "NOT VERY STRONG"
+    },
+    {
+     "code": "3",
+     "label": "SOMEWHAT STRONG"
+    },
+    {
+     "code": "4",
+     "label": "NO RELIGION"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    }
+   ]
+  },
+  "income": {
+   "variable": "income",
+   "type": "Numeric",
+   "page": 173,
+   "label": "In which of these groups did your total family income, from all sources, fall last year before taxes, that is?",
+   "notes": "Showcard D contained responses for Punches 01-12 only. INCOME is coded from the most up-to-date income variable in the given round of the GSS, currently INCOME16. If planning to perform trend analysis with this variable, please consult GSS Methodological 56.",
+   "codes": [
+    {
+     "code": "1",
+     "label": "UNDER $1,000"
+    },
+    {
+     "code": "2",
+     "label": "$1,000 TO $2,999"
+    },
+    {
+     "code": "3",
+     "label": "$3,000 TO $3,999"
+    },
+    {
+     "code": "4",
+     "label": "$4,000 TO $4,999"
+    },
+    {
+     "code": "5",
+     "label": "$5,000 TO $5,999"
+    },
+    {
+     "code": "6",
+     "label": "$6,000 TO $6,999"
+    },
+    {
+     "code": "7",
+     "label": "$7,000 TO $7,999"
+    },
+    {
+     "code": "8",
+     "label": "$8,000 TO $9,999"
+    },
+    {
+     "code": "9",
+     "label": "$10,000 TO $14,999"
+    },
+    {
+     "code": "10",
+     "label": "$15,000 TO $19,999"
+    },
+    {
+     "code": "11",
+     "label": "$20,000 TO $24,999"
+    },
+    {
+     "code": "12",
+     "label": "$25,000 OR MORE"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "R",
+     "label": "REFUSED"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "income16": {
+   "variable": "income16",
+   "type": "Numeric",
+   "page": 176,
+   "label": "In which of these groups did your total family income, from all sources, fall last year? That is, before taxes.",
+   "notes": "Showcard A20 reads: Total income includes interest or dividends, rent, Social Security, other pension, alimony or child support, unemployment compensation, public aid (welfare), armed forces or veteran’s allotment. INCOME16 was most recently updated in 2016.",
+   "codes": [
+    {
+     "code": "1",
+     "label": "UNDER $1,000"
+    },
+    {
+     "code": "2",
+     "label": "$1,000 TO $2,999"
+    },
+    {
+     "code": "3",
+     "label": "$3,000 TO $3,999"
+    },
+    {
+     "code": "4",
+     "label": "$4,000 TO $4,999"
+    },
+    {
+     "code": "5",
+     "label": "$5,000 TO $5,999"
+    },
+    {
+     "code": "6",
+     "label": "$6,000 TO $6,999"
+    },
+    {
+     "code": "7",
+     "label": "$7,000 TO $7,999"
+    },
+    {
+     "code": "8",
+     "label": "$8,000 TO $9,999"
+    },
+    {
+     "code": "9",
+     "label": "$10,000 TO $12,499"
+    },
+    {
+     "code": "10",
+     "label": "$12,500 TO $14,999"
+    },
+    {
+     "code": "11",
+     "label": "$15,000 TO $17,499"
+    },
+    {
+     "code": "12",
+     "label": "$17,500 TO $19,999"
+    },
+    {
+     "code": "13",
+     "label": "$20,000 TO $22,499"
+    },
+    {
+     "code": "14",
+     "label": "$22,500 TO $24,999"
+    },
+    {
+     "code": "15",
+     "label": "$25,000 TO $29,999"
+    },
+    {
+     "code": "16",
+     "label": "$30,000 TO $34,999"
+    },
+    {
+     "code": "17",
+     "label": "$35,000 TO $39,999"
+    },
+    {
+     "code": "18",
+     "label": "$40,000 TO $49,999"
+    },
+    {
+     "code": "19",
+     "label": "$50,000 TO $59,999"
+    },
+    {
+     "code": "20",
+     "label": "$60,000 TO $74,999"
+    },
+    {
+     "code": "21",
+     "label": "$75,000 TO $89,999"
+    },
+    {
+     "code": "22",
+     "label": "$90,000 TO $109,999"
+    },
+    {
+     "code": "23",
+     "label": "$110,000 TO $129,999"
+    },
+    {
+     "code": "24",
+     "label": "$130,000 TO $149,999"
+    },
+    {
+     "code": "25",
+     "label": "$150,000 TO $169,999"
+    },
+    {
+     "code": "26",
+     "label": "$170,000 OR OVER"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "R",
+     "label": "REFUSED"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "uscitzn": {
+   "variable": "uscitzn",
+   "type": "Numeric",
+   "page": 358,
+   "label": "Now we would like to ask you about U.S. citizenship. Are you…",
+   "notes": "RESPONDENT SAYS S/HE IS 'NATURALIZED,' CODE 'A U.S. CITIZEN.' USCITZNV and USCITZNNV replace USCITZN in the 2022 GSS Cross-section web mode. This variable shows sensitivity to mode of administration. Research and interpretation done using the data should take extra care to ensure the analysis reflects actual changes in public opinion and is not unduly influenced by the change in data collection methods.",
+   "codes": [
+    {
+     "code": "1",
+     "label": "A U.S. CITIZEN"
+    },
+    {
+     "code": "2",
+     "label": "NOT A U.S. CITIZEN"
+    },
+    {
+     "code": "3",
+     "label": "A U.S. CITIZEN BORN IN PUERTO RICO, THE U.S. VIRGIN ISLANDS, OR THE NORTHERN MARIANAS ISLANDS"
+    },
+    {
+     "code": "4",
+     "label": "BORN OUTSIDE OF THE U.S. TO PARENTS WHO WERE U.S. CITIZENS AT THAT TIME"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    }
+   ]
+  },
+  "fucitzn": {
+   "variable": "fucitzn",
+   "type": "Numeric",
+   "page": 359,
+   "label": "Are you…",
+   "notes": "FUCITZNV and FUCITZNNV replace FUCITZN in the 2022 GSS Cross-section web mode. This variable shows sensitivity to mode of administration. Research and interpretation done using the data should take extra care to ensure the analysis reflects actual changes in public opinion and is not unduly influenced by the change in data collection methods.",
+   "codes": [
+    {
+     "code": "1",
+     "label": "CURRENTLY APPLYING FOR U.S. CITIZENSHIP"
+    },
+    {
+     "code": "2",
+     "label": "PLANNING TO APPLY FOR U.S. CITIZENSHIP"
+    },
+    {
+     "code": "3",
+     "label": "NOT PLANNING TO APPLY TO U.S. CITIZENSHIP"
+    },
+    {
+     "code": "4",
+     "label": "NOT ELIGIBLE TO BECOME A U.S. CITIZEN"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    }
+   ]
+  },
+  "mnthsusa": {
+   "variable": "mnthsusa",
+   "type": "Numeric",
+   "page": 360,
+   "label": "How long have you lived in the United States? If less than a year, please specify the time in months. If you have lived in the United States for more than one period during your life, what is the total number of years you have lived in the United States?",
+   "notes": "",
+   "codes": [
+    {
+     "code": "1",
+     "label": "1 MONTH"
+    },
+    {
+     "code": "2",
+     "label": "2 MONTHS"
+    },
+    {
+     "code": "3",
+     "label": "3 MONTHS"
+    },
+    {
+     "code": "5",
+     "label": "5 MONTHS"
+    },
+    {
+     "code": "6",
+     "label": "6 MONTHS"
+    },
+    {
+     "code": "7",
+     "label": "7 MONTHS"
+    },
+    {
+     "code": "8",
+     "label": "8 MONTHS"
+    },
+    {
+     "code": "9",
+     "label": "9 MONTHS"
+    },
+    {
+     "code": "10",
+     "label": "10 MONTHS"
+    },
+    {
+     "code": "11",
+     "label": "11 MONTHS"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "yearsusa": {
+   "variable": "yearsusa",
+   "type": "Numeric",
+   "page": 359,
+   "label": "How long have you lived in the United States? If less than a year, please specify the time in months. If you have lived in the United States for more than one period during your life, what is the total number of years you have lived in the United States?",
+   "notes": "",
+   "codes": [
+    {
+     "code": "1",
+     "label": "1-4 YEARS"
+    },
+    {
+     "code": "5",
+     "label": "5-9 YEARS"
+    },
+    {
+     "code": "10",
+     "label": "10-14 YEARS"
+    },
+    {
+     "code": "15",
+     "label": "15-19 YEARS"
+    },
+    {
+     "code": "20",
+     "label": "20-29 YEARS"
+    },
+    {
+     "code": "30",
+     "label": "30-39 YEARS"
+    },
+    {
+     "code": "40",
+     "label": "40-49 YEARS"
+    },
+    {
+     "code": "50",
+     "label": "50 OR MORE YEARS"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "othlang": {
+   "variable": "othlang",
+   "type": "Numeric",
+   "page": 320,
+   "label": "Can you speak a language other than English [Spanish]?",
+   "notes": "For those interviewed in Spanish, they were asked if they spoke a language other than Spanish.",
+   "codes": [
+    {
+     "code": "1",
+     "label": "YES"
+    },
+    {
+     "code": "2",
+     "label": "NO"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "othlang1": {
+   "variable": "othlang1",
+   "type": "Numeric",
+   "page": 320,
+   "label": "What other language(s) do you speak? First response.",
+   "notes": "English was an allowable code for those interviewed in Spanish, see OTHLANG.",
+   "codes": [
+    {
+     "code": "1",
+     "label": "ENGLISH"
+    },
+    {
+     "code": "2",
+     "label": "SPANISH"
+    },
+    {
+     "code": "3",
+     "label": "POLISH"
+    },
+    {
+     "code": "4",
+     "label": "FRENCH"
+    },
+    {
+     "code": "5",
+     "label": "HEBREW"
+    },
+    {
+     "code": "6",
+     "label": "RUSSIAN"
+    },
+    {
+     "code": "7",
+     "label": "TAGALOG"
+    },
+    {
+     "code": "8",
+     "label": "CHINESE"
+    },
+    {
+     "code": "9",
+     "label": "URDU"
+    },
+    {
+     "code": "10",
+     "label": "ITALIAN"
+    },
+    {
+     "code": "11",
+     "label": "ROMANIAN"
+    },
+    {
+     "code": "12",
+     "label": "GERMAN"
+    },
+    {
+     "code": "14",
+     "label": "CHAMORRO"
+    },
+    {
+     "code": "15",
+     "label": "UKRANIAN"
+    },
+    {
+     "code": "16",
+     "label": "HUNGARIAN"
+    },
+    {
+     "code": "17",
+     "label": "TURKISH"
+    },
+    {
+     "code": "19",
+     "label": "KOREAN"
+    },
+    {
+     "code": "20",
+     "label": "NAVAJO"
+    },
+    {
+     "code": "21",
+     "label": "MALAYAM"
+    },
+    {
+     "code": "22",
+     "label": "ARABIC"
+    },
+    {
+     "code": "23",
+     "label": "FARSI/PERSIAN"
+    },
+    {
+     "code": "24",
+     "label": "SERBIAN"
+    },
+    {
+     "code": "25",
+     "label": "LITHUANIAN"
+    },
+    {
+     "code": "28",
+     "label": "GUJARATI"
+    },
+    {
+     "code": "32",
+     "label": "JAPANESE"
+    },
+    {
+     "code": "33",
+     "label": "PORTUGUESE"
+    },
+    {
+     "code": "35",
+     "label": "YIDDISH"
+    },
+    {
+     "code": "36",
+     "label": "CREOLE"
+    },
+    {
+     "code": "37",
+     "label": "VIETNAMESE"
+    },
+    {
+     "code": "38",
+     "label": "NORWEGIAN"
+    },
+    {
+     "code": "40",
+     "label": "LATIN"
+    },
+    {
+     "code": "41",
+     "label": "CZECH"
+    },
+    {
+     "code": "42",
+     "label": "HINDI"
+    },
+    {
+     "code": "44",
+     "label": "SWEDISH"
+    },
+    {
+     "code": "46",
+     "label": "SIGN LANGUAGE"
+    },
+    {
+     "code": "48",
+     "label": "ARMENIAN"
+    },
+    {
+     "code": "50",
+     "label": "DUTCH"
+    },
+    {
+     "code": "54",
+     "label": "GREEK"
+    },
+    {
+     "code": "59",
+     "label": "ASSYRIAN"
+    },
+    {
+     "code": "61",
+     "label": "LAOTIAN"
+    },
+    {
+     "code": "64",
+     "label": "AMHARIC"
+    },
+    {
+     "code": "65",
+     "label": "BENGALI"
+    },
+    {
+     "code": "69",
+     "label": "HMONG"
+    },
+    {
+     "code": "70",
+     "label": "INDONESIAN"
+    },
+    {
+     "code": "71",
+     "label": "SWAHILI"
+    },
+    {
+     "code": "72",
+     "label": "TELUGU"
+    },
+    {
+     "code": "77",
+     "label": "PUNJABI"
+    },
+    {
+     "code": "78",
+     "label": "LATVIAN"
+    },
+    {
+     "code": "81",
+     "label": "CROATIAN"
+    },
+    {
+     "code": "85",
+     "label": "MANDINGO"
+    },
+    {
+     "code": "86",
+     "label": "JAMAICAN"
+    },
+    {
+     "code": "91",
+     "label": "UNSPECIFIED ASIAN INDIAN LANGUAGE"
+    },
+    {
+     "code": "99",
+     "label": "TAMIL"
+    },
+    {
+     "code": "112",
+     "label": "TWI"
+    },
+    {
+     "code": "121",
+     "label": "PIMA"
+    },
+    {
+     "code": "127",
+     "label": "NEPALI"
+    },
+    {
+     "code": "129",
+     "label": "MAM"
+    },
+    {
+     "code": "138",
+     "label": "KICHE"
+    },
+    {
+     "code": "145",
+     "label": "LUGANDA"
+    },
+    {
+     "code": "154",
+     "label": "IGBO"
+    },
+    {
+     "code": "177",
+     "label": "ESTONIAN"
+    },
+    {
+     "code": "179",
+     "label": "CHIBEMBA"
+    },
+    {
+     "code": "183",
+     "label": "NUER"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "othlang2": {
+   "variable": "othlang2",
+   "type": "Numeric",
+   "page": 322,
+   "label": "What other language(s) do you speak? Second response.",
+   "notes": "English was an allowable code for those interviewed in Spanish, see OTHLANG.",
+   "codes": [
+    {
+     "code": "1",
+     "label": "ENGLISH"
+    },
+    {
+     "code": "2",
+     "label": "SPANISH"
+    },
+    {
+     "code": "4",
+     "label": "FRENCH"
+    },
+    {
+     "code": "6",
+     "label": "RUSSIAN"
+    },
+    {
+     "code": "7",
+     "label": "TAGALOG"
+    },
+    {
+     "code": "8",
+     "label": "CHINESE"
+    },
+    {
+     "code": "9",
+     "label": "URDU"
+    },
+    {
+     "code": "10",
+     "label": "ITALIAN"
+    },
+    {
+     "code": "12",
+     "label": "GERMAN"
+    },
+    {
+     "code": "16",
+     "label": "HUNGARIAN"
+    },
+    {
+     "code": "17",
+     "label": "TURKISH"
+    },
+    {
+     "code": "19",
+     "label": "KOREAN"
+    },
+    {
+     "code": "21",
+     "label": "MALAYAM"
+    },
+    {
+     "code": "22",
+     "label": "ARABIC"
+    },
+    {
+     "code": "25",
+     "label": "LITHUANIAN"
+    },
+    {
+     "code": "27",
+     "label": "THAI"
+    },
+    {
+     "code": "28",
+     "label": "GUJARATI"
+    },
+    {
+     "code": "32",
+     "label": "JAPANESE"
+    },
+    {
+     "code": "33",
+     "label": "PORTUGUESE"
+    },
+    {
+     "code": "35",
+     "label": "YIDDISH"
+    },
+    {
+     "code": "36",
+     "label": "CREOLE"
+    },
+    {
+     "code": "37",
+     "label": "VIETNAMESE"
+    },
+    {
+     "code": "38",
+     "label": "NORWEGIAN"
+    },
+    {
+     "code": "40",
+     "label": "LATIN"
+    },
+    {
+     "code": "42",
+     "label": "HINDI"
+    },
+    {
+     "code": "44",
+     "label": "SWEDISH"
+    },
+    {
+     "code": "46",
+     "label": "SIGN LANGUAGE"
+    },
+    {
+     "code": "50",
+     "label": "DUTCH"
+    },
+    {
+     "code": "52",
+     "label": "SAMOAN"
+    },
+    {
+     "code": "59",
+     "label": "ASSYRIAN"
+    },
+    {
+     "code": "71",
+     "label": "SWAHILI"
+    },
+    {
+     "code": "72",
+     "label": "TELUGU"
+    },
+    {
+     "code": "73",
+     "label": "KANNADA"
+    },
+    {
+     "code": "76",
+     "label": "BOSNIAN"
+    },
+    {
+     "code": "81",
+     "label": "CROATIAN"
+    },
+    {
+     "code": "88",
+     "label": "OTHER NATIVE AMERICAN LANGUAGE"
+    },
+    {
+     "code": "91",
+     "label": "UNSPECIFIED ASIAN INDIAN LANGUAGE"
+    },
+    {
+     "code": "92",
+     "label": "CEBUANO"
+    },
+    {
+     "code": "99",
+     "label": "TAMIL"
+    },
+    {
+     "code": "138",
+     "label": "KICHE"
+    },
+    {
+     "code": "153",
+     "label": "EWE"
+    },
+    {
+     "code": "154",
+     "label": "IGBO"
+    },
+    {
+     "code": "167",
+     "label": "HAUSA"
+    },
+    {
+     "code": "171",
+     "label": "FIJIAN"
+    },
+    {
+     "code": "180",
+     "label": "CHEWA"
+    },
+    {
+     "code": "181",
+     "label": "GUSII"
+    },
+    {
+     "code": "182",
+     "label": "GUN"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "betrlang": {
+   "variable": "betrlang",
+   "type": "Numeric",
+   "page": 325,
+   "label": "Which language do you speak more fluently?",
+   "notes": "",
+   "codes": [
+    {
+     "code": "1",
+     "label": "FIRST LANGUAGE MENTIONED"
+    },
+    {
+     "code": "2",
+     "label": "SECOND LANGUAGE MENTIONED"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "spklang": {
+   "variable": "spklang",
+   "type": "Numeric",
+   "page": 324,
+   "label": "How well do you speak that language? [IF SPEAKS 2 OR MORE, ASK ONLY OF THE MOST FLUENT LANGUAGE] READ CATEGORIES",
+   "notes": "",
+   "codes": [
+    {
+     "code": "1",
+     "label": "VERY WELL"
+    },
+    {
+     "code": "2",
+     "label": "WELL"
+    },
+    {
+     "code": "3",
+     "label": "NOT WELL"
+    },
+    {
+     "code": "4",
+     "label": "POORLY/HARDLY AT ALL"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "wrkstat": {
+   "variable": "wrkstat",
+   "type": "Numeric",
+   "page": 108,
+   "label": "Last week were you working full time, part time, going to school, keeping house, or what?",
+   "notes": "Card A2 contained responses for punches 1 through 7. Contents of WRKSTAT, punch 8 (Other, SPECIFY) available from NORC.",
+   "codes": [
+    {
+     "code": "1",
+     "label": "WORKING FULL TIME"
+    },
+    {
+     "code": "2",
+     "label": "WORKING PART TIME"
+    },
+    {
+     "code": "3",
+     "label": "WITH A JOB, BUT NOT AT WORK BECAUSE OF TEMPORARY ILLNESS, VACATION, STRIKE"
+    },
+    {
+     "code": "4",
+     "label": "UNEMPLOYED, LAID OFF, LOOKING FOR WORK"
+    },
+    {
+     "code": "5",
+     "label": "RETIRED"
+    },
+    {
+     "code": "6",
+     "label": "IN SCHOOL"
+    },
+    {
+     "code": "7",
+     "label": "KEEPING HOUSE"
+    },
+    {
+     "code": "8",
+     "label": "OTHER"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "evwork": {
+   "variable": "evwork",
+   "type": "Numeric",
+   "page": 110,
+   "label": "IF RETIRED, IN SCHOOL, KEEPING HOUSE, OR OTHER: Did you ever work for as long as one year?",
+   "notes": "Showcard A contained responses for punches 1 through 8.",
+   "codes": [
+    {
+     "code": "1",
+     "label": "YES"
+    },
+    {
+     "code": "2",
+     "label": "NO"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "wrkslffam": {
+   "variable": "wrkslffam",
+   "type": "Numeric",
+   "page": 335,
+   "label": "(Do/did) you work in your own family business or farm?",
+   "notes": "",
+   "codes": [
+    {
+     "code": "1",
+     "label": "YES"
+    },
+    {
+     "code": "2",
+     "label": "NO"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "whatslf2": {
+   "variable": "whatslf2",
+   "type": "Numeric",
+   "page": 503,
+   "label": "How would you classify the place where you (work/worked)? Was this mainly...?",
+   "notes": "",
+   "codes": [
+    {
+     "code": "1",
+     "label": "MANUFACTURING"
+    },
+    {
+     "code": "2",
+     "label": "WHOLESALE TRADE"
+    },
+    {
+     "code": "3",
+     "label": "RETAIL TRADE"
+    },
+    {
+     "code": "4",
+     "label": "OTHER (AGRICULTURE, CONSTRUCTION, SERVICE, GOVERNMENT, ETC.)"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "wrkgovt1": {
+   "variable": "wrkgovt1",
+   "type": "Numeric",
+   "page": 452,
+   "label": "(Are/Were) you employed by the government? (Please consider federal, state, or local government.)",
+   "notes": "",
+   "codes": [
+    {
+     "code": "1",
+     "label": "YES"
+    },
+    {
+     "code": "2",
+     "label": "NO"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "wrkgovt2": {
+   "variable": "wrkgovt2",
+   "type": "Numeric",
+   "page": 453,
+   "label": "(Are/Were) you employed by a private employer (including non-profit organizations)?",
+   "notes": "",
+   "codes": [
+    {
+     "code": "1",
+     "label": "YES"
+    },
+    {
+     "code": "2",
+     "label": "NO"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "numemps": {
+   "variable": "numemps",
+   "type": "Numeric",
+   "page": 334,
+   "label": "Are/were you self-employed or do/did you work for someone else? [If 'Self-employed'] Do/did you have any employees? [If 'Yes'] How many employees do/did you have?",
+   "notes": "If respondents answered 'Self-employed' to the first part but 'No' to the second part, they did not receive the third part of the question.",
+   "codes": [
+    {
+     "code": "0",
+     "label": "0"
+    },
+    {
+     "code": "1",
+     "label": "1-9"
+    },
+    {
+     "code": "10",
+     "label": "10-19"
+    },
+    {
+     "code": "20",
+     "label": "20-29"
+    },
+    {
+     "code": "35",
+     "label": "30-39"
+    },
+    {
+     "code": "40",
+     "label": "40-49"
+    },
+    {
+     "code": "50",
+     "label": "50-59"
+    },
+    {
+     "code": "70",
+     "label": "70-79"
+    },
+    {
+     "code": "80",
+     "label": "80-89"
+    },
+    {
+     "code": "97",
+     "label": "97"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "hrs1": {
+   "variable": "hrs1",
+   "type": "Numeric",
+   "page": 108,
+   "label": "IF WORKING, FULL OR PART TIME: How many hours did you work last week, at all jobs?",
+   "notes": "If planning to perform trend analysis with WRKSTAT, please consult GSS Methodological Report No. 56. The response categories have been collapsed for convenience of display. Responses greater than 89 were coded 89.",
+   "codes": [],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "hrs2": {
+   "variable": "hrs2",
+   "type": "Numeric",
+   "page": 109,
+   "label": "IF WITH A JOB, BUT NOT AT WORK: How many hours a week do you usually work, at all jobs?",
+   "notes": "The response categories have been collapsed for convenience of display. Responses greater than 89 were coded 89.",
+   "codes": [],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "weekswrk": {
+   "variable": "weekswrk",
+   "type": "Numeric",
+   "page": 256,
+   "label": "Now I'd like to ask you about last year. In [the last year] how many weeks did you work either full-time or part-time not counting work around the house--include paid vacations and sick leave?",
+   "notes": "WEEKSWRK is coded in two digits. The collapsed numbers above are for convenience of display only.",
+   "codes": [
+    {
+     "code": "0",
+     "label": "NONE OR ZERO"
+    },
+    {
+     "code": "1",
+     "label": "ONE TO TEN"
+    },
+    {
+     "code": "11",
+     "label": "ELEVEN TO TWENTY"
+    },
+    {
+     "code": "21",
+     "label": "TWENTY-ONE TO THIRTY"
+    },
+    {
+     "code": "31",
+     "label": "THIRSTY-ONE  TO FORTY"
+    },
+    {
+     "code": "41",
+     "label": "FORTY-ONE TO FIFTY"
+    },
+    {
+     "code": "51",
+     "label": "FIFTY ONE+"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "partfull": {
+   "variable": "partfull",
+   "type": "Numeric",
+   "page": 256,
+   "label": "When you worked in [2019/2020], was it usually full or part time?",
+   "notes": "",
+   "codes": [
+    {
+     "code": "1",
+     "label": "FULL-TIME"
+    },
+    {
+     "code": "2",
+     "label": "PART-TIME"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "rincom16": {
+   "variable": "rincom16",
+   "type": "Numeric",
+   "page": 177,
+   "label": "In which of these groups did your earnings from (OCC), from all sources for [the last year] fall? That is, before taxes or other deductions.",
+   "notes": "Showcard A20 reads: Total income includes interest or dividends, rent, Social Security, other pension, alimony or child support, unemployment compensation, public aid (welfare), armed forces or veteran’s allotment RINCOME16 was most recently updated in 2016.",
+   "codes": [
+    {
+     "code": "1",
+     "label": "UNDER $1,000"
+    },
+    {
+     "code": "2",
+     "label": "$1,000 TO $2,999"
+    },
+    {
+     "code": "3",
+     "label": "$3,000 TO $3,999"
+    },
+    {
+     "code": "4",
+     "label": "$4,000 TO $4,999"
+    },
+    {
+     "code": "5",
+     "label": "$5,000 TO $5,999"
+    },
+    {
+     "code": "6",
+     "label": "$6,000 TO $6,999"
+    },
+    {
+     "code": "7",
+     "label": "$7,000 TO $7,999"
+    },
+    {
+     "code": "8",
+     "label": "$8,000 TO $9,999"
+    },
+    {
+     "code": "9",
+     "label": "$10,000 TO $12,499"
+    },
+    {
+     "code": "10",
+     "label": "$12,500 TO $14,999"
+    },
+    {
+     "code": "11",
+     "label": "$15,000 TO $17,499"
+    },
+    {
+     "code": "12",
+     "label": "$17,500 TO $19,999"
+    },
+    {
+     "code": "13",
+     "label": "$20,000 TO $22,499"
+    },
+    {
+     "code": "14",
+     "label": "$22,500 TO $24,999"
+    },
+    {
+     "code": "15",
+     "label": "$25,000 TO $29,999"
+    },
+    {
+     "code": "16",
+     "label": "$30,000 TO $34,999"
+    },
+    {
+     "code": "17",
+     "label": "$35,000 TO $39,999"
+    },
+    {
+     "code": "18",
+     "label": "$40,000 TO $49,999"
+    },
+    {
+     "code": "19",
+     "label": "$50,000 TO $59,999"
+    },
+    {
+     "code": "20",
+     "label": "$60,000 TO $74,999"
+    },
+    {
+     "code": "21",
+     "label": "$75,000 TO $89,999"
+    },
+    {
+     "code": "22",
+     "label": "$90,000 TO $109,999"
+    },
+    {
+     "code": "23",
+     "label": "$110,000 TO $129,999"
+    },
+    {
+     "code": "24",
+     "label": "$130,000 TO $149,999"
+    },
+    {
+     "code": "25",
+     "label": "$150,000 TO $169,999"
+    },
+    {
+     "code": "26",
+     "label": "$170,000 OR OVER"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "R",
+     "label": "REFUSED"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "localnum": {
+   "variable": "localnum",
+   "type": "Numeric",
+   "page": 339,
+   "label": "About how many people work at the location where you work? (Count part-time as well as full-time employees in all areas, departments and buildings.)",
+   "notes": "Card A3 contained responses for punches 1-7.",
+   "codes": [
+    {
+     "code": "1",
+     "label": "1-9"
+    },
+    {
+     "code": "2",
+     "label": "10-49"
+    },
+    {
+     "code": "3",
+     "label": "50-99"
+    },
+    {
+     "code": "4",
+     "label": "100-499"
+    },
+    {
+     "code": "5",
+     "label": "500-999"
+    },
+    {
+     "code": "6",
+     "label": "1,000-1,999"
+    },
+    {
+     "code": "7",
+     "label": "MORE THAN 2,000"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "wksub1": {
+   "variable": "wksub1",
+   "type": "Numeric",
+   "page": 263,
+   "label": "Do you (does your (SPOUSE or PARTNER) have a supervisor on (your/his/her) job to whom you are (he/she/is) directly responsible?",
+   "notes": "",
+   "codes": [
+    {
+     "code": "1",
+     "label": "YES"
+    },
+    {
+     "code": "2",
+     "label": "NO"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "wksubs1": {
+   "variable": "wksubs1",
+   "type": "Numeric",
+   "page": 264,
+   "label": "IF YES: Does that person have a supervisor on the job to whom he is directly responsible?",
+   "notes": "",
+   "codes": [
+    {
+     "code": "3",
+     "label": "YES"
+    },
+    {
+     "code": "4",
+     "label": "NO"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "wksup1": {
+   "variable": "wksup1",
+   "type": "Numeric",
+   "page": 265,
+   "label": "In your (SPOUSE or PARTNER'S) job, (do you/does he/she) supervise anyone who is directly responsible to (you/him/her)?",
+   "notes": "",
+   "codes": [
+    {
+     "code": "1",
+     "label": "YES"
+    },
+    {
+     "code": "2",
+     "label": "NO"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "wksups1": {
+   "variable": "wksups1",
+   "type": "Numeric",
+   "page": 266,
+   "label": "IF YES: Do any of those persons supervise anyone else?",
+   "notes": "",
+   "codes": [
+    {
+     "code": "3",
+     "label": "YES"
+    },
+    {
+     "code": "4",
+     "label": "NO"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "D",
+     "label": "DON'T KNOW"
+    },
+    {
+     "code": "N",
+     "label": "NO ANSWER"
+    },
+    {
+     "code": "I",
+     "label": "NOT APPLICABLE"
+    },
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    }
+   ]
+  },
+  "vetyears": {
+   "variable": "vetyears",
+   "type": "Numeric",
+   "page": 361,
+   "label": "Have you ever been on active duty for military training or service for two consecutive months or more?  IF YES: What was your total time on active duty?",
+   "notes": "",
+   "codes": [
+    {
+     "code": "0",
+     "label": "NO ACTIVE DUTY"
+    },
+    {
+     "code": "1",
+     "label": "YES, LESS THAN 2 YEARS"
+    },
+    {
+     "code": "2",
+     "label": "YES, 2-4 YEARS"
+    },
+    {
+     "code": "3",
+     "label": "YES, MORE THAN 4 YEARS"
+    }
+   ],
+   "reserved": [
+    {
+     "code": "S",
+     "label": "SKIPPED ON WEB"
+    },
+    {
+     "code": "N",
+     "label": "N"
+    }
+   ]
+  }
+ }
+}

@@ -1,11 +1,12 @@
+# From the GSS 2022 codebook. Copyright 2021-2024 NORC; used under its permission notice: see LICENSE.md.
 name: eth3
-title: "3rd mentioned country of origin"
+title: Ancestry, third country
 text: From what countries or part of the world did your ancestors come?
-intent: "Ethnicity, in the GSS Replicating Core: 3rd mentioned country of origin (ETH3)."
+intent: Ancestry, as the GSS Replicating Core measures it (ETH3).
 concept: ethnicity
 responses: ancestry
-source: GSS ETH3, https://gssdataexplorer.norc.org/variables/5266/vshow
-note: "GSS documentation wording: From what countries or part of the world did your ancestors come? D. THIRD ETHNICITY MENTIONED"
+source: GSS ETH3; GSS 2022 codebook (NORC), page 353
+note: "Codebook label: (From what countries or part of the world did your ancestors come?) THIRD ETHNICITY MENTIONED"
 variant_of:
   eth1: the third country mentioned in answer to the same question
   eth2: the third country mentioned, where eth2 is the second

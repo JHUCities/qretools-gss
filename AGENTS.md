@@ -5,17 +5,12 @@ A QREtools workspace holding the GSS Replicating Core's Demographic and Work ite
 
 ## The one rule: it's generated
 
-`questions/`, `scales/`, `universes/`, `concepts/` and `units/` are written by
-`tools/generate.py` from kjhealy/gssrdoc's `gss_doc`. Don't edit those files by hand:
+`questions/`, `scales/`, `universes/`, `concepts/`, `units/` and `missing.yaml` are
+written by `tools/generate.py` from `sources/gss-2022-codebook.json`, which
+`tools/extract.py` writes from the GSS 2022 codebook. Don't edit those files by hand:
 change the `SPEC` (or another table) in `tools/generate.py` and regenerate, so the
-import can always be rerun. `workspace.yaml`, `missing.yaml`, `instruments/`, `README.md`
-and this file are written by hand.
-
-`instruments/replicating_core.yaml` is by hand because the routing isn't in `gss_doc`: it is read from
-each question's `universe`, which the import took from the "IF ..." filter in GSS's
-wording. So a change to a universe is a change to the instrument's conditions too, and
-the two are checked against each other by hand until the universe check exists. Don't
-write a condition there that no question's universe declares.
+import can always be rerun. `workspace.yaml`, `README.md`, `LICENSE.md` and this file
+are written by hand.
 
 ## Open it
 
@@ -34,25 +29,21 @@ write a condition there that no question's universe declares.
 
 ## Versions and the published DDI
 
-- **The workspace's version is its tag.** Instruments read `JHUCities/qretools-gss@v2`;
-  release a new tag (`v2`, …) for any change instruments should see, with the Release
-  workflow (Actions → Release), never by hand: its tag carries each question's DDI version.
+- **The workspace's version is its tag.** Instruments read `JHUCities/qretools-gss@v3`;
+  release a new tag for any change instruments should see, with the Release workflow
+  (Actions → Release), never by hand: its tag carries each question's DDI version.
   Never move or delete a tag.
 - **Each item's version is counted, never written.** `qretools build` counts each file's
   changes along `main`'s history; a question also moves when a shared file it names
   does. Never rewrite `main`'s history: versions would restart.
-- **This workspace's own instrument reads it at a tag too,** never `../` on `main`:
-  `instruments/replicating_core.yaml` uses `gss: JHUCities/qretools-gss@v2`. To change a
-  question it asks, merge the change, release a new tag, then move the instrument to that
-  tag in a second pull request; `qretools instrument export` records the tag's commit
-  under `locked:` in `workspace.yaml`. `qretools build`, and so the check on every pull
-  request, refuses an instrument that reads `../`, a tag with no lock or one that has
-  moved, or one with anything to fill in or fix. `../` is for writing an instrument on a
-  branch.
+- **An instrument added here reads this workspace at a tag,** never `../` on `main`.
+  `qretools build`, and so the check on every pull request, refuses one that reads `../`.
+  Use `../` only to write an instrument on a branch.
 - **On every push to `main`,** `.github/workflows/ddi.yml` runs `build` and deploys
-  `dist/`: the bank's DDI to <https://jhucities.github.io/qretools-gss/ddi.json>, and the
-  instrument's to `instruments/replicating_core.json` beside it. Locally,
-  `qretools build .` writes it to `dist/`, which is gitignored. It builds the last commit; commit first.
+  `dist/`: the DDI to <https://jhucities.github.io/qretools-gss/ddi.json>, with
+  `LICENSE.md` beside it, because the DDI holds NORC's material. Locally,
+  `qretools build .` writes it to `dist/`, which is gitignored. It builds the last
+  commit; commit first.
 
 **What `check` should say:** `0 with something to fill in or fix`, with these known
 findings and nothing else:
@@ -60,57 +51,61 @@ findings and nothing else:
 - one `duplicate-scale` warning pair, `yes_no` against `yes_no_3_4`: GSS codes
   WKSUBS1 and WKSUPS1 yes/no as 3/4, and a scale can't yet be marked alike on purpose.
 
-`qretools instrument check instruments/replicating_core.yaml` should say `0 findings`. It
-is not part of `check .`'s count of files with findings, so run both.
-
 ## Regenerate
 
-```sh
-python3 -m venv .venv && .venv/bin/pip install rdata pandas
-curl -L -o gss_doc.rda https://raw.githubusercontent.com/kjhealy/gssrdoc/main/data/gss_doc.rda
-.venv/bin/python -I -c "import rdata, pickle, sys; d = rdata.conversion.convert(rdata.parser.parse_file(sys.argv[1]), default_encoding='utf8'); pickle.dump(d['gss_doc'], open(sys.argv[2], 'wb'))" gss_doc.rda gss_doc.pkl 2>/dev/null
-rm -rf questions scales universes concepts units
-.venv/bin/python -I tools/generate.py gss_doc.pkl .
-```
+You need Python 3 and the 2022 codebook PDF ("GSS 2022 Codebook.pdf", Release 4, from
+the URL in `tools/extract.py`). Do not commit the PDF.
 
-- **Clear the folders first:** the generator overwrites files but never deletes one, so
-  a renamed or dropped item would linger. That's what the `rm -rf` is for.
-- **`rdata` is noisy:** it prints many `Missing constructor` warnings while converting.
-  They're harmless, and the `2>/dev/null` hides them.
-- **Expected result:** with gssrdoc unchanged, `git status` shows no changes. If
-  gssrdoc has been updated, review the diff before committing; wording and labels can
-  change upstream.
-- **Don't commit the downloads:** `.venv`, `gss_doc.rda` and `gss_doc.pkl` are
-  gitignored.
+1. Make an environment for the extractor:
+   `python3 -m venv .venv && .venv/bin/pip install pypdf`
+2. Extract the entries from the codebook:
+   `.venv/bin/python -I tools/extract.py "<path to GSS 2022 Codebook.pdf>" sources/gss-2022-codebook.json`
+3. Remove the generated folders:
+   `rm -rf questions scales universes concepts units`
+4. Write the workspace:
+   `python3 -I tools/generate.py`
+5. Run `qretools check .`.
+
+- **Step 3 is necessary.** The generator overwrites files, but it does not delete a
+  file. Without step 3, a renamed or dropped item stays.
+- **The generator stops if a text is not in the codebook.** Each text and instruction in
+  `SPEC` must be a span of the codebook's label. If the generator stops, correct the
+  `SPEC` entry. Do not change the JSON by hand.
+- **Expected result:** with the same codebook, `git status` shows no changes. If NORC
+  publishes a new release of the codebook, examine the diff before you commit it.
+- **Do not commit `.venv`:** it is gitignored.
 
 ## Add or change an item
 
-1. **Look it up** in `gss_doc` (`variable` is the lowercase GSS mnemonic):
-   - `question` is the wording;
-   - `value_labels` gives the codes;
-   - `norc_url` is the GSS Data Explorer page.
+1. **Find it** in the 2022 codebook. Add its variable to `VARIABLES` in
+   `tools/extract.py`, then run step 2 above.
 2. **Add a `SPEC` entry** keyed by the question's name, giving its folder, its concept
-   (a key of `CONCEPTS`) and its fields:
-   - `text`: only what's read to the respondent;
+   (a key of `CONCEPTS`), its title (ours) and its fields:
+   - `text`: only what's read to the respondent, a span of the codebook's label, or a
+     tuple of spans in the label's order where routing ("IF YES:") sits between them;
    - `universe`: an "IF …" filter, as a key of `UNIVERSES`;
-   - `instruction`: interviewer directions;
-   - `fills`: GSS's parenthetical substitutions, written `{{name}}` in the text;
+   - `instruction`: interviewer directions, a span of the label;
+   - `fills`: the codebook's stand-ins, written `{{name}}` in the text;
    - `number`: a unit, or `None`, for numeric items;
    - `scale`: a key of `SCALES`, when the list is shared;
    - `variant_of`: why it deliberately resembles another item;
-   - `gss`: the mnemonic, when `gss_doc` spells it differently from the 2020 document.
+   - `gss`: the GSS variable, when the question's name differs from it.
 3. **Regenerate**, then `check`.
 
-What's generated without you asking: `title`, `responses`, `source` and the verbatim
-wording in `note`.
+What's generated without you asking: `intent`, `responses`, `source` and the codebook's
+full label and notes in `note`.
 
 ## Rules for content
 
-- **Every value has a source.** Wording, codes and labels come from `gss_doc`, or from
-  a GSS codebook named in `note`. Never invent or paraphrase wording. Where a source
-  has none, leave the item out and say so in `README.md`.
-- **The original stays readable.** `text` may be cut down to what's read aloud, but
-  `note` keeps `gss_doc`'s full wording verbatim.
+- **NORC's material comes only from the 2022 codebook.** Never take wording, codes or
+  labels from NORC's website, the GSS Data Explorer or a package that copies them: the
+  website's terms forbid it. A newer codebook may be added only with its own permission
+  notice, recorded in `LICENSE.md`.
+- **Every file with NORC's material keeps the notice comment** that `tools/generate.py`
+  writes at its top.
+- **Never invent or paraphrase wording.** Where the codebook has none, leave the item out
+  and say so in `README.md`. Titles, intents and concept labels are ours, in our own words.
+- **No counts or percentages.** They come from the data, not the questionnaire.
 - **Only items asked of the respondent.** Recodes, derived variables, geocoded
   variables and interviewer-coded items with no respondent wording stay out. Add each
   exclusion to `README.md`'s "Left out" list.
