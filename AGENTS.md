@@ -29,7 +29,7 @@ The history of `main` replays the GSS, one survey year at a time: 2008, 2010, 20
 - The generator also removes each scale, universe, concept and unit that no question
   of the year uses.
 - The pull request for one year holds only questions. The instrument for that year comes
-  in a later pull request.
+  in the next pull request, after the release of the year's tag.
 
 Tags:
 
@@ -37,6 +37,50 @@ Tags:
 - No tag holds the import from the 2022 codebook. The replay replaced it before a release.
 - From `v3`, each tag holds one year of the replay, in the order of the survey years.
   `v3` holds the questions of 2008.
+
+## The instrument for a year
+
+Each year has one instrument, `instruments/gss_<year>.yaml`, written by hand. It reads the
+year's tag. `instruments/gss_2008.yaml` reads `v3`. `README.md` lists its conditions, its
+inputs, and what the codebook does not settle.
+
+Rules:
+
+- **Write a condition only where the codebook states it, or where the owner settles it
+  from the year's data.** The codebook's sources are the "IF …" filter, a routing note in
+  a response label (such as "(ASK HRS1)"), a remark, or a "Not applicable" label. Put the
+  codebook's page in a comment above the condition.
+- **The owner can settle the routing from the GSS data for the year.** Use the data where
+  the codebook is silent, is unclear, or contradicts itself. A question is asked of a
+  respondent unless the value is "iap".
+  Say in `README.md` what the data settled. Do not write a count, a percentage or another
+  figure from the data in a tracked file: the data is not licensed for publication.
+- **If neither the codebook nor the data gives a condition, ask the question of
+  everyone.** Say so in `README.md`.
+- **Make an input for each value that the workspace does not hold.** This applies to a
+  filter on a question outside the workspace, and to a value that the wording reads aloud.
+- **Ask one question for each set of mentions.** RACECEN2-3, ETH2-3 and OTHLANG2 are more
+  answers to one question. Do not ask them.
+- **Do not ask a question that the codebook says nobody was asked in the year.** An
+  example is RACE from 2002.
+- **Give a universe to each question that not everyone reaches.** Quote the codebook's
+  filter if the condition is only that filter. Otherwise write the universe in our own
+  words. `instrument check` gives a note if it is missing.
+
+To write the instrument for a year:
+
+1. Make sure that the release of the year's tag exists.
+2. Copy the instrument of the previous year to `instruments/gss_<year>.yaml`. For 2008,
+   there is no previous instrument. Start from the codebook.
+3. Change the tag in `uses` to the year's tag.
+4. Ask each question of the year in the order of the codebook's question numbers.
+5. Add the conditions and the inputs. Obey the rules above.
+6. Run `qretools instrument export instruments/gss_<year>.yaml -o <a scratch file>`.
+   The command writes the lock of the tag under `locked:` in `workspace.yaml`.
+7. Run `qretools instrument check instruments/gss_<year>.yaml`. It must give 0 findings.
+8. Run `qretools paths <the scratch file> -o <a scratch page>`. Record the result in
+   `README.md`.
+9. Commit. Then run `qretools build . -o <a scratch folder>`. It must not refuse.
 
 ## Open it
 
@@ -66,10 +110,14 @@ Tags:
   `qretools build`, and so the check on every pull request, refuses one that reads `../`.
   Use `../` only to write an instrument on a branch.
 - **On every push to `main`,** `.github/workflows/ddi.yml` runs `build` and deploys
-  `dist/`: the DDI to <https://jhucities.github.io/qretools-gss/ddi.json>, with
+  `dist/`: the DDI to <https://jhucities.github.io/qretools-gss/ddi.json>, each
+  instrument's DDI to `instruments/` beside it, with
   `LICENSE.md` beside it, because the DDI holds NORC's material. Locally,
   `qretools build .` writes it to `dist/`, which is gitignored. It builds the last
   commit; commit first.
+
+**What `instrument check instruments/gss_2008.yaml` should say:** `0 findings`. `check .`
+also shows the instrument's findings.
 
 **What `check` should say:** `0 with something to fill in or fix`, with these known
 findings and nothing else:
