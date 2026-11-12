@@ -23,7 +23,9 @@ find those columns, and are never written.
 - `directions`: a mechanical list of the runs of words in capitals in the wording. It is
   a convenience only: filters ("IF YES:") and placeholders are capitals too.
 - Group headings between rows ("BAPTIST") are dropped. A label that wraps continues on
-  an indented line.
+  an indented line. A line that ends in "-" or "/" runs on into the next with no space.
+  A number at the end of a continuation line, under a row whose counts are all read, is
+  not part of the label: it is dropped, and it is a problem.
 - Where the remarks say the rows are "collapsed for convenience of display", or a punch
   code is a range ("1-9"), the rows are display bins, not codes: no rows are kept.
 - A row whose counts don't add up to its ALL column has a cell in the wrong column: it
@@ -69,8 +71,8 @@ def space(s):
 
 
 def join(lines):
-    """Lines as one text; a line ending in a dash runs on into the next."""
-    return space("".join(x.strip() + ("" if x.strip().endswith("-") else " ") for x in lines))
+    """Lines as one text; a line ending in a dash or a slash runs on into the next."""
+    return space("".join(x.strip() + ("" if x.strip().endswith(("-", "/")) else " ") for x in lines))
 
 
 def starts_item(s):
@@ -214,6 +216,9 @@ def parse(texts):
                 continue
             if raw[:1].isspace() and cur["rows"] and cur["rows"][-1] and not buf:
                 old = cur["rows"][-1]["label"]
+                if cur["counts"] and cur["counts"][-1][0] == old and re.search(r"\s\d+$", s):
+                    flag(cur, f"a stray number after a label's second line, dropped: {s!r}")
+                    s = re.sub(r"\s\d+$", "", s)
                 cur["rows"][-1]["label"] = join([old, s])
                 if cur["counts"] and cur["counts"][-1][0] == old:  # a row with 14 counts has none
                     cur["counts"][-1] = (cur["rows"][-1]["label"], cur["counts"][-1][1])

@@ -1765,7 +1765,7 @@
     },
     {
      "code": "71",
-     "label": "Administrative Science/Public Administration 0"
+     "label": "Administrative Science/Public Administration"
     },
     {
      "code": "72",
@@ -1830,6 +1830,9 @@
     "2014",
     "2016",
     "2018"
+   ],
+   "problems": [
+    "a stray number after a label's second line, dropped: 'Administration 0'"
    ]
   },
   "major2": {
@@ -2081,7 +2084,7 @@
     },
     {
      "code": "62",
-     "label": "Visual Arts/Graphic Design/ Design and Drafting"
+     "label": "Visual Arts/Graphic Design/Design and Drafting"
     },
     {
      "code": "63",
@@ -2117,7 +2120,7 @@
     },
     {
      "code": "71",
-     "label": "Administrative Science/ Public Administration"
+     "label": "Administrative Science/Public Administration"
     },
     {
      "code": "72",
