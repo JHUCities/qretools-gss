@@ -584,9 +584,9 @@ a double click: a text answer can hold a formula, and a spreadsheet can run it.*
   the codebook says that WTSSPS and WTSSNRPS include its adjustment.
 - The modes: MODE's code "in-person" gives the term `Interview.FaceToFace.CAPIorCAMI`.
   Its code "by phone" gives the term `Interview.Telephone`. The codes "multimode" and
-  "web" have no term yet. Before you make the map of a year, add a term to `DESIGN` in
-  `tools/columns.py` for each mode of that year. Without a term, the respondent gets no
-  mode.
+  "web" have no term yet. If a mode of the year has no term, the tool writes a note on
+  MODE. Then add a term for that mode to `DESIGN` in `tools/columns.py`, and run the
+  tool again. Without a term, the respondent gets no mode.
 - `weighting`: what NORC advises about the weights, word for word, from the GSS 2024
   Codebook, Release 3a, page 40. The codebook's permission notice is in `LICENSE.md`.
 - The digest of the DDI that the map was made from.
