@@ -2,16 +2,21 @@
 
 Usage: python3 -I tools/columns.py <gss.sav> <instrument DDI .json> <year> -o <scratch dir>
 For example:
-  python3 -I tools/columns.py gss7224_r3a.sav v14/instruments/gss_2010.json 2010 -o <scratch dir>
+  python3 -I tools/columns.py gss7224_r3a.sav dist/instruments/gss_2010.json 2010 -o <scratch dir>
 
-<instrument DDI .json> is the instrument's DDI as a release publishes it (or as
-`qretools build` writes it at that release's tag). The tool writes two files:
+<instrument DDI .json> is the instrument's DDI as `qretools build` writes it from `main`
+(or as a release publishes it). The tool writes two files:
 
-- instruments/<instrument>-ddi-gss.columns.json, in this workspace: the column map that
+- maps/<instrument>-ddi-gss.columns.json, in this workspace: the column map that
   `qretools responses` reads. It holds the GSS variable names, the instrument's Variable
-  URNs and the translation of the GSS reserved codes. It holds no data.
+  URNs and the translation of the GSS reserved codes. It says who answered, cites the data
+  file and names the columns of the interview's date. Its `metadata` describes the
+  columns no respondent is asked: the mode of each interview, the sample's phase, the ballot, the
+  form (unless the instrument has it as an input) and every weight that has values in the
+  year, with NORC's advice on the weights in `weighting`. It holds no data.
 - <scratch dir>/<instrument>-<year>.csv: the year's rows of the GSS data, for the mapped
-  columns and the respondent's `id`. It holds data: never commit it or publish it.
+  columns, the metadata columns, the date columns and the respondent's `id`. It holds data: never commit
+  it or publish it.
 
 Each question's GSS variable comes from its `source` ("GSS WRKSTAT; ..."), which the DDI
 carries. An input's GSS variable is in INPUTS. The reserved codes are translated by label:
@@ -56,6 +61,61 @@ NOT_ASKED = -100
 ABSENT = (-70, -80)
 
 SOURCE = re.compile(r"^GSS ([A-Z0-9]+);")
+
+# The map's `source`: the short name of the data, also in the map's file name.
+SOURCE_NAME = "gss"
+
+# Columns no respondent is asked, which the map's `metadata` describes. Labels and codes
+# come from the data. The mode terms are DDI ModeOfCollection notations, by the data's
+# label: NORC says the GSS interviews by telephone, not that it uses CATI. Multimode and
+# web have no term: no 2010 interview is either; add one with the first year that has them.
+SURVEY = {"other": "survey organization"}
+DESIGN = {
+    "mode": {"role": "mode", "unit": "Interviewer",
+             "modes": {"in-person": "Interview.FaceToFace.CAPIorCAMI", "by phone": "Interview.Telephone"}},
+    "phase": {"role": "design", "unit": SURVEY},
+    "ballot": {"role": "design", "unit": SURVEY},
+    "form": {"role": "design", "unit": SURVEY},
+}
+
+# Who answered (a term of the DDI vocabulary DataSourceType), and the data file the tool
+# reads. Both are facts of the data, so the map gives them.
+ANSWERED_BY = "ResearchData.Published"
+CITATION = {
+    "title": "General Social Survey 1972-2024 Cumulative Data, Release 3a (SPSS)",
+    "publisher": "NORC at the University of Chicago",
+    "url": "https://gss.norc.org/get-the-data/spss.html",
+}
+
+# The date of each interview: DATEINTV holds the month and the day as one number (MMDD),
+# and YEAR the year.
+INTERVIEW_DATE = {"column": "dateintv", "form": "MMDD", "year": "year"}
+
+# What NORC advises about its weights. The tool writes every weight the data holds for
+# the year and never chooses one. Quoted from the GSS 2024 Codebook, Release 3a, page 40,
+# under its permission notice (LICENSE.md); the PDF's extra spaces are dropped.
+WEIGHTING = {
+    "advice": (
+        "WTSSPS and WTSSNRPS are the recommended weights of the GSS 1972-2024 Cumulative data file. "
+        "WTSSPS is the recommended weight for analysis conducted from 1972-2024 and is now the default "
+        "weight for the GSS Data Explorer. Both WTSSPS and WTSSNRPS are available for data users for "
+        "2004-2024. For years where WTSSNRPS is available, NORC recommends data users use WTSSNRPS."
+    ),
+    "source": {
+        "title": "GSS 2024 Codebook, Release 3a, page 40",
+        "publisher": "NORC at the University of Chicago",
+        "url": "https://gss.norc.org/content/dam/gss/get-documentation/pdf/codebook/GSS%202024%20Codebook%20R3a.pdf",
+    },
+    "read": "2026-11-12",
+}
+
+
+def is_weight(column, label, labels):
+    """NORC's weights: named WT..., labelled as a weight, and a number (no labelled code).
+
+    OVERSAMP, a coded adjustment that the codebook says WTSSPS and WTSSNRPS include, isn't one.
+    """
+    return column.startswith("wt") and "weight" in label.casefold() and not any(c >= 0 for c in labels)
 
 
 def text(labels):
@@ -168,8 +228,49 @@ def censored(column, labels):
     return ranges
 
 
-def column_map(ddi, digest, labels_by_column):
-    """The column map, and the variables it leaves out with why."""
+def metadata(present, labels_by_column, mapped, kept):
+    """The map's `metadata`: each column in `present` ({column: its label} in the data's
+    order, the columns with values in the year) that DESIGN names or that is a weight,
+    unless the instrument maps it already (as an input).
+
+    kept: the reserved codes (as cells) that the workspace holds as missing values. A
+    coded column keeps them as codes with the data's labels, since the map's shared
+    `values` don't apply to these columns.
+    """
+    entries = []
+    for column, label in present.items():
+        spec = DESIGN.get(column)
+        labels = labels_by_column[column]
+        weight = is_weight(column, label, labels)
+        if column in mapped or (spec is None and not weight):
+            continue
+        entry = {"column": column, "label": label}
+        if weight:
+            entry.update(role="weight", unit=SURVEY, number=True, weight=True)
+        else:
+            entry.update(role=spec["role"], unit=spec["unit"])
+            entry["codes"] = {cell(c): labels[c] for c in sorted(labels) if c >= 0}
+            entry["codes"].update({cell(c): labels[c] for c in sorted(labels, reverse=True) if c < 0 and cell(c) in kept})
+            if "modes" in spec:
+                by_label = {v: k for k, v in entry["codes"].items()}
+                missing = [m for m in spec["modes"] if m not in by_label]
+                if missing:
+                    sys.exit(f"{column}: the data labels no code {', '.join(missing)}.")
+                entry["modes"] = {by_label[m]: term for m, term in spec["modes"].items()}
+        # A weight's reserved codes are no value, or they'd be read as weights. In a coded
+        # column only "iap" and the codes for no data are; another one, as in `columns`,
+        # isn't translated, so it shows as a finding where it occurs.
+        nothing = [c for c in labels if c < 0] if weight else [c for c in labels if c == NOT_ASKED or c in ABSENT]
+        entry["values"] = {cell(c): None for c in sorted(nothing, reverse=True)}
+        entries.append(entry)
+    return entries
+
+
+def column_map(ddi, digest, labels_by_column, present):
+    """The column map, and the variables it leaves out with why.
+
+    present: {column: label} of the data's columns with values in the year, for `metadata`.
+    """
     columns, without = plan(ddi)
     letters = missing_letters(ddi)
     entries = []
@@ -196,12 +297,23 @@ def column_map(ddi, digest, labels_by_column):
             if other:
                 print(f"note: {column}: the data labels {len(other)} codes that `{name(variable)}` doesn't hold: {', '.join(other)}", file=sys.stderr)
     values = reserved_values(letters, {c: labels_by_column[c] for _, c, f in columns if f is None})
-    return {
+    the_map = {
+        "source": SOURCE_NAME,
         "ddi": digest,
+        "answered_by": ANSWERED_BY,
+        "citation": CITATION,
         "respondent": "id",
         "values": values,
         "columns": entries,
-    }, without
+    }
+    kept = {code for code, letter in values.items() if letter is not None}
+    extra = metadata(present, labels_by_column, {c for _, c, _ in columns} | {"id"}, kept)
+    if extra:
+        the_map["metadata"] = extra
+    if any(m.get("weight") for m in extra):
+        the_map["weighting"] = WEIGHTING
+    the_map["interview_date"] = INTERVIEW_DATE
+    return the_map, without
 
 
 def main(argv):
@@ -216,27 +328,41 @@ def main(argv):
     instrument = next(iter(ddi["Instrument"].values()))["ID"].removeprefix("instrument-")
     _, meta = pyreadstat.read_sav(sav, metadataonly=True, user_missing=True)
     labels_by_column = {n.lower(): meta.variable_value_labels.get(n, {}) for n in meta.column_names}
-    if "id" not in labels_by_column or "year" not in labels_by_column:
-        sys.exit("The data has no `id` or `year` column.")
-    the_map, without = column_map(ddi, "sha256:" + hashlib.sha256(raw).hexdigest(), labels_by_column)
+    if not {"id", "year", INTERVIEW_DATE["column"]} <= labels_by_column.keys():
+        sys.exit(f"The data has no `id`, `year` or `{INTERVIEW_DATE['column']}` column.")
+    by_lower = {n.lower(): n for n in meta.column_names}
+    column_labels = {n.lower(): label or "" for n, label in zip(meta.column_names, meta.column_labels)}
+
+    def rows_of(names):
+        data, _ = pyreadstat.read_sav(sav, usecols=[by_lower[n] for n in dict.fromkeys(["year", *names])], user_missing=True)
+        data.columns = [c.lower() for c in data.columns]
+        rows = data[data["year"] == int(year)]
+        if rows.empty:
+            sys.exit(f"The data has no rows for {year}.")
+        return rows
+
+    candidates = [n for n in column_labels if n in DESIGN or is_weight(n, column_labels[n], labels_by_column[n])]
+    held = rows_of(candidates)
+    present = {n: column_labels[n] for n in candidates if not held[n].isin(ABSENT).all()}
+    for n in DESIGN:
+        if n not in present:
+            print(f"note: {n}: the data has no values for it in {year}, so the map leaves it out", file=sys.stderr)
+    the_map, without = column_map(ddi, "sha256:" + hashlib.sha256(raw).hexdigest(), labels_by_column, present)
     for n, reason in without:
         print(f"not mapped: {n}: {reason}", file=sys.stderr)
 
-    by_lower = {n.lower(): n for n in meta.column_names}
     # A filtered column's data isn't read, so it isn't written either.
     names = ["id"] + [c["column"] for c in the_map["columns"] if not c.get("filtered")]
-    data, _ = pyreadstat.read_sav(sav, usecols=[by_lower["year"]] + [by_lower[n] for n in names], user_missing=True)
-    data.columns = [c.lower() for c in data.columns]
-    rows = data[data["year"] == int(year)]
-    if rows.empty:
-        sys.exit(f"The data has no rows for {year}.")
+    names += [m["column"] for m in the_map.get("metadata", [])]
+    names += [INTERVIEW_DATE["column"], INTERVIEW_DATE["year"]]
+    rows = rows_of(names)
     if not rows["id"].is_unique:
         sys.exit(f"`id` isn't unique in {year}.")
-    for c in names[1:]:
+    for c in [c["column"] for c in the_map["columns"] if not c.get("filtered")] + [INTERVIEW_DATE["column"]]:
         if rows[c].isin(ABSENT).all():
             sys.exit(f"{c}: the data has no values for it in {year}; does the instrument ask it then?")
 
-    map_path = os.path.join(ROOT, "instruments", f"{instrument}-ddi-gss.columns.json")
+    map_path = os.path.join(ROOT, "maps", f"{instrument}-ddi-{SOURCE_NAME}.columns.json")
     with open(map_path, "w", encoding="utf-8") as f:
         f.write(json.dumps(the_map, indent=2, ensure_ascii=False) + "\n")
     os.makedirs(out, exist_ok=True)

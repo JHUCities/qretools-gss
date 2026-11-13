@@ -1,0 +1,397 @@
+{
+  "source": "gss",
+  "ddi": "sha256:e0ba949c17ca98ec9716c87fe279a5e009af1e5b0e01931721f16b2c7a56c0fd",
+  "answered_by": "ResearchData.Published",
+  "citation": {
+    "title": "General Social Survey 1972-2024 Cumulative Data, Release 3a (SPSS)",
+    "publisher": "NORC at the University of Chicago",
+    "url": "https://gss.norc.org/get-the-data/spss.html"
+  },
+  "respondent": "id",
+  "values": {
+    "-90": "R",
+    "-97": "S",
+    "-98": "D",
+    "-99": "N",
+    "-100": null
+  },
+  "columns": [
+    {
+      "column": "wrkslf",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-self_employed:4"
+    },
+    {
+      "column": "born",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-born_in_us:4"
+    },
+    {
+      "column": "wrkstat",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-wrkstat:4"
+    },
+    {
+      "column": "hrs1",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-hrs1:4",
+      "censored": {
+        "89": "89+ hours"
+      }
+    },
+    {
+      "column": "hrs2",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-hrs2:4",
+      "censored": {
+        "89": "89+ hours"
+      }
+    },
+    {
+      "column": "evwork",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-evwork:4"
+    },
+    {
+      "column": "wrkgovt",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-wrkgovt:4"
+    },
+    {
+      "column": "marital",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-marital:4"
+    },
+    {
+      "column": "divorce",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-divorced:4"
+    },
+    {
+      "column": "widowed",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-widowed:4"
+    },
+    {
+      "column": "sibs",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-sibs:4",
+      "censored": {
+        "6": "6 or more"
+      }
+    },
+    {
+      "column": "childs",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-childs:4",
+      "censored": {
+        "8": "8 or more"
+      }
+    },
+    {
+      "column": "agekdbrn",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-agekdbrn:4",
+      "censored": {
+        "17": "17 and younger",
+        "45": "45 and older"
+      }
+    },
+    {
+      "column": "income06",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-income06:4"
+    },
+    {
+      "column": "rincom06",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-rincom06:4"
+    },
+    {
+      "column": "relig",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-relig:4"
+    },
+    {
+      "column": "denom",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-denom:4",
+      "filtered": true
+    },
+    {
+      "column": "jew",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-jew:4"
+    },
+    {
+      "column": "reliten",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-reliten:4"
+    },
+    {
+      "column": "weekswrk",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-weekswrk:4"
+    },
+    {
+      "column": "partfull",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-partfull:4"
+    },
+    {
+      "column": "othlang",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-othlang:4"
+    },
+    {
+      "column": "othlang1",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-othlang1:4"
+    },
+    {
+      "column": "spklang",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-spklang:4"
+    },
+    {
+      "column": "betrlang",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-betrlang:4"
+    },
+    {
+      "column": "numemps",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-numemps:4",
+      "filtered": true
+    },
+    {
+      "column": "localnum",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-localnum:4"
+    },
+    {
+      "column": "eth1",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-eth1:4"
+    },
+    {
+      "column": "hispanic",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-hispanic:4"
+    },
+    {
+      "column": "racecen1",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-racecen1:4"
+    },
+    {
+      "column": "uscitzn",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-uscitzn:4"
+    },
+    {
+      "column": "fucitzn",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-fucitzn:4"
+    },
+    {
+      "column": "vetyears",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-vetyears:4"
+    }
+  ],
+  "metadata": [
+    {
+      "column": "form",
+      "label": "Form of split questionnaire asked",
+      "role": "design",
+      "unit": {
+        "other": "survey organization"
+      },
+      "codes": {
+        "1": "standard <x>",
+        "2": "alternate <y>",
+        "3": "alternate <z>",
+        "-90": "refused",
+        "-97": "skipped on web",
+        "-98": "don't know",
+        "-99": "no answer"
+      },
+      "values": {
+        "-70": null,
+        "-80": null,
+        "-100": null
+      }
+    },
+    {
+      "column": "mode",
+      "label": "Interview done in-person or over the phone",
+      "role": "mode",
+      "unit": "Interviewer",
+      "codes": {
+        "1": "in-person",
+        "2": "by phone",
+        "3": "multimode",
+        "4": "web",
+        "-90": "refused",
+        "-97": "skipped on web",
+        "-98": "don't know",
+        "-99": "no answer"
+      },
+      "modes": {
+        "1": "Interview.FaceToFace.CAPIorCAMI",
+        "2": "Interview.Telephone"
+      },
+      "values": {
+        "-70": null,
+        "-80": null,
+        "-100": null
+      }
+    },
+    {
+      "column": "ballot",
+      "label": "Ballot used for interview",
+      "role": "design",
+      "unit": {
+        "other": "survey organization"
+      },
+      "codes": {
+        "1": "ballot a",
+        "2": "ballot b",
+        "3": "ballot c",
+        "4": "ballot d",
+        "-90": "refused",
+        "-97": "skipped on web",
+        "-98": "don't know",
+        "-99": "no answer"
+      },
+      "values": {
+        "-70": null,
+        "-80": null,
+        "-100": null
+      }
+    },
+    {
+      "column": "phase",
+      "label": "Subsampling: two-phase design.",
+      "role": "design",
+      "unit": {
+        "other": "survey organization"
+      },
+      "codes": {
+        "1": "phase one - initial cases",
+        "2": "phase two - sub-sampled cases",
+        "-90": "refused",
+        "-97": "skipped on web",
+        "-98": "don't know",
+        "-99": "no answer"
+      },
+      "values": {
+        "-70": null,
+        "-80": null,
+        "-100": null
+      }
+    },
+    {
+      "column": "wtss",
+      "label": "Weight variable",
+      "role": "weight",
+      "unit": {
+        "other": "survey organization"
+      },
+      "number": true,
+      "weight": true,
+      "values": {
+        "-40": null,
+        "-60": null,
+        "-70": null,
+        "-80": null,
+        "-90": null,
+        "-94": null,
+        "-95": null,
+        "-96": null,
+        "-97": null,
+        "-98": null,
+        "-99": null,
+        "-100": null
+      }
+    },
+    {
+      "column": "wtssnr",
+      "label": "Weight variable",
+      "role": "weight",
+      "unit": {
+        "other": "survey organization"
+      },
+      "number": true,
+      "weight": true,
+      "values": {
+        "-40": null,
+        "-60": null,
+        "-70": null,
+        "-80": null,
+        "-90": null,
+        "-94": null,
+        "-95": null,
+        "-96": null,
+        "-97": null,
+        "-98": null,
+        "-99": null,
+        "-100": null
+      }
+    },
+    {
+      "column": "wtssall",
+      "label": "Weight variable",
+      "role": "weight",
+      "unit": {
+        "other": "survey organization"
+      },
+      "number": true,
+      "weight": true,
+      "values": {
+        "-40": null,
+        "-60": null,
+        "-70": null,
+        "-80": null,
+        "-90": null,
+        "-94": null,
+        "-95": null,
+        "-96": null,
+        "-97": null,
+        "-98": null,
+        "-99": null,
+        "-100": null
+      }
+    },
+    {
+      "column": "wtssps",
+      "label": "Person post-stratification weight",
+      "role": "weight",
+      "unit": {
+        "other": "survey organization"
+      },
+      "number": true,
+      "weight": true,
+      "values": {
+        "-40": null,
+        "-60": null,
+        "-70": null,
+        "-80": null,
+        "-90": null,
+        "-94": null,
+        "-95": null,
+        "-96": null,
+        "-97": null,
+        "-98": null,
+        "-99": null,
+        "-100": null
+      }
+    },
+    {
+      "column": "wtssnrps",
+      "label": "Person post-stratification weight, nonrespondents adjusted",
+      "role": "weight",
+      "unit": {
+        "other": "survey organization"
+      },
+      "number": true,
+      "weight": true,
+      "values": {
+        "-40": null,
+        "-60": null,
+        "-70": null,
+        "-80": null,
+        "-90": null,
+        "-94": null,
+        "-95": null,
+        "-96": null,
+        "-97": null,
+        "-98": null,
+        "-99": null,
+        "-100": null
+      }
+    }
+  ],
+  "weighting": {
+    "advice": "WTSSPS and WTSSNRPS are the recommended weights of the GSS 1972-2024 Cumulative data file. WTSSPS is the recommended weight for analysis conducted from 1972-2024 and is now the default weight for the GSS Data Explorer. Both WTSSPS and WTSSNRPS are available for data users for 2004-2024. For years where WTSSNRPS is available, NORC recommends data users use WTSSNRPS.",
+    "source": {
+      "title": "GSS 2024 Codebook, Release 3a, page 40",
+      "publisher": "NORC at the University of Chicago",
+      "url": "https://gss.norc.org/content/dam/gss/get-documentation/pdf/codebook/GSS%202024%20Codebook%20R3a.pdf"
+    },
+    "read": "2026-11-12"
+  },
+  "interview_date": {
+    "column": "dateintv",
+    "form": "MMDD",
+    "year": "year"
+  }
+}

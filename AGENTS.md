@@ -139,16 +139,18 @@ To write the instrument for a year:
   Use `../` only to write an instrument on a branch.
 - **On every push to `main`,** `.github/workflows/ddi.yml` runs `build` and deploys
   `dist/`: the DDI to <https://jhucities.github.io/qretools-gss/ddi.json>, and for each
-  instrument its DDI, its Qualtrics survey and its QSF column map to `instruments/`
-  beside it, with `LICENSE.md`, because these files hold NORC's material. Locally,
-  `qretools build .` writes it to `dist/`, which is gitignored. It builds the last
-  commit; commit first.
+  instrument its DDI and its Qualtrics survey to `instruments/`, with a copy of each
+  column map in `maps/` beside them, and `LICENSE.md`, because these files hold NORC's
+  material. Locally, `qretools build .` writes it to `dist/`, which is gitignored. It
+  builds the last commit; commit first.
 
-- **The GSS column map is written by `tools/columns.py`.** Do not edit
-  `instruments/gss_2010-ddi-gss.columns.json` by hand. It holds the digest of the
-  instrument's DDI in one release. If a release changes that DDI, run the tool again
-  with the DDI of that release (`README.md`, "The GSS data and the column map"). Do not
-  commit the GSS data, the CSV that the tool writes, or the answers.
+- **`maps/` holds only column maps.** `tools/columns.py` writes the GSS map,
+  `maps/gss_2010-ddi-gss.columns.json`. Do not edit a map that a tool writes. A map holds the digest of the DDI that it was
+  made from. If a change to an instrument changes its DDI, merge that change first. Then
+  make the GSS map again from the DDI that `qretools build` writes from `main`, in a
+  second pull request. Until then, `build` gives a `build-map-ddi` warning. Do not make
+  the Qualtrics map of a fielded survey again. Do not commit the GSS data, the CSV that
+  the tool writes, or a dataset (`README.md`, "The GSS data and the column map").
 
 **What `instrument check instruments/gss_2008.yaml` should say:** `0 findings`. `check .`
 also shows the instrument's findings.

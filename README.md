@@ -389,7 +389,7 @@ Measured with QREtools 2.0.0-alpha.9: `qretools instrument check` gives 0 findin
 
 ## The GSS data and the column map
 
-`instruments/gss_2010-ddi-gss.columns.json` is the column map of the 2010 instrument for
+`maps/gss_2010-ddi-gss.columns.json` is the column map of the 2010 instrument for
 the GSS data. With it, `qretools responses` reads the 2010 rows of the GSS data into
 answers to the instrument's DDI variables, as it reads a Qualtrics export with the QSF
 column map. Thus, NORC's answers and the answers of a Qualtrics survey are answers to one
@@ -453,7 +453,7 @@ To read the 2010 data, do these steps:
    or a label of a number that the tool cannot read as a range or as the number.
 6. Run `git status`. If the map changed, examine the diff.
 7. Read the answers, with QREtools 2.0.0-alpha.10 or later:
-   `qretools responses <folder>/gss_2010-2010.csv --map instruments/gss_2010-ddi-gss.columns.json --ddi <gss_2010.json> -o <folder>/answers.csv`
+   `qretools responses <folder>/gss_2010-2010.csv --map maps/gss_2010-ddi-gss.columns.json --ddi <gss_2010.json> -o <folder>/answers.csv`
 8. **Caution: do not write the answers into this repository or into `dist/`.**
 
 The tests of the tool use no data: `python3 -I -m unittest discover -s tools`.
