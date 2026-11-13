@@ -145,7 +145,8 @@ To write the instrument for a year:
   builds the last commit; commit first.
 
 - **`maps/` holds only column maps.** `tools/columns.py` writes the GSS map,
-  `maps/gss_2010-ddi-gss.columns.json`. Do not edit a map that a tool writes. A map holds the digest of the DDI that it was
+  `maps/gss_2010-ddi-gss.columns.json`. `tools/qsf-columns.sh` writes the Qualtrics
+  map of a fielded survey, `maps/<instrument>-ddi-qsf.columns.json`. Do not edit a map that a tool writes. A map holds the digest of the DDI that it was
   made from. If a change to an instrument changes its DDI, merge that change first. Then
   make the GSS map again from the DDI that `qretools build` writes from `main`, in a
   second pull request. Until then, `build` gives a `build-map-ddi` warning. Do not make
