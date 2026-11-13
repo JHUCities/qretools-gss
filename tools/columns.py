@@ -266,6 +266,15 @@ def metadata(present, labels_by_column, mapped, kept):
     return entries
 
 
+def untermed_modes(entry, held):
+    """The labels of a mode column's codes that have values (`held`, as cells) and no
+    term: such a respondent gets no mode. Reserved codes are not modes."""
+    if "modes" not in entry:
+        return []
+    return [label for code, label in entry["codes"].items()
+            if code in held and code not in entry["modes"] and not code.startswith("-")]
+
+
 def column_map(ddi, digest, labels_by_column, present):
     """The column map, and the variables it leaves out with why.
 
@@ -361,12 +370,9 @@ def main(argv):
     for c in [c["column"] for c in the_map["columns"] if not c.get("filtered")] + [INTERVIEW_DATE["column"]]:
         if rows[c].isin(ABSENT).all():
             sys.exit(f"{c}: the data has no values for it in {year}; does the instrument ask it then?")
-    # A mode that a respondent has, with no term in DESIGN, gives that respondent no mode.
     for m in the_map.get("metadata", []):
-        held = set(rows[m["column"]].map(cell)) if "modes" in m else set()
-        for code, label in m["codes"].items():
-            if code in held and code not in m["modes"] and not code.startswith("-"):
-                print(f"note: {m['column']}: \"{label}\" has values in {year} and no mode term in DESIGN", file=sys.stderr)
+        for label in untermed_modes(m, set(rows[m["column"]].map(cell))):
+            print(f"note: {m['column']}: \"{label}\" has values in {year} and no mode term in DESIGN", file=sys.stderr)
 
     map_path = os.path.join(ROOT, "maps", f"{instrument}-ddi-{SOURCE_NAME}.columns.json")
     with open(map_path, "w", encoding="utf-8") as f:

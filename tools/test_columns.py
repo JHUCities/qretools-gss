@@ -146,6 +146,12 @@ class ColumnMap(unittest.TestCase):
         with self.assertRaises(SystemExit):
             columns.column_map(DDI, "sha256:0", {**LABELS, "mode": {1.0: "in-person", **RESERVED}}, {"mode": "Mode"})
 
+    def test_untermed_modes(self):
+        entry = {"codes": {"1": "in-person", "2": "by phone", "3": "web", "-100": "iap"},
+                 "modes": {"1": "Interview.FaceToFace.CAPIorCAMI", "2": "Interview.Telephone"}}
+        self.assertEqual(columns.untermed_modes(entry, {"1", "3", "-100", ""}), ["web"])
+        self.assertEqual(columns.untermed_modes({"codes": {"1": "one"}}, {"1"}), [])
+
     def test_cell(self):
         self.assertEqual([columns.cell(v) for v in (40.0, -100.0, 1.5, float("nan"))], ["40", "-100", "1.5", ""])
 
