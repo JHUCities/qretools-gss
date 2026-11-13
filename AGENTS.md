@@ -43,20 +43,23 @@ Tags:
   2010. `v6` adds the instrument for 2010, and changes the instrument for 2008 to read
   `v5`. `v7` removes the notice comment from each file, and corrects PARTFULL in the
   instrument for 2008. `v8` holds the questions of 2012. `v9` adds the instrument for
-  2012, and changes the instruments for 2008 and 2010 to read `v8`.
+  2012, and changes the instruments for 2008 and 2010 to read `v8`. `v12` adds a maximum to
+  each number question. `v13` changes the instruments for 2008, 2010 and 2012 to read
+  `v12`.
 
 ## The instrument for a year
 
 Each year has one instrument, `instruments/gss_<year>.yaml`, written by hand. It reads the
 year's tag, or a later tag. `instruments/gss_2008.yaml`, `instruments/gss_2010.yaml` and
-`instruments/gss_2012.yaml` read `v8`. `README.md` lists their conditions, their inputs,
+`instruments/gss_2012.yaml` read `v12`. `README.md` lists their conditions, their inputs,
 and what the codebook does not settle.
 
 In the pull request for the next instrument, examine each earlier instrument:
 
 1. Run `git diff <its tag> <the latest tag> -- <each question and shared file it names>`.
 2. If no question that it asks changes in substance, change the instrument to read the
-   latest tag. A removed notice comment is not a change in substance.
+   latest tag. A removed notice comment is not a change in substance. A new maximum on a
+   number question is a correction, not a change in substance (owner, 2026-11-12).
 3. If a question that it asks, or a shared file that it names, changes in substance, keep
    the instrument on its tag.
 4. If the latest tag removes or replaces a question that it asks, change the instrument
@@ -136,16 +139,19 @@ To write the instrument for a year:
   Use `../` only to write an instrument on a branch.
 - **On every push to `main`,** `.github/workflows/ddi.yml` runs `build` and deploys
   `dist/`: the DDI to <https://jhucities.github.io/qretools-gss/ddi.json>, and for each
-  instrument its DDI, its Qualtrics survey and its QSF column map to `instruments/`
-  beside it, with `LICENSE.md`, because these files hold NORC's material. Locally,
-  `qretools build .` writes it to `dist/`, which is gitignored. It builds the last
-  commit; commit first.
+  instrument its DDI and its Qualtrics survey to `instruments/`, with a copy of each
+  column map in `maps/` beside them, and `LICENSE.md`, because these files hold NORC's
+  material. Locally, `qretools build .` writes it to `dist/`, which is gitignored. It
+  builds the last commit; commit first.
 
-- **The GSS column map is written by `tools/columns.py`.** Do not edit
-  `instruments/gss_2010-ddi-gss.columns.json` by hand. It holds the digest of the
-  instrument's DDI in one release. If a release changes that DDI, run the tool again
-  with the DDI of that release (`README.md`, "The GSS data and the column map"). Do not
-  commit the GSS data, the CSV that the tool writes, or the answers.
+- **`maps/` holds only column maps.** `tools/columns.py` writes the GSS map,
+  `maps/gss_2010-ddi-gss.columns.json`. `tools/qsf-columns.sh` writes the Qualtrics
+  map of a fielded survey, `maps/<instrument>-ddi-qsf.columns.json`. Do not edit a map that a tool writes. A map holds the digest of the DDI that it was
+  made from. If a change to an instrument changes its DDI, merge that change first. Then
+  make the GSS map again from the DDI that `qretools build` writes from `main`, in a
+  second pull request. Until then, `build` gives a `build-map-ddi` warning. Do not make
+  the Qualtrics map of a fielded survey again. Do not commit the GSS data, the CSV that
+  the tool writes, or a dataset (`README.md`, "Maps and datasets").
 
 **What `instrument check instruments/gss_2008.yaml` should say:** `0 findings`. `check .`
 also shows the instrument's findings.
@@ -232,7 +238,7 @@ cumulative codebook stay in `sources/`, because some of them hold counts.
 - **Only substantive codes go in `responses`.** The cumulative codebook shows punch
   codes (0 for "Not applicable", 8 or 98 for "Don't know"), and the released data
   shows negative codes for the same values. `missing.yaml` keeps the 2022 codebook's
-  letters. A later GSS column map translates the codes of each source.
+  letters. The GSS column map in `maps/` translates the codes of the data.
 - **Only items asked of the respondent.** Recodes, derived variables, geocoded
   variables and interviewer-coded items with no respondent wording stay out. Add each
   exclusion to `README.md`'s "Left out" list.
