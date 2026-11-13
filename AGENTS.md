@@ -151,7 +151,7 @@ To write the instrument for a year:
   make the GSS map again from the DDI that `qretools build` writes from `main`, in a
   second pull request. Until then, `build` gives a `build-map-ddi` warning. Do not make
   the Qualtrics map of a fielded survey again. Do not commit the GSS data, the CSV that
-  the tool writes, or a dataset (`README.md`, "The GSS data and the column map").
+  the tool writes, or a dataset (`README.md`, "Maps and datasets").
 
 **What `instrument check instruments/gss_2008.yaml` should say:** `0 findings`. `check .`
 also shows the instrument's findings.
@@ -238,7 +238,7 @@ cumulative codebook stay in `sources/`, because some of them hold counts.
 - **Only substantive codes go in `responses`.** The cumulative codebook shows punch
   codes (0 for "Not applicable", 8 or 98 for "Don't know"), and the released data
   shows negative codes for the same values. `missing.yaml` keeps the 2022 codebook's
-  letters. A later GSS column map translates the codes of each source.
+  letters. The GSS column map in `maps/` translates the codes of the data.
 - **Only items asked of the respondent.** Recodes, derived variables, geocoded
   variables and interviewer-coded items with no respondent wording stay out. Add each
   exclusion to `README.md`'s "Left out" list.

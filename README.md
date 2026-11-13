@@ -56,8 +56,8 @@ only to find the years a question was asked.
 **Codes.** Each source codes missing values its own way: the cumulative codebook with
 punch codes (0 for "Not applicable", 8 or 98 for "Don't know", 9 or 99 for "No
 answer"), the released data with negative codes, and the 2022 codebook with letters.
-`missing.yaml` keeps the letters. Translating each source's codes to them is the job of a
-later GSS column map, not of this workspace.
+`missing.yaml` keeps the letters. The GSS column map in `maps/` translates the data's
+codes to them (see "Maps and datasets").
 
 One name here differs from the GSS variable: `divorced` is GSS `DIVORCE`. (From 2018,
 `wrkselffam` is `WRKSLFFAM` and `yrsusa` is `YEARSUSA`.) Each question's `source` names the GSS variable.
@@ -68,8 +68,8 @@ One name here differs from the GSS variable: `divorced` is GSS `DIVORCE`. (From 
 
 Every push to `main` publishes the workspace's DDI at
 <https://jhucities.github.io/qretools-gss/ddi.json>. Beside it, in `instruments/`, it
-publishes three files for each instrument: its DDI (`gss_2008.json`), its Qualtrics
-survey (`gss_2008.qsf`) and its QSF column map (`gss_2008-ddi-qsf.columns.json`).
+publishes the DDI of each instrument (`gss_2008.json`), its Qualtrics survey
+(`gss_2008.qsf`), and a copy of each column map in `maps/` (see "Maps and datasets").
 
 Each release is also published in a folder named for its tag, and it stays there: for
 example <https://jhucities.github.io/qretools-gss/v3/ddi.json> holds the questions of
@@ -387,17 +387,169 @@ Measured with QREtools 2.0.0-alpha.9: `qretools instrument check` gives 0 findin
 `qretools paths` counts 23,040 ways through the routing, 15 to 30 questions on each
 (median 23). Each of the 34 questions asked is reachable.
 
-## The GSS data and the column map
+## Maps and datasets
 
-`maps/gss_2010-ddi-gss.columns.json` is the column map of the 2010 instrument for
-the GSS data. With it, `qretools responses` reads the 2010 rows of the GSS data into
-answers to the instrument's DDI variables, as it reads a Qualtrics export with the QSF
-column map. Thus, NORC's answers and the answers of a Qualtrics survey are answers to one
-DDI, by the same Variable URNs. The map holds no data: only GSS variable names, the
-instrument's Variable URNs and the translation of the reserved codes.
-`tools/columns.py` writes the map, and converts the data to CSV for it.
+A column map tells `qretools responses` which DDI variable each column of a data file
+records. With a map, `qretools responses` reads NORC's GSS data and the export of a
+Qualtrics survey into one form: a dataset, with the URN of the DDI variable of each value.
+Thus, NORC's answers and the answers of a Qualtrics survey are answers to one DDI.
 
-**What the map holds.**
+### The folders `maps/` and `tools/`
+
+- `maps/` holds only column maps. A map has the name
+  `<instrument>-ddi-<source>.columns.json`. Its `source` field gives the same source.
+- `maps/gss_2010-ddi-gss.columns.json` is the map of the 2010 instrument for the GSS
+  data. `tools/columns.py` writes it.
+- `maps/<instrument>-ddi-qsf.columns.json` is the map of a fielded Qualtrics survey.
+  `tools/qsf-columns.sh` writes it.
+- Do not edit a map that a script writes. Change the script, then run it again.
+- `qretools build` copies each map to `dist/instruments/`, beside the DDI of its
+  instrument. It does not make a map. If a map was made from a different DDI, `build`
+  gives a `build-map-ddi` warning, and copies the map.
+- A map holds no answers. A dataset holds the answers, so a dataset never goes into this
+  repository.
+
+**Caution: do not commit the GSS data, a CSV that `tools/columns.py` writes, a Qualtrics
+export, a dataset, or a CSV view of a dataset. They hold answers. The GSS data is not
+licensed for publication.**
+
+### The scripts
+
+**`tools/columns.py`** writes the GSS map.
+
+- It reads the GSS cumulative data file (`gss7224_r3a.sav`) and the DDI of one
+  instrument.
+- It writes `maps/<instrument>-ddi-gss.columns.json`. It also writes the year's rows of
+  the data to `<folder>/<instrument>-<year>.csv`, in the folder that `-o` names.
+- Run it again when the DDI of the instrument changes, and when NORC publishes a new
+  release of the data file.
+- Commit the map. Do not commit the CSV: it holds the GSS data.
+- It prints the names of variables and codes. It never prints a value or a count.
+- Its tests use no data: `python3 -I -m unittest discover -s tools`.
+
+**`tools/qsf-columns.sh`** writes the Qualtrics map of a survey from a release.
+
+- It reads the instrument at a release tag of this repository. It needs git.
+- It writes `maps/<instrument>-ddi-qsf.columns.json`.
+- It runs `qretools qsf-map` with the version of QREtools that the tag's `mise.toml`
+  pins, through `npx`. That version made the release, so it makes the same DDI.
+- Run it one time for each fielded survey. Do not run it again for the same survey. If
+  the map exists, the script stops.
+- Commit the map.
+
+### Put a survey in Qualtrics
+
+1. Find the release that holds the instrument, for example `v15`.
+2. Record the tag of the release.
+3. Download the survey of the instrument from the release, for example
+   <https://jhucities.github.io/qretools-gss/v15/instruments/gss_2010.qsf>.
+4. Import the QSF file into Qualtrics.
+5. Field the survey.
+
+The survey holds the URN of its instrument and the digest of its DDI, in `qretools_*`
+fields. Each response in the export holds these fields.
+
+### Make the Qualtrics map
+
+Do this procedure after you field the survey.
+
+1. Run `tools/qsf-columns.sh <instrument> <tag>`, for example
+   `tools/qsf-columns.sh gss_2010 v15`. Use the tag that you recorded.
+2. Read each `qsf-unmapped` warning. The map has no column for the item that the warning
+   names.
+3. Commit `maps/<instrument>-ddi-qsf.columns.json`.
+
+If the release was made before QREtools 2.0.0-alpha.12, the script cannot read its tag.
+Then make the map from the DDI of the release:
+
+1. Download the DDI of the instrument from the release, for example
+   <https://jhucities.github.io/qretools-gss/v14/instruments/gss_2010.json>.
+2. Run `qretools qsf-map <the DDI> -o maps/`. This map does not record the release.
+3. Commit the map.
+
+If you do not know the release of the survey, make the map from an export of the survey
+and a DDI of the instrument:
+
+1. Run `qretools qsf-map --export <export.csv> --ddi <instrument DDI .json> -o maps/`.
+2. Read each `qsf-map-matched` finding. It tells how the command matched a question of the
+   export to a question of the DDI.
+3. If a match is wrong, correct the map.
+4. Read each `qsf-map-absent` warning.
+5. Commit the map.
+
+### Make the GSS map
+
+**Caution: put the data file and the CSV outside this repository. Do not commit them.**
+
+1. Get the GSS cumulative data file in SPSS format (release 3a, `gss7224_r3a.sav`).
+2. Make an environment with pyreadstat:
+   `python3 -m venv .venv && .venv/bin/pip install pyreadstat`
+3. Check out `main`. Then run `qretools build . -o dist`.
+4. Run the tool:
+   `.venv/bin/python -I tools/columns.py <gss7224_r3a.sav> dist/instruments/gss_2010.json 2010 -o <folder>`
+5. Read the lines that the tool writes. Each line names a variable that the map leaves
+   out or marks `filtered`, codes that the data labels and the workspace does not hold,
+   or a label of a number that the tool cannot read as a range or as the number.
+6. Run `git status`. If the map changed, examine the diff.
+7. Commit the map.
+
+### Change an instrument
+
+The DDI of an instrument gets its version and its date from the history of `main`. Thus,
+the new DDI of a changed instrument exists only after the merge. Use two pull requests.
+
+1. Merge the change to the instrument. After the merge, `build` gives a `build-map-ddi`
+   warning for the GSS map, because the map holds the digest of the old DDI.
+2. Do the procedure "Make the GSS map" on `main`.
+3. Merge the new GSS map in a second pull request.
+
+Do not make the Qualtrics map of a fielded survey again. That map names the release of the
+survey that you fielded. If you have not fielded the survey, no Qualtrics map exists yet.
+
+### Make a dataset
+
+`qretools responses` makes a dataset from the data and its map. The dataset holds each
+answer, the time of each interview, the metadata columns of the map, and the provenance.
+
+**Caution: write the dataset outside this repository. It holds the answers.**
+
+To make a dataset of the GSS data:
+
+1. Do the procedure "Make the GSS map". Keep `dist/` and the CSV.
+2. Run `qretools responses <folder>/gss_2010-2010.csv --map maps/gss_2010-ddi-gss.columns.json --ddi dist/instruments/gss_2010.json -o <folder>/gss2010.json`.
+   Use only letters, digits, `-` and `_` in the name of the dataset file.
+3. Read the findings. Each finding names a column, never a value.
+4. Run the command again. It must say `unchanged`.
+
+The map gives the facts of the collection, so the command needs no other option: who
+answered, the citation of the data file, the date of each interview, the mode of each
+interview and the weights.
+
+To make a dataset of a Qualtrics export:
+
+1. Export the responses from Qualtrics (QREtools' README, "Export from Qualtrics").
+2. Run `qretools responses <export.csv> --map maps/gss_2010-ddi-qsf.columns.json -o <folder>/qualtrics.json`.
+   The command gets the DDI from the release that the map records.
+3. If the command asks for `--answered-by`, add it. Real responses need it.
+
+### Export a view
+
+`qretools dataset export` writes a view of a dataset. Give it the DDI that the dataset was
+made from.
+
+- `--csv` writes the answers as long CSV, for analysis tools.
+- `--provenance` writes the dataset without its answers.
+
+This workspace declares no access levels. Thus, do not give `--access`.
+
+**Caution: do not publish a CSV view of real data. Publish only the provenance view.
+Open a CSV view as data (in R, Python or the import of a spreadsheet). Do not open it with
+a double click: a text answer can hold a formula, and a spreadsheet can run it.**
+
+1. Run `qretools dataset export <folder>/gss2010.json --provenance --ddi dist/instruments/gss_2010.json -o <folder>/gss2010-provenance.json`.
+2. Run `qretools dataset export <folder>/gss2010.json --csv --ddi dist/instruments/gss_2010.json -o <folder>/gss2010.csv`.
+
+### What the GSS map holds
 
 - Each question that the 2010 instrument asks, by its GSS variable (from its `source`).
   DENOM and NUMEMPS are marked `filtered` (below).
@@ -412,8 +564,30 @@ instrument's Variable URNs and the translation of the reserved codes.
 - The top and bottom codes of the questions that are numbers (below), marked `censored`.
   The tool reads them from the data's value labels ("6 or more", "17 and younger", "89+").
   It writes a note for a label that it cannot read as a range or as the number.
-- The digest of the instrument's DDI in release `v14`. If a later release changes the
-  instrument's DDI, write the map again from that release's DDI.
+- Who answered (`answered_by`): `ResearchData.Published`, a term of the DDI vocabulary
+  DataSourceType. The answers come from a published data file.
+- The citation of the data file (`citation`).
+- The date of each interview (`interview_date`): DATEINTV holds the month and the day, and
+  YEAR holds the year. If a cell of DATEINTV is a reserved code, that respondent gets no
+  date, and `qretools responses` gives one `responses-date` warning.
+- The columns that no respondent is asked, in `metadata`: MODE (the mode of each
+  interview), PHASE (the phase of the sample), BALLOT and FORM (the version of the
+  questionnaire), and the weights. The tool writes each weight that has values in the
+  year: for 2010, WTSS, WTSSNR, WTSSALL, WTSSPS and WTSSNRPS. It does not choose a weight.
+  Their labels and codes are the data's. In a weight, each reserved code is no value.
+  OVERSAMP and FORMWT are not in the map: the codebook says that WTSSPS and WTSSNRPS
+  include their adjustments, and FORMWT has no values in 2010.
+- The modes: MODE's codes "in-person" and "by phone" give the terms
+  `Interview.FaceToFace.CAPIorCAMI` and `Interview.Telephone`. The codes "multimode" and
+  "web" have no term, because no 2010 interview has these modes. Before you make the map
+  of a year with such interviews, add their terms to `DESIGN` in `tools/columns.py`.
+  Without a term, such a respondent gets no mode.
+- `weighting`: what NORC advises about the weights, word for word, from the GSS 2024
+  Codebook, Release 3a, page 40. The codebook's permission notice is in `LICENSE.md`.
+- The digest of the DDI that the map was made from.
+
+The map does not give the variance strata and units (VSTRAT and VPSU). Thus, a dataset
+from the map does not support estimates of variance for the complex sample design.
 
 **Where the data and the workspace disagree.** The map does not hide these.
 `qretools responses` writes a note for each of them, and no error.
@@ -433,30 +607,7 @@ instrument's Variable URNs and the translation of the reserved codes.
   top or bottom code: their remarks say only that the categories are collapsed for
   display. These caps are the data release's.
 - **Inputs and reserved codes.** The data gives "no answer" and "don't know" for BORN and
-  WRKSLF. An input accepts the workspace's missing values in a DDI built with QREtools
-  2.0.0-alpha.10 or later, as release `v10` is. In a DDI built with an earlier QREtools,
-  these values are findings.
-
-To read the 2010 data, do these steps:
-
-1. Get the GSS cumulative data file in SPSS format (release 3a, `gss7224_r3a.sav`). Put it
-   outside this repository. **Caution: do not commit the data or publish it. It is not
-   licensed for publication.**
-2. Make an environment with pyreadstat:
-   `python3 -m venv .venv && .venv/bin/pip install pyreadstat`
-3. Download the instrument's DDI of release `v14`:
-   <https://jhucities.github.io/qretools-gss/v14/instruments/gss_2010.json>.
-4. Write the map and the CSV. Use a folder outside this repository for the CSV:
-   `.venv/bin/python -I tools/columns.py <gss7224_r3a.sav> <gss_2010.json> 2010 -o <folder>`
-5. Read the lines that the tool writes. Each line names a variable that the map leaves
-   out or marks `filtered`, codes that the data labels and the workspace does not hold,
-   or a label of a number that the tool cannot read as a range or as the number.
-6. Run `git status`. If the map changed, examine the diff.
-7. Read the answers, with QREtools 2.0.0-alpha.10 or later:
-   `qretools responses <folder>/gss_2010-2010.csv --map maps/gss_2010-ddi-gss.columns.json --ddi <gss_2010.json> -o <folder>/answers.csv`
-8. **Caution: do not write the answers into this repository or into `dist/`.**
-
-The tests of the tool use no data: `python3 -I -m unittest discover -s tools`.
+  WRKSLF. An input accepts the workspace's missing values, so these values are read.
 
 ## Universes we wrote
 
