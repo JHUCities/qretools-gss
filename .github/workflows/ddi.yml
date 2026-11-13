@@ -5,8 +5,8 @@
 # mise.toml pins. A tag listed in .github/pages-skip (one tag on a line) is not
 # published. A tag whose mise.toml pins no qretools isn't a workspace release, and is not
 # published either. If a build fails, nothing is deployed and the site stays as it was:
-# correct the cause, or list the tag in .github/pages-skip. A LICENSE file at the root
-# of the built commit goes with its build.
+# correct the cause, or list the tag in .github/pages-skip. Each LICENSE file and
+# LICENSES folder at the root of the built commit goes with its build.
 # .github/pages-index.mjs then writes an index.html at the root, which lists the files of
 # main and links each release, and an index.html in each release folder, which lists the
 # files of that release. It fails if a link on a page does not resolve.
@@ -64,7 +64,10 @@ jobs:
               echo "::error::$1 didn't build, so nothing was published. Correct the cause, or list $1 in .github/pages-skip."
               exit 1
             fi
-            find . -maxdepth 1 -name 'LICENSE*' -exec cp {} "$2/" \;
+            # The licence notices of this commit, files and folders (LICENSE*, LICENSES).
+            for f in LICENSE*; do
+              if [[ -e $f ]]; then cp -R "$f" "$2/"; fi
+            done
             echo "::endgroup::"
           }
           build main "$site"
