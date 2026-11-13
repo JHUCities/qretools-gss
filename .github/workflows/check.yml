@@ -28,3 +28,7 @@ jobs:
       - run: echo "::add-matcher::.github/qretools-matcher.json"
       - run: qretools check .
       - run: qretools build . -o dist
+      # The index pages, as the DDI workflow writes them (.github/pages-index.mjs fails on a
+      # link that does not resolve). A copy of dist as release v1 also tests a release page.
+      - run: cp -R dist "$RUNNER_TEMP/v1" && mv "$RUNNER_TEMP/v1" dist/
+      - run: node .github/pages-index.mjs dist "$GITHUB_REPOSITORY"
