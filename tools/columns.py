@@ -57,6 +57,9 @@ ABSENT = (-70, -80)
 
 SOURCE = re.compile(r"^GSS ([A-Z0-9]+);")
 
+# The map's `source`: the short name of the data, also in the map's file name.
+SOURCE_NAME = "gss"
+
 
 def text(labels):
     """The English text of a DDI Label or Content list."""
@@ -197,6 +200,7 @@ def column_map(ddi, digest, labels_by_column):
                 print(f"note: {column}: the data labels {len(other)} codes that `{name(variable)}` doesn't hold: {', '.join(other)}", file=sys.stderr)
     values = reserved_values(letters, {c: labels_by_column[c] for _, c, f in columns if f is None})
     return {
+        "source": SOURCE_NAME,
         "ddi": digest,
         "respondent": "id",
         "values": values,
@@ -236,7 +240,7 @@ def main(argv):
         if rows[c].isin(ABSENT).all():
             sys.exit(f"{c}: the data has no values for it in {year}; does the instrument ask it then?")
 
-    map_path = os.path.join(ROOT, "instruments", f"{instrument}-ddi-gss.columns.json")
+    map_path = os.path.join(ROOT, "instruments", f"{instrument}-ddi-{SOURCE_NAME}.columns.json")
     with open(map_path, "w", encoding="utf-8") as f:
         f.write(json.dumps(the_map, indent=2, ensure_ascii=False) + "\n")
     os.makedirs(out, exist_ok=True)

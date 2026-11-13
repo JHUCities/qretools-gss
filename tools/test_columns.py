@@ -57,6 +57,7 @@ class ColumnMap(unittest.TestCase):
         self.assertEqual(
             the_map,
             {
+                "source": "gss",
                 "ddi": "sha256:0",
                 "respondent": "id",
                 # "iap" is no answer, a label the workspace has is its letter, others stay as they are.

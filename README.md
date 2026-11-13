@@ -437,26 +437,96 @@ instrument's Variable URNs and the translation of the reserved codes.
   2.0.0-alpha.10 or later, as release `v10` is. In a DDI built with an earlier QREtools,
   these values are findings.
 
-To read the 2010 data, do these steps:
+The tests of the tool use no data: `python3 -I -m unittest discover -s tools`.
+
+### Read the 2010 data into a run folder
+
+These steps make a run folder of the 2010 data and its provenance. A run folder holds
+the answers, the files they come from, and `run.json`. `qretools provenance` reads the
+folder. It writes `provenance.json`, which says where the answers came from (QREtools'
+README, "The provenance of a dataset"). `provenance.json` holds no answer.
+
+You need a QREtools later than 2.0.0-alpha.11 for the last step. Today no release has
+`qretools provenance`. Use the same QREtools for `qretools responses` and
+`qretools provenance`, because `provenance` reads the data again and compares the
+result with `answers.csv`, byte for byte.
+
+**Caution: do not commit a run folder or publish it. It holds the GSS data, which is not
+licensed for publication. `.gitignore` ignores `runs/`.**
 
 1. Get the GSS cumulative data file in SPSS format (release 3a, `gss7224_r3a.sav`). Put it
-   outside this repository. **Caution: do not commit the data or publish it. It is not
-   licensed for publication.**
+   outside this repository.
 2. Make an environment with pyreadstat:
    `python3 -m venv .venv && .venv/bin/pip install pyreadstat`
-3. Download the instrument's DDI of release `v14`:
+3. Get the instrument's DDI of release `v14`. Download it from
    <https://jhucities.github.io/qretools-gss/v14/instruments/gss_2010.json>.
+   At the commit of `v14`, `qretools build . -o <folder>` with QREtools 2.0.0-alpha.11
+   writes the same file to `<folder>/instruments/gss_2010.json`.
 4. Write the map and the CSV. Use a folder outside this repository for the CSV:
    `.venv/bin/python -I tools/columns.py <gss7224_r3a.sav> <gss_2010.json> 2010 -o <folder>`
 5. Read the lines that the tool writes. Each line names a variable that the map leaves
    out or marks `filtered`, codes that the data labels and the workspace does not hold,
    or a label of a number that the tool cannot read as a range or as the number.
 6. Run `git status`. If the map changed, examine the diff.
-7. Read the answers, with QREtools 2.0.0-alpha.10 or later:
-   `qretools responses <folder>/gss_2010-2010.csv --map instruments/gss_2010-ddi-gss.columns.json --ddi <gss_2010.json> -o <folder>/answers.csv`
-8. **Caution: do not write the answers into this repository or into `dist/`.**
+7. Make the run folder, for example `runs/gss2010-norc/`. Use only letters, digits, `-`
+   and `_` in its name, because the name goes into the ID of each DDI item.
+8. Read the answers into the run folder:
+   `qretools responses <folder>/gss_2010-2010.csv --map instruments/gss_2010-ddi-gss.columns.json --ddi <gss_2010.json> -o runs/gss2010-norc/answers.csv`
+9. Do not run `qretools filter`. This workspace declares no access levels, so no answer
+   is above a level. For the same reason, do not write `access` in `run.json`.
+10. Copy `<gss_2010.json>` to `runs/gss2010-norc/ddi.json`.
+11. Copy `instruments/gss_2010-ddi-gss.columns.json` to `runs/gss2010-norc/`. Keep its
+    name, because the name gives the source, `gss`.
+12. Copy `<folder>/gss_2010-2010.csv` to `runs/gss2010-norc/source.csv`.
+13. Write `runs/gss2010-norc/run.json`, with only the facts that no file in the folder
+    gives:
 
-The tests of the tool use no data: `python3 -I -m unittest discover -s tools`.
+    ```json
+    {
+      "start": "2010-03-15",
+      "end": "2010-08-12",
+      "asked_by": ["Interview.FaceToFace.CAPIorCAMI", "Interview.Telephone"],
+      "answered_by": "ResearchData.Published",
+      "source": {
+        "title": "General Social Survey 1972-2024 Cumulative Data, Release 3a (SPSS)",
+        "publisher": "NORC at the University of Chicago",
+        "url": "https://gss.norc.org/get-the-data/spss.html"
+      }
+    }
+    ```
+
+14. Run `qretools provenance runs/gss2010-norc`.
+15. Run `qretools provenance runs/gss2010-norc` again. It must say `unchanged`.
+16. Run `git status`. It must show no file in `runs/`.
+
+**Where `run.json`'s facts come from.**
+
+- `start` and `end`: the field period of 2010, from NORC's
+  [field period table](https://gss.norc.org/content/dam/gss/get-documentation/pdf/other/GSS%20Response%20Period%20and%20Field%20Period.pdf).
+- `asked_by`: NORC's [FAQ](https://gss.norc.org/faq.html) says that the GSS interviews
+  in person with CAPI, and by telephone when an interview in person is difficult. The
+  FAQ does not say CATI, so the term is `Interview.Telephone`, not
+  `Interview.Telephone.CATI`. The terms are notations of the DDI vocabulary
+  ModeOfCollection. QREtools does not check them, so copy them exactly.
+- `answered_by`: the answers come from a published data release.
+- `source`: the data release that `source.csv` comes from.
+
+A later change adds the weights, the mode of each interview and the phase of the sample
+to the map.
+
+### A run folder of Qualtrics test responses
+
+A Qualtrics export of test responses also makes a run folder. The folder holds the export
+as `source.csv`, the instrument's DDI as `ddi.json`, its QSF column map, and `answers.csv`.
+It does not need `run.json`: `qretools provenance` reads the dates and the kind of
+respondent from the export. The survey must come from a QREtools later than
+2.0.0-alpha.11. The test responses of this repository's 2010 survey (`v13`) are older.
+
+The QSF column map must have `"source": "qsf"`. A map from QREtools 2.0.0-alpha.11 or
+earlier does not have it, and a later `qretools responses` refuses it. Do not rebuild the
+instrument with a later QREtools to get a new map. The new DDI can be different, and each
+response holds the digest of the DDI that its survey was built from. Then
+`qretools responses` refuses each response.
 
 ## Universes we wrote
 

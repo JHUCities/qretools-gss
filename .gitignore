@@ -3,3 +3,4 @@
 *.sav
 __pycache__/
 dist/
+runs/
