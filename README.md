@@ -394,7 +394,8 @@ the GSS data. With it, `qretools responses` reads the 2010 rows of the GSS data 
 answers to the instrument's DDI variables, as it reads a Qualtrics export with the QSF
 column map. Thus, NORC's answers and the answers of a Qualtrics survey are answers to one
 DDI, by the same Variable URNs. The map holds no data: only GSS variable names, the
-instrument's Variable URNs and the translation of the reserved codes.
+instrument's Variable URNs, the translation of the reserved codes, and the names, labels
+and codes of the columns that no respondent is asked.
 `tools/columns.py` writes the map, and converts the data to CSV for it.
 
 **What the map holds.**
@@ -412,6 +413,23 @@ instrument's Variable URNs and the translation of the reserved codes.
 - The top and bottom codes of the questions that are numbers (below), marked `censored`.
   The tool reads them from the data's value labels ("6 or more", "17 and younger", "89+").
   It writes a note for a label that it cannot read as a range or as the number.
+- The columns that no respondent is asked, in `metadata`: MODE (the mode of each
+  interview), PHASE (the phase of the sample), BALLOT and FORM (the version of the
+  questionnaire), and the weights. The tool writes each weight that has values in the
+  year: for 2010, WTSS, WTSSNR, WTSSALL, WTSSPS and WTSSNRPS. It does not choose a weight. Their
+  labels and codes are the data's. The reserved codes that have a letter in
+  `missing.yaml` are codes of MODE, PHASE, BALLOT and FORM, with the data's labels. In a
+  weight, each reserved code is no value. FORM is an input of the 2012 instrument, so the
+  2012 map keeps it in `columns`. OVERSAMP and FORMWT are not in the map: the codebook
+  says that WTSSPS and WTSSNRPS include their adjustments, and FORMWT has no values in
+  2010.
+- MODE's codes "in-person" and "by phone" give the modes `Interview.FaceToFace.CAPIorCAMI`
+  and `Interview.Telephone`. NORC's [FAQ](https://gss.norc.org/faq.html) says that the GSS
+  interviews in person with CAPI, and by telephone when an interview in person is
+  difficult. The FAQ does not say CATI, so the term is `Interview.Telephone`. The codes
+  "multimode" and "web" have no term, because no 2010 interview has these modes.
+- `weighting`: what NORC advises about the weights, word for word, from the GSS 2024
+  Codebook, Release 3a, page 40. The codebook's permission notice is in `LICENSE.md`.
 - The digest of the instrument's DDI in release `v14`. If a later release changes the
   instrument's DDI, write the map again from that release's DDI.
 
@@ -442,14 +460,15 @@ The tests of the tool use no data: `python3 -I -m unittest discover -s tools`.
 ### Read the 2010 data into a run folder
 
 These steps make a run folder of the 2010 data and its provenance. A run folder holds
-the answers, the files they come from, and `run.json`. `qretools provenance` reads the
-folder. It writes `provenance.json`, which says where the answers came from (QREtools'
-README, "The provenance of a dataset"). `provenance.json` holds no answer.
+the answers, the files they come from, and `run.json`. The answers include the mode of
+each interview, the phase, the ballot, the form and the weights. `qretools provenance`
+reads the folder. It writes `provenance.json`, which says where the answers came from
+(QREtools' README, "The provenance of a dataset"). `provenance.json` holds no answer.
 
-You need a QREtools later than 2.0.0-alpha.11 for the last step. Today no release has
-`qretools provenance`. Use the same QREtools for `qretools responses` and
-`qretools provenance`, because `provenance` reads the data again and compares the
-result with `answers.csv`, byte for byte.
+You need a QREtools later than 2.0.0-alpha.11. Today no release reads a map with
+`metadata`, and no release has `qretools provenance`. Use the same QREtools for
+`qretools responses` and `qretools provenance`, because `provenance` reads the data
+again and compares the result with `answers.csv`, byte for byte.
 
 **Caution: do not commit a run folder or publish it. It holds the GSS data, which is not
 licensed for publication. `.gitignore` ignores `runs/`.**
@@ -485,7 +504,6 @@ licensed for publication. `.gitignore` ignores `runs/`.**
     {
       "start": "2010-03-15",
       "end": "2010-08-12",
-      "asked_by": ["Interview.FaceToFace.CAPIorCAMI", "Interview.Telephone"],
       "answered_by": "ResearchData.Published",
       "source": {
         "title": "General Social Survey 1972-2024 Cumulative Data, Release 3a (SPSS)",
@@ -503,16 +521,17 @@ licensed for publication. `.gitignore` ignores `runs/`.**
 
 - `start` and `end`: the field period of 2010, from NORC's
   [field period table](https://gss.norc.org/content/dam/gss/get-documentation/pdf/other/GSS%20Response%20Period%20and%20Field%20Period.pdf).
-- `asked_by`: NORC's [FAQ](https://gss.norc.org/faq.html) says that the GSS interviews
-  in person with CAPI, and by telephone when an interview in person is difficult. The
-  FAQ does not say CATI, so the term is `Interview.Telephone`, not
-  `Interview.Telephone.CATI`. The terms are notations of the DDI vocabulary
-  ModeOfCollection. QREtools does not check them, so copy them exactly.
 - `answered_by`: the answers come from a published data release.
 - `source`: the data release that `source.csv` comes from.
 
-A later change adds the weights, the mode of each interview and the phase of the sample
-to the map.
+`run.json` does not give `asked_by`. The map's MODE column gives the modes, and
+`qretools provenance` refuses `asked_by` when the map has modes.
+
+**Weights.** `provenance.json` describes each weight, and holds NORC's advice about the
+weights. An analysis of `answers.csv` must apply a weight. The researcher chooses the
+weight. Read NORC's current advice in the map's `weighting`. The map does not give the
+variance strata and units (VSTRAT and VPSU), so the run folder does not support
+estimates of variance for the complex sample design.
 
 ### A run folder of Qualtrics test responses
 

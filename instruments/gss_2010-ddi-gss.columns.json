@@ -160,5 +160,227 @@
       "column": "vetyears",
       "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-vetyears:4"
     }
-  ]
+  ],
+  "metadata": [
+    {
+      "column": "form",
+      "label": "Form of split questionnaire asked",
+      "role": "design",
+      "unit": {
+        "other": "survey organization"
+      },
+      "codes": {
+        "1": "standard <x>",
+        "2": "alternate <y>",
+        "3": "alternate <z>",
+        "-90": "refused",
+        "-97": "skipped on web",
+        "-98": "don't know",
+        "-99": "no answer"
+      },
+      "values": {
+        "-70": null,
+        "-80": null,
+        "-100": null
+      }
+    },
+    {
+      "column": "mode",
+      "label": "Interview done in-person or over the phone",
+      "role": "mode",
+      "unit": "Interviewer",
+      "codes": {
+        "1": "in-person",
+        "2": "by phone",
+        "3": "multimode",
+        "4": "web",
+        "-90": "refused",
+        "-97": "skipped on web",
+        "-98": "don't know",
+        "-99": "no answer"
+      },
+      "modes": {
+        "1": "Interview.FaceToFace.CAPIorCAMI",
+        "2": "Interview.Telephone"
+      },
+      "values": {
+        "-70": null,
+        "-80": null,
+        "-100": null
+      }
+    },
+    {
+      "column": "ballot",
+      "label": "Ballot used for interview",
+      "role": "design",
+      "unit": {
+        "other": "survey organization"
+      },
+      "codes": {
+        "1": "ballot a",
+        "2": "ballot b",
+        "3": "ballot c",
+        "4": "ballot d",
+        "-90": "refused",
+        "-97": "skipped on web",
+        "-98": "don't know",
+        "-99": "no answer"
+      },
+      "values": {
+        "-70": null,
+        "-80": null,
+        "-100": null
+      }
+    },
+    {
+      "column": "phase",
+      "label": "Subsampling: two-phase design.",
+      "role": "design",
+      "unit": {
+        "other": "survey organization"
+      },
+      "codes": {
+        "1": "phase one - initial cases",
+        "2": "phase two - sub-sampled cases",
+        "-90": "refused",
+        "-97": "skipped on web",
+        "-98": "don't know",
+        "-99": "no answer"
+      },
+      "values": {
+        "-70": null,
+        "-80": null,
+        "-100": null
+      }
+    },
+    {
+      "column": "wtss",
+      "label": "Weight variable",
+      "role": "weight",
+      "unit": {
+        "other": "survey organization"
+      },
+      "number": true,
+      "weight": true,
+      "values": {
+        "-40": null,
+        "-60": null,
+        "-70": null,
+        "-80": null,
+        "-90": null,
+        "-94": null,
+        "-95": null,
+        "-96": null,
+        "-97": null,
+        "-98": null,
+        "-99": null,
+        "-100": null
+      }
+    },
+    {
+      "column": "wtssnr",
+      "label": "Weight variable",
+      "role": "weight",
+      "unit": {
+        "other": "survey organization"
+      },
+      "number": true,
+      "weight": true,
+      "values": {
+        "-40": null,
+        "-60": null,
+        "-70": null,
+        "-80": null,
+        "-90": null,
+        "-94": null,
+        "-95": null,
+        "-96": null,
+        "-97": null,
+        "-98": null,
+        "-99": null,
+        "-100": null
+      }
+    },
+    {
+      "column": "wtssall",
+      "label": "Weight variable",
+      "role": "weight",
+      "unit": {
+        "other": "survey organization"
+      },
+      "number": true,
+      "weight": true,
+      "values": {
+        "-40": null,
+        "-60": null,
+        "-70": null,
+        "-80": null,
+        "-90": null,
+        "-94": null,
+        "-95": null,
+        "-96": null,
+        "-97": null,
+        "-98": null,
+        "-99": null,
+        "-100": null
+      }
+    },
+    {
+      "column": "wtssps",
+      "label": "Person post-stratification weight",
+      "role": "weight",
+      "unit": {
+        "other": "survey organization"
+      },
+      "number": true,
+      "weight": true,
+      "values": {
+        "-40": null,
+        "-60": null,
+        "-70": null,
+        "-80": null,
+        "-90": null,
+        "-94": null,
+        "-95": null,
+        "-96": null,
+        "-97": null,
+        "-98": null,
+        "-99": null,
+        "-100": null
+      }
+    },
+    {
+      "column": "wtssnrps",
+      "label": "Person post-stratification weight, nonrespondents adjusted",
+      "role": "weight",
+      "unit": {
+        "other": "survey organization"
+      },
+      "number": true,
+      "weight": true,
+      "values": {
+        "-40": null,
+        "-60": null,
+        "-70": null,
+        "-80": null,
+        "-90": null,
+        "-94": null,
+        "-95": null,
+        "-96": null,
+        "-97": null,
+        "-98": null,
+        "-99": null,
+        "-100": null
+      }
+    }
+  ],
+  "weighting": {
+    "advice": "WTSSPS and WTSSNRPS are the recommended weights of the GSS 1972-2024 Cumulative data file. WTSSPS is the recommended weight for analysis conducted from 1972-2024 and is now the default weight for the GSS Data Explorer. Both WTSSPS and WTSSNRPS are available for data users for 2004-2024. For years where WTSSNRPS is available, NORC recommends data users use WTSSNRPS.",
+    "source": {
+      "title": "GSS 2024 Codebook, Release 3a, page 40",
+      "publisher": "NORC at the University of Chicago",
+      "url": "https://gss.norc.org/content/dam/gss/get-documentation/pdf/codebook/GSS%202024%20Codebook%20R3a.pdf"
+    },
+    "read": "2026-11-12"
+  }
 }

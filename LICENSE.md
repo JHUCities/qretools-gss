@@ -3,10 +3,10 @@
 This repository holds two kinds of material, under different terms, and most files mix
 them.
 
-## NORC's material: from two GSS codebooks, under the 2022 codebook's notice
+## NORC's material: from GSS codebooks, under the 2022 codebook's notice
 
 The General Social Survey's material here is NORC's (NORC at the University of
-Chicago). From release `v3` on, all of it comes from two sources:
+Chicago). From release `v3` on, it comes from these sources:
 
 - the [GSS 2022 codebook](https://gss.norc.org/content/dam/gss/get-documentation/pdf/codebook/GSS%202022%20Codebook.pdf)
   (Release 4, November 21, 2024), which carries the notice below;
@@ -14,6 +14,10 @@ Chicago). From release `v3` on, all of it comes from two sources:
   (main body, December 2019), used from the replay of 2008 on. It carries no notice of
   its own. By the owner's decision of 2026-11-12, the 2022 codebook's notice is applied
   to it. That is our decision, not a grant from NORC.
+- the [GSS 2024 codebook](https://gss.norc.org/content/dam/gss/get-documentation/pdf/codebook/GSS%202024%20Codebook%20R3a.pdf)
+  (Release 3a), used for NORC's advice about the weights only. It carries the same
+  permission notice as the 2022 codebook, with the copyright line "Copyright 2021-2026
+  NORC".
 
 The material is:
 
@@ -35,9 +39,15 @@ It's in these files:
 - `tools/generate.py`, whose `SPEC` holds spans of the codebooks' wording.
 - `instruments/`, whose comments and input descriptions quote the cumulative codebook's
   variable names and routing notes.
+- `instruments/gss_2010-ddi-gss.columns.json`, whose `weighting` quotes the 2024
+  codebook. Its `metadata` also holds variable names, variable labels and value labels
+  from NORC's data file (`gss7224_r3a.sav`, Release 3a), as its `censored` labels do.
+  The data file has no notice of its own. These labels are short names of NORC's
+  variables and codes, not data.
 
-The 2022 codebook carries this notice, which applies to that material here (from both
-codebooks) and to any copy of it. It is quoted as printed, with its spacing and quotation marks made plain:
+The 2022 codebook carries this notice, which applies to that material here (from all
+three codebooks; the 2024 codebook's copyright line is "Copyright 2021-2026 NORC") and to
+any copy of it. It is quoted as printed, with its spacing and quotation marks made plain:
 
 > Copyright 2021-2024 NORC
 >
