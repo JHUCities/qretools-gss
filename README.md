@@ -463,8 +463,10 @@ If the release was made before QREtools 2.0.0-alpha.12, the script cannot read i
 Then make the map from the DDI of the release:
 
 1. Download the DDI of the instrument from the release, for example
-   <https://jhucities.github.io/qretools-gss/v14/instruments/gss_2010.json>.
-2. Run `qretools qsf-map <the DDI> -o maps/`. This map does not record the release.
+   <https://jhucities.github.io/qretools-gss/v14/instruments/gss_2010.json>. Keep the
+   name of the file: the name of the map comes from it.
+2. Run `npx qretools@2.0.0-alpha.12 qsf-map <the DDI> -o maps/`. This map does not
+   record the release. An earlier QREtools has no `qsf-map` command.
 3. Commit the map.
 
 If you do not know the release of the survey, make the map from an export of the survey
@@ -484,14 +486,16 @@ and a DDI of the instrument:
 1. Get the GSS cumulative data file in SPSS format (release 3a, `gss7224_r3a.sav`).
 2. Make an environment with pyreadstat:
    `python3 -m venv .venv && .venv/bin/pip install pyreadstat`
-3. Check out `main`. Then run `qretools build . -o dist`.
-4. Run the tool:
+3. Make a branch from `main`.
+4. Run `qretools build . -o dist`.
+5. Run the tool:
    `.venv/bin/python -I tools/columns.py <gss7224_r3a.sav> dist/instruments/gss_2010.json 2010 -o <folder>`
-5. Read the lines that the tool writes. Each line names a variable that the map leaves
+6. Read the lines that the tool writes. Each line names a variable that the map leaves
    out or marks `filtered`, codes that the data labels and the workspace does not hold,
    or a label of a number that the tool cannot read as a range or as the number.
-6. Run `git status`. If the map changed, examine the diff.
-7. Commit the map.
+7. Run `git status`. If the map changed, examine the diff.
+8. Commit the map on the branch.
+9. Open a pull request.
 
 ### Change an instrument
 
@@ -499,9 +503,9 @@ The DDI of an instrument gets its version and its date from the history of `main
 the new DDI of a changed instrument exists only after the merge. Use two pull requests.
 
 1. Merge the change to the instrument. After the merge, `build` gives a `build-map-ddi`
-   warning for the GSS map, because the map holds the digest of the old DDI.
-2. Do the procedure "Make the GSS map" on `main`.
-3. Merge the new GSS map in a second pull request.
+   warning for the GSS map. The map holds the digest of the old DDI.
+2. Do the procedure "Make the GSS map". It makes the second pull request.
+3. Merge the second pull request.
 
 Do not make the Qualtrics map of a fielded survey again. That map names the release of the
 survey that you fielded. If you have not fielded the survey, no Qualtrics map exists yet.
@@ -518,8 +522,7 @@ To make a dataset of the GSS data:
 1. Do the procedure "Make the GSS map". Keep `dist/` and the CSV.
 2. Run `qretools responses <folder>/gss_2010-2010.csv --map maps/gss_2010-ddi-gss.columns.json --ddi dist/instruments/gss_2010.json -o <folder>/gss2010.json`.
    Use only letters, digits, `-` and `_` in the name of the dataset file.
-3. Read the findings. Each finding names a column, never a value.
-4. Run the command again. It must say `unchanged`.
+3. Read the findings. A finding never shows a value.
 
 The map gives the facts of the collection, so the command needs no other option: who
 answered, the citation of the data file, the date of each interview, the mode of each
@@ -528,9 +531,10 @@ interview and the weights.
 To make a dataset of a Qualtrics export:
 
 1. Export the responses from Qualtrics (QREtools' README, "Export from Qualtrics").
-2. Run `qretools responses <export.csv> --map maps/gss_2010-ddi-qsf.columns.json -o <folder>/qualtrics.json`.
-   The command gets the DDI from the release that the map records.
-3. If the command asks for `--answered-by`, add it. Real responses need it.
+2. Run `qretools responses <export.csv> --map maps/<instrument>-ddi-qsf.columns.json -o <folder>/qualtrics.json`.
+   If the map records a release, the command gets the DDI from that release.
+3. If the map records no release, add `--ddi <the DDI of the release>`.
+4. If the command asks for `--answered-by`, add it. Real responses need it.
 
 ### Export a view
 
@@ -542,7 +546,8 @@ made from.
 
 This workspace declares no access levels. Thus, do not give `--access`.
 
-**Caution: do not publish a CSV view of real data. Publish only the provenance view.
+**Caution: do not publish a CSV view of real data. Publish only the provenance view, and
+publish `LICENSE.md` with it: the view quotes the GSS 2024 codebook.
 Open a CSV view as data (in R, Python or the import of a spreadsheet). Do not open it with
 a double click: a text answer can hold a formula, and a spreadsheet can run it.**
 
@@ -577,8 +582,8 @@ a double click: a text answer can hold a formula, and a spreadsheet can run it.*
   Their labels and codes are the data's. In a weight, each reserved code is no value.
   OVERSAMP and FORMWT are not in the map: the codebook says that WTSSPS and WTSSNRPS
   include their adjustments, and FORMWT has no values in 2010.
-- The modes: MODE's codes "in-person" and "by phone" give the terms
-  `Interview.FaceToFace.CAPIorCAMI` and `Interview.Telephone`. The codes "multimode" and
+- The modes: MODE's code "in-person" gives the term `Interview.FaceToFace.CAPIorCAMI`.
+  Its code "by phone" gives the term `Interview.Telephone`. The codes "multimode" and
   "web" have no term, because no 2010 interview has these modes. Before you make the map
   of a year with such interviews, add their terms to `DESIGN` in `tools/columns.py`.
   Without a term, such a respondent gets no mode.
