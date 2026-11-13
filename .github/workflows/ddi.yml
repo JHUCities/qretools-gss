@@ -9,7 +9,7 @@
 # of the built commit goes with its build.
 # .github/pages-index.mjs then writes an index.html at the root, which lists the files of
 # main and links each release, and an index.html in each release folder, which lists the
-# files of that release.
+# files of that release. It fails if a link on a page does not resolve.
 name: DDI
 
 on:

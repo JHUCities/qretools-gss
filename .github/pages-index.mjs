@@ -3,7 +3,7 @@
 // links the files that are in its folder, so it lists what was built and nothing else.
 // Usage, in the repository: node pages-index.mjs <site> <owner/name>
 import { execFileSync } from "node:child_process";
-import { readdirSync, statSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const [site, repo] = process.argv.slice(2);
@@ -131,3 +131,18 @@ writeFileSync(
       : []),
   ]),
 );
+
+// Check every link on the pages just written: a folder link must reach its index.html,
+// and any other link a file. Fails the workflow on a miss.
+let broken = 0;
+for (const dir of [site, ...releases.map((t) => join(site, t))]) {
+  const text = readFileSync(join(dir, "index.html"), "utf8");
+  for (const [, href] of text.matchAll(/href="([^"]*)"/g)) {
+    const path = join(dir, decodeURIComponent(href.replaceAll("&amp;", "&")), href.endsWith("/") ? "index.html" : "");
+    if (!existsSync(path) || statSync(path).isDirectory()) {
+      console.error(`${join(dir, "index.html")}: the link ${href} does not resolve`);
+      broken++;
+    }
+  }
+}
+if (broken) process.exit(1);
