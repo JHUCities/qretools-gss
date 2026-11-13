@@ -483,19 +483,28 @@ and a DDI of the instrument:
 
 **Caution: put the data file and the CSV outside this repository. Do not commit them.**
 
-1. Get the GSS cumulative data file in SPSS format (release 3a, `gss7224_r3a.sav`).
-2. Make an environment with pyreadstat:
+1. Download NORC's cumulative data in SPSS format:
+   [GSS_spss.zip](https://gss.norc.org/Documents/spss/GSS_spss.zip).
+2. Unzip it outside this repository.
+3. Find `gss7224_r3a.sav` in it. If the zip holds a different `.sav` file, then stop:
+   see the note below.
+4. Make an environment with pyreadstat:
    `python3 -m venv .venv && .venv/bin/pip install pyreadstat`
-3. Make a branch from `main`.
-4. Run `qretools build . -o dist`.
-5. Run the tool:
+5. Make a branch from `main`.
+6. Run `qretools build . -o dist`.
+7. Run the tool:
    `.venv/bin/python -I tools/columns.py <gss7224_r3a.sav> dist/instruments/gss_2010.json 2010 -o <folder>`
-6. Read the lines that the tool writes. Each line names a variable that the map leaves
+8. Read the lines that the tool writes. Each line names a variable that the map leaves
    out or marks `filtered`, codes that the data labels and the workspace does not hold,
    or a label of a number that the tool cannot read as a range or as the number.
-7. Run `git status`. If the map changed, examine the diff.
-8. Commit the map on the branch.
-9. Open a pull request.
+9. Run `git status`. If the map changed, examine the diff.
+10. Commit the map on the branch.
+11. Open a pull request.
+
+The map in `maps/` was made from release 3a. The link serves the newest release, and
+the [GSS data page](https://gssdataexplorer.norc.org/gss_data) names it. The map cites
+its release from `CITATION` in `tools/columns.py`. For a newer release, change
+`CITATION` first.
 
 ### Change an instrument
 
