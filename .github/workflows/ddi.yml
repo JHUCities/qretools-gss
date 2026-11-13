@@ -7,6 +7,9 @@
 # published either. If a build fails, nothing is deployed and the site stays as it was:
 # correct the cause, or list the tag in .github/pages-skip. A LICENSE file at the root
 # of the built commit goes with its build.
+# .github/pages-index.mjs then writes an index.html at the root, which lists the files of
+# main and links each release, and an index.html in each release folder, which lists the
+# files of that release.
 name: DDI
 
 on:
@@ -47,6 +50,7 @@ jobs:
           site="$RUNNER_TEMP/site"
           # Read on main, before a tag is checked out: a tag has its own copy, or none.
           skip=$(cat .github/pages-skip 2>/dev/null || true)
+          cp .github/pages-index.mjs "$RUNNER_TEMP/"
           build() {
             echo "::group::Build $1"
             mise install
@@ -76,6 +80,7 @@ jobs:
             fi
             build "$tag" "$site/$tag"
           done
+          node "$RUNNER_TEMP/pages-index.mjs" "$site" "$GITHUB_REPOSITORY"
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
         with:
