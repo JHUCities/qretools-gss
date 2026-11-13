@@ -502,7 +502,7 @@ and a DDI of the instrument:
 11. Open a pull request.
 
 The map in `maps/` was made from release 3a. The link serves the newest release, and
-the [GSS data page](https://gssdataexplorer.norc.org/gss_data) names it. The map cites
+NORC's [SPSS page](https://gss.norc.org/get-the-data/spss.html) names it. The map cites
 its release from `CITATION` in `tools/columns.py`. For a newer release, change
 `CITATION` first.
 
