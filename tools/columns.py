@@ -68,7 +68,7 @@ SOURCE_NAME = "gss"
 # Columns no respondent is asked, which the map's `metadata` describes. Labels and codes
 # come from the data. The mode terms are DDI ModeOfCollection notations, by the data's
 # label: NORC says the GSS interviews by telephone, not that it uses CATI. Multimode and
-# web have no term: no 2010 interview is either; add one with the first year that has them.
+# web have no term yet: before you map a year, add a term for each mode of that year.
 SURVEY = {"other": "survey organization"}
 DESIGN = {
     "mode": {"role": "mode", "unit": "Interviewer",

@@ -578,15 +578,15 @@ a double click: a text answer can hold a formula, and a spreadsheet can run it.*
 - The columns that no respondent is asked, in `metadata`: MODE (the mode of each
   interview), PHASE (the phase of the sample), BALLOT and FORM (the version of the
   questionnaire), and the weights. The tool writes each weight that has values in the
-  year: for 2010, WTSS, WTSSNR, WTSSALL, WTSSPS and WTSSNRPS. It does not choose a weight.
-  Their labels and codes are the data's. In a weight, each reserved code is no value.
-  OVERSAMP and FORMWT are not in the map: the codebook says that WTSSPS and WTSSNRPS
-  include their adjustments, and FORMWT has no values in 2010.
+  year. A weight with no values in the year is not in the map. The tool does not choose
+  a weight. The labels and codes of these columns are the data's. In a weight, each
+  reserved code is no value. OVERSAMP is not in the map: it is coded, not a number, and
+  the codebook says that WTSSPS and WTSSNRPS include its adjustment.
 - The modes: MODE's code "in-person" gives the term `Interview.FaceToFace.CAPIorCAMI`.
   Its code "by phone" gives the term `Interview.Telephone`. The codes "multimode" and
-  "web" have no term, because no 2010 interview has these modes. Before you make the map
-  of a year with such interviews, add their terms to `DESIGN` in `tools/columns.py`.
-  Without a term, such a respondent gets no mode.
+  "web" have no term yet. Before you make the map of a year, add a term to `DESIGN` in
+  `tools/columns.py` for each mode of that year. Without a term, the respondent gets no
+  mode.
 - `weighting`: what NORC advises about the weights, word for word, from the GSS 2024
   Codebook, Release 3a, page 40. The codebook's permission notice is in `LICENSE.md`.
 - The digest of the DDI that the map was made from.
@@ -611,8 +611,8 @@ from the map does not support estimates of variance for the complex sample desig
   "Responses greater than 89 were coded 89"). For SIBS and AGEKDBRN, the codebook gives no
   top or bottom code: their remarks say only that the categories are collapsed for
   display. These caps are the data release's.
-- **Inputs and reserved codes.** The data gives "no answer" and "don't know" for BORN and
-  WRKSLF. An input accepts the workspace's missing values, so these values are read.
+- **Inputs and reserved codes.** If the data gives a reserved code for an input (BORN or
+  WRKSLF), the input accepts it as a missing value.
 
 ## Universes we wrote
 
