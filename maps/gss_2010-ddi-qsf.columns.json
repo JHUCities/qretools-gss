@@ -1,0 +1,160 @@
+{
+  "source": "qsf",
+  "qretools": "2.0.0-alpha.12",
+  "instrument": "urn:ddi:us.jhu:instrument-gss_2010:4",
+  "ddi": "sha256:97d1c17fdafb8e26e851483251938b8ae8c21a6c47599940d97cf6b79c487cd7",
+  "columns": [
+    {
+      "importId": "self_employed",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-self_employed:4"
+    },
+    {
+      "importId": "earned_income",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-earned_income:4"
+    },
+    {
+      "importId": "born_in_us",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-born_in_us:4"
+    },
+    {
+      "importId": "last_year",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-last_year:4"
+    },
+    {
+      "importId": "occupation",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-occupation:4"
+    },
+    {
+      "importId": "are",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-are:4"
+    },
+    {
+      "importId": "do",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-do:4"
+    },
+    {
+      "importId": "QID1",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-wrkstat:4"
+    },
+    {
+      "importId": "QID2_TEXT",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-hrs1:4"
+    },
+    {
+      "importId": "QID3_TEXT",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-hrs2:4"
+    },
+    {
+      "importId": "QID4",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-evwork:4"
+    },
+    {
+      "importId": "QID5",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-wrkgovt:4"
+    },
+    {
+      "importId": "QID6",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-marital:4"
+    },
+    {
+      "importId": "QID7",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-divorced:4"
+    },
+    {
+      "importId": "QID8",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-widowed:4"
+    },
+    {
+      "importId": "QID9_TEXT",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-sibs:4"
+    },
+    {
+      "importId": "QID10_TEXT",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-childs:4"
+    },
+    {
+      "importId": "QID11_TEXT",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-agekdbrn:4"
+    },
+    {
+      "importId": "QID12",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-income06:4"
+    },
+    {
+      "importId": "QID13",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-rincom06:4"
+    },
+    {
+      "importId": "QID14",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-relig:4"
+    },
+    {
+      "importId": "QID15",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-denom:4"
+    },
+    {
+      "importId": "QID16",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-jew:4"
+    },
+    {
+      "importId": "QID17",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-reliten:4"
+    },
+    {
+      "importId": "QID18_TEXT",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-weekswrk:4"
+    },
+    {
+      "importId": "QID19",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-partfull:4"
+    },
+    {
+      "importId": "QID20",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-othlang:4"
+    },
+    {
+      "importId": "QID21",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-othlang1:4"
+    },
+    {
+      "importId": "QID22",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-spklang:4"
+    },
+    {
+      "importId": "QID23",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-betrlang:4"
+    },
+    {
+      "importId": "QID24_TEXT",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-numemps:4"
+    },
+    {
+      "importId": "QID25",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-localnum:4"
+    },
+    {
+      "importId": "QID26",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-eth1:4"
+    },
+    {
+      "importId": "QID27",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-hispanic:4"
+    },
+    {
+      "importId": "QID28",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-racecen1:4"
+    },
+    {
+      "importId": "QID29",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-uscitzn:4"
+    },
+    {
+      "importId": "QID30",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-fucitzn:4"
+    },
+    {
+      "importId": "QID31",
+      "variable": "urn:ddi:us.jhu:instrument-gss_2010.var-vetyears:4"
+    }
+  ]
+}
