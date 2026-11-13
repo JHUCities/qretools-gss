@@ -412,7 +412,7 @@ instrument's Variable URNs and the translation of the reserved codes.
 - The top and bottom codes of the questions that are numbers (below), marked `censored`.
   The tool reads them from the data's value labels ("6 or more", "17 and younger", "89+").
   It writes a note for a label that it cannot read as a range or as the number.
-- The digest of the instrument's DDI in release `v13`. If a later release changes the
+- The digest of the instrument's DDI in release `v14`. If a later release changes the
   instrument's DDI, write the map again from that release's DDI.
 
 **Where the data and the workspace disagree.** The map does not hide these.
@@ -444,8 +444,8 @@ To read the 2010 data, do these steps:
    licensed for publication.**
 2. Make an environment with pyreadstat:
    `python3 -m venv .venv && .venv/bin/pip install pyreadstat`
-3. Download the instrument's DDI of release `v13`:
-   <https://jhucities.github.io/qretools-gss/v13/instruments/gss_2010.json>.
+3. Download the instrument's DDI of release `v14`:
+   <https://jhucities.github.io/qretools-gss/v14/instruments/gss_2010.json>.
 4. Write the map and the CSV. Use a folder outside this repository for the CSV:
    `.venv/bin/python -I tools/columns.py <gss7224_r3a.sav> <gss_2010.json> 2010 -o <folder>`
 5. Read the lines that the tool writes. Each line names a variable that the map leaves
