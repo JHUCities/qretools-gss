@@ -66,16 +66,34 @@ One name here differs from the GSS variable: `divorced` is GSS `DIVORCE`. (From 
 
 ## Its DDI and its releases
 
-Every push to `main` publishes the workspace's DDI at
-<https://jhucities.github.io/qretools-gss/ddi.json>. Beside it, in `instruments/`, it
-publishes the DDI of each instrument (`gss_2008.json`), its Qualtrics survey
-(`gss_2008.qsf`), and a copy of each column map in `maps/` (see "Maps and datasets").
+Every push to `main` publishes the DDI of the workspace on GitHub Pages. The index page,
+<https://jhucities.github.io/qretools-gss/>, links each file of `main` and each release.
 
-Each release is also published in a folder named for its tag, and it stays there: for
-example <https://jhucities.github.io/qretools-gss/v3/ddi.json> holds the questions of
-2008, and `v4/instruments/gss_2008.json` the 2008 instrument. Each release is built with
-the qretools that it pins. `v1` and `v2` are not published (`.github/pages-skip`): they
-hold material from NORC's website, which this repository may not republish.
+`main` publishes these files:
+
+- The DDI of the workspace, `ddi.json`.
+- In `instruments/`: the DDI of each instrument (`gss_2008.json`), its Qualtrics survey
+  (`gss_2008.qsf`), and a copy of each column map in `maps/` (see "Maps and datasets").
+
+Each release is also published in a folder with the name of its tag. The files of a
+release stay at the same address. For example, the folder of `v15` holds these files:
+
+- <https://jhucities.github.io/qretools-gss/v15/ddi.json>, the DDI of the workspace.
+- <https://jhucities.github.io/qretools-gss/v15/instruments/gss_2010.json>, the DDI of
+  the 2010 instrument.
+- <https://jhucities.github.io/qretools-gss/v15/instruments/gss_2010.qsf>, its Qualtrics
+  survey.
+- <https://jhucities.github.io/qretools-gss/v15/instruments/gss_2010-ddi-gss.columns.json>
+  and <https://jhucities.github.io/qretools-gss/v15/instruments/gss_2010-ddi-qsf.columns.json>,
+  its two column maps.
+
+To cite the DDI of a release in a dataset, give its address to
+`qretools responses --ddi` (QREtools 2.0.0-alpha.13 or later). The dataset records the
+address and the SHA-256 digest of the file.
+
+Each release is built with the qretools that it pins. `v1` and `v2` are not published
+(`.github/pages-skip`): they hold material from NORC's website, which this repository may
+not republish.
 
 An instrument uses a release of this workspace, named by its tag:
 `uses: gss: JHUCities/qretools-gss@v3`. It gets the questions as they were at that tag.
